@@ -42,6 +42,7 @@ jobs:
 
       - name: Jalankan Skrip On-Demand Scraper
         env:
+          CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
           ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}

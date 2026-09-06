@@ -23,6 +23,7 @@ else:
 # Tetapan Keselamatan & GitHub API
 ADDON_SECRET_TOKEN = os.getenv("ADDON_SECRET_TOKEN", "")
 CF_WORKER_URL = os.getenv("CF_WORKER_URL", "")
+CF_WORKER_B2_STORAGE = os.getenv("CF_WORKER_B2_STORAGE", "https://b2-private-stremio-sub-addon.braderdin360.workers.dev")
 GH_PAT = os.getenv("GH_PAT", "")
 GH_OWNER = os.getenv("GH_OWNER", "braderdin")
 GH_REPO = os.getenv("GH_REPO", "stremio-sub-addon")
