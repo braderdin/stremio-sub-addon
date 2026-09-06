@@ -9,7 +9,7 @@ on:
       limit:
         description: 'Jumlah had filem untuk diproses'
         required: false
-        default: '10'
+        default: '15'
       delay:
         description: 'Sela masa antara filem (saat)'
         required: false
@@ -18,7 +18,9 @@ on:
 jobs:
   scrape-cron-batch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repositori
         uses: actions/checkout@v4
@@ -77,8 +79,8 @@ jobs:
           B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
           B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
         run: |
-          LIMIT="${{ inputs.limit || 50 }}"
-          DELAY="${{ inputs.delay || 1.0 }}"
+          LIMIT="${{ inputs.limit || 15 }}"
+          DELAY="${{ inputs.delay || 1.5 }}"
           python live_engine/07_cron_batch_runner.py --limit "$LIMIT" --delay "$DELAY"
 
       - name: Commit dan Simpan Rekod JSON Terkini

@@ -2,8 +2,9 @@ import sys
 import time
 import argparse
 import importlib
+from curl_cffi import requests
 
-# Import modul secara dinamik
+# Import modul enjin secara dinamik
 _config = importlib.import_module("00_config")
 _redis = importlib.import_module("01_redis_db")
 _b2 = importlib.import_module("02_b2_storage")
@@ -11,8 +12,8 @@ _history = importlib.import_module("04_history_tracker")
 _scraper = importlib.import_module("05_subtitle_scraper")
 _ondemand = importlib.import_module("06_ondemand_runner")
 
-# Senarai benih filem popular dengan IMDb ID rasmi bagi mengelakkan carian tersasar
-DEFAULT_SEED_LIST = [
+# Senarai fallback tempatan sekiranya rangkaian Cinemeta tergendala
+FALLBACK_SEED_LIST = [
     {"imdb_id": "tt0145487", "title": "Spider-Man", "year": "2002"},
     {"imdb_id": "tt0499549", "title": "Avatar", "year": "2009"},
     {"imdb_id": "tt0848228", "title": "The Avengers", "year": "2012"},
@@ -35,42 +36,120 @@ DEFAULT_SEED_LIST = [
     {"imdb_id": "tt6263850", "title": "Deadpool & Wolverine", "year": "2024"}
 ]
 
-def run_batch_cron_scrape(target_limit: int = 50, delay_sec: float = 1.0):
-    """
-    Melaksanakan pengikisan kelompok berjadual secara modular melalui on-demand runner.
-    """
-    print(f"🔄 Mula tugas Cron Batch Scraper (Had Sasaran: {target_limit} tajuk)")
-    processed_count = 0
+# Senarai sumber katalog Cinemeta pelbagai kategori untuk bekalan filem berterusan
+CINEMETA_CATALOG_URLS = [
+    # Top Movies (Pagination 1 - 300)
+    "https://v3-cinemeta.strem.io/catalog/movie/top.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/skip=100.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/skip=200.json",
+    
+    # Genre Hangat Filem
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Action.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Horror.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Sci-Fi.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Animation.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Comedy.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Thriller.json",
+    "https://v3-cinemeta.strem.io/catalog/movie/top/genre=Crime.json",
+    
+    # Siri TV Popular (1 - 200)
+    "https://v3-cinemeta.strem.io/catalog/series/top.json",
+    "https://v3-cinemeta.strem.io/catalog/series/top/skip=100.json"
+]
 
-    for item in DEFAULT_SEED_LIST:
+def fetch_dynamic_cinemeta_queue() -> list[dict]:
+    """
+    Menyedut pelbagai katalog Cinemeta rasmi, menggabungkannya,
+    dan membuang duplikasi tajuk secara automatik.
+    """
+    print("📡 [Cinemeta Fetcher] Mengumpulkan tajuk popular dari katalog Stremio...")
+    unique_pool = {}
+
+    for catalog_url in CINEMETA_CATALOG_URLS:
+        try:
+            res = requests.get(catalog_url, timeout=12)
+            if res.status_code == 200:
+                metas = res.json().get("metas", [])
+                for item in metas:
+                    imdb_id = item.get("id", "").strip()
+                    name = item.get("name", "").strip()
+                    rel_info = str(item.get("releaseInfo", "")).strip()
+                    year = rel_info.split("–")[0].split("-")[0].strip()
+
+                    if imdb_id and name and imdb_id.startswith("tt"):
+                        if imdb_id not in unique_pool:
+                            unique_pool[imdb_id] = {
+                                "imdb_id": imdb_id,
+                                "title": name,
+                                "year": year
+                            }
+        except Exception as e:
+            print(f"   ⚠️ Ralat menyedut katalog ({catalog_url.split('/')[-1]}): {e}")
+
+    # Gabungkan dengan senarai fallback jika katalog gagal sepenuhnya
+    if not unique_pool:
+        print("   ⚠️ Menggunakan senarai sandaran fallback tempatan.")
+        for item in FALLBACK_SEED_LIST:
+            unique_pool[item["imdb_id"]] = item
+
+    print(f"   ✅ Jumlah tajuk unik dikumpul dari Cinemeta: {len(unique_pool)} tajuk.")
+    return list(unique_pool.values())
+
+def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
+    """
+    Melaksanakan pengikisan kelompok berjadual secara modular.
+    Memproses calon filem segar yang belum pernah dikikis ke B2.
+    """
+    print("=" * 80)
+    print(f"🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER")
+    print(f"   ├─ Had Sasaran Sesi Ini: {target_limit} tajuk baru")
+    print(f"   └─ Sela Masa (Delay)   : {delay_sec} saat")
+    print("=" * 80)
+
+    candidates = fetch_dynamic_cinemeta_queue()
+    processed_count = 0
+    skipped_count = 0
+
+    for item in candidates:
         if processed_count >= target_limit:
-            print(f"🎯 Had sasaran kelompok ({target_limit} tajuk) telah dicapai.")
+            print(f"\n🎯 Had sasaran kelompok ({target_limit} tajuk) telah dicapai untuk sesi ini.")
             break
 
         imdb_id = item["imdb_id"]
         movie_title = item["title"]
         movie_year = item.get("year", "")
 
-        # Semak rekod tempatan, abaikan jika sudah pernah dikikis
+        # 1. Semak rekod tempatan - jika sudah ada di B2/Redis, langkau
         if _history.is_imdb_processed(imdb_id):
+            skipped_count += 1
             continue
 
-        print(f"\n📦 [Cron Queue] Memproses: {movie_title} ({movie_year}) -> {imdb_id}")
-        
-        # Panggil terus enjin on-demand yang lengkap dengan Cinemeta & Smart Scorer
-        success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title)
-        
-        if success:
-            processed_count += 1
+        print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses Calon Segar: {movie_title} ({movie_year}) -> {imdb_id}")
+
+        # 2. Panggil enjin on-demand yang lengkap dengan Camoufox, Smart Scorer, & Private B2 Proxy
+        try:
+            success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title)
+            if success:
+                processed_count += 1
+                print(f"   ✅ Berjaya memuat naik sarikata bagi {movie_title} ({imdb_id})")
+            else:
+                print(f"   ⚠️ Tiada sarikata BM/ID ditemui untuk {movie_title} ({imdb_id})")
+        except Exception as e:
+            print(f"   ❌ Ralat memproses {imdb_id}: {e}")
 
         time.sleep(delay_sec)
 
-    print(f"\n✨ Selesai tugasan Cron Batch. Tajuk baharu berjaya diproses: {processed_count}")
+    print("\n" + "=" * 80)
+    print(f"✨ TUGASAN CRON BATCH SELESAI")
+    print(f"   ├─ Tajuk Baharu Diproses & Dimuat Naik : {processed_count}")
+    print(f"   ├─ Tajuk Dilangkau Kerana Sudah Wujud  : {skipped_count}")
+    print(f"   └─ Baki Calon Dalam Kolam Cinemeta     : {max(0, len(candidates) - (processed_count + skipped_count))}")
+    print("=" * 80)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Cron Batch Subtitle Scraper Runner")
-    parser.add_argument("--limit", type=int, default=50, help="Jumlah had tajuk diproses per pusingan")
+    parser.add_argument("--limit", type=int, default=15, help="Jumlah had tajuk baru per pusingan")
     parser.add_argument("--delay", type=float, default=1.0, help="Sela masa permintaan antara filem (saat)")
-    
+
     args = parser.parse_args()
     run_batch_cron_scrape(target_limit=args.limit, delay_sec=args.delay)
