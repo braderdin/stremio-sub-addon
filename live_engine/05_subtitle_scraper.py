@@ -4,7 +4,7 @@ import os
 import time
 import asyncio
 import importlib
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Any
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
@@ -28,6 +28,15 @@ BROWSER_HEADERS = {
     "Sec-Fetch-User": "?1",
     "Upgrade-Insecure-Requests": "1"
 }
+
+# ------------------------------------------------------------------
+# KESERASIAN BELAKANG (BACKWARD COMPATIBILITY)
+# ------------------------------------------------------------------
+def create_stealth_session() -> Tuple[Optional[Any], bool]:
+    """
+    Fungsi sokongan untuk skrip pemanggil sedia ada (06_ondemand_runner.py).
+    """
+    return None, True
 
 # ------------------------------------------------------------------
 # SEMAKAN SEKATAN CLOUDFLARE
@@ -175,7 +184,7 @@ def search_subscene(session=None, query: str = "") -> List[Dict[str, str]]:
             href = str(a["href"]).strip()
             title = a.get_text(strip=True)
 
-            # Padanan persis URL laluan filem /subscene/ID (elak laluan cawangan bahasa)
+            # Padanan persis URL laluan filem /subscene/ID
             if re.match(r"^/subscene/\d+$", href) and title:
                 full_url = urljoin(BASE_URL, href)
                 sub_id = href.split("/")[-1]
@@ -249,5 +258,4 @@ def download_and_extract_subtitles(session=None, detail_url: str = "") -> List[D
     try:
         return extract_srt_from_zip(binary_content)
     except Exception:
-        # Jika bukan ZIP tetapi fail raw .srt
         return [{"filename": "subtitle.srt", "content": binary_content.decode("utf-8", errors="ignore")}]
