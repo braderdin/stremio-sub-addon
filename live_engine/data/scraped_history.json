@@ -2935,7 +2935,205 @@
           "acc": 1
         }
       ]
+    },
+    "tt0120804": {
+      "updated_at": 1788738565,
+      "sub_count": 24,
+      "subtitles": [
+        {
+          "id": "2341040_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_2341040_0.srt",
+          "release": "IndonesianResident.Evil.2002.UHD.BluRay.2160p.TrueHD.Atmos.7.1.HEVC.RE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2332356_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_2332356_0.srt",
+          "release": "IndonesianResident.Evil.2002.SEMUA.BluRay.720p.1080p.2160p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1937427_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1937427_0.srt",
+          "release": "IndonesianResident.Evil.2002.1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "252848_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_252848_0.srt",
+          "release": "IndonesianResident.Evil.2002",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_0.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_1.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_2.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_3.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_4.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1525383_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_1525383_5.srt",
+          "release": "IndonesianResident-Evil-2002-SEMUA-BluRay-720p-480p-1080p-GradyNanoNan...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "476314_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_476314_0.srt",
+          "release": "IndonesianResident-Evil-2002-BDRip-BRRip-480p-720p-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "662875_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_662875_0.srt",
+          "release": "IndonesianResident Evil 2002.720p.BluRay.x264.DTS-WiKi",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "390172_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_390172_0.srt",
+          "release": "IndonesianResident Evil 2002 BRrip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "311723_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_311723_0.srt",
+          "release": "IndonesianResident Evil",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "305534_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/id_305534_0.srt",
+          "release": "IndonesianResident Evil",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "698721_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_698721_0.srt",
+          "release": "MalayResident.Evil.2002.Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1937429_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1937429_0.srt",
+          "release": "MalayResident.Evil.2002.1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "864629_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_864629_0.srt",
+          "release": "MalayResident Evil 2002 BRRip 720p H264-3Li",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "581585_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_581585_0.srt",
+          "release": "MalayResident Evil 2002 BluRay 720p MKV",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1020264_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1020264_0.srt",
+          "release": "MalayResident Evil (2002) BluRay 720p 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1619051_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1619051_0.srt",
+          "release": "MalayResident Evil (2002) Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1217992_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1217992_0.srt",
+          "release": "MalayResident Evil (2002) 720p Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1217994_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1217994_0.srt",
+          "release": "MalayResident Evil (2002) 1080p Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1370243_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120804/ms_1370243_0.srt",
+          "release": "MalayResident Evil  (2002) BrRip 1080p x264 YIFY",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
     }
   },
-  "total_items": 12
+  "total_items": 13
 }
