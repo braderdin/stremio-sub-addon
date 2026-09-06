@@ -1,0 +1,313 @@
+{
+  "search_rambo": {
+    "url": "https://sub-scene.com/search?query=rambo",
+    "final_url": "https://sub-scene.com/search?query=rambo",
+    "status_code": 403,
+    "page_title": "Just a moment...",
+    "forms": [],
+    "total_links": 0,
+    "links_sample": [],
+    "raw_html_snippet": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-UTrHHF6duW93ZjxuGOChaX&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}#challenge-error-text{background-image:url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd"
+  },
+  "search_imdb": {
+    "url": "https://sub-scene.com/search?query=tt0241527",
+    "final_url": "https://sub-scene.com/search?query=tt0241527",
+    "status_code": 403,
+    "page_title": "Just a moment...",
+    "forms": [],
+    "total_links": 0,
+    "links_sample": [],
+    "raw_html_snippet": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-qgdhQunDaCNwHYR7XMyGNY&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}#challenge-error-text{background-image:url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd"
+  },
+  "title_page": {
+    "url": "https://sub-scene.com/subscene/42661",
+    "final_url": "https://sub-scene.com/subscene/42661",
+    "status_code": 200,
+    "page_title": "Subscene - Rambo IV - subtitles",
+    "forms": [
+      {
+        "action": "/search",
+        "method": "get",
+        "inputs": [
+          {
+            "name": "query",
+            "type": "text",
+            "value": null
+          }
+        ]
+      }
+    ],
+    "total_links": 532,
+    "links_sample": [
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Login or Register",
+        "href": "/login"
+      },
+      {
+        "text": "Subscene 3.0",
+        "href": "/"
+      },
+      {
+        "text": "Browse",
+        "href": "/browse"
+      },
+      {
+        "text": "Upload",
+        "href": "/upload"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Browse",
+        "href": "/browse"
+      },
+      {
+        "text": "Upload",
+        "href": "/upload"
+      },
+      {
+        "text": "Login or Register",
+        "href": "/login"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Imdb",
+        "href": "https://www.imdb.com/title/tt0462499"
+      },
+      {
+        "text": "Edit",
+        "href": "/filter"
+      },
+      {
+        "text": "Albanian\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRambo[2008]DvDrip",
+        "href": "/subtitle/362366"
+      },
+      {
+        "text": "LIKIMEDIA Production",
+        "href": "/u/20199"
+      },
+      {
+        "text": "Albanian\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRambo 4",
+        "href": "/subtitle/202647"
+      },
+      {
+        "text": "Lord Edmond",
+        "href": "/u/62449"
+      },
+      {
+        "text": "Albanian\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tDVDrip",
+        "href": "/subtitle/638033"
+      },
+      {
+        "text": "MerfanKrasniqi",
+        "href": "/u/85075"
+      },
+      {
+        "text": "Arabic\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRAW - خام",
+        "href": "/subtitle/1527003"
+      },
+      {
+        "text": "DaBiiT",
+        "href": "/u/8461"
+      },
+      {
+        "text": "Arabic\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRambo[2008]DvDrip[Eng]-FXG",
+        "href": "/subtitle/146196"
+      },
+      {
+        "text": "Aly_Reda",
+        "href": "/u/84522"
+      },
+      {
+        "text": "Arabic\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRambo[2008]DvDrip-aXXo..Dr kalid",
+        "href": "/subtitle/145428"
+      },
+      {
+        "text": "Dr kalid",
+        "href": "/u/89820"
+      },
+      {
+        "text": "Arabic\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRambo[2008]DvDrip-aXXo",
+        "href": "/subtitle/151321"
+      },
+      {
+        "text": "zoof",
+        "href": "/u/78067"
+      },
+      {
+        "text": "Arabic\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t\tRamboDVDRip.XviD2008",
+        "href": "/subtitle/145587"
+      },
+      {
+        "text": "mOh2ooo",
+        "href": "/u/42657"
+      }
+    ],
+    "raw_html_snippet": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"utf-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes\" />\n\t<title>Subscene - Rambo IV - subtitles</title>\n\n\t<meta name=\"description\" content=\"Subtitles for TV-Series, Movies, and Music videos, phrase by phrase curated and perfected by users.\">\n\t<meta name=\"keywords\" content=\"Subscene, Rambo IV, Subtitles for TV-Series, Subtitles for Movies.\"/>\n\t\n\t<meta name=\"robots\" content=\"index,follow\">\n\t\n\t<meta property=\"og:title\" content=\"Subscene - Rambo IV - subtitles\" />\n\t<meta property=\"og:url\" content=\"http://sub-scene.com/subscene/42661\" />\n\t<meta property=\"og:description\" content=\"Subscene, Subtitles for TV-Series, Movies, and Music videos, phrase by phrase curated and perfected by users.\" />\n\t<meta property=\"og:image\" content=\"https://res.subscene.best/image/0462499.jpg\" />\n\t\n\n\t<!--[if lt IE 9]>\n\t<script src=\"https://html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n\t<![endif]-->\n\t<link rel=\"canonical\" href=\"https://sub-scene.com/\" />\n\t<link rel=\"search\" type=\"application/opensearchdescription+xml\" href=\"/opensearch.xml\" title=\"Subscene\" />\n\t<link href=\"/favicon.ico\" rel=\"shortcut icon\" type=\"image/x-icon\" />\n\t<meta name=\"monetag\" content=\"c6d4f2ceea6d8724ca966067bb179d57\">\n\t\n\n\t\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
+  },
+  "subtitle_page": {
+    "url": "https://sub-scene.com/subtitle/2121914",
+    "final_url": "https://sub-scene.com/subtitle/2121914",
+    "status_code": 200,
+    "page_title": "Subscene - Rambo IV - Malay subtitle",
+    "forms": [
+      {
+        "action": "/search",
+        "method": "get",
+        "inputs": [
+          {
+            "name": "query",
+            "type": "text",
+            "value": null
+          }
+        ]
+      },
+      {
+        "action": null,
+        "method": "post",
+        "inputs": []
+      }
+    ],
+    "total_links": 35,
+    "links_sample": [
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Login or Register",
+        "href": "/login"
+      },
+      {
+        "text": "Subscene 3.0",
+        "href": "/"
+      },
+      {
+        "text": "Browse",
+        "href": "/browse"
+      },
+      {
+        "text": "Upload",
+        "href": "/upload"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Browse",
+        "href": "/browse"
+      },
+      {
+        "text": "Upload",
+        "href": "/upload"
+      },
+      {
+        "text": "Login or Register",
+        "href": "/login"
+      },
+      {
+        "text": "",
+        "href": "javascript:;"
+      },
+      {
+        "text": "« back to subtitle list",
+        "href": "/subscene/42661"
+      },
+      {
+        "text": "",
+        "href": "/subscene/42661"
+      },
+      {
+        "text": "Rambo IV",
+        "href": "/subscene/42661"
+      },
+      {
+        "text": "Imdb",
+        "href": "https://www.imdb.com/title/tt0462499"
+      },
+      {
+        "text": "Copy all",
+        "href": "javascript:;"
+      },
+      {
+        "text": "AAR",
+        "href": "/u/32202"
+      },
+      {
+        "text": "Subtitle details",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Preview",
+        "href": ""
+      },
+      {
+        "text": "Add comment",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Flag",
+        "href": ""
+      },
+      {
+        "text": "Download Malay Subtitle",
+        "href": "/download/2121914"
+      },
+      {
+        "text": "0 Good",
+        "href": "/subtitle/2121914/ratings"
+      },
+      {
+        "text": "View Comments (0)",
+        "href": "javascript:;"
+      },
+      {
+        "text": "Subscene",
+        "href": "/"
+      },
+      {
+        "text": "",
+        "href": "https://t.me/subscene24"
+      },
+      {
+        "text": "",
+        "href": "https://x.com/SubsceneBest"
+      },
+      {
+        "text": "",
+        "href": "https://www.facebook.com/subscene.best"
+      },
+      {
+        "text": "",
+        "href": "/cdn-cgi/l/email-protection#ddb4b3bbb29daea8bfaebeb8b3b8f3bfb8aea9"
+      }
+    ],
+    "raw_html_snippet": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"utf-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes\" />\n\t<title>Subscene - Rambo IV - Malay subtitle</title>\n\n\t<meta name=\"description\" content=\"Subtitles for TV-Series, Movies, and Music videos, phrase by phrase curated and perfected by users.\">\n\t<meta name=\"keywords\" content=\"Subscene, Rambo IV, Subtitles for TV-Series, Subtitles for Movies.\"/>\n\t\n\t<meta name=\"robots\" content=\"index,follow\">\n\t\n\t<meta name=\"author\" content=\"AAR\">\n\t<meta property=\"og:title\" content=\"Subscene - Rambo IV - Malay subtitle\" />\n\t<meta property=\"og:url\" content=\"http://sub-scene.com/subtitle/2121914\" />\n\t<meta property=\"og:description\" content=\"Subscene, Subtitles for TV-Series, Movies, and Music videos, phrase by phrase curated and perfected by users.\" />\n\t<meta property=\"og:image\" content=\"https://res.subscene.best/image/0462499.jpg\" />\n\t\n\n\t<!--[if lt IE 9]>\n\t<script src=\"https://html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n\t<![endif]-->\n\t<link rel=\"canonical\" href=\"https://sub-scene.com/\" />\n\t<link rel=\"search\" type=\"application/opensearchdescription+xml\" href=\"/opensearch.xml\" title=\"Subscene\" />\n\t<link href=\"/favicon.ico\" rel=\"shortcut icon\" type=\"image/x-icon\" />\n\t<meta name=\"monetag\" content=\"c6d4f2ceea6d8724ca966067bb179d57\">\n\t\n\n\t\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n\t<link rel=\"preconnect"
+  }
+}

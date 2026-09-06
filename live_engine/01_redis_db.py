@@ -1,83 +1,90 @@
 import json
-from typing import List, Dict, Optional
-from upstash_redis import Redis
-from 00_config import UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
+import importlib
+from typing import Optional, List, Dict
+from curl_cffi import requests
 
-# Inisialisasi Klien Redis
-if UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN:
-    redis_client = Redis(url=UPSTASH_REDIS_REST_URL, token=UPSTASH_REDIS_REST_TOKEN)
-else:
-    redis_client = None
+# Import dinamik modul 00_config (elak SyntaxError nombor awalan)
+_config = importlib.import_module("00_config")
+UPSTASH_REDIS_REST_URL = _config.UPSTASH_REDIS_REST_URL
+UPSTASH_REDIS_REST_TOKEN = _config.UPSTASH_REDIS_REST_TOKEN
 
-def save_subtitle_record(imdb_id: str, record: Dict) -> bool:
+def _redis_request(command: str, *args) -> Optional[dict]:
     """
-    Menyimpan atau menambah metadata subtitle ke senarai Redis mengikut IMDb ID.
-    Format Kunci: sub:{imdb_id} (Contoh: sub:tt0120338)
+    Menghantar arahan REST API ke Upstash Redis.
     """
-    if not redis_client:
-        return False
+    if not UPSTASH_REDIS_REST_URL or not UPSTASH_REDIS_REST_TOKEN:
+        print("⚠️ Pembolehubah persekitaran Upstash Redis tidak lengkap.")
+        return None
 
-    key = f"sub:{imdb_id}"
+    headers = {
+        "Authorization": f"Bearer {UPSTASH_REDIS_REST_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    
+    # Format URL REST Upstash: URL/command/arg1/arg2...
+    endpoint_parts = [UPSTASH_REDIS_REST_URL.rstrip("/"), command] + [str(a) for a in args]
+    url = "/".join(endpoint_parts)
+
     try:
-        existing_raw = redis_client.get(key)
-        records = []
-        if existing_raw:
-            if isinstance(existing_raw, str):
-                records = json.loads(existing_raw)
-            elif isinstance(existing_raw, list):
-                records = existing_raw
-
-        # Elak duplikasi fail srt yang sama mengikut ID rekod
-        existing_ids = {r.get("id") for r in records if isinstance(r, dict)}
-        if record.get("id") not in existing_ids:
-            records.append(record)
-            redis_client.set(key, json.dumps(records))
-        return True
+        resp = requests.get(url, headers=headers, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+        print(f"⚠️ Redis REST Error ({resp.status_code}): {resp.text}")
     except Exception as e:
-        print(f"❌ Ralat Redis Save [{key}]: {e}")
-        return False
-
-def get_subtitle_records(imdb_id: str) -> List[Dict]:
-    """
-    Mengambil senarai pautan dan metadata subtitle bagi sesuatu IMDb ID.
-    """
-    if not redis_client:
-        return []
-
-    key = f"sub:{imdb_id}"
-    try:
-        raw_data = redis_client.get(key)
-        if not raw_data:
-            return []
-        if isinstance(raw_data, str):
-            return json.loads(raw_data)
-        if isinstance(raw_data, list):
-            return raw_data
-    except Exception as e:
-        print(f"❌ Ralat Redis Fetch [{key}]: {e}")
-    return []
+        print(f"❌ Ralat sambungan Redis: {e}")
+    return None
 
 def set_processing_lock(imdb_id: str, ttl_seconds: int = 600) -> bool:
     """
-    Mengunci IMDb ID sementara (default 10 minit) semasa proses pengikisan berjalan.
+    Menetapkankan kunci (lock) sementara di Redis supaya runner lain tidak mengikis ID sama.
     """
-    if not redis_client:
-        return False
-    lock_key = f"lock:{imdb_id}"
-    try:
-        return bool(redis_client.set(lock_key, "processing", ex=ttl_seconds, nx=True))
-    except Exception:
-        return False
+    key = f"lock:{imdb_id}"
+    res = _redis_request("set", key, "processing", "EX", ttl_seconds, "NX")
+    return bool(res and res.get("result") == "OK")
 
 def remove_processing_lock(imdb_id: str) -> bool:
     """
-    Membuka kunci IMDb ID selepas pengikisan selesai.
+    Membuka semula kunci di Redis selepas proses selesai.
     """
-    if not redis_client:
-        return False
-    lock_key = f"lock:{imdb_id}"
-    try:
-        redis_client.delete(lock_key)
-        return True
-    except Exception:
-        return False
+    key = f"lock:{imdb_id}"
+    res = _redis_request("del", key)
+    return bool(res and res.get("result", 0) > 0)
+
+def save_subtitle_record(imdb_id: str, record: dict) -> bool:
+    """
+    Menyimpan senarai rekod subtitle ke dalam kunci Redis 'sub:ttXXXXXX'.
+    """
+    key = f"sub:{imdb_id}"
+    
+    # Ambil data sedia ada
+    existing_res = _redis_request("get", key)
+    records = []
+    
+    if existing_res and existing_res.get("result"):
+        try:
+            records = json.loads(existing_res["result"])
+        except Exception:
+            records = []
+
+    # Tambah rekod baharu jika ID belum wujud
+    existing_ids = {r.get("id") for r in records}
+    if record.get("id") not in existing_ids:
+        records.append(record)
+
+    # Simpan semula ke Redis (kunci tanpa tamat tempoh/permanent cache)
+    json_str = json.dumps(records)
+    res = _redis_request("set", key, json_str)
+    return bool(res and res.get("result") == "OK")
+
+def get_subtitle_records(imdb_id: str) -> List[Dict]:
+    """
+    Mendapatkan senarai rekod subtitle bagi IMDb ID dari Redis.
+    """
+    key = f"sub:{imdb_id}"
+    res = _redis_request("get", key)
+    if res and res.get("result"):
+        try:
+            return json.loads(res["result"])
+        except Exception:
+            pass
+    return []
