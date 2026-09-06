@@ -1,0 +1,15 @@
+{
+  "stremio_request": {
+    "route": "/subtitles/movie/tt0145487.json",
+    "type": "movie",
+    "raw_id": "tt0145487",
+    "imdb_id": "tt0145487"
+  },
+  "worker_dispatch_payload": {
+    "event_type": "ondemand_scrape",
+    "client_payload": {
+      "imdb_id": "tt0145487",
+      "fallback_title": "Spider-Man 2002"
+    }
+  }
+}

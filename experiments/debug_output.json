@@ -1,0 +1,14 @@
+{
+  "target_imdb": "tt0145487",
+  "attempts": [
+    {
+      "query": "tt0145487",
+      "status_code": 403,
+      "final_url": "https://sub-scene.com/search?query=tt0145487",
+      "is_redirected_to_movie": false
+    }
+  ],
+  "detected_error": null,
+  "fix_applied": false,
+  "found_subtitles_count": 0
+}
