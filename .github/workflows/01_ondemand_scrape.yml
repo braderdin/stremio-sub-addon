@@ -1,0 +1,62 @@
+name: 01 On-Demand Subtitle Scrape
+
+on:
+  repository_dispatch:
+    types: [ondemand_scrape]
+
+jobs:
+  scrape-ondemand:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repositori
+        uses: actions/checkout@v4
+
+      - name: Sediakan Persekitaran Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Pasang Pustaka Dependensi
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Jalankan Skrip On-Demand Scraper
+        env:
+          ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+          B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
+          B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
+          B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
+          B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
+          B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+          B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
+          B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
+          B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
+          B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
+          B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+          B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
+          B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
+          B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
+          B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
+          B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+          B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
+          B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
+          B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
+          B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
+          B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+          B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
+          B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
+          B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
+          B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
+          B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
+        run: |
+          python live_engine/06_ondemand_runner.py --imdb "${{ github.event.client_payload.imdb_id }}"
+
+      - name: Commit dan Simpan Rekod JSON Terkini
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: update scraped_history.json for ${{ github.event.client_payload.imdb_id }}"
+          file_pattern: "live_engine/data/scraped_history.json"
