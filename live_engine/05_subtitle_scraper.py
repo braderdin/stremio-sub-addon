@@ -2,146 +2,172 @@ import re
 import sys
 import os
 import time
+import io
+import zipfile
 import asyncio
 import importlib
 from typing import List, Dict, Tuple, Optional, Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, quote_plus
 from bs4 import BeautifulSoup
+from curl_cffi import requests
 
-# Import modul pengekstrak ZIP
+# Import modul pengekstrak ZIP sedia ada
 _zip = importlib.import_module("03_zip_extractor")
 extract_srt_from_zip = _zip.extract_srt_from_zip
 
 BASE_URL = "https://sub-scene.com"
-
-# Pengepala rasmi pelayar Chrome Desktop
-BROWSER_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9,id;q=0.8,ms;q=0.7",
-    "Sec-Ch-Ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-    "Sec-Ch-Ua-Mobile": "?0",
-    "Sec-Ch-Ua-Platform": '"Windows"',
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "same-origin",
-    "Sec-Fetch-User": "?1",
-    "Upgrade-Insecure-Requests": "1"
-}
 
 # ------------------------------------------------------------------
 # KESERASIAN BELAKANG (BACKWARD COMPATIBILITY)
 # ------------------------------------------------------------------
 def create_stealth_session() -> Tuple[Optional[Any], bool]:
     """
-    Fungsi sokongan untuk skrip pemanggil sedia ada (06_ondemand_runner.py).
+    Kekal disokong untuk mengelakkan ralat pada pemanggil lama.
     """
     return None, True
 
 # ------------------------------------------------------------------
-# SEMAKAN SEKATAN CLOUDFLARE
+# ALGORITMA SMART MATCHING & YEAR SCORER
 # ------------------------------------------------------------------
-def is_blocked(html: str, status_code: int) -> bool:
-    if status_code in [403, 503]:
-        return True
-    html_lower = html.lower()
-    return "just a moment..." in html_lower or "attention required!" in html_lower
+def calculate_match_score(candidate_title: str, target_title: str, target_year: str = "") -> int:
+    """
+    Mengira markah kejituan tajuk calon berbanding tajuk sasaran dan tahun.
+    Menapis filem parodi, kartun Lego, atau siri TV yang tidak berkenaan.
+    """
+    score = 0
+    c_lower = candidate_title.lower()
+    t_lower = target_title.lower()
+
+    # 1. Padanan Tahun (Pemberat Utama)
+    if target_year and target_year in c_lower:
+        score += 50
+    elif target_year:
+        score -= 25
+
+    # 2. Penalti Filem Parodi / Animasi Tidak Berkenaan
+    unwanted_keywords = ["lego", "xxx", "porn", "parody", "season", "complete series", "animated series"]
+    for bad in unwanted_keywords:
+        if bad in c_lower and bad not in t_lower:
+            score -= 60
+
+    # 3. Nisbah Perkataan Sepadan
+    clean_target = set(re.sub(r"[^a-zA-Z0-9\s]", "", t_lower).split())
+    clean_candidate = set(re.sub(r"[^a-zA-Z0-9\s]", "", c_lower).split())
+    
+    if clean_target:
+        intersect = clean_target.intersection(clean_candidate)
+        score += int((len(intersect) / len(clean_target)) * 40)
+
+    # 4. Bonus Permulaan Tajuk
+    if c_lower.startswith(t_lower):
+        score += 15
+
+    return score
+
+def pick_best_movie_matches(movies: List[Dict[str, str]], target_title: str, target_year: str = "", top_k: int = 1) -> List[Dict[str, str]]:
+    """
+    Menyusun calon filem mengikut skor tertinggi dan memulangkan pilihan paling tepat.
+    """
+    scored = []
+    for m in movies:
+        sc = calculate_match_score(m["title"], target_title, target_year)
+        if sc > 0:  # Hanya terima calon dengan skor positif
+            scored.append((sc, m))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [item[1] for item in scored[:top_k]]
 
 # ------------------------------------------------------------------
-# ENJIN FALLBACK: HTML FETCHING
+# CAMOUFOX TURNSTILE RESOLVER & CARIAN SELAMAT
 # ------------------------------------------------------------------
-def fetch_html_with_fallback(url: str, referer: Optional[str] = None) -> Tuple[bool, str]:
-    headers = BROWSER_HEADERS.copy()
-    if referer:
-        headers["Referer"] = referer
+async def _async_camoufox_search(query: str) -> Tuple[List[Dict[str, str]], Dict[str, str], str]:
+    from camoufox.async_api import AsyncCamoufox
+    
+    search_url = f"{BASE_URL}/search?query={quote_plus(query)}"
+    results = []
+    cookies = {}
+    user_agent = ""
 
-    # 1. Enjin curl-cffi
-    try:
-        from curl_cffi import requests
-        session = requests.Session(impersonate="chrome")
-        resp = session.get(url, headers=headers, allow_redirects=True, timeout=12)
-        if resp.status_code == 200 and not is_blocked(resp.text, resp.status_code):
-            return True, resp.text
-    except Exception:
-        pass
+    async with AsyncCamoufox(headless=True) as browser:
+        context = await browser.new_context()
+        page = await context.new_page()
 
-    # 2. Enjin Camoufox
-    try:
-        from camoufox.async_api import AsyncCamoufox
-        async def _run_camoufox():
-            async with AsyncCamoufox(headless=True) as browser:
-                page = await browser.new_page()
-                if referer:
-                    await page.set_extra_http_headers({"Referer": referer})
-                res = await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-                await page.wait_for_timeout(1500)
+        await page.goto(search_url, wait_until="domcontentloaded", timeout=45000)
+        user_agent = await page.evaluate("navigator.userAgent")
+
+        final_html = ""
+        for _ in range(25):
+            await page.wait_for_timeout(1000)
+            try:
+                # Cuba klik checkbox Turnstile sekiranya wujud dalam iframe
+                for frame in page.frames:
+                    if "challenges.cloudflare.com" in frame.url or "turnstile" in frame.url:
+                        chk = await frame.query_selector("input[type=checkbox], .ctp-checkbox-label, #challenge-stage")
+                        if chk:
+                            await chk.click()
+                            await page.wait_for_timeout(1500)
+
                 content = await page.content()
-                st = res.status if res else 0
-                return st, content
+                lower = content.lower()
+                if "just a moment" not in lower and "attention required" not in lower:
+                    if "/subscene/" in content or "no results" in lower:
+                        final_html = content
+                        break
+            except Exception:
+                continue
 
-        st, content = asyncio.run(_run_camoufox())
-        if st == 200 and not is_blocked(content, st):
-            return True, content
-    except Exception:
-        pass
+        if not final_html:
+            try:
+                final_html = await page.content()
+            except Exception:
+                final_html = ""
 
-    # 3. Enjin DrissionPage
-    try:
-        from DrissionPage import ChromiumPage, ChromiumOptions
-        co = ChromiumOptions()
-        co.set_argument('--headless=new')
-        co.set_argument('--no-sandbox')
-        co.set_argument('--disable-dev-shm-usage')
-        
-        dp = ChromiumPage(co)
-        dp.get(url, retry=1, interval=1)
-        time.sleep(1.5)
-        content = dp.html
-        dp.quit()
-        if not is_blocked(content, 200):
-            return True, content
-    except Exception:
-        pass
+        raw_cookies = await context.cookies()
+        for ck in raw_cookies:
+            cookies[ck["name"]] = ck["value"]
 
-    return False, ""
+        if final_html:
+            soup = BeautifulSoup(final_html, "lxml")
+            for a in soup.find_all("a", href=True):
+                href = a["href"].strip()
+                title = a.get_text(strip=True)
+                if re.match(r"^/subscene/\d+$", href) and title:
+                    results.append({"title": title, "url": urljoin(BASE_URL, href)})
+
+        await context.close()
+
+    return results, cookies, user_agent
 
 # ------------------------------------------------------------------
-# ENJIN FALLBACK: BINARY FETCHING (FOR ZIP/SRT DOWNLOAD)
+# ENJIN CARIAN UTAMA (BRIDGE KE CURL-CFFI)
 # ------------------------------------------------------------------
-def fetch_bytes_with_fallback(url: str, referer: Optional[str] = None) -> Tuple[bool, bytes]:
-    headers = BROWSER_HEADERS.copy()
-    if referer:
-        headers["Referer"] = referer
-
-    # 1. Enjin curl-cffi
+def search_subscene(query: str, year: str = "", top_k: int = 1) -> Tuple[List[Dict[str, str]], Optional[requests.Session]]:
+    """
+    Melaksanakan carian melalui Camoufox, meleraikan Cloudflare Turnstile,
+    menapis hasil menggunakan Smart Scorer, dan memulangkan sesi curl-cffi aktif.
+    """
     try:
-        from curl_cffi import requests
-        session = requests.Session(impersonate="chrome")
-        resp = session.get(url, headers=headers, allow_redirects=True, timeout=15)
-        if resp.status_code == 200 and len(resp.content) > 100:
-            return True, resp.content
-    except Exception:
-        pass
+        raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(query))
+    except Exception as e:
+        print(f"❌ Ralat semasa carian Camoufox: {e}")
+        return [], None
 
-    # 2. Enjin Camoufox
-    try:
-        from camoufox.async_api import AsyncCamoufox
-        async def _run_camoufox_bytes():
-            async with AsyncCamoufox(headless=True) as browser:
-                page = await browser.new_page()
-                if referer:
-                    await page.set_extra_http_headers({"Referer": referer})
-                res = await page.goto(url, wait_until="domcontentloaded", timeout=25000)
-                body = await res.body()
-                return res.status, body
+    if not raw_movies:
+        return [], None
 
-        st, body = asyncio.run(_run_camoufox_bytes())
-        if st == 200 and len(body) > 100:
-            return True, body
-    except Exception:
-        pass
+    # Tapis dan pilih filem yang tepat berdasarkan tajuk dan tahun
+    best_movies = pick_best_movie_matches(raw_movies, target_title=query, target_year=year, top_k=top_k)
+    if not best_movies:
+        return [], None
 
-    return False, b""
+    # Handover kuki sesi Turnstile ke curl-cffi untuk muat turun laju
+    session = requests.Session(impersonate="chrome120")
+    for k, v in cookies.items():
+        session.cookies.set(k, v, domain="sub-scene.com")
+    if ua:
+        session.headers.update({"User-Agent": ua})
+
+    return best_movies, session
 
 # ------------------------------------------------------------------
 # PENAPIS BAHASA KETAT
@@ -161,101 +187,76 @@ def parse_and_filter_language(text: str) -> Optional[str]:
     return None
 
 # ------------------------------------------------------------------
-# ALUR KERJA UTAMA SCRAPER
+# EKSTRAK SENARAI SARIKATA FILEM
 # ------------------------------------------------------------------
-def search_subscene(session=None, query: str = "") -> List[Dict[str, str]]:
+def get_movie_subtitles(session: requests.Session, movie_url: str) -> List[Dict[str, str]]:
     """
-    Mencari filem mengikut kata kunci/IMDb ID. Jika /search terhalang, automatik fallback ke /browse.
-    """
-    results = []
-
-    # Cubaan 1: Carian terus
-    search_url = f"{BASE_URL}/search?query={query.replace(' ', '+')}"
-    success, html = fetch_html_with_fallback(search_url, referer=f"{BASE_URL}/")
-
-    # Cubaan 2: Modus Browse (Fallback jika /search gagal)
-    if not success or not html:
-        browse_url = f"{BASE_URL}/browse"
-        success, html = fetch_html_with_fallback(browse_url, referer=f"{BASE_URL}/")
-
-    if success and html:
-        soup = BeautifulSoup(html, "html.parser")
-        for a in soup.find_all("a", href=True):
-            href = str(a["href"]).strip()
-            title = a.get_text(strip=True)
-
-            # Padanan persis URL laluan filem /subscene/ID
-            if re.match(r"^/subscene/\d+$", href) and title:
-                full_url = urljoin(BASE_URL, href)
-                sub_id = href.split("/")[-1]
-                results.append({
-                    "id": str(sub_id),
-                    "title": str(title),
-                    "url": full_url
-                })
-
-    unique = {r["url"]: r for r in results}.values()
-    return list(unique)
-
-def get_movie_subtitles(session=None, movie_url: str = "") -> List[Dict[str, str]]:
-    """
-    Mengekstrak senarai sarikata bahasa Melayu ('ms') dan Indonesia ('id') daripada laman filem.
+    Mengekstrak senarai sarikata Bahasa Melayu ('ms') dan Indonesia ('id') daripada laman filem.
     """
     subtitles = []
-    success, html = fetch_html_with_fallback(movie_url, referer=f"{BASE_URL}/")
+    try:
+        resp = session.get(movie_url, headers={"Referer": f"{BASE_URL}/"}, timeout=15)
+        if resp.status_code != 200:
+            return []
 
-    if not success or not html:
-        return []
+        soup = BeautifulSoup(resp.text, "lxml")
+        for tr in soup.find_all("tr"):
+            row_text = tr.get_text(" ", strip=True)
+            lang_code = parse_and_filter_language(row_text)
 
-    soup = BeautifulSoup(html, "html.parser")
-    for tr in soup.find_all("tr"):
-        row_text = tr.get_text(" ", strip=True)
-        lang_code = parse_and_filter_language(row_text)
+            if not lang_code:
+                continue
 
-        if not lang_code:
-            continue
+            a_tag = tr.find("a", href=True)
+            if a_tag and re.match(r"^/subtitle/\d+$", a_tag["href"]):
+                detail_url = urljoin(BASE_URL, str(a_tag["href"]))
+                release_title = a_tag.get_text(strip=True) or "Unknown Release"
+                sub_id = detail_url.split("/")[-1]
 
-        a_tag = tr.find("a", href=True)
-        if a_tag and re.match(r"^/subtitle/\d+$", a_tag["href"]):
-            detail_url = urljoin(BASE_URL, str(a_tag["href"]))
-            release_title = a_tag.get_text(strip=True) or "Unknown Release"
-            sub_id = detail_url.split("/")[-1]
-
-            subtitles.append({
-                "sub_id": str(sub_id),
-                "lang": lang_code,
-                "release": str(release_title),
-                "detail_url": str(detail_url)
-            })
+                subtitles.append({
+                    "sub_id": str(sub_id),
+                    "lang": lang_code,
+                    "release": str(release_title),
+                    "detail_url": str(detail_url)
+                })
+    except Exception as e:
+        print(f"⚠️ Ralat mengambil senarai sarikata: {e}")
 
     return subtitles
 
-def download_and_extract_subtitles(session=None, detail_url: str = "") -> List[Dict[str, str]]:
+# ------------------------------------------------------------------
+# MUAT TURUN & EKSTRAK FAIL SRT
+# ------------------------------------------------------------------
+def download_and_extract_subtitles(session: requests.Session, detail_url: str) -> List[Dict[str, str]]:
     """
-    Memuat turun fail sarikata dari laman detail dan mengekstrak kandungan .srt.
+    Memuat turun fail zip sarikata dari laman detail dan mengekstrak teks .srt ke dalam memori.
     """
-    # 1. Dapatkan pautan /download/XXXXXX dari laman detail sarikata
-    success, html = fetch_html_with_fallback(detail_url, referer=f"{BASE_URL}/")
-    if not success or not html:
-        return []
-
-    soup = BeautifulSoup(html, "html.parser")
-    dl_url = None
-    for a in soup.find_all("a", href=True):
-        if re.match(r"^/download/\d+$", a["href"]):
-            dl_url = urljoin(BASE_URL, a["href"])
-            break
-
-    if not dl_url:
-        return []
-
-    # 2. Muat turun fail binary
-    b_success, binary_content = fetch_bytes_with_fallback(dl_url, referer=detail_url)
-    if not b_success or len(binary_content) == 0:
-        return []
-
-    # 3. Ekstrak fail .srt melalui modul 03_zip_extractor
     try:
+        # 1. Buka laman detail untuk dapatkan pautan /download/XXXXXX
+        d_resp = session.get(detail_url, headers={"Referer": f"{BASE_URL}/"}, timeout=12)
+        if d_resp.status_code != 200:
+            return []
+
+        soup = BeautifulSoup(d_resp.text, "lxml")
+        dl_url = None
+        for a in soup.find_all("a", href=True):
+            if re.match(r"^/download/\d+$", a["href"]):
+                dl_url = urljoin(BASE_URL, a["href"])
+                break
+
+        if not dl_url:
+            return []
+
+        # 2. Muat turun binary ZIP
+        bin_resp = session.get(dl_url, headers={"Referer": detail_url}, timeout=15)
+        binary_content = bin_resp.content
+
+        if len(binary_content) < 100:
+            return []
+
+        # 3. Nyahmampat fail ZIP
         return extract_srt_from_zip(binary_content)
-    except Exception:
-        return [{"filename": "subtitle.srt", "content": binary_content.decode("utf-8", errors="ignore")}]
+
+    except Exception as e:
+        print(f"⚠️ Ralat semasa memuat turun sarikata: {e}")
+        return []

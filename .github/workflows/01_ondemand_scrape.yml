@@ -3,10 +3,17 @@ name: 01 On-Demand Subtitle Scrape
 on:
   repository_dispatch:
     types: [ondemand_scrape]
+  workflow_dispatch:
+    inputs:
+      imdb_id:
+        description: 'IMDb ID untuk diuji (contoh: tt0145487)'
+        required: true
+        default: 'tt0145487'
 
 jobs:
   scrape-ondemand:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout Repositori
         uses: actions/checkout@v4
@@ -21,6 +28,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Sediakan Cache Binari Camoufox
+        id: cache-camoufox
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/camoufox
+          key: camoufox-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Muat Turun Binari Pelayar Camoufox
+        run: |
+          python -m camoufox fetch
 
       - name: Jalankan Skrip On-Demand Scraper
         env:
@@ -53,10 +71,11 @@ jobs:
           B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
           B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
         run: |
-          python live_engine/06_ondemand_runner.py --imdb "${{ github.event.client_payload.imdb_id }}"
+          TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
+          python live_engine/06_ondemand_runner.py --imdb "$TARGET_IMDB"
 
       - name: Commit dan Simpan Rekod JSON Terkini
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "auto: update scraped_history.json for ${{ github.event.client_payload.imdb_id }}"
+          commit_message: "auto: update scraped_history.json for ${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           file_pattern: "live_engine/data/scraped_history.json"

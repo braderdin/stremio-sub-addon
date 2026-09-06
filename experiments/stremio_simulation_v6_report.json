@@ -1,0 +1,94 @@
+{
+  "test_imdb_id": "tt0145487",
+  "cinemeta_meta": {
+    "title": "Spider-Man",
+    "year": "2002"
+  },
+  "smart_matched_movie": {
+    "title": "Spider-Man (Spiderman) (2002)",
+    "url": "https://sub-scene.com/subscene/29461"
+  },
+  "stremio_subtitles_payload": {
+    "subtitles": [
+      {
+        "id": "266373",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_266373.srt",
+        "lang": "ind",
+        "release": "IndonesianSpiderman[2002]DVDRip"
+      },
+      {
+        "id": "367198",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_367198.srt",
+        "lang": "ind",
+        "release": "IndonesianSpidermanIndonesia"
+      },
+      {
+        "id": "418337",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_418337.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man.HDRip.720p."
+      },
+      {
+        "id": "2699171",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_2699171.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man.2002.WEBRip.Netflix"
+      },
+      {
+        "id": "2699171",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_2699171.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man.2002.WEB-DL.Netflix"
+      },
+      {
+        "id": "2070925",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_2070925.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man.2002.UHD.720p.BluRay.x264-Pahe.in"
+      },
+      {
+        "id": "362264",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_362264.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man.2002.BluRay.720p.x264.DTS-WiKi.pen.ind"
+      },
+      {
+        "id": "1510360",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_1510360.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man-2002-REMASTERED-BDRip-720p-genO-Pahe.in"
+      },
+      {
+        "id": "420960",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_420960.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man-2002"
+      },
+      {
+        "id": "2797536",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/ind_2797536.srt",
+        "lang": "ind",
+        "release": "IndonesianSpider-Man (2002) \u2605\u2605\u2605 BluRay"
+      },
+      {
+        "id": "782790",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/msa_782790.srt",
+        "lang": "msa",
+        "release": "MalaySpiderman 2002 Bluray melayu"
+      },
+      {
+        "id": "3271725",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/msa_3271725.srt",
+        "lang": "msa",
+        "release": "MalaySpider-Man.2002.UHD.720p.BluRay.x264-Pahe.in"
+      },
+      {
+        "id": "3132286",
+        "url": "https://stremio-b2-cdn.contoh.com/subs/tt0145487/msa_3132286.srt",
+        "lang": "msa",
+        "release": "MalaySpider-Man.2002.UHD.720p.BluRay.x264-Pahe.in"
+      }
+    ]
+  },
+  "success": true
+}
