@@ -19322,44 +19322,6 @@
         }
       ]
     },
-    "tt0848228": {
-      "updated_at": 1788792642,
-      "sub_count": 4,
-      "subtitles": [
-        {
-          "id": "1863360_0",
-          "lang": "id",
-          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0848228/id_1863360_0.srt",
-          "release": "Indonesian[Indo]Amigo TV  4 ep 1 - ikon",
-          "source": "subscene",
-          "acc": 2
-        },
-        {
-          "id": "1866040_0",
-          "lang": "id",
-          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0848228/id_1866040_0.srt",
-          "release": "IndonesianiKON  Amigo TV Ep.3",
-          "source": "subscene",
-          "acc": 2
-        },
-        {
-          "id": "1865259_0",
-          "lang": "id",
-          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0848228/id_1865259_0.srt",
-          "release": "IndonesianiKON  Amigo TV Ep.2",
-          "source": "subscene",
-          "acc": 2
-        },
-        {
-          "id": "1866146_0",
-          "lang": "id",
-          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0848228/id_1866146_0.srt",
-          "release": "IndonesianAmigo TV Season 4 iKON - Ep. 3 [SUB INDO]",
-          "source": "subscene",
-          "acc": 2
-        }
-      ]
-    },
     "tt16311594": {
       "updated_at": 1788792660,
       "sub_count": 1,
