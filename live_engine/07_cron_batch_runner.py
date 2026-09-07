@@ -87,10 +87,7 @@ def save_no_subs_record(history_dict: dict, imdb_id: str, title: str, year: str)
         print(f"⚠️ Gagal mengemas kini {NO_SUBS_HISTORY_FILE}: {e}")
 
 def fetch_dynamic_cinemeta_queue() -> list[dict]:
-    """
-    Menyedut pelbagai katalog Cinemeta rasmi, menggabungkannya,
-    dan membuang duplikasi tajuk secara automatik.
-    """
+    """Menyedut pelbagai katalog Cinemeta rasmi dan membuang duplikasi tajuk."""
     print("📡 [Cinemeta Fetcher] Mengumpulkan tajuk popular dari katalog Stremio...")
     unique_pool = {}
 
@@ -115,7 +112,6 @@ def fetch_dynamic_cinemeta_queue() -> list[dict]:
         except Exception as e:
             print(f"   ⚠️ Ralat menyedut katalog ({catalog_url.split('/')[-1]}): {e}")
 
-    # Gabungkan dengan senarai fallback jika katalog gagal sepenuhnya
     if not unique_pool:
         print("   ⚠️ Menggunakan senarai sandaran fallback tempatan.")
         for item in FALLBACK_SEED_LIST:
@@ -127,15 +123,16 @@ def fetch_dynamic_cinemeta_queue() -> list[dict]:
 def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
     """
     Melaksanakan pengikisan kelompok berjadual secara modular.
-    Memproses calon filem segar yang belum pernah dikikis ke B2 atau disahkan tiada sub.
+    Mempunyai mekanisme henti kecemasan pintar sekiranya semua akaun B2 capai limit.
     """
+    total_b2_accs = len(_config.B2_ACCOUNTS)
     print("=" * 80)
     print(f"🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER")
-    print(f"   ├─ Had Sasaran Sesi Ini: {target_limit} tajuk baru")
-    print(f"   └─ Sela Masa (Delay)   : {delay_sec} saat")
+    print(f"   ├─ Had Sasaran Sesi Ini : {target_limit} tajuk baru")
+    print(f"   ├─ Jumlah Akaun B2 Siap : {total_b2_accs} akaun")
+    print(f"   └─ Sela Masa (Delay)    : {delay_sec} saat")
     print("=" * 80)
 
-    # Muat turun rekod tajuk tiada sarikata sedia ada
     no_subs_history = load_no_subs_history()
     print(f"📋 Rekod 'Tiada Sarikata' sedia ada dalam memori: {len(no_subs_history)} tajuk.")
 
@@ -143,38 +140,61 @@ def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
     processed_count = 0
     skipped_exist_count = 0
     skipped_no_subs_count = 0
+    all_b2_dead = False
 
     for item in candidates:
         if processed_count >= target_limit:
             print(f"\n🎯 Had sasaran kelompok ({target_limit} tajuk) telah dicapai untuk sesi ini.")
             break
 
+        # Semakan awal: Jika kesemua akaun B2 telah kehabisan had transaksi, hentikan loop serta-merta!
+        if _b2.is_all_b2_exhausted():
+            print("\n" + "!" * 80)
+            print(f"🚨 HENTI KECEMASAN: Kesemua {total_b2_accs} akaun B2 telah mencapai had transaksi / storan!")
+            print("🛑 Menghentikan proses sekarang supaya rekod yang sempat dimuat naik dapat disimpan ke Git.")
+            print("!" * 80)
+            all_b2_dead = True
+            break
+
         imdb_id = item["imdb_id"]
         movie_title = item["title"]
         movie_year = item.get("year", "")
 
-        # 1. Semak rekod kejayaan tempatan (jika sudah ada di B2/Redis, langkau)
+        # 1. Semak rekod kejayaan tempatan
         if _history.is_imdb_processed(imdb_id):
             skipped_exist_count += 1
             continue
 
-        # 2. Semak rekod tajuk tiada sarikata (jika sudah pernah disemak dan tiada sub BM/ID, langkau)
+        # 2. Semak rekod tiada sarikata
         if imdb_id in no_subs_history:
             skipped_no_subs_count += 1
             continue
 
         print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses Calon Segar: {movie_title} ({movie_year}) -> {imdb_id}")
 
-        # 3. Panggil enjin on-demand yang lengkap
+        # 3. Panggil enjin on-demand
         try:
             success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title, year=movie_year)
             if success:
                 processed_count += 1
                 print(f"   ✅ Berjaya memuat naik sarikata bagi {movie_title} ({imdb_id})")
             else:
-                # Rekodkan ke dalam no_subs_history.json supaya pusingan seterusnya terus skip
-                save_no_subs_record(no_subs_history, imdb_id, movie_title, movie_year)
-                print(f"   ⚠️ Tiada sarikata BM/ID ditemui. Disimpan ke rekod no_subs: {movie_title} ({imdb_id})")
+                # Jika gagal bukan kerana semua akaun B2 mati, simpan ke rekod no_subs
+                if not _b2.is_all_b2_exhausted():
+                    save_no_subs_record(no_subs_history, imdb_id, movie_title, movie_year)
+                    print(f"   ⚠️ Tiada sarikata BM/ID ditemui. Disimpan ke rekod no_subs: {movie_title} ({imdb_id})")
+                else:
+                    print(f"   ⚠️ Dibatalkan daripada rekod no_subs: {movie_title} (Ralat storan B2 dikesan).")
+                    all_b2_dead = True
+                    break
+
+        except _b2.AllB2AccountsExhaustedException:
+            print("\n" + "!" * 80)
+            print(f"🚨 KESEMUA {total_b2_accs} AKAUN B2 TELAH HABIS LIMIT TRANSAKSI HARIAN!")
+            print("🛑 Menyimpan rekod sedia ada dan menutup sesi secara selamat...")
+            print("!" * 80)
+            all_b2_dead = True
+            break
         except Exception as e:
             print(f"   ❌ Ralat memproses {imdb_id}: {e}")
 
@@ -186,8 +206,12 @@ def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
     print(f"   ├─ Tajuk Baharu Diproses & Dimuat Naik : {processed_count}")
     print(f"   ├─ Tajuk Dilangkau Kerana Sudah Wujud  : {skipped_exist_count}")
     print(f"   ├─ Tajuk Dilangkau Kerana Tiada Sub    : {skipped_no_subs_count}")
+    print(f"   ├─ Status B2 Storage                  : {'⚠️ SEMUA AKAUN CAP EXCEEDED' if all_b2_dead else '✅ BERFUNGSI DENGAN BAIK'}")
     print(f"   └─ Baki Calon Dalam Kolam Cinemeta     : {max(0, len(candidates) - (processed_count + total_skipped))}")
     print("=" * 80)
+
+    # Keluar dengan exit code 0 supaya GitHub Actions meneruskan langkah Git Commit & Push
+    sys.exit(0)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Cron Batch Subtitle Scraper Runner")

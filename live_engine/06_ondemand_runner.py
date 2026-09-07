@@ -34,7 +34,8 @@ def resolve_cinemeta_metadata(imdb_id: str) -> tuple[str, str]:
 def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None) -> bool:
     """
     Melaksanakan pengikisan terpantas bagi 1 IMDb ID spesifik.
-    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih dan semakan tahun ketat.
+    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih, semakan tahun ketat,
+    serta integrasi failover multi-akaun B2.
     """
     print(f"🚀 Mula pengikisan On-Demand bagi IMDb ID: {imdb_id}")
 
@@ -92,6 +93,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
                 b2_filename = f"subs/{imdb_id}/{sub['lang']}_{sub['sub_id']}_{idx}.srt"
                 
                 try:
+                    # upload_subtitle_to_b2 akan mencuba B2 Acc 1 hingga Acc 40 secara automatik jika berlaku ralat/cap
                     b2_res = _b2.upload_subtitle_to_b2(b2_filename, srt_item["content"])
                     
                     record = {
@@ -102,25 +104,32 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
                         "source": "subscene",
                         "acc": b2_res["account_index"]
                     }
-                    
-                    # Simpan ke Upstash Redis
-                    _redis.save_subtitle_record(imdb_id, record)
                     uploaded_records.append(record)
                     print(f"  ✔ [B2 Acc {b2_res['account_index']}] Muat naik berjaya: {b2_res['url']}")
-                    
+
+                except _b2.AllB2AccountsExhaustedException:
+                    # Jika kesemua akaun B2 mencapai limit transaksi/penuh, simpan apa yang sempat dahulu sebelum berhenti
+                    if uploaded_records:
+                        _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
+                        _history.add_processed_imdb(imdb_id, uploaded_records)
+                        print(f"💾 Sempat menyimpan {len(uploaded_records)} sarikata sebelum semua akaun B2 mencapai had.")
+                    raise
+
                 except Exception as e:
                     print(f"  ❌ Ralat muat naik B2: {e}")
 
             time.sleep(0.3)
 
-        # Simpan ke rekod sejarah tempatan
+        # Simpan ke Upstash Redis dan rekod sejarah tempatan secara berkelompok (1 transaksi jimat API)
         if uploaded_records:
+            _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
             _history.add_processed_imdb(imdb_id, uploaded_records)
             print(f"✅ Berjaya memproses dan menyimpan {len(uploaded_records)} sarikata untuk {imdb_id}.")
             return True
         else:
-            print(f"⚠️ Tiada fail sarikata berjaya diekstrak untuk {imdb_id}.")
-            return False
+            # Jika sarikata wujud di Subscene tetapi gagal muat naik (cth: masalah fail zip/timeout),
+            # bangkitkan exception agar TIDAK dimasukkan ke dalam no_subs_history.json
+            raise Exception(f"Menemui {len(subtitles)} sarikata di Subscene tetapi tiada fail berjaya dimuat naik ke B2.")
 
     finally:
         # Buka semula kunci Redis selepas selesai proses

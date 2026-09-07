@@ -35,16 +35,31 @@ def _redis_request(command: str, *args) -> Optional[dict]:
     return None
 
 def set_processing_lock(imdb_id: str, ttl_seconds: int = 600) -> bool:
+    """Kunci IMDb ID bagi mengelakkan perlumbaan proses runner serentak."""
     key = f"lock:{imdb_id}"
     res = _redis_request("SET", key, "processing", "EX", ttl_seconds, "NX")
     return bool(res and res.get("result") == "OK")
 
 def remove_processing_lock(imdb_id: str) -> bool:
+    """Padam kunci pemprosesan selepas selesai."""
     key = f"lock:{imdb_id}"
     res = _redis_request("DEL", key)
     return bool(res and res.get("result", 0) > 0)
 
 def save_subtitle_record(imdb_id: str, record: dict) -> bool:
+    """
+    Menyimpan 1 rekod sarikata secara individu (Kekal disokong untuk keserasian belakang).
+    """
+    return save_subtitle_records_batch(imdb_id, [record])
+
+def save_subtitle_records_batch(imdb_id: str, new_records: List[Dict]) -> bool:
+    """
+    Menyimpan senarai sarikata secara berkelompok (Batch).
+    Menjimatkan kuota panggilan Upstash Redis dengan menggabungkan operasi ke dalam 1 GET & 1 SET.
+    """
+    if not new_records:
+        return True
+
     key = f"sub:{imdb_id}"
     existing_res = _redis_request("GET", key)
     records = []
@@ -57,14 +72,23 @@ def save_subtitle_record(imdb_id: str, record: dict) -> bool:
             records = []
 
     existing_ids = {r.get("id") for r in records}
-    if record.get("id") not in existing_ids:
-        records.append(record)
+    added = False
+
+    for rec in new_records:
+        if rec.get("id") not in existing_ids:
+            records.append(rec)
+            existing_ids.add(rec.get("id"))
+            added = True
+
+    if not added:
+        return True
 
     json_str = json.dumps(records, ensure_ascii=False)
     res = _redis_request("SET", key, json_str)
     return bool(res and res.get("result") == "OK")
 
 def get_subtitle_records(imdb_id: str) -> List[Dict]:
+    """Mengambil senarai sarikata yang disimpan bagi IMDb ID."""
     key = f"sub:{imdb_id}"
     res = _redis_request("GET", key)
     if res and res.get("result"):
