@@ -11665,7 +11665,229 @@
           "acc": 1
         }
       ]
+    },
+    "tt8350360": {
+      "updated_at": 1788771126,
+      "sub_count": 27,
+      "subtitles": [
+        {
+          "id": "2570400_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2570400_0.srt",
+          "release": "IndonesianAnnabelle.Comes.Home.2019.ALL.WEBRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2570401_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2570401_0.srt",
+          "release": "IndonesianAnnabelle.Comes.Home.2019.ALL.Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053537_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053537_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-XviD-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053537_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053537_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-XviD-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053705_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053705_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-1080p-720p-480p...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053705_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053705_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-1080p-720p-480p...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053705_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053705_2.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-1080p-720p-480p...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053705_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2053705_3.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-WEBRip-WEBDL-HDRip-1080p-720p-480p...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2035090_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2035090_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-Semua-KorSubs-HDRip-HC-x265-x264-I...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2035090_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2035090_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-Semua-KorSubs-HDRip-HC-x265-x264-I...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2033042_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2033042_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2033042_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2033042_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2033042_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2033042_2.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2033042_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2033042_3.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055273_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055273_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-Semua-BRRip-BluRayRip-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055273_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055273_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-Semua-BRRip-BluRayRip-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055495_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055495_0.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055495_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055495_1.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055495_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055495_2.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055495_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2055495_3.srt",
+          "release": "IndonesianAnnabelle-Comes-Home-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2009328_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2009328_0.srt",
+          "release": "IndonesianAnnabelle Comes Home 720P HDcam 1xbet shanig",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2752603_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/id_2752603_0.srt",
+          "release": "IndonesianAnnabelle Comes Home (2019) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3189355_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/ms_3189355_0.srt",
+          "release": "MalayAnnabelle.Comes.Home.2019.720p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053638_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/ms_2053638_0.srt",
+          "release": "MalayAnnabelle Comes Home (2019) WEB-DL/WEBRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2068972_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/ms_2068972_0.srt",
+          "release": "MalayAnnabelle Comes Home (2019) Malay 720p BluRay x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2033176_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/ms_2033176_0.srt",
+          "release": "MalayAnnabelle Comes Home (2019) HC HDRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2055477_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt8350360/ms_2055477_0.srt",
+          "release": "MalayAnnabelle Comes Home (2019) Bluray/BRRip",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
     }
   },
-  "total_items": 47
+  "total_items": 48
 }
