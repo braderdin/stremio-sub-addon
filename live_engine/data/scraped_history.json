@@ -3457,7 +3457,91 @@
           "acc": 1
         }
       ]
+    },
+    "tt37287335": {
+      "updated_at": 1788743164,
+      "sub_count": 2,
+      "subtitles": [
+        {
+          "id": "3371185_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37287335/id_3371185_0.srt",
+          "release": "IndonesianObsession.2025.WEB-DL.1080p.English",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3371234_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37287335/id_3371234_0.srt",
+          "release": "IndonesianObsession.2025..BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ]",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt37275992": {
+      "updated_at": 1788743197,
+      "sub_count": 7,
+      "subtitles": [
+        {
+          "id": "408175_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/id_408175_0.srt",
+          "release": "IndonesianSammys.Adventures.The.Secret.Passage.2010.BRRip.Manual.Trans...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2980340_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/id_2980340_0.srt",
+          "release": "IndonesianSammys.Adventures.The.Secret.Passage.2010.BluRay.H264.AAC-RA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "390579_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/id_390579_0.srt",
+          "release": "IndonesianSammys.Adventures.-.The.Secret.Passage.2010.R5.XViD-DECADE-i...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "513640_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/id_513640_0.srt",
+          "release": "IndonesianSammy.Adventure.2010-BDRip-720p-ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "461871_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/id_461871_0.srt",
+          "release": "IndonesianA Turtles Tale Sammys AdventuresThe Secret Passage A Turles ...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "391187_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/ms_391187_0.srt",
+          "release": "MalaySammys.Adventure.The.Secret.Passage.2010.Malay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "409414_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt37275992/ms_409414_0.srt",
+          "release": "MalayA.Turtles.Tale.Sammys.Adventure.2010.UNCUT.BDRip.XVID.AC3.HQ...",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
     }
   },
-  "total_items": 15
+  "total_items": 17
 }
