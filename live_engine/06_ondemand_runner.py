@@ -4,7 +4,7 @@ import argparse
 import importlib
 from curl_cffi import requests
 
-# Import modul secara dinamik bagi menyokong penamaan nombor awalan
+# Import modul secara dinamik
 _config = importlib.import_module("00_config")
 _redis = importlib.import_module("01_redis_db")
 _b2 = importlib.import_module("02_b2_storage")
@@ -31,10 +31,10 @@ def resolve_cinemeta_metadata(imdb_id: str) -> tuple[str, str]:
             
     return "", ""
 
-def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
+def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None) -> bool:
     """
     Melaksanakan pengikisan terpantas bagi 1 IMDb ID spesifik.
-    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih.
+    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih dan semakan tahun ketat.
     """
     print(f"🚀 Mula pengikisan On-Demand bagi IMDb ID: {imdb_id}")
 
@@ -50,16 +50,16 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
 
     try:
         # Resolusi tajuk dan tahun filem melalui Cinemeta
-        movie_title, movie_year = resolve_cinemeta_metadata(imdb_id)
-        search_query = custom_query if custom_query else movie_title
+        cm_title, cm_year = resolve_cinemeta_metadata(imdb_id)
+        movie_title = custom_query if custom_query else cm_title
+        movie_year = year if year else cm_year
 
         # Jika Cinemeta tergendala, gunakan IMDb ID terus sebagai query
-        if not search_query:
-            search_query = imdb_id
+        search_query = movie_title if movie_title else imdb_id
 
         print(f"🔎 Carian Subscene: '{search_query}' (IMDb: {imdb_id}, Tahun: {movie_year or 'N/A'})")
 
-        # Carian pintar 2-peringkat (Peringkat 1: IMDb ID, Peringkat 2: Carian Teks Bersih)
+        # Carian pintar 2-peringkat (Peringkat 1: IMDb ID, Peringkat 2: Carian Teks Bersih Berpenapis Tahun)
         movies, session = _scraper.search_subscene(
             query=search_query,
             year=movie_year,
@@ -130,6 +130,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="On-Demand Subtitle Scraper Runner")
     parser.add_argument("--imdb", type=str, required=True, help="Target IMDb ID (cth: tt0145487)")
     parser.add_argument("--query", type=str, default="", help="Kata kunci carian tajuk filem (pilihan)")
+    parser.add_argument("--year", type=str, default="", help="Tahun filem (pilihan)")
     
     args = parser.parse_args()
-    run_ondemand_scrape(args.imdb, args.query)
+    run_ondemand_scrape(args.imdb, args.query, args.year)

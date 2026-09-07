@@ -167,7 +167,7 @@ def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
 
         # 3. Panggil enjin on-demand yang lengkap
         try:
-            success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title)
+            success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title, year=movie_year)
             if success:
                 processed_count += 1
                 print(f"   ✅ Berjaya memuat naik sarikata bagi {movie_title} ({imdb_id})")
