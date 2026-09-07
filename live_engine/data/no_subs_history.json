@@ -313,5 +313,65 @@
     "title": "Frankenstein",
     "year": "2025",
     "checked_at": "2026-09-07 16:08:00"
+  },
+  "tt0848228": {
+    "title": "The Avengers",
+    "year": "2012",
+    "checked_at": "2026-09-07 16:25:45"
+  },
+  "tt0113277": {
+    "title": "Heat",
+    "year": "1995",
+    "checked_at": "2026-09-07 16:26:25"
+  },
+  "tt20969586": {
+    "title": "Thunderbolts*",
+    "year": "2025",
+    "checked_at": "2026-09-07 16:26:35"
+  },
+  "tt3397884": {
+    "title": "Sicario",
+    "year": "2015",
+    "checked_at": "2026-09-07 16:26:50"
+  },
+  "tt1877830": {
+    "title": "The Batman",
+    "year": "2022",
+    "checked_at": "2026-09-07 16:27:35"
+  },
+  "tt31434030": {
+    "title": "Dracula",
+    "year": "2026",
+    "checked_at": "2026-09-07 16:28:02"
+  },
+  "tt5052448": {
+    "title": "Get Out",
+    "year": "2017",
+    "checked_at": "2026-09-07 16:32:33"
+  },
+  "tt35222590": {
+    "title": "Exit 8",
+    "year": "2025",
+    "checked_at": "2026-09-07 16:32:44"
+  },
+  "tt5040012": {
+    "title": "Nosferatu",
+    "year": "2024",
+    "checked_at": "2026-09-07 16:34:49"
+  },
+  "tt28015403": {
+    "title": "Heretic",
+    "year": "2024",
+    "checked_at": "2026-09-07 16:36:30"
+  },
+  "tt0117571": {
+    "title": "Scream",
+    "year": "1996",
+    "checked_at": "2026-09-07 16:38:58"
+  },
+  "tt12300742": {
+    "title": "Bugonia",
+    "year": "2025",
+    "checked_at": "2026-09-07 16:39:09"
   }
 }
