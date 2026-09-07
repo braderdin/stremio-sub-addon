@@ -23,7 +23,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout Repositori
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # Muat turun sejarah penuh untuk sokongan git rebase
 
       - name: Sediakan Persekitaran Python 3.11
         uses: actions/setup-python@v5
@@ -83,8 +85,37 @@ jobs:
           DELAY="${{ inputs.delay || 1.5 }}"
           python live_engine/07_cron_batch_runner.py --limit "$LIMIT" --delay "$DELAY"
 
-      - name: Commit dan Simpan Rekod JSON Terkini
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "cron: update batch scraped_history.json"
-          file_pattern: "live_engine/data/scraped_history.json"
+      - name: Commit dan Simpan Rekod JSON Terkini (Auto-Rebase Safe)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          if [ -f "live_engine/data/scraped_history.json" ]; then
+            git add live_engine/data/scraped_history.json
+            if ! git diff --cached --quiet; then
+              git commit -m "cron: update batch scraped_history.json [skip ci]"
+              
+              # Rebase automatik sekiranya remote mempunyai commit baharu semasa job berjalan
+              for i in {1..3}; do
+                git fetch origin main
+                if git rebase origin/main; then
+                  if git push origin main; then
+                    echo "✅ Berjaya sync rekod history ke GitHub!"
+                    exit 0
+                  fi
+                else
+                  git rebase --abort
+                  git pull origin main --no-rebase -X ours -m "merge: resolve history sync [skip ci]"
+                  if git push origin main; then
+                    echo "✅ Berjaya merge & push rekod history ke GitHub!"
+                    exit 0
+                  fi
+                fi
+                echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
+                sleep 2
+              done
+              exit 1
+            else
+              echo "ℹ️ Tiada perubahan rekod dikesan."
+            fi
+          fi
