@@ -13,21 +13,28 @@ _scraper = importlib.import_module("05_subtitle_scraper")
 
 def resolve_cinemeta_metadata(imdb_id: str) -> tuple[str, str]:
     """
-    Mendapatkan tajuk rasmi dan tahun keluaran filem daripada Cinemeta API.
+    Mendapatkan tajuk rasmi dan tahun keluaran filem atau siri daripada Cinemeta API.
+    Menyemak endpoint 'movie' dahulu, diikuti 'series' jika filem tidak ditemui.
     """
-    url = f"https://v3-cinemeta.strem.io/meta/movie/{imdb_id}.json"
-    try:
-        res = requests.get(url, timeout=10)
-        if res.status_code == 200:
-            meta = res.json().get("meta", {})
-            return meta.get("name", ""), str(meta.get("year", ""))
-    except Exception as e:
-        print(f"⚠️ Ralat resolusi Cinemeta API ({imdb_id}): {e}")
+    for media_type in ["movie", "series"]:
+        url = f"https://v3-cinemeta.strem.io/meta/{media_type}/{imdb_id}.json"
+        try:
+            res = requests.get(url, timeout=10)
+            if res.status_code == 200:
+                meta = res.json().get("meta", {})
+                name = meta.get("name", "")
+                year = str(meta.get("year", "")).split("–")[0].split("-")[0].strip()
+                if name:
+                    return name, year
+        except Exception as e:
+            print(f"⚠️ Ralat resolusi Cinemeta API ({imdb_id} - {media_type}): {e}")
+            
     return "", ""
 
 def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
     """
-    Melaksanakan pengikisan terpantas bagi 1 IMDb ID spesifik yang dicetuskan oleh Worker.
+    Melaksanakan pengikisan terpantas bagi 1 IMDb ID spesifik.
+    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih.
     """
     print(f"🚀 Mula pengikisan On-Demand bagi IMDb ID: {imdb_id}")
 
@@ -36,7 +43,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
         print(f"ℹ️ IMDb ID {imdb_id} telah siap diproses sebelum ini. Pembatalan dilakukan.")
         return True
 
-    # Kunci IMDb ID di Redis untuk mengelakkan proses bertindih
+    # Kunci IMDb ID di Redis untuk mengelakkan proses bertindih (TTL 10 minit)
     if not _redis.set_processing_lock(imdb_id, ttl_seconds=600):
         print(f"⚠️ IMDb ID {imdb_id} sedang dikikis oleh runner lain. Menghentikan tugasan.")
         return False
@@ -46,16 +53,22 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
         movie_title, movie_year = resolve_cinemeta_metadata(imdb_id)
         search_query = custom_query if custom_query else movie_title
 
+        # Jika Cinemeta tergendala, gunakan IMDb ID terus sebagai query
         if not search_query:
-            print(f"❌ Gagal mendapatkan tajuk bagi IMDb ID: {imdb_id}. Carian dibatalkan.")
-            return False
+            search_query = imdb_id
 
-        print(f"🔎 Carian Subscene: '{search_query}' (Tahun: {movie_year or 'N/A'})")
+        print(f"🔎 Carian Subscene: '{search_query}' (IMDb: {imdb_id}, Tahun: {movie_year or 'N/A'})")
 
-        # Carian selamat dengan Turnstile bypass & Smart Scoring
-        movies, session = _scraper.search_subscene(search_query, year=movie_year, top_k=1)
+        # Carian pintar 2-peringkat (Peringkat 1: IMDb ID, Peringkat 2: Carian Teks Bersih)
+        movies, session = _scraper.search_subscene(
+            query=search_query,
+            year=movie_year,
+            imdb_id=imdb_id,
+            top_k=1
+        )
+        
         if not movies or not session:
-            print(f"⚠️ Tiada padanan filem yang tepat dijumpai untuk: '{search_query}'")
+            print(f"⚠️ Tiada padanan filem yang tepat dijumpai untuk: '{search_query}' ({imdb_id})")
             return False
 
         target_movie = movies[0]
@@ -71,7 +84,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
 
         uploaded_records = []
 
-        # Muat turun dan simpan fail sarikata
+        # Muat turun dan simpan fail sarikata ke Private B2
         for sub in subtitles:
             srt_files = _scraper.download_and_extract_subtitles(session, sub["detail_url"])
             
@@ -100,7 +113,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None) -> bool:
 
             time.sleep(0.3)
 
-        # Simpan ke history tempatan sekiranya berjaya
+        # Simpan ke rekod sejarah tempatan
         if uploaded_records:
             _history.add_processed_imdb(imdb_id, uploaded_records)
             print(f"✅ Berjaya memproses dan menyimpan {len(uploaded_records)} sarikata untuk {imdb_id}.")

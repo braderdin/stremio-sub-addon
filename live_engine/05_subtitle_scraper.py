@@ -32,7 +32,7 @@ def create_stealth_session() -> Tuple[Optional[Any], bool]:
 def calculate_match_score(candidate_title: str, target_title: str, target_year: str = "") -> int:
     """
     Mengira markah kejituan tajuk calon berbanding tajuk sasaran dan tahun.
-    Menapis filem parodi, kartun Lego, atau siri TV yang tidak berkenaan.
+    Menapis filem parodi, animasi tidak berkenaan, atau musim siri TV yang salah.
     """
     score = 0
     c_lower = candidate_title.lower()
@@ -71,7 +71,7 @@ def pick_best_movie_matches(movies: List[Dict[str, str]], target_title: str, tar
     scored = []
     for m in movies:
         sc = calculate_match_score(m["title"], target_title, target_year)
-        if sc > 0:  # Hanya terima calon dengan skor positif
+        if sc > 0:
             scored.append((sc, m))
 
     scored.sort(key=lambda x: x[0], reverse=True)
@@ -99,7 +99,7 @@ async def _async_camoufox_search(query: str) -> Tuple[List[Dict[str, str]], Dict
         for _ in range(25):
             await page.wait_for_timeout(1000)
             try:
-                # Cuba klik checkbox Turnstile sekiranya wujud dalam iframe
+                # Cuba klik checkbox Turnstile jika wujud
                 for frame in page.frames:
                     if "challenges.cloudflare.com" in frame.url or "turnstile" in frame.url:
                         chk = await frame.query_selector("input[type=checkbox], .ctp-checkbox-label, #challenge-stage")
@@ -139,28 +139,69 @@ async def _async_camoufox_search(query: str) -> Tuple[List[Dict[str, str]], Dict
     return results, cookies, user_agent
 
 # ------------------------------------------------------------------
-# ENJIN CARIAN UTAMA (BRIDGE KE CURL-CFFI)
+# ENJIN CARIAN PINTAR 2-PERINGKAT (IMDB ID -> TEXT FALLBACK)
 # ------------------------------------------------------------------
-def search_subscene(query: str, year: str = "", top_k: int = 1) -> Tuple[List[Dict[str, str]], Optional[requests.Session]]:
+def search_subscene(
+    query: str, 
+    year: str = "", 
+    imdb_id: str = "", 
+    top_k: int = 1
+) -> Tuple[List[Dict[str, str]], Optional[requests.Session]]:
     """
-    Melaksanakan carian melalui Camoufox, meleraikan Cloudflare Turnstile,
-    menapis hasil menggunakan Smart Scorer, dan memulangkan sesi curl-cffi aktif.
+    Melaksanakan carian pintar 2-Peringkat:
+    Peringkat 1: Carian IMDb ID terus (cth: 'tt0432021') untuk padanan 100% tepat tanpa ralat penamaan sekuel.
+    Peringkat 2: Carian teks tajuk bersih (buang simbol ':', '-') jika IMDb ID tiada atau gagal.
     """
-    try:
-        raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(query))
-    except Exception as e:
-        print(f"❌ Ralat semasa carian Camoufox: {e}")
-        return [], None
+    # Semak jika query yang dihantar itu sendiri ialah format IMDb ID
+    target_imdb = imdb_id.strip() if imdb_id else ""
+    if not target_imdb and re.match(r"^tt\d+$", query.strip()):
+        target_imdb = query.strip()
 
-    if not raw_movies:
-        return [], None
+    best_movies = []
+    cookies = {}
+    ua = ""
 
-    # Tapis dan pilih filem yang tepat berdasarkan tajuk dan tahun
-    best_movies = pick_best_movie_matches(raw_movies, target_title=query, target_year=year, top_k=top_k)
+    # ==============================================================
+    # PERINGKAT 1: CARIAN MENGGUNAKAN IMDB ID (PADANAN UTAMA)
+    # ==============================================================
+    if target_imdb:
+        print(f"🔎 [Peringkat 1] Mencuba carian terus IMDb ID di Subscene: '{target_imdb}'...")
+        try:
+            raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(target_imdb))
+            if raw_movies:
+                # Hasil carian IMDb ID di Subscene sentiasa filem yang tepat
+                best_movies = raw_movies[:top_k]
+                print(f"   🎯 Padanan Tepat IMDb ID Ditemui: {best_movies[0]['title']} -> {best_movies[0]['url']}")
+            else:
+                print(f"   ℹ️ Subscene tidak memulangkan hasil untuk IMDb ID '{target_imdb}'.")
+        except Exception as e:
+            print(f"   ⚠️ Ralat semasa carian IMDb ID: {e}")
+
+    # ==============================================================
+    # PERINGKAT 2: CARIAN SANDARAN TEKS BERSIH (FALLBACK)
+    # ==============================================================
+    if not best_movies:
+        if target_imdb:
+            print(f"🔄 Mengaktifkan mod sandaran: Carian tajuk teks...")
+
+        # Bersihkan simbol (cth: "Resident Evil: Extinction" -> "Resident Evil Extinction")
+        clean_query = re.sub(r"[:\-_/]", " ", query).strip()
+        clean_query = re.sub(r"\s+", " ", clean_query)
+
+        print(f"🔎 [Peringkat 2] Carian Sandaran Teks: '{clean_query}' (Tahun: {year})")
+        try:
+            raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(clean_query))
+            if raw_movies:
+                best_movies = pick_best_movie_matches(raw_movies, target_title=clean_query, target_year=year, top_k=top_k)
+                if best_movies:
+                    print(f"   🎯 Padanan Teks Ditemui: {best_movies[0]['title']} -> {best_movies[0]['url']}")
+        except Exception as e:
+            print(f"   ❌ Ralat semasa carian teks: {e}")
+
     if not best_movies:
         return [], None
 
-    # Handover kuki sesi Turnstile ke curl-cffi untuk muat turun laju
+    # Sambungkan kuki Turnstile ke curl-cffi untuk muat turun sarikata
     session = requests.Session(impersonate="chrome120")
     for k, v in cookies.items():
         session.cookies.set(k, v, domain="sub-scene.com")
@@ -190,9 +231,6 @@ def parse_and_filter_language(text: str) -> Optional[str]:
 # EKSTRAK SENARAI SARIKATA FILEM
 # ------------------------------------------------------------------
 def get_movie_subtitles(session: requests.Session, movie_url: str) -> List[Dict[str, str]]:
-    """
-    Mengekstrak senarai sarikata Bahasa Melayu ('ms') dan Indonesia ('id') daripada laman filem.
-    """
     subtitles = []
     try:
         resp = session.get(movie_url, headers={"Referer": f"{BASE_URL}/"}, timeout=15)
@@ -228,11 +266,7 @@ def get_movie_subtitles(session: requests.Session, movie_url: str) -> List[Dict[
 # MUAT TURUN & EKSTRAK FAIL SRT
 # ------------------------------------------------------------------
 def download_and_extract_subtitles(session: requests.Session, detail_url: str) -> List[Dict[str, str]]:
-    """
-    Memuat turun fail zip sarikata dari laman detail dan mengekstrak teks .srt ke dalam memori.
-    """
     try:
-        # 1. Buka laman detail untuk dapatkan pautan /download/XXXXXX
         d_resp = session.get(detail_url, headers={"Referer": f"{BASE_URL}/"}, timeout=12)
         if d_resp.status_code != 200:
             return []
@@ -247,14 +281,12 @@ def download_and_extract_subtitles(session: requests.Session, detail_url: str) -
         if not dl_url:
             return []
 
-        # 2. Muat turun binary ZIP
         bin_resp = session.get(dl_url, headers={"Referer": detail_url}, timeout=15)
         binary_content = bin_resp.content
 
         if len(binary_content) < 100:
             return []
 
-        # 3. Nyahmampat fail ZIP
         return extract_srt_from_zip(binary_content)
 
     except Exception as e:
