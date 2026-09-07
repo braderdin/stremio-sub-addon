@@ -1,4 +1,6 @@
 import sys
+import os
+import json
 import time
 import argparse
 import importlib
@@ -11,6 +13,10 @@ _b2 = importlib.import_module("02_b2_storage")
 _history = importlib.import_module("04_history_tracker")
 _scraper = importlib.import_module("05_subtitle_scraper")
 _ondemand = importlib.import_module("06_ondemand_runner")
+
+# Tetapan laluan fail JSON untuk tajuk yang tiada sarikata BM/ID
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+NO_SUBS_HISTORY_FILE = os.path.join(DATA_DIR, "no_subs_history.json")
 
 # Senarai fallback tempatan sekiranya rangkaian Cinemeta tergendala
 FALLBACK_SEED_LIST = [
@@ -36,7 +42,6 @@ FALLBACK_SEED_LIST = [
     {"imdb_id": "tt6263850", "title": "Deadpool & Wolverine", "year": "2024"}
 ]
 
-# Senarai sumber katalog Cinemeta pelbagai kategori untuk bekalan filem berterusan
 CINEMETA_CATALOG_URLS = [
     # Top Movies (Pagination 1 - 300)
     "https://v3-cinemeta.strem.io/catalog/movie/top.json",
@@ -56,6 +61,30 @@ CINEMETA_CATALOG_URLS = [
     "https://v3-cinemeta.strem.io/catalog/series/top.json",
     "https://v3-cinemeta.strem.io/catalog/series/top/skip=100.json"
 ]
+
+def load_no_subs_history() -> dict:
+    """Membaca senarai tajuk yang telah disahkan tiada sarikata BM/ID."""
+    if os.path.exists(NO_SUBS_HISTORY_FILE):
+        try:
+            with open(NO_SUBS_HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"⚠️ Ralat membaca {NO_SUBS_HISTORY_FILE}: {e}")
+    return {}
+
+def save_no_subs_record(history_dict: dict, imdb_id: str, title: str, year: str):
+    """Menyimpan rekod IMDb ID yang tiada sarikata ke dalam no_subs_history.json."""
+    os.makedirs(DATA_DIR, exist_ok=True)
+    history_dict[imdb_id] = {
+        "title": title,
+        "year": str(year),
+        "checked_at": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+    }
+    try:
+        with open(NO_SUBS_HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(history_dict, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Gagal mengemas kini {NO_SUBS_HISTORY_FILE}: {e}")
 
 def fetch_dynamic_cinemeta_queue() -> list[dict]:
     """
@@ -98,7 +127,7 @@ def fetch_dynamic_cinemeta_queue() -> list[dict]:
 def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
     """
     Melaksanakan pengikisan kelompok berjadual secara modular.
-    Memproses calon filem segar yang belum pernah dikikis ke B2.
+    Memproses calon filem segar yang belum pernah dikikis ke B2 atau disahkan tiada sub.
     """
     print("=" * 80)
     print(f"🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER")
@@ -106,9 +135,14 @@ def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
     print(f"   └─ Sela Masa (Delay)   : {delay_sec} saat")
     print("=" * 80)
 
+    # Muat turun rekod tajuk tiada sarikata sedia ada
+    no_subs_history = load_no_subs_history()
+    print(f"📋 Rekod 'Tiada Sarikata' sedia ada dalam memori: {len(no_subs_history)} tajuk.")
+
     candidates = fetch_dynamic_cinemeta_queue()
     processed_count = 0
-    skipped_count = 0
+    skipped_exist_count = 0
+    skipped_no_subs_count = 0
 
     for item in candidates:
         if processed_count >= target_limit:
@@ -119,31 +153,40 @@ def run_batch_cron_scrape(target_limit: int = 15, delay_sec: float = 1.0):
         movie_title = item["title"]
         movie_year = item.get("year", "")
 
-        # 1. Semak rekod tempatan - jika sudah ada di B2/Redis, langkau
+        # 1. Semak rekod kejayaan tempatan (jika sudah ada di B2/Redis, langkau)
         if _history.is_imdb_processed(imdb_id):
-            skipped_count += 1
+            skipped_exist_count += 1
+            continue
+
+        # 2. Semak rekod tajuk tiada sarikata (jika sudah pernah disemak dan tiada sub BM/ID, langkau)
+        if imdb_id in no_subs_history:
+            skipped_no_subs_count += 1
             continue
 
         print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses Calon Segar: {movie_title} ({movie_year}) -> {imdb_id}")
 
-        # 2. Panggil enjin on-demand yang lengkap dengan Camoufox, Smart Scorer, & Private B2 Proxy
+        # 3. Panggil enjin on-demand yang lengkap
         try:
             success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title)
             if success:
                 processed_count += 1
                 print(f"   ✅ Berjaya memuat naik sarikata bagi {movie_title} ({imdb_id})")
             else:
-                print(f"   ⚠️ Tiada sarikata BM/ID ditemui untuk {movie_title} ({imdb_id})")
+                # Rekodkan ke dalam no_subs_history.json supaya pusingan seterusnya terus skip
+                save_no_subs_record(no_subs_history, imdb_id, movie_title, movie_year)
+                print(f"   ⚠️ Tiada sarikata BM/ID ditemui. Disimpan ke rekod no_subs: {movie_title} ({imdb_id})")
         except Exception as e:
             print(f"   ❌ Ralat memproses {imdb_id}: {e}")
 
         time.sleep(delay_sec)
 
+    total_skipped = skipped_exist_count + skipped_no_subs_count
     print("\n" + "=" * 80)
     print(f"✨ TUGASAN CRON BATCH SELESAI")
     print(f"   ├─ Tajuk Baharu Diproses & Dimuat Naik : {processed_count}")
-    print(f"   ├─ Tajuk Dilangkau Kerana Sudah Wujud  : {skipped_count}")
-    print(f"   └─ Baki Calon Dalam Kolam Cinemeta     : {max(0, len(candidates) - (processed_count + skipped_count))}")
+    print(f"   ├─ Tajuk Dilangkau Kerana Sudah Wujud  : {skipped_exist_count}")
+    print(f"   ├─ Tajuk Dilangkau Kerana Tiada Sub    : {skipped_no_subs_count}")
+    print(f"   └─ Baki Calon Dalam Kolam Cinemeta     : {max(0, len(candidates) - (processed_count + total_skipped))}")
     print("=" * 80)
 
 if __name__ == "__main__":
