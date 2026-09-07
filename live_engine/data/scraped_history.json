@@ -3541,7 +3541,3273 @@
           "acc": 1
         }
       ]
+    },
+    "tt12042730": {
+      "updated_at": 1788743379,
+      "sub_count": 3,
+      "subtitles": [
+        {
+          "id": "3369512_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt12042730/id_3369512_0.srt",
+          "release": "IndonesianProject.Hail.Mary.2026.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3369511_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt12042730/id_3369511_0.srt",
+          "release": "IndonesianProject.Hail.Mary.2026.1080p.TELESYNC.HC.x264-SyncUP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3369960_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt12042730/id_3369960_0.srt",
+          "release": "IndonesianProject Hail Mary 2026 WEB-DL HEVC x265 5.1 BONE",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0098384": {
+      "updated_at": 1788743479,
+      "sub_count": 4,
+      "subtitles": [
+        {
+          "id": "2886952_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0098384/id_2886952_0.srt",
+          "release": "IndonesianSteel.Magnolias.1989.WEBRip.Netflix",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2886952_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0098384/id_2886952_0.srt",
+          "release": "IndonesianSteel.Magnolias.1989.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2053174_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0098384/id_2053174_0.srt",
+          "release": "IndonesianSteel.Magnolias.1989.1080p.BluRay.x264.Indonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2889343_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0098384/id_2889343_0.srt",
+          "release": "IndonesianSteel.Magnolias.1989.1080p.BluRay.X264-AMIABLE",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0088930": {
+      "updated_at": 1788743494,
+      "sub_count": 2,
+      "subtitles": [
+        {
+          "id": "893001_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0088930/id_893001_0.srt",
+          "release": "IndonesianClue.1985.720p.BluRay.X264-AMIABLE.idfl",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "893001_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0088930/id_893001_0.srt",
+          "release": "IndonesianClue.1985.1080p.BDRip.H264.AAC-KiNGDOM.idfl",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt32565993": {
+      "updated_at": 1788743569,
+      "sub_count": 1,
+      "subtitles": [
+        {
+          "id": "2931431_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt32565993/id_2931431_0.srt",
+          "release": "IndonesianDetective Conan’s Detectives",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0073629": {
+      "updated_at": 1788743588,
+      "sub_count": 3,
+      "subtitles": [
+        {
+          "id": "1470396_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0073629/id_1470396_0.srt",
+          "release": "IndonesianThe.Rocky.Horror.Picture.Show.1975.Bluray.720p.1080p.YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2496576_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0073629/id_2496576_0.srt",
+          "release": "IndonesianThe.Rocky.Horror.Picture.Show.1975.1080p.BluRay.DTS.x264-Iva...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2256981_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0073629/id_2256981_0.srt",
+          "release": "IndonesianThe Rocky Horror Picture Show 1975 BluRay x264-Pahe.in",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt4154796": {
+      "updated_at": 1788744104,
+      "sub_count": 277,
+      "subtitles": [
+        {
+          "id": "2891262_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2891262_0.srt",
+          "release": "IndonesianThe Avengers: Endgame (2019) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2112522_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2112522_0.srt",
+          "release": "IndonesianEndgame.2019.All.BluRayRip.720p.1080p.Indo.Red.D'7.Nazaret.S...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024260_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024260_0.srt",
+          "release": "IndonesianAvengers: Endgame (2019) WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023655_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023655_0.srt",
+          "release": "IndonesianAvengers: Endgame (2019) HDRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1978064_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1978064_0.srt",
+          "release": "IndonesianAvengers: Endgame (2019) HC HDTS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2025050_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2025050_0.srt",
+          "release": "IndonesianAvengers: Endgame (2019) Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEBRip.XviD.MP3-XVID",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEBRip.x264-ION10",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEB-DL.SUBPACK-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024141_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024141_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.WEB-DL.HDRip.MisterrrFahrenheit",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026732_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026732_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.SemuaBluray.480p-720p-1080p..Pahe.in",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2388833_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2388833_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.INTERNAL.HDR.2160p.WEB.H265-DEFLATE",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2620688_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2620688_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.IMAX.1080p.DSNP.WEBRip.DDP5.1.Atmos.x2...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2620696_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2620696_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.IMAX.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2019089_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2019089_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.HDTC.HDTS.Misterrr.Fahrenheit",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976486_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976486_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024496_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024496_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.Digital.Extras",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2652947_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2652947_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.720p.BluRay.x264-indo BY TUAN NOBODY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024730_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024730_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.480p.720p.1080p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p/2160p.WEB-DL.x265.10bit.HDR10Plu...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p.WEBRip.x264/x265-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p.WEB-DL.H264.DDP5.1-EVO",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p.WEB-DL.DDP7.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2463065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2463065_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p.WEB-DL.AAC2.0.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024537_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024537_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023992_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023992_0.srt",
+          "release": "IndonesianAvengers.Endgame.2019.1080.x264.WEB-DL.ind",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDCAM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDCAM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980182_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1980182_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019.720p.HDCAM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005089_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005089_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HDTC-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005089_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005089_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HDTC-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005089_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005089_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HDTC-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981605_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981605_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HD-TC-720p-480p.WWW.SE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981605_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981605_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HD-TC-720p-480p.WWW.SE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981605_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981605_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HD-TC-720p-480p.WWW.SE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981605_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981605_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-XBET-NEW-SOURCE-HD-TC-720p-480p.WWW.SE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981599_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981599_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p.WWW.SEBUAH-...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981599_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981599_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p.WWW.SEBUAH-...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981599_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981599_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p.WWW.SEBUAH-...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981599_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981599_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p.WWW.SEBUAH-...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_4.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_5.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Xbet-NEW-HDCAM-BONSAI-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021689_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021689_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88-HDRip-ETRG-720p-480...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021689_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021689_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88-HDRip-ETRG-720p-480...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021689_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021689_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88-HDRip-ETRG-720p-480...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021689_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021689_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88-HDRip-ETRG-720p-480...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021656_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021656_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021656_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021656_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021656_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021656_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021656_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021656_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-X264-ORCA88",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023783_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023783_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-WEBDL-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023783_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023783_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBRip-WEBDL-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021717_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021717_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WebRip-HDRip-Orca",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2021717_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2021717_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WebRip-HDRip-Orca",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023865_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023865_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-RETAIL-ITUNES-720p-480p.1080p.WW...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023865_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023865_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-RETAIL-ITUNES-720p-480p.1080p.WW...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023865_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023865_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-RETAIL-ITUNES-720p-480p.1080p.WW...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023865_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023865_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-RETAIL-ITUNES-720p-480p.1080p.WW...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023804_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023804_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-iTunes-720p-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023804_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023804_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-iTunes-720p-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023804_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023804_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEBDL-iTunes-720p-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024073_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024073_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEB-DL-iTunes-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024073_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024073_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEB-DL-iTunes-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024499_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024499_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEB-DL-1080p-720p-Pahe.in",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024499_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024499_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-WEB-DL-1080p-720p-DEFLATE",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981602_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981602_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDTS-HC-1080p.WWW....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981602_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981602_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDTS-HC-1080p.WWW....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981602_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981602_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDTS-HC-1080p.WWW....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981602_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981602_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDTS-HC-1080p.WWW....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_4.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_5.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-Will1869-TS-HDT-HC-1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981603_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981603_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-TC-HDTC-Special-Gold-Edition.W...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981603_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981603_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-TC-HDTC-Special-Gold-Edition.W...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981603_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981603_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-TC-HDTC-Special-Gold-Edition.W...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981603_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981603_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-TC-HDTC-Special-Gold-Edition.W...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1994366_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1994366_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-x264-TC-HDTC-Special-Gold-Edition",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976803_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976803_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V3-HDTC-x264-480p-720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976620_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976620_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-HC-HDTS-HDTC-SPECIAL-GOLD-EDITION-1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976620_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976620_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-HC-HDTS-HDTC-SPECIAL-GOLD-EDITION-1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976620_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976620_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-HC-HDTS-HDTC-SPECIAL-GOLD-EDITION-1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976620_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976620_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-HC-HDTS-HDTC-SPECIAL-GOLD-EDITION-1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_4.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005091_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005091_5.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v3-1080p-HDTC-GOLD-EDITION-x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023467_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023467_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDRip-EVO-720p-480p.1080p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023467_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023467_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDRip-EVO-720p-480p.1080p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023467_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023467_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDRip-EVO-720p-480p.1080p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023467_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023467_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDRip-EVO-720p-480p.1080p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981600_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981600_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein.WWW.SEBU...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981600_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981600_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein.WWW.SEBU...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981600_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981600_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein.WWW.SEBU...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981600_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981600_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein.WWW.SEBU...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_4.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005093_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005093_5.srt",
+          "release": "IndonesianAvengers-Endgame-2019-V2-HDCAM-NOADS-Max-Rls-Pahein",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976404_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976404_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v2-HDCam-NO-ADDS-PAHE-in-Will1869-MaxR...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976404_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976404_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v2-HDCam-NO-ADDS-PAHE-in-Will1869-MaxR...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976404_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976404_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v2-HDCam-NO-ADDS-PAHE-in-Will1869-MaxR...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976404_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976404_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-v2-HDCam-NO-ADDS-PAHE-in-Will1869-MaxR...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026154_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026154_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-UHD-BluRay-Remux-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026154_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026154_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-UHD-BluRay-Remux-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981597_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981597_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TS-ANON-720p.WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981597_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981597_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TS-ANON-720p.WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981597_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981597_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TS-ANON-720p.WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981597_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981597_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TS-ANON-720p.WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2004310_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2004310_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-NEW-HDTC-x264-MkvHub-720p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2004310_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2004310_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-NEW-HDTC-x264-MkvHub-720p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2004310_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2004310_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-NEW-HDTC-x264-MkvHub-720p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2004310_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2004310_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-NEW-HDTC-x264-MkvHub-720p.WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005087_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005087_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-HDTC-1080p-AC3-CRYS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005087_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005087_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-HDTC-1080p-AC3-CRYS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005087_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005087_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-HDTC-1080p-AC3-CRYS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1983240_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1983240_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-1080p-AC3-CRYS.WWW.SEB...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1983240_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1983240_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-1080p-AC3-CRYS.WWW.SEB...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1983240_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1983240_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-1080p-AC3-CRYS.WWW.SEB...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1983240_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1983240_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-TC-HDTC-BLURRED-1080p-AC3-CRYS.WWW.SEB...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2001825_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2001825_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-TC-HDTC-ETRG-FHDRip-H264-AAC-RTM...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2001825_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2001825_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-TC-HDTC-ETRG-FHDRip-H264-AAC-RTM...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2001825_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2001825_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-TC-HDTC-ETRG-FHDRip-H264-AAC-RTM...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2001825_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2001825_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-TC-HDTC-ETRG-FHDRip-H264-AAC-RTM...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023363_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023363_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-HDRip-x265-X264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023363_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023363_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-HDRip-x265-X264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023466_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023466_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-HDRip-x264-Pahein-MKVCage-EVO-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023466_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023466_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-HDRip-x264-Pahein-MKVCage-EVO-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023466_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023466_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-HDRip-x264-Pahein-MKVCage-EVO-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023466_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023466_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-HDRip-x264-Pahein-MKVCage-EVO-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023182_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023182_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-HDRip-x264-PAHE.in-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023182_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023182_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-HDRip-x264-PAHE.in-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023182_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2023182_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-HDRip-x264-PAHE.in-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024482_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024482_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024482_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024482_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024482_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024482_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024482_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024482_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024509_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024509_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BRRip-Bluray-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024509_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024509_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BRRip-Bluray-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024483_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024483_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BRRip-Bluray-X264-720p-SPARKS-Ga...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024483_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024483_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BRRip-Bluray-X264-720p-SPARKS-Ga...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024483_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024483_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BRRip-Bluray-X264-720p-SPARKS-Ga...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024463_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024463_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BrRip-BluRay-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024463_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024463_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BrRip-BluRay-Retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024512_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024512_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BluRay-720p-1080p-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024512_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024512_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BluRay-720p-1080p-Pahe",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024512_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024512_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BluRay-720p-1080p-2160p-PSArips",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024512_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024512_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-Semua-BluRay-720p-1080p-2160p-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981598_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981598_0.srt",
+          "release": "Indonesian[email protected]...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981598_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981598_1.srt",
+          "release": "Indonesian[email protected]...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981598_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981598_2.srt",
+          "release": "Indonesian[email protected]...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981598_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981598_3.srt",
+          "release": "Indonesian[email protected]...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981604_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981604_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981604_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981604_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981604_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981604_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981604_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981604_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005088_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005088_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005088_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005088_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005088_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005088_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-MkvCage-720p-480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005090_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005090_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-ETRG-FHDRip-H264-AAC-RTM-1080p-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005090_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005090_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-ETRG-FHDRip-H264-AAC-RTM-1080p-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005090_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005090_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDTC-ETRG-FHDRip-H264-AAC-RTM-1080p-72...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005037_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005037_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDRip-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005037_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005037_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDRip-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005037_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005037_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HDRip-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981601_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981601_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HC-CAMRip-MkvCage-ETRG-720p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981601_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981601_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HC-CAMRip-MkvCage-ETRG-720p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981601_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981601_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HC-CAMRip-MkvCage-ETRG-720p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981601_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1981601_3.srt",
+          "release": "IndonesianAvengers-Endgame-2019-HC-CAMRip-MkvCage-ETRG-720p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024456_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2024456_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-BRRip-Bluray-BDRip.XviD-AC3-XVID",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005086_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005086_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-720p-NEW-HDTC-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005086_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005086_1.srt",
+          "release": "IndonesianAvengers-Endgame-2019-720p-NEW-HDTC-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2005086_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2005086_2.srt",
+          "release": "IndonesianAvengers-Endgame-2019-720p-NEW-HDTC-x264-MkvHub",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3231210_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_3231210_0.srt",
+          "release": "IndonesianAvengers-Endgame-2019-1080p-BluRay-[YTS.LT]-[Fishmaang]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976487_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976487_0.srt",
+          "release": "IndonesianAvengers EndGame 2019 HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976330_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1976330_0.srt",
+          "release": "IndonesianAvengers Endgame (2019) HDCAM Indonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1977070_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1977070_0.srt",
+          "release": "IndonesianAvengers :  endgame Hd Low (hd cam )",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1965532_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1965532_0.srt",
+          "release": "Indonesian-->TRAILER<-- Avengers: Endgame Special Clip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1949478_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1949478_0.srt",
+          "release": "Indonesian-->TRAILER<-- Avengers Endgame Trailer #2",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1927011_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_1927011_0.srt",
+          "release": "Indonesian-->TRAILER<-- Avengers Endgame Super Bowl TV Spot 2019",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026371_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026371_0.srt",
+          "release": "Indonesian\"Avengers: Endgame\" terjemahan bahasa Indonesia oleh Sleepy_...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026371_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026371_1.srt",
+          "release": "Indonesian\"Avengers: Endgame\" terjemahan bahasa Indonesia oleh Sleepy_...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026371_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/id_2026371_2.srt",
+          "release": "Indonesian\"Avengers: Endgame\" terjemahan bahasa Indonesia oleh Sleepy_...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1978981_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1978981_0.srt",
+          "release": "MalayEndgame",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1976981_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1976981_0.srt",
+          "release": "Malaybad thief good thief",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-BRRip.XViD.AC3-EVO",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-BDRip.x264-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BRRip.x264.MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BrRip.2CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BluRay.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BluRay.HEVC.x265-RMTeam",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-720p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-1080p.BluRay.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026565_0.srt",
+          "release": "MalayAvengers:Endgame.2019-1080p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980006_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1980006_0.srt",
+          "release": "MalayAvengers: Endgame by boangskuy",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2026721_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2026721_0.srt",
+          "release": "MalayAvengers: Endgame",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023928_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2023928_0.srt",
+          "release": "MalayAvengers.Endgame.2019.WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2836597_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2836597_0.srt",
+          "release": "MalayAvengers.Endgame.2019.IMAX.1080p.WEB-DL.x265.10Bit.6CH",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3144178_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_3144178_0.srt",
+          "release": "MalayAvengers.Endgame.2019.IMAX.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3144178_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_3144178_1.srt",
+          "release": "MalayAvengers.Endgame.2019.IMAX.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981037_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1981037_0.srt",
+          "release": "MalayAvengers.Endgame.2019.HDTC.SPECIAL-1337x-EDITION.x264-Galaxy...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1977738_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1977738_0.srt",
+          "release": "MalayAvengers.Endgame.2019.HDTC.",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1977790_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1977790_0.srt",
+          "release": "MalayAvengers.Endgame.2019.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1977291_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1977291_0.srt",
+          "release": "MalayAvengers.Endgame.2019.HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023993_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2023993_0.srt",
+          "release": "MalayAvengers.Endgame.2019.ALL.WEBRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2041056_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2041056_0.srt",
+          "release": "MalayAvengers.Endgame.2019.All.BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023993_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2023993_0.srt",
+          "release": "MalayAvengers.Endgame.2019.720p.WEBRip.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2002519_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2002519_0.srt",
+          "release": "MalayAvengers.Endgame.2019.720p.HDTC.x264-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1979458_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1979458_0.srt",
+          "release": "MalayAvengers.Endgame.2019.720p.HDTC.x264-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1977296_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1977296_0.srt",
+          "release": "MalayAvengers.Endgame.2019.720p.HC.CAMRip.x264-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1980060_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1980060_0.srt",
+          "release": "MalayAvengers.Endgame.2019.720p.HC.CAMRip.x264-MkvCage",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2023993_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2023993_0.srt",
+          "release": "MalayAvengers.Endgame.2019.1080p.WEBRip.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3144178_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_3144178_0.srt",
+          "release": "MalayAvengers.Endgame.2019.1080p.BluRay.x264.DTS-HD.MA.7.1-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3144178_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_3144178_1.srt",
+          "release": "MalayAvengers.Endgame.2019.1080p.BluRay.x264.DTS-HD.MA.7.1-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_0.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_1.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_2.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_0.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_1.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_2.srt",
+          "release": "MalayAvengers-Endgame-2019-720p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_0.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_1.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024275_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024275_2.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-WEB-DL-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_0.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_1.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024585_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024585_2.srt",
+          "release": "MalayAvengers-Endgame-2019-1080p-Semua-Blu-Ray-Amir-Rahman",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1981931_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1981931_0.srt",
+          "release": "MalayAvengers Endgame.2019 HDTC 480p.720p.1080p.Perbaikan Kata An...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1978742_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1978742_0.srt",
+          "release": "MalayAvengers Endgame hdts",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1990813_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_1990813_0.srt",
+          "release": "MalayAvengers Endgame (2019) 720p Semua HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2052813_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2052813_0.srt",
+          "release": "MalayAvengers - Endgame Sub Malay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDTC",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip with Ads",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip with Ads",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip with Ads",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip with Ads",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip Proper",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip Proper",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip Proper",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) HDRip Proper",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_0.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_1.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_2.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2024466_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4154796/ms_2024466_3.srt",
+          "release": "Malay100Malay ★ Avengers: Endgame (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt31195136": {
+      "updated_at": 1788744119,
+      "sub_count": 2,
+      "subtitles": [
+        {
+          "id": "3369899_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31195136/id_3369899_0.srt",
+          "release": "IndonesianNormal.2025.WEBRIP-CinemaCity..English",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3369900_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31195136/id_3369900_0.srt",
+          "release": "IndonesianNormal.2025.WEB-DL.DDP5.1.H.264.",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt11378946": {
+      "updated_at": 1788744140,
+      "sub_count": 4,
+      "subtitles": [
+        {
+          "id": "3370537_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt11378946/id_3370537_0.srt",
+          "release": "IndonesianMichael.2026.WEBRip.x264.AAC-[YTS.BZ]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3370537_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt11378946/id_3370537_0.srt",
+          "release": "IndonesianMichael.2026.WEB-DL.x264-Pahe.in",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3369826_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt11378946/id_3369826_0.srt",
+          "release": "IndonesianMichael.2026.1080p.TELESYNC.V2.x264-SyncUP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3369801_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt11378946/id_3369801_0.srt",
+          "release": "IndonesianMichael.2026.1080p.HDTS.h265.Dual YG",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0120791": {
+      "updated_at": 1788744217,
+      "sub_count": 5,
+      "subtitles": [
+        {
+          "id": "471210_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120791/id_471210_0.srt",
+          "release": "IndonesianPractical Magic Indonesian Subtitlt",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1499260_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120791/id_1499260_0.srt",
+          "release": "IndonesianPractical Magic (1998) BluRay 720p Ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3202035_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120791/ms_3202035_0.srt",
+          "release": "MalayPractical.Magic.1998.BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3202035_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120791/ms_3202035_1.srt",
+          "release": "MalayPractical.Magic.1998.BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1473460_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120791/ms_1473460_0.srt",
+          "release": "MalayPractical Magic (1998) BluRay",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0099371": {
+      "updated_at": 1788744257,
+      "sub_count": 7,
+      "subtitles": [
+        {
+          "id": "2802796_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/id_2802796_0.srt",
+          "release": "IndonesianDays.of.Thunder.1990.REMASTERED.ALL.BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2114270_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/id_2114270_0.srt",
+          "release": "IndonesianDays.of.Thunder.1990.1080p.BluRay.x264.DTS-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "889945_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/id_889945_0.srt",
+          "release": "IndonesianDays Of Thunder | YIFY 720p 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "888608_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/id_888608_0.srt",
+          "release": "IndonesianDays Of Thunder (1990) 720p BrRip x264 - 750MB - YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "993517_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/id_993517_0.srt",
+          "release": "IndonesianDays Of Thunder (1990) 720p BrRip x264 - 750MB - YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2629703_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/ms_2629703_0.srt",
+          "release": "MalayDays.of.Thunder.1990.1080p.BluRay.x264.DTS-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "888607_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0099371/ms_888607_0.srt",
+          "release": "MalayDays Of Thunder (1990) 720p BrRip x264 - 750MB - YIFY",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt0111161": {
+      "updated_at": 1788744407,
+      "sub_count": 52,
+      "subtitles": [
+        {
+          "id": "652704_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_652704_0.srt",
+          "release": "IndonesianTheShawshankRedemption.1994.BluRay1080p.srt",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "388284_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_388284_0.srt",
+          "release": "IndonesianThe.Shawwshank.Redemption.1994",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "415329_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_415329_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemtion.BRRip.1994.Resync",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2115578_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2115578_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.SEMUA.BluRay-ID",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2115578_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2115578_1.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.SEMUA.BluRay-ID",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2645228_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2645228_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.REMASTERED.ALL.Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2390268_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2390268_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.Hybrid.1080p.BluRay.x265.10Bit...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2390268_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2390268_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.Hybrid.1080p.BluRay.REMUX.AVC....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_1.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_2.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_3.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_4.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_5.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_6.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_7.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "417860_8",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_417860_8.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.BRRip.mHD.HDTV.resync.[origina...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "547179_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_547179_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.720p.BluRay.x264-SiNNERS.id-mu...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2579629_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2579629_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.2160p.BluRay.x264.8bit.SDR.DTS...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "744327_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_744327_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.1080p.x264.YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2543098_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_2543098_0.srt",
+          "release": "IndonesianThe.Shawshank.Redemption.1994.1080p.BluRay.x264.DTS-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "360040_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_360040_0.srt",
+          "release": "IndonesianThe Shawshank Redemption[1994]DvDrip[Eng]-FXG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "767254_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_767254_0.srt",
+          "release": "IndonesianThe Shawshank Redemption.720pDrip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "814217_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_814217_0.srt",
+          "release": "IndonesianThe Shawshank Redemption [1994] DVDRiP.aXXo.id",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "388906_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_388906_0.srt",
+          "release": "IndonesianThe Shawshank Redemption Indonesia for MKV DVDrip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "367313_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_367313_0.srt",
+          "release": "IndonesianThe Shawshank Redemption Indonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "312478_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_312478_0.srt",
+          "release": "IndonesianThe Shawshank Redemption DVDRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1148268_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_1148268_0.srt",
+          "release": "IndonesianThe Shawshank Redemption (1994)-INDONESIA720p.1080p,jauhdeka...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1542094_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_1542094_0.srt",
+          "release": "IndonesianTHE SHAWSHANK REDEMPTION (1994)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "721390_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_721390_0.srt",
+          "release": "IndonesianThe Shawshank Redemption",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "311461_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_311461_0.srt",
+          "release": "Indonesianshawshank-redemption",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_0.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_1.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_2.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_3.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_4.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_5.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_6.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_7.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_8",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_8.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_9",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_9.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_10",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_10.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_11",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_11.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_12",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_12.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_13",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_13.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "499398_14",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/id_499398_14.srt",
+          "release": "IndonesianDVDRip-BRRip-BluRay-HDTV Releases",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3339952_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_3339952_0.srt",
+          "release": "MalayThe.Shawshank.Redemption.1994.1080p.BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2696671_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_2696671_0.srt",
+          "release": "MalayThe Shawshank Redemption 1994 1080p GBR Blu-ray AVC DTS-HD M...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "744138_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_744138_0.srt",
+          "release": "MalayThe Shawshank Redemption (1994) BluRay 720p x264 - MIA",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "744138_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_744138_0.srt",
+          "release": "MalayThe Shawshank Redemption (1994) BluRay 1080p x264 - MIA",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2696671_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_2696671_0.srt",
+          "release": "MalayThe Shawshank Redemption (1994) (REMASTERED 4K, MS)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1247887_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0111161/ms_1247887_0.srt",
+          "release": "MalayThe Shawshank Redemption (1994)",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt29355505": {
+      "updated_at": 1788744424,
+      "sub_count": 3,
+      "subtitles": [
+        {
+          "id": "3372372_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt29355505/id_3372372_0.srt",
+          "release": "IndonesianToy.Story.5.2026.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3370809_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt29355505/id_3370809_0.srt",
+          "release": "IndonesianToy.Story.5.2026.CAM-Rip-OnlyFlix.1080p.Indonesian",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3370817_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt29355505/id_3370817_0.srt",
+          "release": "IndonesianToy.Story.5.2026.1080p.Telesync.h264.Dual YG",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt1591095": {
+      "updated_at": 1788744525,
+      "sub_count": 28,
+      "subtitles": [
+        {
+          "id": "446320_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_446320_0.srt",
+          "release": "IndonesianInsidiousInd",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "456860_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_456860_0.srt",
+          "release": "IndonesianInsidious2010",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "431838_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_431838_0.srt",
+          "release": "IndonesianInsidious.2011.R5.LiNE.XViD-IMAGiNE",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "501185_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_501185_0.srt",
+          "release": "IndonesianInsidious.2011.R5.LiNE.XViD-IMAGiNE",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "431839_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_431839_0.srt",
+          "release": "IndonesianInsidious.2011.R5.LiNE.XViD-IMAGiNE",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "452052_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_452052_0.srt",
+          "release": "IndonesianInsidious.2010.BluRay.BRRip.RETAiL.PROPER.Ganool.MHD.ScOrp.S...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "749082_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_749082_0.srt",
+          "release": "IndonesianInsidious.2010.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "793754_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_793754_0.srt",
+          "release": "IndonesianInsidious.2010.720p.BluRay.x264.DTS-WiKi.id[RESYNC for 1080p...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "459692_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_459692_0.srt",
+          "release": "IndonesianInsidious.2010.720p.BluRay.x264.DTS-WiKi",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "874801_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_874801_0.srt",
+          "release": "IndonesianInsidious.2010.720p.Bluray.PROPER",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "522624_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_522624_0.srt",
+          "release": "IndonesianInsidious.2010.1080p.BluRay.x264.DTS-WiKi",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "802979_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_802979_0.srt",
+          "release": "IndonesianInsidious [2011]-480p-R5-LiNE-x264-StyLishSaLH",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "474733_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_474733_0.srt",
+          "release": "IndonesianInsidious BDRip. 1080p Ganool Resync.by.alpha",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "450352_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_450352_0.srt",
+          "release": "IndonesianInsidious 2011 BDRip.720p.x264.DTS Ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "686654_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_686654_0.srt",
+          "release": "IndonesianInsidious 2011 1080p BluRay (RC)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "431792_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_431792_0.srt",
+          "release": "IndonesianInsidious 2011  R5",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3101361_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_3101361_0.srt",
+          "release": "IndonesianInsidious 2010 (1080p x265 10bit Tigole)-retail",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2958873_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_2958873_0.srt",
+          "release": "IndonesianInsidious (2010) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "776421_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_776421_0.srt",
+          "release": "IndonesianInsidious (2010) BRrip 720p ZUDAH",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "450327_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/id_450327_0.srt",
+          "release": "IndonesianBRrip  mediafire4u",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "440392_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_440392_0.srt",
+          "release": "MalayInsidious.2011.R5.DVDRip.Cleaned.AC3.XVID.HQ.Hive-CM8",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "814146_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_814146_0.srt",
+          "release": "MalayInsidious I 2010 720p BD",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "814146_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_814146_0.srt",
+          "release": "MalayInsidious I 2010 1080p BD",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "470668_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_470668_0.srt",
+          "release": "MalayInsidious BRRip 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1149333_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_1149333_0.srt",
+          "release": "MalayInsidious (2010) 720p Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2200414_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_2200414_0.srt",
+          "release": "MalayInsidious (2010) 1080p BluRay Duration 1:42:52",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1149335_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_1149335_0.srt",
+          "release": "MalayInsidious (2010) 1080p Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "454635_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1591095/ms_454635_0.srt",
+          "release": "Malay1080p 720p-HDChina WiKi Other brrip but RC brrip will works ...",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt27681354": {
+      "updated_at": 1788744541,
+      "sub_count": 2,
+      "subtitles": [
+        {
+          "id": "3370177_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt27681354/id_3370177_0.srt",
+          "release": "IndonesianIn.the.Grey.2026.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3370176_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt27681354/id_3370176_0.srt",
+          "release": "IndonesianIn.the.Grey.2026.TS-OnlyFlix.1080p.English",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
+    },
+    "tt31170389": {
+      "updated_at": 1788744594,
+      "sub_count": 4,
+      "subtitles": [
+        {
+          "id": "3371828_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31170389/id_3371828_0.srt",
+          "release": "Indonesianvil.Dead.Burn.2026.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3372154_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31170389/id_3372154_0.srt",
+          "release": "IndonesianEvil.Dead.Burn.2026.WEB-DL.1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3371827_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31170389/id_3371827_0.srt",
+          "release": "IndonesianEvil.Dead.Burn.2026.CAM-Rip-OnlyFlix.1080p.English",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3371845_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt31170389/id_3371845_0.srt",
+          "release": "IndonesianEvil.Dead.Burn.2026.1080p.TELESYNC.x264-DKS",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
     }
   },
-  "total_items": 17
+  "total_items": 32
 }
