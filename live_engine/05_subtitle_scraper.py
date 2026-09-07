@@ -55,12 +55,12 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
     if c_year and t_year:
         year_diff = abs(c_year - t_year)
         if year_diff > 1:
-            # Jurang melebihi 1 tahun (cth: 2012 vs 1998, 2026 vs 2006) -> Tolak serta-merta!
+            # Jurang melebihi 1 tahun (cth: 2012 vs 2017) -> Tolak serta-merta!
             return -999
         elif year_diff == 0:
             score = 50
         else:
-            # Toleransi selisih 1 tahun dibenarkan (cth: 1997 vs 1998 bagi Good Will Hunting)
+            # Toleransi selisih 1 tahun dibenarkan
             score = 35
     elif t_year and not c_year:
         # Calon di Subscene belum diletakkan tahun
@@ -79,11 +79,19 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
     c_clean_words = set(re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split())
     t_words = re.sub(r"[^a-zA-Z0-9\s]", " ", t_lower).split()
 
-    # 3. Semakan Perkataan Utama (Content Words Coverage)
+    # 3. Semakan Perkataan Utama (Content Words Coverage) & Single-Word Guard
     t_content_words = [w for w in t_words if w not in STOP_WORDS and len(w) > 1]
     
     if t_content_words:
-        # Semak perkataan teras pertama (cth: "Terminator", "Avengers", "Hangover")
+        # Penapis Tegas Kata Tunggal (Single-Word Guard):
+        # Jika sasaran cuma 1 perkataan (cth: "Heat", "Troy", "Jaws") tetapi calon ada perkataan tambahan berlebihan
+        if len(t_content_words) == 1:
+            if t_content_words[0] not in c_clean_words:
+                return -999
+            c_content_count = len([w for w in re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split() if w not in STOP_WORDS and len(w) > 1])
+            if c_content_count > 3 and not any(sub in c_lower for sub in ["the movie", "part", "vol"]):
+                return -999
+
         if t_content_words[0] not in c_clean_words:
             score -= 40
 
@@ -219,7 +227,6 @@ def search_subscene(
         try:
             raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(target_imdb))
             if raw_movies:
-                # Wajib sahkan calon IMDb ID terhadap tajuk/tahun sebenar bagi menepis metadata rosak (cth: Amigo TV)
                 verified = pick_best_movie_matches(raw_movies, target_title=clean_query, target_year=year, top_k=top_k)
                 if verified:
                     best_movies = verified
@@ -238,8 +245,11 @@ def search_subscene(
         if target_imdb:
             print(f"🔄 Mengaktifkan mod sandaran: Carian tajuk teks...")
 
-        # Jika tajuk pendek (<=3 huruf cth: 'It'), gabungkan tahun terus dalam kata carian
-        search_text = f"{clean_query} {year}".strip() if len(clean_query) <= 3 and year else clean_query
+        # Jika tajuk pendek (<=6 huruf cth: 'Heat', 'It'), gabungkan tahun terus untuk carian tepat di Subscene
+        if len(clean_query) <= 6 and year:
+            search_text = f"{clean_query} {year}".strip()
+        else:
+            search_text = clean_query
 
         print(f"🔎 [Peringkat 2] Carian Sandaran Teks: '{search_text}' (Tahun: {year})")
         try:
@@ -251,7 +261,7 @@ def search_subscene(
         except Exception as e:
             print(f"   ❌ Ralat semasa carian teks: {e}")
 
-        # Variasi sandaran: Jika bermula dengan perkataan 'The ' dan tiada padanan, cuba buang 'The ' (cth: 'The Hangover' -> 'Hangover')
+        # Variasi sandaran: Jika bermula dengan awalan 'The '
         if not best_movies and clean_query.lower().startswith("the ") and len(clean_query) > 6:
             alt_query = clean_query[4:].strip()
             print(f"🔎 [Peringkat 2 - Variasi] Mencuba tanpa awalan 'The': '{alt_query}' (Tahun: {year})")
@@ -269,7 +279,6 @@ def search_subscene(
     if not best_movies:
         return [], None
 
-    # Sambungkan kuki Turnstile ke curl-cffi untuk muat turun sarikata
     session = requests.Session(impersonate="chrome120")
     for k, v in cookies.items():
         session.cookies.set(k, v, domain="sub-scene.com")
