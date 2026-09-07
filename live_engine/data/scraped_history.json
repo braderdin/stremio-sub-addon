@@ -3133,7 +3133,221 @@
           "acc": 1
         }
       ]
+    },
+    "tt0318627": {
+      "updated_at": 1788740636,
+      "sub_count": 26,
+      "subtitles": [
+        {
+          "id": "1336554_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_1336554_0.srt",
+          "release": "EnglishResident Evil Apocalypse (2004) 720p BluRay x264 [Dual Audio...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2734082_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_2734082_0.srt",
+          "release": "IndonesianResident.Evil.Apocalypse.2004.WEB-DL.NF",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1641749_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1641749_0.srt",
+          "release": "IndonesianResident.Evil.Apocalypse.2004.Semua.Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2341119_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_2341119_0.srt",
+          "release": "IndonesianResident.Evil.Apocalypse.2004.EXTENDED.UHD.BluRay.2160p.True...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2332426_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_2332426_0.srt",
+          "release": "IndonesianResident.Evil.Apocalypse.2004.EXTENDED.BluRay.480p.720p.1080...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2734083_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_2734083_0.srt",
+          "release": "IndonesianResident.Evil.Apocalypse.2004.BluRay (Not Extended Version)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "559471_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_559471_0.srt",
+          "release": "IndonesianResident EvilApocalypse one",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "311724_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_311724_0.srt",
+          "release": "IndonesianResident EvilApocalypse",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "531433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_531433_0.srt",
+          "release": "IndonesianResident EvilApocalypse",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "374491_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_374491_0.srt",
+          "release": "IndonesianResident Evil ApocalypseIndonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "390173_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_390173_0.srt",
+          "release": "IndonesianResident Evil Apocalypse 2004 BRrip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "667563_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_667563_0.srt",
+          "release": "IndonesianResident Evil Apocalypse (2004) All BRRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1694300_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1694300_0.srt",
+          "release": "IndonesianResident Evil 2: Apocalypse (2004) All Bluray, DVDRIP, BRRIP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1694300_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1694300_1.srt",
+          "release": "IndonesianResident Evil 2: Apocalypse (2004) All Bluray, DVDRIP, BRRIP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1694300_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1694300_2.srt",
+          "release": "IndonesianResident Evil 2: Apocalypse (2004) All Bluray, DVDRIP, BRRIP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1694300_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1694300_3.srt",
+          "release": "IndonesianResident Evil 2: Apocalypse (2004) All Bluray, DVDRIP, BRRIP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1694300_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1694300_4.srt",
+          "release": "IndonesianResident Evil 2: Apocalypse (2004) All Bluray, DVDRIP, BRRIP",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1671836_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1671836_0.srt",
+          "release": "IndonesianResident Evil 2 Apocalypse (2004) (1080p x265 10bit Joy).id",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1027772_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_1027772_0.srt",
+          "release": "IndonesianResident Evil - Apocalypse (2004).mkv 720p 650MB Ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2000554_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/id_2000554_0.srt",
+          "release": "IndonesianResident Evil - Apocalypse (2004).Indonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1020265_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_1020265_0.srt",
+          "release": "MalayResident Evil Apocalypse (2004) BluRay  720p 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "661758_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_661758_0.srt",
+          "release": "MalayResident Evil 2 Apocalypse 2004 BRrip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1619052_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_1619052_0.srt",
+          "release": "MalayResident Evil 2 - Apocalypse (2004) Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1217995_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_1217995_0.srt",
+          "release": "MalayResident Evil 2 - Apocalypse (2004) 720p Bluray NOT EXTENDED",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1217996_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_1217996_0.srt",
+          "release": "MalayResident Evil 2 - Apocalypse (2004) 1080p Bluray NOT EXTENDE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2000553_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0318627/ms_2000553_0.srt",
+          "release": "MalayResident Evil - Apocalypse (2004).Malay",
+          "source": "subscene",
+          "acc": 1
+        }
+      ]
     }
   },
-  "total_items": 13
+  "total_items": 14
 }
