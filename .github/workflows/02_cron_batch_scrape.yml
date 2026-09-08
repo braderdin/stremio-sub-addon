@@ -1,9 +1,9 @@
 name: 02 Cron Batch Subtitle Scrape
 
 on:
-  schedule:
+#  schedule:
     # Berjalan setiap 2 jam secara automatik
-    - cron: '0 */2 * * *'
+#    - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       limit:
