@@ -33,9 +33,9 @@ def resolve_cinemeta_metadata(imdb_id: str) -> tuple[str, str]:
 
 def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None) -> bool:
     """
-    Melaksanakan pengikisan terpantas bagi 1 IMDb ID spesifik.
-    Menyokong carian terus IMDb ID dengan fallback teks tajuk bersih, semakan tahun ketat,
-    serta integrasi failover multi-akaun B2.
+    Melaksanakan pengikisan on-demand dengan perlindungan dwi-lapisan:
+    1. Carian terus IMDb ID.
+    2. Fallback pintar ke carian teks jika IMDb ID tiada hasil ATAU memulangkan 0 sarikata BM/ID.
     """
     print(f"🚀 Mula pengikisan On-Demand bagi IMDb ID: {imdb_id}")
 
@@ -55,32 +55,56 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
         movie_title = custom_query if custom_query else cm_title
         movie_year = year if year else cm_year
 
-        # Jika Cinemeta tergendala, gunakan IMDb ID terus sebagai query
+        # Jika Cinemeta tergendala, gunakan IMDb ID terus sebagai kata kunci carian
         search_query = movie_title if movie_title else imdb_id
 
         print(f"🔎 Carian Subscene: '{search_query}' (IMDb: {imdb_id}, Tahun: {movie_year or 'N/A'})")
 
-        # Carian pintar 2-peringkat (Peringkat 1: IMDb ID, Peringkat 2: Carian Teks Bersih Berpenapis Tahun)
+        # ==============================================================
+        # PERINGKAT 1: CARIAN AWAL (IMDb ID DIUTAMAKAN)
+        # ==============================================================
         movies, session = _scraper.search_subscene(
             query=search_query,
             year=movie_year,
             imdb_id=imdb_id,
             top_k=1
         )
-        
-        if not movies or not session:
-            print(f"⚠️ Tiada padanan filem yang tepat dijumpai untuk: '{search_query}' ({imdb_id})")
-            return False
 
-        target_movie = movies[0]
-        print(f"🎯 Filem Dipilih: {target_movie['title']} -> {target_movie['url']}")
+        subtitles = []
+        target_movie = None
 
-        # Ambil senarai sarikata BM/ID
-        subtitles = _scraper.get_movie_subtitles(session, target_movie["url"])
-        print(f"  └ Menemui {len(subtitles)} sarikata Bahasa Melayu / Indonesia.")
+        if movies and session:
+            target_movie = movies[0]
+            print(f"🎯 Filem Dipilih: {target_movie['title']} -> {target_movie['url']}")
+            subtitles = _scraper.get_movie_subtitles(session, target_movie["url"])
+            print(f"  └ Menemui {len(subtitles)} sarikata Bahasa Melayu / Indonesia.")
+
+        # ==============================================================
+        # PERINGKAT 2: FALLBACK CARIAN TEKS (JIKA TIADA FILEM / 0 SARIKATA)
+        # ==============================================================
+        if not subtitles and movie_title:
+            excluded_urls = [target_movie["url"]] if target_movie else []
+            reason = "entri IMDb memulangkan 0 sarikata" if target_movie else "tiada padanan entri IMDb"
+            print(f"🔄 [Fallback Aktif] Mengesan {reason}. Melaksanakan carian teks sandaran untuk: '{movie_title}' (Tahun: {movie_year})...")
+
+            fb_movies, fb_session = _scraper.search_subscene(
+                query=movie_title,
+                year=movie_year,
+                imdb_id="", # Kosongkan agar memaksa carian teks
+                top_k=1,
+                exclude_urls=excluded_urls,
+                force_text=True
+            )
+
+            if fb_movies and fb_session:
+                target_movie = fb_movies[0]
+                session = fb_session
+                print(f"🎯 Filem Sandaran Dipilih: {target_movie['title']} -> {target_movie['url']}")
+                subtitles = _scraper.get_movie_subtitles(session, target_movie["url"])
+                print(f"  └ Menemui {len(subtitles)} sarikata Bahasa Melayu / Indonesia pada entri sandaran.")
 
         if not subtitles:
-            print(f"⚠️ Tiada rekod sarikata BM/ID pada laman filem ini.")
+            print(f"⚠️ Tiada rekod sarikata BM/ID ditemui untuk: '{search_query}' ({imdb_id}) selepas semakan IMDb & teks.")
             return False
 
         uploaded_records = []
@@ -93,7 +117,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
                 b2_filename = f"subs/{imdb_id}/{sub['lang']}_{sub['sub_id']}_{idx}.srt"
                 
                 try:
-                    # upload_subtitle_to_b2 akan mencuba B2 Acc 1 hingga Acc 40 secara automatik jika berlaku ralat/cap
+                    # upload_subtitle_to_b2 akan mencuba B2 Acc 1 hingga Acc 20/40 secara automatik jika berlaku cap
                     b2_res = _b2.upload_subtitle_to_b2(b2_filename, srt_item["content"])
                     
                     record = {
@@ -108,7 +132,7 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
                     print(f"  ✔ [B2 Acc {b2_res['account_index']}] Muat naik berjaya: {b2_res['url']}")
 
                 except _b2.AllB2AccountsExhaustedException:
-                    # Jika kesemua akaun B2 mencapai limit transaksi/penuh, simpan apa yang sempat dahulu sebelum berhenti
+                    # Jika kesemua akaun B2 mencapai had transaksi/penuh, simpan apa yang sempat dahulu sebelum berhenti
                     if uploaded_records:
                         _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
                         _history.add_processed_imdb(imdb_id, uploaded_records)
@@ -120,15 +144,14 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
 
             time.sleep(0.3)
 
-        # Simpan ke Upstash Redis dan rekod sejarah tempatan secara berkelompok (1 transaksi jimat API)
+        # Simpan ke Upstash Redis dan rekod sejarah tempatan secara berkelompok (1 transaksi jimat kuota)
         if uploaded_records:
             _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
             _history.add_processed_imdb(imdb_id, uploaded_records)
             print(f"✅ Berjaya memproses dan menyimpan {len(uploaded_records)} sarikata untuk {imdb_id}.")
             return True
         else:
-            # Jika sarikata wujud di Subscene tetapi gagal muat naik (cth: masalah fail zip/timeout),
-            # bangkitkan exception agar TIDAK dimasukkan ke dalam no_subs_history.json
+            # Bangkitkan exception agar TIDAK dimasukkan ke dalam no_subs_history.json jika ada isu muat naik/zip
             raise Exception(f"Menemui {len(subtitles)} sarikata di Subscene tetapi tiada fail berjaya dimuat naik ke B2.")
 
     finally:

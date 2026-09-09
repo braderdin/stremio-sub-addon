@@ -6,7 +6,7 @@ import io
 import zipfile
 import asyncio
 import importlib
-from typing import List, Dict, Tuple, Optional, Any
+from typing import List, Dict, Tuple, Optional, Any, Set
 from urllib.parse import urljoin, quote_plus
 from bs4 import BeautifulSoup
 from curl_cffi import requests
@@ -22,6 +22,15 @@ STOP_WORDS = {
     "the", "a", "an", "and", "or", "of", "in", "on", "at", "to", "for", 
     "with", "by", "from", "part", "movie", "film"
 }
+
+# Corak pengesanan sekuel untuk mengelak salah padan filem sekuel
+SEQUEL_PATTERNS = [
+    r"\b2\b", r"\b3\b", r"\b4\b", r"\b5\b", r"\b6\b", r"\b7\b", r"\b8\b", r"\b9\b",
+    r"\bii\b", r"\biii\b", r"\biv\b", r"\bvi\b", r"\bvii\b", r"\bviii\b", r"\bix\b",
+    r"\bpart\s*2\b", r"\bpart\s*3\b", r"\bpart\s*4\b", r"\bpart\s*5\b",
+    r"\bchapter\s*2\b", r"\bchapter\s*3\b", r"\bchapter\s*4\b", r"\bchapter\s*5\b",
+    r"\bvolume\s*2\b", r"\bvolume\s*3\b", r"\bvol\s*2\b", r"\bvol\s*3\b"
+]
 
 # ------------------------------------------------------------------
 # KESERASIAN BELAKANG (BACKWARD COMPATIBILITY)
@@ -40,11 +49,17 @@ def extract_year(text: str) -> Optional[int]:
 def calculate_match_score(candidate_title: str, target_title: str, target_year: str = "") -> int:
     """
     Mengira markah kejituan tajuk calon berbanding tajuk sasaran dan tahun.
-    Menolak sekeras-kerasnya padanan jika jurang tahun > 1 tahun (Year Discrepancy Reject),
-    atau jika perkataan utama (content words) tajuk sasaran tiada dalam calon.
+    Menolak sekeras-kerasnya padanan jika:
+    - Jurang tahun > 1 tahun (Year Discrepancy Reject)
+    - Percanggahan nombor sekuel (Sequel Mismatch Guard)
+    - Perkataan utama tajuk sasaran tidak wujud dalam calon.
     """
     c_lower = candidate_title.lower().strip()
     t_lower = target_title.lower().strip()
+
+    # Normalisasi simbol '&' ke 'and' untuk kedua-dua tajuk
+    c_lower = c_lower.replace("&", " and ")
+    t_lower = t_lower.replace("&", " and ")
 
     # 1. Semakan Tegas Tahun Terbitan (Strict Year Filter)
     c_year = extract_year(c_lower)
@@ -55,7 +70,7 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
     if c_year and t_year:
         year_diff = abs(c_year - t_year)
         if year_diff > 1:
-            # Jurang melebihi 1 tahun (cth: 2012 vs 2017) -> Tolak serta-merta!
+            # Jurang melebihi 1 tahun (cth: 2003 vs 2006) -> Tolak serta-merta!
             return -999
         elif year_diff == 0:
             score = 50
@@ -63,7 +78,7 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
             # Toleransi selisih 1 tahun dibenarkan
             score = 35
     elif t_year and not c_year:
-        # Calon di Subscene belum diletakkan tahun
+        # Calon di Subscene tiada tahun pada teks tajuk
         score = 20
     else:
         score = 10
@@ -74,22 +89,32 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
         if bad in c_lower and bad not in t_lower:
             return -999
 
-    # Bersihkan teks tajuk calon (buang tahun dan simbol) untuk perbandingan teks tulen
-    c_text_only = re.sub(r"\(?\b(19\d\d|20\d\d)\)?", "", c_lower)
-    c_clean_words = set(re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split())
-    t_words = re.sub(r"[^a-zA-Z0-9\s]", " ", t_lower).split()
+    # Bersihkan teks tajuk calon (buang tahun 4-digit) untuk semakan sekuel & perkataan tulen
+    c_text_only = re.sub(r"\(?\b(19\d\d|20\d\d)\)?", "", c_lower).strip()
+    t_text_only = re.sub(r"\(?\b(19\d\d|20\d\d)\)?", "", t_lower).strip()
 
-    # 3. Semakan Perkataan Utama (Content Words Coverage) & Single-Word Guard
+    # 3. Penapis Tegas Nombor Sekuel (Sequel Mismatch Guard)
+    for pat in SEQUEL_PATTERNS:
+        in_candidate = bool(re.search(pat, c_text_only))
+        in_target = bool(re.search(pat, t_text_only))
+        if in_candidate != in_target:
+            # Calon mempunyai nombor sekuel yang berbeza daripada sasaran -> Tolak!
+            return -999
+
+    # Bersihkan simbol tanda baca
+    c_clean_words = set(re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split())
+    t_words = re.sub(r"[^a-zA-Z0-9\s]", " ", t_text_only).split()
+
+    # 4. Semakan Perkataan Utama (Content Words Coverage) & Single-Word Guard
     t_content_words = [w for w in t_words if w not in STOP_WORDS and len(w) > 1]
     
     if t_content_words:
-        # Penapis Tegas Kata Tunggal (Single-Word Guard):
-        # Jika sasaran cuma 1 perkataan (cth: "Heat", "Troy", "Jaws") tetapi calon ada perkataan tambahan berlebihan
+        # Penapis Kata Tunggal (cth: "Heat", "Troy")
         if len(t_content_words) == 1:
             if t_content_words[0] not in c_clean_words:
                 return -999
             c_content_count = len([w for w in re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split() if w not in STOP_WORDS and len(w) > 1])
-            if c_content_count > 3 and not any(sub in c_lower for sub in ["the movie", "part", "vol"]):
+            if c_content_count > 3 and not any(sub in c_lower for sub in ["the movie", "part", "vol", "1"]):
                 return -999
 
         if t_content_words[0] not in c_clean_words:
@@ -98,11 +123,11 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
         matched_content = [w for w in t_content_words if w in c_clean_words]
         content_ratio = len(matched_content) / len(t_content_words)
 
-        # Jika tajuk sasaran cuma ada 1 perkataan utama dan calon tiada kata itu -> Tolak!
+        # Jika sasaran cuma 1 kata utama dan calon tiada kata tersebut -> Tolak!
         if len(t_content_words) == 1 and content_ratio == 0:
             return -999
 
-        # Jika sasaran ada >=2 perkataan utama dan nisbah sepadan < 60% -> Tolak!
+        # Jika sasaran ada >=2 kata utama dan nisbah sepadan < 60% -> Tolak!
         if len(t_content_words) >= 2 and content_ratio < 0.6:
             return -999
 
@@ -113,25 +138,40 @@ def calculate_match_score(candidate_title: str, target_title: str, target_year: 
             return -999
         score += int((len(intersect) / len(t_words)) * 30)
 
-    # 4. Bonus Padanan Tepat & Awalan Tajuk
+    # 5. Bonus Padanan Tepat & Awalan Tajuk (Abaikan nombor '1' untuk padanan siri pertama)
     clean_t_str = " ".join(t_words)
     clean_c_str = " ".join(re.sub(r"[^a-zA-Z0-9\s]", " ", c_text_only).split())
+    clean_c_no_one = re.sub(r"\b1\b", "", clean_c_str).strip()
+    clean_c_no_one = re.sub(r"\s+", " ", clean_c_no_one)
 
-    if clean_t_str == clean_c_str:
+    if clean_t_str == clean_c_str or clean_t_str == clean_c_no_one:
         score += 30
-    elif clean_c_str.startswith(clean_t_str):
+    elif clean_c_str.startswith(clean_t_str) or clean_c_no_one.startswith(clean_t_str):
         score += 15
 
     return score
 
 MIN_ACCEPTABLE_SCORE = 45
 
-def pick_best_movie_matches(movies: List[Dict[str, str]], target_title: str, target_year: str = "", top_k: int = 1) -> List[Dict[str, str]]:
+def pick_best_movie_matches(
+    movies: List[Dict[str, str]], 
+    target_title: str, 
+    target_year: str = "", 
+    top_k: int = 1,
+    exclude_urls: Optional[List[str]] = None
+) -> List[Dict[str, str]]:
     """
-    Menyusun calon filem mengikut skor tertinggi dan menolak calon di bawah ambang skor minimum.
+    Menyusun calon filem mengikut skor tertinggi dan menolak calon di bawah ambang skor minimum,
+    serta melangkau URL yang berada dalam senarai exclude_urls.
     """
+    excluded_set: Set[str] = {u.rstrip("/").lower() for u in (exclude_urls or [])}
     scored = []
+    
     for m in movies:
+        m_url_clean = m.get("url", "").rstrip("/").lower()
+        if m_url_clean in excluded_set:
+            continue
+
         sc = calculate_match_score(m["title"], target_title, target_year)
         if sc >= MIN_ACCEPTABLE_SCORE:
             scored.append((sc, m))
@@ -206,13 +246,21 @@ def search_subscene(
     query: str, 
     year: str = "", 
     imdb_id: str = "", 
-    top_k: int = 1
+    top_k: int = 1,
+    exclude_urls: Optional[List[str]] = None,
+    force_text: bool = False
 ) -> Tuple[List[Dict[str, str]], Optional[requests.Session]]:
+    """
+    Carian Pintar Subscene:
+    - Peringkat 1: Carian terus IMDb ID (jika dibekalkan dan tidak dipaksa carian teks).
+    - Peringkat 2: Carian Sandaran Teks Bersih (jika Peringkat 1 gagal / exclude_urls digunakan / force_text=True).
+    """
     target_imdb = imdb_id.strip() if imdb_id else ""
     if not target_imdb and re.match(r"^tt\d+$", query.strip()):
         target_imdb = query.strip()
 
-    clean_query = re.sub(r"[:\-_/]", " ", query).strip()
+    clean_query = query.replace("&", " and ")
+    clean_query = re.sub(r"[:\-_/]", " ", clean_query).strip()
     clean_query = re.sub(r"\s+", " ", clean_query)
 
     best_movies = []
@@ -222,17 +270,23 @@ def search_subscene(
     # ==============================================================
     # PERINGKAT 1: CARIAN TERUS IMDB ID (DENGAN PENGESAHAN TAJUK WAJIB)
     # ==============================================================
-    if target_imdb:
+    if target_imdb and not force_text:
         print(f"🔎 [Peringkat 1] Mencuba carian terus IMDb ID di Subscene: '{target_imdb}'...")
         try:
             raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(target_imdb))
             if raw_movies:
-                verified = pick_best_movie_matches(raw_movies, target_title=clean_query, target_year=year, top_k=top_k)
+                verified = pick_best_movie_matches(
+                    raw_movies, 
+                    target_title=clean_query, 
+                    target_year=year, 
+                    top_k=top_k, 
+                    exclude_urls=exclude_urls
+                )
                 if verified:
                     best_movies = verified
                     print(f"   🎯 Padanan Sah IMDb ID Ditemui: {best_movies[0]['title']} -> {best_movies[0]['url']}")
                 else:
-                    print(f"   ⚠️ Calon IMDb ID '{target_imdb}' ditolak kerana tidak sepadan tajuk/tahun ({raw_movies[0]['title']}). Beralih ke carian teks...")
+                    print(f"   ⚠️ Calon IMDb ID '{target_imdb}' ditolak (tidak sepadan / dalam senarai exclude). Beralih ke carian teks...")
             else:
                 print(f"   ℹ️ Subscene tidak memulangkan hasil untuk IMDb ID '{target_imdb}'.")
         except Exception as e:
@@ -242,10 +296,10 @@ def search_subscene(
     # PERINGKAT 2: CARIAN SANDARAN TEKS BERSIH
     # ==============================================================
     if not best_movies:
-        if target_imdb:
+        if target_imdb and not force_text:
             print(f"🔄 Mengaktifkan mod sandaran: Carian tajuk teks...")
 
-        # Jika tajuk pendek (<=6 huruf cth: 'Heat', 'It'), gabungkan tahun terus untuk carian tepat di Subscene
+        # Jika tajuk pendek (<=6 huruf cth: 'Heat', 'It'), sertakan tahun terus
         if len(clean_query) <= 6 and year:
             search_text = f"{clean_query} {year}".strip()
         else:
@@ -253,10 +307,18 @@ def search_subscene(
 
         print(f"🔎 [Peringkat 2] Carian Sandaran Teks: '{search_text}' (Tahun: {year})")
         try:
-            raw_movies, cookies, ua = asyncio.run(_async_camoufox_search(search_text))
+            raw_movies, cookies_txt, ua_txt = asyncio.run(_async_camoufox_search(search_text))
             if raw_movies:
-                best_movies = pick_best_movie_matches(raw_movies, target_title=clean_query, target_year=year, top_k=top_k)
+                best_movies = pick_best_movie_matches(
+                    raw_movies, 
+                    target_title=clean_query, 
+                    target_year=year, 
+                    top_k=top_k, 
+                    exclude_urls=exclude_urls
+                )
                 if best_movies:
+                    cookies = cookies_txt
+                    ua = ua_txt
                     print(f"   🎯 Padanan Teks Ditemui: {best_movies[0]['title']} -> {best_movies[0]['url']}")
         except Exception as e:
             print(f"   ❌ Ralat semasa carian teks: {e}")
@@ -268,7 +330,13 @@ def search_subscene(
             try:
                 raw_movies_alt, cookies_alt, ua_alt = asyncio.run(_async_camoufox_search(alt_query))
                 if raw_movies_alt:
-                    best_movies = pick_best_movie_matches(raw_movies_alt, target_title=clean_query, target_year=year, top_k=top_k)
+                    best_movies = pick_best_movie_matches(
+                        raw_movies_alt, 
+                        target_title=clean_query, 
+                        target_year=year, 
+                        top_k=top_k, 
+                        exclude_urls=exclude_urls
+                    )
                     if best_movies:
                         cookies = cookies_alt
                         ua = ua_alt
