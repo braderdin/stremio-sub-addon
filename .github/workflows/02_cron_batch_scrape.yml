@@ -1,9 +1,9 @@
 name: 02 Cron Batch Subtitle Scrape
 
 on:
-#  schedule:
+  schedule:
     # Berjalan setiap 2 jam secara automatik
-#    - cron: '0 */2 * * *'
+    - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       limit:
@@ -13,7 +13,7 @@ on:
       delay:
         description: 'Sela masa antara filem (saat)'
         required: false
-        default: '1.5'
+        default: '1.0'
 
 jobs:
   scrape-cron-batch:
@@ -165,7 +165,7 @@ jobs:
           B2_ACC20_S3_API_ENDPOINT: ${{ secrets.B2_ACC20_S3_API_ENDPOINT }}
         run: |
           LIMIT="${{ inputs.limit || 15 }}"
-          DELAY="${{ inputs.delay || 1.5 }}"
+          DELAY="${{ inputs.delay || 1.0 }}"
           python live_engine/07_cron_batch_runner.py --limit "$LIMIT" --delay "$DELAY"
 
       - name: Commit dan Simpan Rekod JSON Terkini (Auto-Rebase Safe)

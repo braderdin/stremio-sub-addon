@@ -1,7 +1,7 @@
 import sys
 import os
 import importlib
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 from pathlib import Path
 from b2sdk.v2 import B2Api, InMemoryAccountInfo
 
@@ -21,6 +21,9 @@ _b2_api_instances = {}
 _cached_bucket_bytes = {}
 _exhausted_accounts = set()
 _all_accounts_exhausted_flag = False
+
+# Penunjuk giliran akaun global (Round-Robin Pointer)
+_current_account_pointer = 0
 
 class AllB2AccountsExhaustedException(Exception):
     """Exception khusus apabila kesemua akaun B2 mencapai limit transaksi atau storan."""
@@ -76,10 +79,11 @@ def check_bucket_used_bytes(acc: dict, force_refresh: bool = False) -> int:
 
 def upload_subtitle_to_b2(b2_path: str, srt_content: str) -> Dict:
     """
-    Memuat naik fail .srt ke B2 dengan sokongan auto-failover merentasi 20-40 akaun.
-    Jika satu akaun mencecah transaction cap atau penuh, sistem beralih serta-merta ke akaun seterusnya.
+    Memuat naik fail .srt ke B2 secara PURATA (Round-Robin Dynamic Rotation).
+    Setiap muat naik baharu akan beralih ke akaun seterusnya (Acc 1 -> Acc 2 -> ... -> Acc N).
+    Jika satu akaun mencecah had/penuh, sistem automatik melompat ke akaun aktif seterusnya.
     """
-    global _all_accounts_exhausted_flag, _exhausted_accounts
+    global _all_accounts_exhausted_flag, _exhausted_accounts, _current_account_pointer
 
     if not B2_ACCOUNTS:
         _all_accounts_exhausted_flag = True
@@ -91,9 +95,12 @@ def upload_subtitle_to_b2(b2_path: str, srt_content: str) -> Dict:
     srt_bytes = srt_content.encode("utf-8")
     file_size = len(srt_bytes)
     last_error = None
+    total_accounts = len(B2_ACCOUNTS)
 
-    # Imbas dan cuba muat naik bermula daripada akaun pertama yang belum disenaraihitamkan
-    for acc in B2_ACCOUNTS:
+    # Putaran berkitar (Cyclic Round-Robin) bermula dari penunjuk semasa
+    for attempt in range(total_accounts):
+        acc_list_index = (_current_account_pointer + attempt) % total_accounts
+        acc = B2_ACCOUNTS[acc_list_index]
         acc_idx = acc["index"]
 
         # Langkau akaun yang sudah mencapai had transaksi hari ini
@@ -121,6 +128,9 @@ def upload_subtitle_to_b2(b2_path: str, srt_content: str) -> Dict:
             # Kemas kini cache saiz tempatan
             if acc_idx in _cached_bucket_bytes:
                 _cached_bucket_bytes[acc_idx] += file_size
+
+            # Gerakkan penunjuk ke akaun seterusnya untuk muat naik berikutnya (Puratakan beban)
+            _current_account_pointer = (acc_list_index + 1) % total_accounts
 
             # Bina URL melalui Cloudflare Worker Reverse Proxy
             proxy_host = CF_WORKER_B2_STORAGE.rstrip("/")
@@ -150,8 +160,8 @@ def upload_subtitle_to_b2(b2_path: str, srt_content: str) -> Dict:
 
             continue
 
-    # Jika semua akaun telah dicuba dan gagal
+    # Jika semua akaun telah dicuba dalam kitaran ini dan gagal
     _all_accounts_exhausted_flag = True
     raise AllB2AccountsExhaustedException(
-        f"❌ Kesemua {len(B2_ACCOUNTS)} akaun B2 tidak dapat digunakan atau telah mencapai transaction cap! (Ralat: {last_error})"
+        f"❌ Kesemua {total_accounts} akaun B2 tidak dapat digunakan atau telah mencapai transaction cap! (Ralat: {last_error})"
     )
