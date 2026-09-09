@@ -9,11 +9,11 @@ on:
       limit:
         description: 'Jumlah had filem untuk diproses'
         required: false
-        default: '15'
+        default: '11'
       delay:
         description: 'Sela masa antara filem (saat)'
         required: false
-        default: '1.0'
+        default: '1.5'
 
 jobs:
   scrape-cron-batch:

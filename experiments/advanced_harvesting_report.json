@@ -1,0 +1,245 @@
+{
+  "year_based_discovery": {
+    "2024": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2023": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2022": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2021": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2020": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2018": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2015": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2010": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2005": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "2000": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    },
+    "1995": {
+      "status": "SUCCESS",
+      "count": 50,
+      "sample": [
+        {
+          "id": "tt28014327",
+          "title": "Mayday",
+          "year": "2026"
+        },
+        {
+          "id": "tt11561116",
+          "title": "The Whisper Man",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "streaming_provider_catalogs": {
+    "CyberFlix / Netflix Movies": {
+      "status": "HTTP_404",
+      "count": 0
+    },
+    "CyberFlix / Disney+ Movies": {
+      "status": "HTTP_404",
+      "count": 0
+    },
+    "CyberFlix / Apple TV+ Movies": {
+      "status": "HTTP_404",
+      "count": 0
+    },
+    "Stremio Default Public Domain Movies": {
+      "status": "SUCCESS",
+      "count": 49,
+      "sample": [
+        {
+          "id": "tt11378946",
+          "title": "Michael",
+          "year": "2026"
+        },
+        {
+          "id": "tt32547691",
+          "title": "Pressure",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "tv_series_episode_unpacker": {
+    "tt0903747": {
+      "title": "Breaking Bad",
+      "total_episodes": 67,
+      "sample_ids": [
+        "tt0903747:1:1",
+        "tt0903747:1:2",
+        "tt0903747:1:3",
+        "tt0903747:1:4",
+        "tt0903747:1:5"
+      ]
+    },
+    "tt0944947": {
+      "title": "Game of Thrones",
+      "total_episodes": 128,
+      "sample_ids": [
+        "tt0944947:0:1",
+        "tt0944947:0:2",
+        "tt0944947:0:3",
+        "tt0944947:0:4",
+        "tt0944947:0:5"
+      ]
+    },
+    "tt14688458": {
+      "title": "Silo",
+      "total_episodes": 35,
+      "sample_ids": [
+        "tt14688458:0:1",
+        "tt14688458:0:2",
+        "tt14688458:0:3",
+        "tt14688458:0:4",
+        "tt14688458:1:1"
+      ]
+    }
+  }
+}
