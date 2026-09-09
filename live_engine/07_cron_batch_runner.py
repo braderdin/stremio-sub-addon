@@ -18,10 +18,16 @@ _ondemand = importlib.import_module("06_ondemand_runner")
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 NO_SUBS_HISTORY_FILE = os.path.join(DATA_DIR, "no_subs_history.json")
 
-# 12 Genre utama IMDb / Cinemeta
-TOP_GENRES = [
+# 16 Genre Utama Cinemeta (Filem)
+ALL_MOVIE_GENRES = [
     "Action", "Horror", "Sci-Fi", "Animation", "Comedy", "Thriller",
-    "Crime", "Adventure", "Drama", "Romance", "Fantasy", "Mystery"
+    "Crime", "Adventure", "Drama", "Romance", "Fantasy", "Mystery",
+    "Family", "History", "War", "Western"
+]
+
+# Genre Utama Siri TV
+SERIES_GENRES = [
+    "Drama", "Comedy", "Crime", "Sci-Fi", "Animation", "Action", "Mystery"
 ]
 
 FALLBACK_SEED_LIST = [
@@ -61,48 +67,74 @@ def save_no_subs_record(history_dict: dict, imdb_id: str, title: str, year: str)
     except Exception as e:
         print(f"⚠️ Gagal mengemas kini {NO_SUBS_HISTORY_FILE}: {e}")
 
-def build_catalog_targets() -> list[dict]:
-    """Membina senarai sasaran 31 katalog komprehensif (Top 200 per genre + TPB)."""
+def build_infinite_catalog_targets() -> list[dict]:
+    """
+    Membina 100 endpoint katalog berstruktur (Deep Pagination & Multi-Genre).
+    Menggunakan sintaks rasmi Stremio: genre={genre}&skip={skip}.json
+    """
     targets = []
 
-    # 1. Filem Popular Umum Cinemeta (Top 300)
-    targets.append({"name": "Cinemeta Top Movies (1 - 100)", "url": "https://v3-cinemeta.strem.io/catalog/movie/top.json"})
-    targets.append({"name": "Cinemeta Top Movies (101 - 200)", "url": "https://v3-cinemeta.strem.io/catalog/movie/top/skip=100.json"})
-    targets.append({"name": "Cinemeta Top Movies (201 - 300)", "url": "https://v3-cinemeta.strem.io/catalog/movie/top/skip=200.json"})
-
-    # 2. Top 200 Setiap Genre Filem Cinemeta (12 Genre x 2 Laman = 24 Endpoint)
-    for genre in TOP_GENRES:
+    # 1. Top Movies Umum (Deep Pagination: Top 500 Filem)
+    targets.append({
+        "name": "Top Movies (1 - 50)",
+        "url": "https://v3-cinemeta.strem.io/catalog/movie/top.json"
+    })
+    for skip in range(50, 500, 50):
         targets.append({
-            "name": f"Cinemeta {genre} (1 - 100)",
+            "name": f"Top Movies ({skip + 1} - {skip + 50})",
+            "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/skip={skip}.json"
+        })
+
+    # 2. Filem Mengikut Genre (16 Genre x 4 Halaman = Top 200 per genre)
+    for genre in ALL_MOVIE_GENRES:
+        targets.append({
+            "name": f"{genre} Movie (1 - 50)",
             "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/genre={genre}.json"
         })
+        for skip in [50, 100, 150]:
+            targets.append({
+                "name": f"{genre} Movie ({skip + 1} - {skip + 50})",
+                "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/genre={genre}&skip={skip}.json"
+            })
+
+    # 3. Top Series Umum (Top 250 Siri TV)
+    targets.append({
+        "name": "Top Series (1 - 50)",
+        "url": "https://v3-cinemeta.strem.io/catalog/series/top.json"
+    })
+    for skip in range(50, 250, 50):
         targets.append({
-            "name": f"Cinemeta {genre} (101 - 200)",
-            "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/genre={genre}/skip=100.json"
+            "name": f"Top Series ({skip + 1} - {skip + 50})",
+            "url": f"https://v3-cinemeta.strem.io/catalog/series/top/skip={skip}.json"
         })
 
-    # 3. Siri TV Popular Cinemeta (Top 200)
-    targets.append({"name": "Cinemeta Series (1 - 100)", "url": "https://v3-cinemeta.strem.io/catalog/series/top.json"})
-    targets.append({"name": "Cinemeta Series (101 - 200)", "url": "https://v3-cinemeta.strem.io/catalog/series/top/skip=100.json"})
-
-    # 4. ThePirateBay Mirror Catalog (Stremio Official Community)
-    targets.append({"name": "TPB Top Movies", "url": "https://piratebay-catalog.strem.fun/catalog/movie/top.json"})
-    targets.append({"name": "TPB Top TV Series", "url": "https://piratebay-catalog.strem.fun/catalog/series/top.json"})
+    # 4. Siri TV Mengikut Genre (7 Genre x 3 Halaman = Top 150 per genre)
+    for genre in SERIES_GENRES:
+        targets.append({
+            "name": f"{genre} Series (1 - 50)",
+            "url": f"https://v3-cinemeta.strem.io/catalog/series/top/genre={genre}.json"
+        })
+        for skip in [50, 100]:
+            targets.append({
+                "name": f"{genre} Series ({skip + 1} - {skip + 50})",
+                "url": f"https://v3-cinemeta.strem.io/catalog/series/top/genre={genre}&skip={skip}.json"
+            })
 
     return targets
 
-def fetch_dynamic_multi_catalog_queue() -> list[dict]:
-    """Menyedut katalog pelbagai sumber (Cinemeta + TPB) dengan perlindungan kendala rangkaian."""
-    print("📡 [Multi-Catalog Fetcher] Mengumpulkan tajuk daripada 31 endpoint katalog...")
+def fetch_dynamic_infinite_queue() -> list[dict]:
+    """
+    Menyedut 100 endpoint katalog Cinemeta dengan pengasingan tajuk unik automatik.
+    """
+    targets = build_infinite_catalog_targets()
+    print(f"📡 [Infinite Catalog Fetcher] Menyedut daripada {len(targets)} endpoint katalog Cinemeta...")
     unique_pool = {}
-    targets = build_catalog_targets()
 
     for idx, target in enumerate(targets, 1):
         url = target["url"]
         name = target["name"]
         try:
-            # Had masa singkat 10s supaya jika TPB/Cinemeta perlahan tidak menyekat runner
-            res = requests.get(url, timeout=10)
+            res = requests.get(url, timeout=8)
             if res.status_code == 200:
                 metas = res.json().get("metas", [])
                 new_added = 0
@@ -120,29 +152,30 @@ def fetch_dynamic_multi_catalog_queue() -> list[dict]:
                                 "year": year
                             }
                             new_added += 1
-                print(f"   [{idx:02d}/{len(targets):02d}] {name:32} -> Entri: {len(metas):3d} | Unik Baru: {new_added:3d}")
+                print(f"   [{idx:03d}/{len(targets):03d}] ✅ {name:32} -> Entri: {len(metas):2d} | Unik Baru: {new_added:2d}")
             else:
-                print(f"   [{idx:02d}/{len(targets):02d}] {name:32} -> HTTP Error: {res.status_code}")
+                print(f"   [{idx:03d}/{len(targets):03d}] ❌ (HTTP {res.status_code}) -> {name}")
         except Exception:
-            # Langkau senyap jika endpoint cermin (cth: TPB) tergendala
-            print(f"   [{idx:02d}/{len(targets):02d}] {name:32} -> Sambungan tergendala (dilangkau).")
+            print(f"   [{idx:03d}/{len(targets):03d}] ⚠️ (Timeout/Gagal) -> {name}")
+
+        time.sleep(0.05)
 
     if not unique_pool:
-        print("   ⚠️ Pangkalan katalog gagal dihubungi, menggunakan senarai fallback sandaran.")
+        print("   ⚠️ Gagal menyedut katalog Cinemeta, menggunakan fallback tempatan.")
         for item in FALLBACK_SEED_LIST:
             unique_pool[item["imdb_id"]] = item
 
-    print(f"✅ Jumlah calon unik terkumpul dalam kolam: {len(unique_pool)} tajuk.")
+    print(f"✅ Jumlah calon unik sedia ada dalam kolam: {len(unique_pool)} tajuk.")
     return list(unique_pool.values())
 
 def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
     """
     Melaksanakan pengikisan kelompok berjadual secara modular.
-    Menggunakan agihan muat naik berputar (Round-Robin) merentasi kesemua akaun B2.
+    Menggunakan Round-Robin B2 storage dan Infinite Catalog Pool.
     """
     total_b2_accs = len(_config.B2_ACCOUNTS)
     print("=" * 80)
-    print("🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER (MULTI-CATALOG ENGINE)")
+    print("🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER (INFINITE CATALOG ENGINE)")
     print(f"   ├─ Had Sasaran Sesi Ini : {target_limit} tajuk baru")
     print(f"   ├─ Jumlah Akaun B2 Siap : {total_b2_accs} akaun (Round-Robin Active)")
     print(f"   └─ Sela Masa (Delay)    : {delay_sec} saat")
@@ -151,7 +184,7 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
     no_subs_history = load_no_subs_history()
     print(f"📋 Rekod 'Tiada Sarikata' sedia ada: {len(no_subs_history)} tajuk.")
 
-    candidates = fetch_dynamic_multi_catalog_queue()
+    candidates = fetch_dynamic_infinite_queue()
     processed_count = 0
     skipped_exist_count = 0
     skipped_no_subs_count = 0
@@ -162,7 +195,7 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
             print(f"\n🎯 Had sasaran kelompok ({target_limit} tajuk) telah dicapai untuk sesi ini.")
             break
 
-        # Semak jika kesemua akaun B2 telah capai limit transaksi
+        # Semak jika kesemua akaun B2 telah capai had transaksi
         if _b2.is_all_b2_exhausted():
             print("\n" + "!" * 80)
             print(f"🚨 HENTI KECEMASAN: Kesemua {total_b2_accs} akaun B2 telah mencapai had transaksi!")
@@ -175,19 +208,19 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
         movie_title = item["title"]
         movie_year = item.get("year", "")
 
-        # 1. Semak jika sudah wujud dalam arkib kejayaan
+        # 1. Semak rekod siap kikis tempatan
         if _history.is_imdb_processed(imdb_id):
             skipped_exist_count += 1
             continue
 
-        # 2. Semak jika telah disahkan tiada sarikata
+        # 2. Semak rekod tiada sarikata tempatan
         if imdb_id in no_subs_history:
             skipped_no_subs_count += 1
             continue
 
         print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses: {movie_title} ({movie_year}) -> {imdb_id}")
 
-        # 3. Panggil enjin on-demand yang mempunyai fallback IMDb ID -> Teks berserta B2 Round-Robin
+        # 3. Panggil enjin on-demand
         try:
             success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title, year=movie_year)
             if success:
