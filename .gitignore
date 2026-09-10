@@ -13,3 +13,6 @@ __pycache__
 data/subtitles_all.txt.gz
 CF-WORKER-MANUAL-COPY-PASTE/
 CF-WORKER/
+B2-ACC-SCRIPT/
+b2_accounts.env
+.env.b2.multi.acc
