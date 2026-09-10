@@ -72157,7 +72157,669 @@
           "acc": 10
         }
       ]
+    },
+    "tt2592614": {
+      "updated_at": 1789003255,
+      "sub_count": 82,
+      "subtitles": [
+        {
+          "id": "1521705_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1521705_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.WEB-DL.x264-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1517098_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1517098_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.HDTS.mk7shrine.blogspot...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1497908_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1497908_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.HDTS",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1512131_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_1512131_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.HDTC",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1516745_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1516745_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.All.HDTC [Sparkling_Lov...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1521757_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1521757_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1521757_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1521757_1.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1521757_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1521757_2.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1521757_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1521757_3.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1521757_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/id_1521757_4.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1521757_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1521757_5.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1521757_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1521757_6.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1521757_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1521757_7.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2017.480p.720p.1080p.WEB-DL....",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1521775_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_1521775_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.WEB-DL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1521775_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1521775_1.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.WEB-DL",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1521775_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1521775_2.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.WEB-DL",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1521775_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1521775_3.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.WEB-DL",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1521775_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1521775_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.HDRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1521775_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1521775_1.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.HDRip",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1521775_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/id_1521775_2.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.HDRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1521775_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1521775_3.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.HDRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1527717_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1527717_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.BLURAY",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1527717_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1527717_1.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.SEMUA.BLURAY",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2275877_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_2275877_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.BluRay.X264-AMIABLE / R...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1522404_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1522404_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.ALL.BLURAY.WEB.DL.RARBG...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1522404_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1522404_1.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.ALL.BLURAY.WEB.DL.RARBG...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1527592_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1527592_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.All.BluRay",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1522269_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1522269_0.srt",
+          "release": "IndonesianResident.Evil.The.Final.Chapter.2016.ALL-WEB-DL & HDRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1527740_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1527740_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-BLURAY-x264-x265-AMIABLE-✓...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1522423_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/id_1522423_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-All-HDRip-WEBDL-720p-480p-10...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1527687_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1527687_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-All-BluRay-720p-480p-1080p.w...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1527783_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1527783_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1527783_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1527783_1.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1527783_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_1527783_2.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1527783_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1527783_3.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1527783_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1527783_4.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1527783_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1527783_5.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1527783_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1527783_6.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1527783_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1527783_7.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-WEBDL-720p-480p-1080p-G...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1527648_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/id_1527648_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-Semua-Bluray",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1527783_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1527783_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1527783_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1527783_1.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1527783_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1527783_2.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1527783_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_1527783_3.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1527783_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1527783_4.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1527783_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1527783_5.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1527783_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1527783_6.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1527783_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1527783_7.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-BluRayRip-720p-480p-108...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1521826_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1521826_0.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-720p-1080p--All-WEB-DL-...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1521826_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/id_1521826_1.srt",
+          "release": "IndonesianResident-Evil-The-Final-Chapter-2017-720p-1080p--All-WEB-DL-...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1533112_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/id_1533112_0.srt",
+          "release": "IndonesianResident Evil The Final Chapter BRRIP Durasi 1.46.40 Fix Lin...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1533112_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/id_1533112_1.srt",
+          "release": "IndonesianResident Evil The Final Chapter BRRIP Durasi 1.46.40 Fix Lin...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1497131_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/id_1497131_0.srt",
+          "release": "IndonesianResident Evil The Final Chapter 2017 HDTS - Diterjemahkan ol...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1512096_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/id_1512096_0.srt",
+          "release": "IndonesianResident Evil The Final Chapter 2017 720p HDTCx264-BUCETAA",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1530801_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/id_1530801_0.srt",
+          "release": "IndonesianResident Evil The Final Chapter 2016-HDRip.sunitsui",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1498584_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/id_1498584_0.srt",
+          "release": "IndonesianResident Evil 6_The Final Chapter (2017)HDTS",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1475788_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/id_1475788_0.srt",
+          "release": "Indonesian---> TRAILER 3 <--- Resident Evil The Final Chapter (2...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1453922_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/id_1453922_0.srt",
+          "release": "Indonesian-->TRAILER<-- Resident Evil (2017) Trailer HD",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1453908_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/id_1453908_0.srt",
+          "release": "Indonesian-->TRAILER<--  Resident Evil: The Final Chapter (2017)",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1527647_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/ms_1527647_0.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 720p | Malay ...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1527647_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/ms_1527647_1.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 720p | Malay ...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1527647_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/ms_1527647_2.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 720p | Malay ...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1527647_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/ms_1527647_3.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 720p | Malay ...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1527647_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/ms_1527647_0.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 1080p | Malay...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1527647_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/ms_1527647_1.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 1080p | Malay...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1527647_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/ms_1527647_2.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 1080p | Malay...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1527647_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/ms_1527647_3.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) WEB-DL 1080p | Malay...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1527647_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/ms_1527647_0.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) HDTC 720p | Malay Su...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1527647_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/ms_1527647_1.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) HDTC 720p | Malay Su...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1527647_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/ms_1527647_2.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) HDTC 720p | Malay Su...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1527647_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/ms_1527647_3.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) HDTC 720p | Malay Su...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1527647_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/ms_1527647_0.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 720p | Malay ...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1527647_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2592614/ms_1527647_1.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 720p | Malay ...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1527647_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2592614/ms_1527647_2.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 720p | Malay ...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1527647_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2592614/ms_1527647_3.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 720p | Malay ...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1527647_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2592614/ms_1527647_0.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 1080p | Malay...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1527647_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2592614/ms_1527647_1.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 1080p | Malay...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1527647_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2592614/ms_1527647_2.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 1080p | Malay...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1527647_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2592614/ms_1527647_3.srt",
+          "release": "MalayResident Evil: The Final Chapter (2016) BluRay 1080p | Malay...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1619058_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2592614/ms_1619058_0.srt",
+          "release": "MalayResident Evil The Final Chapter (2016) Bluray",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1497316_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2592614/ms_1497316_0.srt",
+          "release": "MalayResident Evil : The Final Chapter",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1497799_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2592614/ms_1497799_0.srt",
+          "release": "MalayResident Evil - The Final Chapter (2017) CAM",
+          "source": "subscene",
+          "acc": 2
+        }
+      ]
     }
   },
-  "total_items": 293
+  "total_items": 294
 }
