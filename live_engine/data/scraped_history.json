@@ -79199,7 +79199,2353 @@
           "acc": 1
         }
       ]
+    },
+    "tt3215824": {
+      "updated_at": 1789049482,
+      "sub_count": 46,
+      "subtitles": [
+        {
+          "id": "2475709_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3215824/id_2475709_0.srt",
+          "release": "IndonesianThose.Who.Wish.Me.Dead.2021.HMAX.WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2685905_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3215824/id_2685905_0.srt",
+          "release": "IndonesianThose.Who.Wish.Me.Dead.2021.ALL.WEBRip",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2685906_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3215824/id_2685906_0.srt",
+          "release": "IndonesianThose.Who.Wish.Me.Dead.2021.ALL.Bluray",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2474395_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3215824/id_2474395_0.srt",
+          "release": "IndonesianThose.Who.Wish.Me.Dead.2021.720p.1080p.WEBRip..x264",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2536213_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3215824/id_2536213_0.srt",
+          "release": "IndonesianThose.Who.Wish.Me.Dead.2021.720p.1080p.BluRay.x264",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2473963_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3215824/id_2473963_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-YTS-XviD-WebRip-WebDL-HMAX-HDRi...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2473963_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3215824/id_2473963_1.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-YTS-XviD-WebRip-WebDL-HMAX-HDRi...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2473963_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3215824/id_2473963_2.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-YTS-XviD-WebRip-WebDL-HMAX-HDRi...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2473963_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3215824/id_2473963_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-XviD-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2473963_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3215824/id_2473963_1.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-XviD-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2473963_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3215824/id_2473963_2.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-XviD-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2487077_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3215824/id_2487077_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-WEBRip-AAC-[YTS.MX]",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2538018_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3215824/id_2538018_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Deads-2021-BluRay-DTS-MT",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2478766_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3215824/id_2478766_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021.WEB-DL.WEBRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2536684_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3215824/id_2536684_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021.BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2536143_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3215824/id_2536143_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-XviD-SEMUA-BRRip-BluRayRip-BDRip...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2536143_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3215824/id_2536143_1.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-XviD-SEMUA-BRRip-BluRayRip-BDRip...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2536143_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3215824/id_2536143_2.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-XviD-SEMUA-BRRip-BluRayRip-BDRip...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2536143_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3215824/id_2536143_3.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-XviD-SEMUA-BRRip-BluRayRip-BDRip...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2474809_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3215824/id_2474809_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-WEBRip-WEBHD-WEBDL-HDRip-1080p-7...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2474809_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3215824/id_2474809_1.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-WEBRip-WEBHD-WEBDL-HDRip-1080p-7...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2474809_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3215824/id_2474809_2.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-WEBRip-WEBHD-WEBDL-HDRip-1080p-7...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2474809_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3215824/id_2474809_3.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-WEBRip-WEBHD-WEBDL-HDRip-1080p-7...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2538187_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3215824/id_2538187_0.srt",
+          "release": "IndonesianThose-Who-Wish-Me-Dead-2021-BluRay--PSA/Pahe.in/TRiToN",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2486349_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3215824/id_2486349_0.srt",
+          "release": "IndonesianThose Who Wish Me Dead 2021 1080p HMAX WEB-DL DD5 1 x264-EVO",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2685364_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3215824/ms_2685364_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.720p.WEBRip.800MB.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2685364_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3215824/ms_2685364_1.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.720p.WEBRip.800MB.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2474926_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3215824/ms_2474926_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.720p.WEBRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2474926_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3215824/ms_2474926_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.720p.HMAX.WEB-DL",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2474926_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3215824/ms_2474926_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.1080p.WEBRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2474926_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3215824/ms_2474926_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.1080p.HMAX.WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2685364_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3215824/ms_2685364_0.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.1080p.BluRay.DTS.x264-MTeam",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2685364_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3215824/ms_2685364_1.srt",
+          "release": "MalayThose.Who.Wish.Me.Dead.2021.1080p.BluRay.DTS.x264-MTeam",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2487830_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3215824/ms_2487830_0.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 WEBRip Sarikata Bahasa Melayu",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2487830_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3215824/ms_2487830_0.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 WEB-DL Sarikata Bahasa Melayu",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2487830_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3215824/ms_2487830_0.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 HDRip Sarikata Bahasa Melayu",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2537695_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3215824/ms_2537695_0.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 BRRip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2537695_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3215824/ms_2537695_1.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 BRRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2537695_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3215824/ms_2537695_2.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 BRRip",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2537695_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3215824/ms_2537695_3.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 BRRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2537695_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3215824/ms_2537695_4.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 BRRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2537695_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3215824/ms_2537695_0.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 Bluray",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2537695_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3215824/ms_2537695_1.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 Bluray",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2537695_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3215824/ms_2537695_2.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 Bluray",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2537695_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3215824/ms_2537695_3.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 Bluray",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2537695_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3215824/ms_2537695_4.srt",
+          "release": "MalayThose Who Wish Me Dead 2021 Bluray",
+          "source": "subscene",
+          "acc": 6
+        }
+      ]
+    },
+    "tt0077651": {
+      "updated_at": 1789049601,
+      "sub_count": 46,
+      "subtitles": [
+        {
+          "id": "3127438_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0077651/id_3127438_0.srt",
+          "release": "IndonesianHalloweenㅡ2018-WEBRip-AMZN-CP",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1901454_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0077651/id_1901454_0.srt",
+          "release": "IndonesianHalloween.2018.SEMUA - HDRip - WEB-DL",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1890987_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0077651/id_1890987_0.srt",
+          "release": "IndonesianHalloween.2018.SEMUA - HC.HDRip.KORSUB",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1911115_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0077651/id_1911115_0.srt",
+          "release": "IndonesianHalloween.2018.SEMUA - BluRay",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1890303_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0077651/id_1890303_0.srt",
+          "release": "IndonesianHalloween.2018.KORSUB.HDRip.XviD.AC3-EVO",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2328641_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0077651/id_2328641_0.srt",
+          "release": "IndonesianHalloween.2018.1080p.BluRay.REMUX.AVC.DTS-X-EPSiLON",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1908842_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0077651/id_1908842_0.srt",
+          "release": "IndonesianHalloween.2018.1080p.720p.ALL.BLURAY",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3014650_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0077651/id_3014650_0.srt",
+          "release": "IndonesianHalloween.1978.REMASTERED.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2175623_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0077651/id_2175623_0.srt",
+          "release": "IndonesianHalloween.1978.REMASTERED.720p.BluRay.x264.850MB-Pahe.in",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2740862_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0077651/id_2740862_0.srt",
+          "release": "IndonesianHalloween.1978.25th.Anniversary.Edition.720p.BluRay.x264-EbP",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2608799_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0077651/id_2608799_0.srt",
+          "release": "IndonesianHalloween.1978.2160p.UHD.BluRay.x265.HDR.Pahe.in",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1045535_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0077651/id_1045535_0.srt",
+          "release": "IndonesianHalloween.1978.1080p.BRrip.x264.YIFY",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1891982_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0077651/id_1891982_0.srt",
+          "release": "IndonesianHalloween-2018-XBet-HDCAM-CAM-720p-480p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1891982_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0077651/id_1891982_1.srt",
+          "release": "IndonesianHalloween-2018-XBet-HDCAM-CAM-720p-480p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1891982_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0077651/id_1891982_2.srt",
+          "release": "IndonesianHalloween-2018-XBet-HDCAM-CAM-720p-480p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1891982_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0077651/id_1891982_3.srt",
+          "release": "IndonesianHalloween-2018-XBet-HDCAM-CAM-720p-480p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1901736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0077651/id_1901736_0.srt",
+          "release": "IndonesianHalloween-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1901736_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0077651/id_1901736_1.srt",
+          "release": "IndonesianHalloween-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1901736_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0077651/id_1901736_2.srt",
+          "release": "IndonesianHalloween-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1901736_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0077651/id_1901736_3.srt",
+          "release": "IndonesianHalloween-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1902965_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0077651/id_1902965_0.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-RETAIL-WEBDL-WEBRip-iNSiDiOUS-MkvCage-7...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1902965_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0077651/id_1902965_1.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-RETAIL-WEBDL-WEBRip-iNSiDiOUS-MkvCage-7...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1902965_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0077651/id_1902965_2.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-RETAIL-WEBDL-WEBRip-iNSiDiOUS-MkvCage-7...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1902965_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0077651/id_1902965_3.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-RETAIL-WEBDL-WEBRip-iNSiDiOUS-MkvCage-7...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1891983_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0077651/id_1891983_0.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-KORSUBS-HDRip-HC-720p-480p-1080p-WWW.SE...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1891983_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0077651/id_1891983_1.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-KORSUBS-HDRip-HC-720p-480p-1080p-WWW.SE...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1891983_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0077651/id_1891983_2.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-KORSUBS-HDRip-HC-720p-480p-1080p-WWW.SE...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1891983_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0077651/id_1891983_3.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-KORSUBS-HDRip-HC-720p-480p-1080p-WWW.SE...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1908392_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0077651/id_1908392_0.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1080p.W...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1908392_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0077651/id_1908392_1.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1080p.W...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1908392_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0077651/id_1908392_2.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1080p.W...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1908392_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0077651/id_1908392_3.srt",
+          "release": "IndonesianHalloween-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1080p.W...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1862008_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0077651/id_1862008_0.srt",
+          "release": "IndonesianHalloween-1978-BluRay-720p-1080p-REMASTERED-Pahe.in",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "474882_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0077651/id_474882_0.srt",
+          "release": "IndonesianHalloween 1978 for file 500 MB",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3095009_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0077651/id_3095009_0.srt",
+          "release": "IndonesianHalloween (1978) RM4K (1080p BluRay x265 10bit Tigole)-retai...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1086797_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0077651/id_1086797_0.srt",
+          "release": "IndonesianHalloween (1978) DVDRip IDWS 700MB",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1893454_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0077651/ms_1893454_0.srt",
+          "release": "MalayHalloween.2018.720p.HC.HDRip.MkvCage.ws",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2923691_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0077651/ms_2923691_0.srt",
+          "release": "MalayHalloween.2018.720p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3120937_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0077651/ms_3120937_0.srt",
+          "release": "MalayHalloween.2018.1080p.BluRay.REMUX.AVC.DTS-X-EPSiLON",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3041636_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0077651/ms_3041636_0.srt",
+          "release": "MalayHalloween.1978.REMASTERED.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1901496_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0077651/ms_1901496_0.srt",
+          "release": "MalayHalloween-(2018) All-Hc-HdRip By -BlackCape-",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1901496_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0077651/ms_1901496_1.srt",
+          "release": "MalayHalloween-(2018) All-Hc-HdRip By -BlackCape-",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1901496_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0077651/ms_1901496_0.srt",
+          "release": "MalayHalloween-(2018) All WebDl By -BlackCape-",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1901496_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0077651/ms_1901496_1.srt",
+          "release": "MalayHalloween-(2018) All WebDl By -BlackCape-",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1908747_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0077651/ms_1908747_0.srt",
+          "release": "MalayHalloween-(2018) All BluRayRip By -BlackCape-",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1908747_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0077651/ms_1908747_1.srt",
+          "release": "MalayHalloween-(2018) All BluRayRip By -BlackCape-",
+          "source": "subscene",
+          "acc": 2
+        }
+      ]
+    },
+    "tt0325710": {
+      "updated_at": 1789049639,
+      "sub_count": 12,
+      "subtitles": [
+        {
+          "id": "437104_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0325710/id_437104_0.srt",
+          "release": "IndonesianThe.Last.Samurai.2003.720p.x264-roNy",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2073192_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0325710/id_2073192_0.srt",
+          "release": "IndonesianThe.Last.Samurai.2003.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "437104_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0325710/id_437104_0.srt",
+          "release": "IndonesianThe.Last.Samurai.2003.1080p.BluRay.VC1.TRUEHD.5.1",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "791252_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0325710/id_791252_0.srt",
+          "release": "IndonesianThe Last Samurai[2003]DvDrip AC3[Eng]-FXG",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "374767_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0325710/id_374767_0.srt",
+          "release": "IndonesianThe Last Samurai Bluray 720p Unit3d",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "911722_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0325710/id_911722_0.srt",
+          "release": "IndonesianThe Last Samurai 2003 BDRip 1080p TrueHD 5.1 extras-HighCode",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "778835_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0325710/id_778835_0.srt",
+          "release": "IndonesianThe Last Samurai 2003",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "648145_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0325710/id_648145_0.srt",
+          "release": "IndonesianPas untuk DVD Rip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3070565_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0325710/ms_3070565_0.srt",
+          "release": "MalayThe.Last.Samurai.2003.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "816273_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0325710/ms_816273_0.srt",
+          "release": "MalayThe.Last.Samurai.2003.720p.BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2585376_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0325710/ms_2585376_0.srt",
+          "release": "MalayThe.Last.Samurai.2003.1080p.BluRay.x265-RARBG",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "463746_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0325710/ms_463746_0.srt",
+          "release": "MalayThe Last Samurai[2003]DvDrip AC3[Eng]-FXG",
+          "source": "subscene",
+          "acc": 4
+        }
+      ]
+    },
+    "tt0120915": {
+      "updated_at": 1789049679,
+      "sub_count": 10,
+      "subtitles": [
+        {
+          "id": "481937_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0120915/id_481937_0.srt",
+          "release": "Indonesian[RESYNC] BRrip ganool version",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "477266_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0120915/id_477266_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.The.Phantom.Menace.720p.HDTV.x264.INTERN...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "300546_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0120915/id_300546_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.The.Phantom.Menace.1999.DvDrip-aXXo",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2177427_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0120915/id_2177427_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.The.Phantom.Menace.1999.2160p.UHD.BluRay...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2772236_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0120915/id_2772236_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.The.Phantom.Menace.1999.1080p.UHD.BluRay...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "733611_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0120915/id_733611_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.The.Phantom.Menace.(1999).BR720p",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "491120_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0120915/id_491120_0.srt",
+          "release": "IndonesianStar.Wars.Episode.I.1999.720p.BluRay.X264-scOrp",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2177427_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0120915/id_2177427_0.srt",
+          "release": "Indonesian2160p UHD BluRay REMUX HDR HEVC TrueHD 7.1 Atmos-EPSiLON",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3023835_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0120915/ms_3023835_0.srt",
+          "release": "MalayStar.Wars.Episode.I.The.Phantom.Menace.1999.1080p.UHD.BluRay...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1379696_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0120915/ms_1379696_0.srt",
+          "release": "MalayStar.Wars.Episode.I.1999.720p.BluRay.X264-Malay",
+          "source": "subscene",
+          "acc": 4
+        }
+      ]
+    },
+    "tt0289043": {
+      "updated_at": 1789049766,
+      "sub_count": 9,
+      "subtitles": [
+        {
+          "id": "2331791_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0289043/id_2331791_0.srt",
+          "release": "Indonesian28.Days.Later.2002.BluRay.x265-RARBG / FGT",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "555971_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0289043/id_555971_0.srt",
+          "release": "Indonesian28.Days.Later.2002.All.BluRay-IDFL.US",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "555971_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0289043/id_555971_1.srt",
+          "release": "Indonesian28.Days.Later.2002.All.BluRay-IDFL.US",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "475975_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0289043/id_475975_0.srt",
+          "release": "Indonesian28.Days.Later.2002.720p.1080p.BluRay.x264.Resync.yapim.indof...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "475090_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0289043/id_475090_0.srt",
+          "release": "Indonesian28 days later 2010",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "541353_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0289043/id_541353_0.srt",
+          "release": "Indonesian28 Days Later 2002 Bluray-iND",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "425811_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0289043/id_425811_0.srt",
+          "release": "Indonesian28 days later",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1358652_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0289043/ms_1358652_0.srt",
+          "release": "Malay28 Days Later (2002) 720p Bluray",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1358653_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0289043/ms_1358653_0.srt",
+          "release": "Malay28 Days Later (2002) 1080p Bluray",
+          "source": "subscene",
+          "acc": 3
+        }
+      ]
+    },
+    "tt0108399": {
+      "updated_at": 1789049878,
+      "sub_count": 1,
+      "subtitles": [
+        {
+          "id": "504417_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0108399/id_504417_0.srt",
+          "release": "IndonesianTrue Romance 1993.brrip.720p.x264 dan 1080 yify mitzep",
+          "source": "subscene",
+          "acc": 4
+        }
+      ]
+    },
+    "tt0117500": {
+      "updated_at": 1789050035,
+      "sub_count": 14,
+      "subtitles": [
+        {
+          "id": "2357154_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0117500/id_2357154_0.srt",
+          "release": "IndonesianThe.Rock.1996.WEB-DL.DSNP",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "744665_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0117500/id_744665_0.srt",
+          "release": "IndonesianThe.Rock.1996.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "570551_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0117500/id_570551_0.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "570551_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0117500/id_570551_1.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "570551_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0117500/id_570551_2.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "570551_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0117500/id_570551_3.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "570551_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0117500/id_570551_4.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "570551_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0117500/id_570551_5.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "570551_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0117500/id_570551_6.srt",
+          "release": "IndonesianThe Rock 1996-BluRay-DVD-Manual Translate",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "591070_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0117500/id_591070_0.srt",
+          "release": "IndonesianThe Rock 1996",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "720173_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0117500/id_720173_0.srt",
+          "release": "IndonesianThe Rock (1996) BDRip 720p - YIFY",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "572711_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0117500/ms_572711_0.srt",
+          "release": "MalayThe.Rock.[1996].720p.BRRip.x264-TheFalcon007",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2945619_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0117500/ms_2945619_0.srt",
+          "release": "MalayThe.Rock.1996.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "389449_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0117500/ms_389449_0.srt",
+          "release": "MalayThe-Rock-1996-480p-BRRip-from-DMZWarez.info",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt0230600": {
+      "updated_at": 1789050184,
+      "sub_count": 16,
+      "subtitles": [
+        {
+          "id": "280654_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0230600/id_280654_0.srt",
+          "release": "IndonesianThe.Others[2001]DVDRip",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2980379_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0230600/id_2980379_0.srt",
+          "release": "IndonesianThe.Others.2001.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1119305_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0230600/id_1119305_0.srt",
+          "release": "IndonesianThe.Others.2001.All.BluRay.720p.YIFY.Ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "961494_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0230600/id_961494_0.srt",
+          "release": "IndonesianThe.Others.2001.720p.Bluray.x264.DTS-WiKi",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1178609_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0230600/id_1178609_0.srt",
+          "release": "IndonesianThe.Others.2001.720p.BluRay.DTS.x264.YIFY",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3225254_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0230600/id_3225254_0.srt",
+          "release": "IndonesianThe.Others.2001.2160p.UHD.BluRay.x265.SDR.DD+7.1-Pahe.in 1:4...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "712255_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0230600/id_712255_0.srt",
+          "release": "IndonesianThe Others DVDRip-Youtube-",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "454539_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0230600/id_454539_0.srt",
+          "release": "IndonesianThe Others DVDRip Resync from Sukair",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "477013_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0230600/id_477013_0.srt",
+          "release": "IndonesianThe Others at Ganool",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "478521_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0230600/id_478521_0.srt",
+          "release": "IndonesianThe Others 2001 Resync BRRip 720p mp4 Extension from Sukair",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1471908_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0230600/id_1471908_0.srt",
+          "release": "IndonesianThe Others 2001 720p Bluray DTS x24-DON(1)",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "711901_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0230600/id_711901_0.srt",
+          "release": "IndonesianThe Others (2001) DVDRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3225297_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0230600/id_3225297_0.srt",
+          "release": "IndonesianThe Others (2001) (1080p Bluray AV1 Opus) [NeoNyx343] 1:44:3...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3098364_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0230600/ms_3098364_0.srt",
+          "release": "MalayThe.Others.2001.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1432498_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0230600/ms_1432498_0.srt",
+          "release": "MalayThe Others 2001 Semua BR",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1364243_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0230600/ms_1364243_0.srt",
+          "release": "MalayThe Others 2001 DivX ENG",
+          "source": "subscene",
+          "acc": 4
+        }
+      ]
+    },
+    "tt0082971": {
+      "updated_at": 1789050227,
+      "sub_count": 18,
+      "subtitles": [
+        {
+          "id": "479907_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0082971/id_479907_0.srt",
+          "release": "IndonesianThe Raiders Of The Lost Ark 1981 HDTVRip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1665416_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0082971/id_1665416_0.srt",
+          "release": "IndonesianIndiana.Jones.Raiders.of.the.Lost.Ark.1981.1080p.BluRay.AC3....",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3129364_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0082971/id_3129364_0.srt",
+          "release": "IndonesianIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.WEBRip.Ne...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3129364_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0082971/id_3129364_0.srt",
+          "release": "IndonesianIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.WEB-DL.Ne...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1124343_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0082971/id_1124343_0.srt",
+          "release": "IndonesianIndiana.Jones.And.The.Raiders.Of.The.Lost.Ark.1981.720p.BluR...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2565614_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0082971/id_2565614_0.srt",
+          "release": "IndonesianIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.2160p.Blu...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "607302_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0082971/id_607302_0.srt",
+          "release": "IndonesianIndiana Jones and the Raiders of the Lost Ark DVDRIP INDO",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "507119_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0082971/id_507119_0.srt",
+          "release": "IndonesianIndiana Jones and the Raiders of the Lost Ark DVDRip",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "633612_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0082971/id_633612_0.srt",
+          "release": "IndonesianIndiana Jones and the Raiders of the Lost Ark BRrip YIFY IND...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2033402_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0082971/id_2033402_0.srt",
+          "release": "IndonesianIndiana Jones and the Raiders of the Lost Ark - AMZN.WEB-DL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3114080_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0082971/id_3114080_0.srt",
+          "release": "IndonesianIndiana Jones and the Raiders of the Lost Ark (1981) BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1665416_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0082971/id_1665416_0.srt",
+          "release": "IndonesianBLURAY RETAIL",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1805068_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0082971/ms_1805068_0.srt",
+          "release": "MalayIndiana.Jones.And.The.Raiders.Of.The.Lost.Ark.720p.BRRip.MSC...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3129369_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0082971/ms_3129369_0.srt",
+          "release": "MalayIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.WEBRip.Ne...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3129369_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0082971/ms_3129369_0.srt",
+          "release": "MalayIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.WEB-DL.Ne...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2895176_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0082971/ms_2895176_0.srt",
+          "release": "MalayIndiana.Jones.and.the.Raiders.of.the.Lost.Ark.1981.2160p.Blu...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1805068_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0082971/ms_1805068_0.srt",
+          "release": "MalayIndiana.Jones.And.The.Raiders.Of.The.Lost.Ark.1080p.BRRip.MS...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "749606_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0082971/ms_749606_0.srt",
+          "release": "MalayIndiana Jones And The Raiders Of The Lost Ark 1981 BRrip YIF...",
+          "source": "subscene",
+          "acc": 2
+        }
+      ]
+    },
+    "tt12731980": {
+      "updated_at": 1789050248,
+      "sub_count": 6,
+      "subtitles": [
+        {
+          "id": "2597276_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt12731980/id_2597276_0.srt",
+          "release": "IndonesianOld.Henry.2021.WEBRip.HDRip",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2594516_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt12731980/id_2594516_0.srt",
+          "release": "IndonesianOld.Henry.2021.720p.1080p.WEBRip.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2595967_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt12731980/id_2595967_0.srt",
+          "release": "IndonesianOld.Henry.2021.480p.WEBRip.x264-[Mkvking.com]_ind",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2597853_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt12731980/id_2597853_0.srt",
+          "release": "IndonesianOld-Henry-2021-YTS-PAHE-PSArips-WEB-DL-WEBRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2597853_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt12731980/id_2597853_0.srt",
+          "release": "IndonesianOld-Henry-2021-YTS-PAHE-PSArips-BluRay",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2628061_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt12731980/ms_2628061_0.srt",
+          "release": "MalayOld.Henry.2021.WEBRip.x264-ION10",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt0899043": {
+      "updated_at": 1789050262,
+      "sub_count": 1,
+      "subtitles": [
+        {
+          "id": "3361359_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0899043/id_3361359_0.srt",
+          "release": "IndonesianThe Amateur (2025)",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
+    },
+    "tt1302006": {
+      "updated_at": 1789050471,
+      "sub_count": 8,
+      "subtitles": [
+        {
+          "id": "3009192_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1302006/id_3009192_0.srt",
+          "release": "IndonesianThe.Irishman.2019.WEBRip.Netflix",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3009192_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1302006/id_3009192_0.srt",
+          "release": "IndonesianThe.Irishman.2019.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2097647_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1302006/id_2097647_0.srt",
+          "release": "IndonesianThe.Irishman.2019.NF.WEB-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2335193_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1302006/id_2335193_0.srt",
+          "release": "IndonesianThe.Irishman.2019.Criterion.1080p.BluRay.Remux.AVC.TrueHD.7....",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2100039_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1302006/id_2100039_0.srt",
+          "release": "IndonesianThe.Irishman.2019.2160p.NF.WEBRip.x265.10bit.HDR.DD5.1.Atmos...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2097868_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1302006/id_2097868_0.srt",
+          "release": "IndonesianThe.Irishman.2019.1080p.NF.WEBRip.DDP5.1.Atmos.x264-CM.Indon...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2097608_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1302006/id_2097608_0.srt",
+          "release": "IndonesianThe.Irishman.2019.1080p.NF.WEBRip.DDP5.1.Atmos.x264-CM",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2335897_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1302006/id_2335897_0.srt",
+          "release": "IndonesianThe-Irishman-2019-Criterion-BluRay-Remux-AVC",
+          "source": "subscene",
+          "acc": 7
+        }
+      ]
+    },
+    "tt13345606": {
+      "updated_at": 1789050564,
+      "sub_count": 51,
+      "subtitles": [
+        {
+          "id": "3088410_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/ms_3088410_0.srt",
+          "release": "EnglishEvil Dead Rise",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3121932_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt13345606/id_3121932_0.srt",
+          "release": "IndonesianEvil.Dead.Riseㅡ2023-WEBRip-HBOGO.Cp",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3122049_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt13345606/id_3122049_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.WEBRip.x264.AAC5.1-[YTS.MX]",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3103583_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt13345606/id_3103583_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.WEB-DL.WEBRip.HDRip.1080p.720p.480p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3103583_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt13345606/id_3103583_1.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.WEB-DL.WEBRip.HDRip.1080p.720p.480p",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3103583_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt13345606/id_3103583_2.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.WEB-DL.WEBRip.HDRip.1080p.720p.480p",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3103583_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt13345606/id_3103583_3.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.WEB-DL.WEBRip.HDRip.1080p.720p.480p",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3080052_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt13345606/id_3080052_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.HDCAM.1080p.Clean.Source-SnoopDawgg.Dual...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3122048_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt13345606/id_3122048_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.BluRay.x265-B0MBARDiERS",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3103647_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt13345606/id_3103647_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.720p.WEBRip.x264.AAC-[YTS.MX]",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3099638_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/id_3099638_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.720p.WEB-DL.x264_ind",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3086442_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt13345606/id_3086442_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.2160p.UHD.BluRay.x265-B0MBARDiERS",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3086442_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt13345606/id_3086442_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264-CMRG",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3103502_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt13345606/id_3103502_0.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3103502_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt13345606/id_3103502_1.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3103502_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt13345606/id_3103502_2.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3103502_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt13345606/id_3103502_3.srt",
+          "release": "IndonesianEvil.Dead.Rise.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3086482_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt13345606/id_3086482_0.srt",
+          "release": "IndonesianEvil-Dead-Rise-2023-Yts-Pahe-WEB-DL-WEBRip-BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3086481_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt13345606/id_3086481_0.srt",
+          "release": "IndonesianEvil-Dead-Rise-2023-HDCAM",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3113362_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt13345606/id_3113362_0.srt",
+          "release": "IndonesianEvil-Dead-Rise-2023-BluRay-x264-AAC-[YTS.MX]",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3114072_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/id_3114072_0.srt",
+          "release": "IndonesianEvil Dead Rise (2023) 480p 720p 1080p BluRay",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3122006_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt13345606/ms_3122006_0.srt",
+          "release": "MalayEvil.Dead:Rise.2023.720p.BluRay.DD5.1.x264-MTeam",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3086490_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt13345606/ms_3086490_0.srt",
+          "release": "MalayEvil.Dead.Rise.2023.WEBRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3086490_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt13345606/ms_3086490_1.srt",
+          "release": "MalayEvil.Dead.Rise.2023.WEBRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3086490_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt13345606/ms_3086490_0.srt",
+          "release": "MalayEvil.Dead.Rise.2023.MA.WEB-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3086490_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt13345606/ms_3086490_1.srt",
+          "release": "MalayEvil.Dead.Rise.2023.MA.WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3122006_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt13345606/ms_3122006_0.srt",
+          "release": "MalayEvil.Dead.Rise.2023.720p.MA.WEB-DL.DDP5.1.Atmos.H.264-CMRG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3086600_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt13345606/ms_3086600_0.srt",
+          "release": "MalayEvil Dead Rise 2023 WEBRip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3086600_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt13345606/ms_3086600_1.srt",
+          "release": "MalayEvil Dead Rise 2023 WEBRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3086600_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt13345606/ms_3086600_2.srt",
+          "release": "MalayEvil Dead Rise 2023 WEBRip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3086600_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/ms_3086600_0.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-HD",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3086600_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt13345606/ms_3086600_1.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-HD",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3086600_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt13345606/ms_3086600_2.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-HD",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3086600_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt13345606/ms_3086600_0.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3086600_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt13345606/ms_3086600_1.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3086600_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt13345606/ms_3086600_2.srt",
+          "release": "MalayEvil Dead Rise 2023 WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3115112_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt13345606/ms_3115112_0.srt",
+          "release": "MalayEvil Dead Rise 2023 BRRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3115112_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt13345606/ms_3115112_1.srt",
+          "release": "MalayEvil Dead Rise 2023 BRRip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3115112_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt13345606/ms_3115112_2.srt",
+          "release": "MalayEvil Dead Rise 2023 BRRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3115112_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt13345606/ms_3115112_3.srt",
+          "release": "MalayEvil Dead Rise 2023 BRRip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3115112_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/ms_3115112_4.srt",
+          "release": "MalayEvil Dead Rise 2023 BRRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3115112_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt13345606/ms_3115112_0.srt",
+          "release": "MalayEvil Dead Rise 2023 BluRay",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3115112_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt13345606/ms_3115112_1.srt",
+          "release": "MalayEvil Dead Rise 2023 BluRay",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3115112_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt13345606/ms_3115112_2.srt",
+          "release": "MalayEvil Dead Rise 2023 BluRay",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3115112_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt13345606/ms_3115112_3.srt",
+          "release": "MalayEvil Dead Rise 2023 BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3115112_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt13345606/ms_3115112_4.srt",
+          "release": "MalayEvil Dead Rise 2023 BluRay",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3115112_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt13345606/ms_3115112_0.srt",
+          "release": "MalayEvil Dead Rise 2023 BDRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3115112_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt13345606/ms_3115112_1.srt",
+          "release": "MalayEvil Dead Rise 2023 BDRip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3115112_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt13345606/ms_3115112_2.srt",
+          "release": "MalayEvil Dead Rise 2023 BDRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3115112_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt13345606/ms_3115112_3.srt",
+          "release": "MalayEvil Dead Rise 2023 BDRip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3115112_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt13345606/ms_3115112_4.srt",
+          "release": "MalayEvil Dead Rise 2023 BDRip",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt26047818": {
+      "updated_at": 1789050685,
+      "sub_count": 30,
+      "subtitles": [
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.REPACK.720p.WEBRip.x264.AAC-[YTS.MX]_HI",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.REPACK.1080p.WEBRip.x265.10bit.AAC5.1-[Y...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.REPACK.1080p.WEBRip.x264.AAC5.1-[YTS.MX]...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.720p.WEBRip.800MB.x264-GalaxyRG_HI",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.1080p.WEBRip.x265-KONTRAST_HI",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.1080p.WEBRip.DDP5.1.x265.10bit-GalaxyRG2...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3298213_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt26047818/ms_3298213_0.srt",
+          "release": "EnglishAnyone.But.You.2023.1080p.WEBRip.1400MB.DD5.1.x264-GalaxyRG_...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3290106_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt26047818/id_3290106_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.REPACK.1080p.WEBRip.PSARips",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.REPACK.1080p.WEB-DL.DD5.1.H.264-EniaHD",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3305726_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt26047818/id_3305726_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.BLURAY.720p.1080pSemua BluRay",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3302156_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt26047818/id_3302156_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.BluRay.1080p.REMUX.AVC.DTS-HD.MA.5.1-LEG...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.BDRip.x264-PiGNUS",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.WEB-DL.Pahe",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.BluRay.x264-PiGNUS",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.BluRay.DD.5.1.x264-playHD",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.AMZN.WEBRip.GalaxyRG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.10bit.WEBRip.6CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.720p.10bit.BluRay.6CH.X265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3288034_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt26047818/id_3288034_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.2160p.WEB.H265-HowIFeelAboutDonaldTrump",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3290106_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt26047818/id_3290106_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.WEBRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.WEB-DL.Pahe",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3287925_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt26047818/id_3287925_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.WEB-DL.Atmos.H.264-FLUX",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.BluRay.x264-PiGNUS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.BluRay.x264-OFT",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.BluRay.DD.5.1.x264-HiDt",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.AMZN.WEBRip.GalaxyRG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3309306_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt26047818/id_3309306_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.AMZN.WEBRip.DDP.5.1.x264-WiNHD",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3290106_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt26047818/id_3290106_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.AMZN.WEB-DL.DDP5.1.H.264-FLUX",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3281433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt26047818/id_3281433_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.10bit.WEBRip.6CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3309878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt26047818/id_3309878_0.srt",
+          "release": "IndonesianAnyone.But.You.2023.1080p.10bit.BluRay.6CH.X265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt2005151": {
+      "updated_at": 1789050747,
+      "sub_count": 14,
+      "subtitles": [
+        {
+          "id": "1512269_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2005151/id_1512269_0.srt",
+          "release": "Indonesianwrdgsgs.br_300mbfilms.com",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1614787_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2005151/id_1614787_0.srt",
+          "release": "IndonesianWar.Dogs.2016.Semua.Bluray.720p.1080p",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2073333_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2005151/id_2073333_0.srt",
+          "release": "IndonesianWar.Dogs.2016.720p.BluRay.x264-DRONES",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1441934_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2005151/ms_1441934_0.srt",
+          "release": "MalayWar.Dogs.All.Bluray.Luqman.Rodzi",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1442588_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2005151/ms_1442588_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BRRip.x264.AAC-ETRG",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BRRip.x264-MkvCage",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BluRay.x264.ShAaNiG",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2853790_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2005151/ms_2853790_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BluRay.x264-DRONES",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BluRay.x264-DRONES",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BluRay.HEVC.x265-RMTeam",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1442425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2005151/ms_1442425_0.srt",
+          "release": "MalayWar.Dogs.2016.720p.ALL.Bluray.BERSENANDUNG.3.LANGKAH.",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1442588_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2005151/ms_1442588_0.srt",
+          "release": "MalayWar.Dogs.2016.1080p.BRRip.x264.AAC-ETRG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1443072_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2005151/ms_1443072_0.srt",
+          "release": "MalayWar Dogs 2016 Semua BR",
+          "source": "subscene",
+          "acc": 2
+        }
+      ]
     }
   },
-  "total_items": 324
+  "total_items": 339
 }
