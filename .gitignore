@@ -16,3 +16,6 @@ CF-WORKER/
 B2-ACC-SCRIPT/
 b2_accounts.env
 .env.b2.multi.acc
+Recaptcha-Bypass/pyproject.toml
+Recaptcha-Bypass/RecaptchaSolver.py
+Recaptcha-Bypass/test.py
