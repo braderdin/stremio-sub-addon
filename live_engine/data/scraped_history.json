@@ -88779,7 +88779,3753 @@
           "acc": 9
         }
       ]
+    },
+    "tt1020530": {
+      "updated_at": 1789097225,
+      "sub_count": 7,
+      "subtitles": [
+        {
+          "id": "515084_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1020530/id_515084_0.srt",
+          "release": "IndonesianEden.Lake.2008.DVDRip.XviD.300MB",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2321308_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1020530/id_2321308_0.srt",
+          "release": "IndonesianEden.Lake.2008.1080p.BluRay.x264.DD5.1-Pahe.in",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2321498_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1020530/id_2321498_0.srt",
+          "release": "IndonesianEden.Lake.2008.1080p.AVC.DTS-HD.MA.5.1DeFZeN",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "666612_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1020530/id_666612_0.srt",
+          "release": "IndonesianEden Lake 2008 720p BRrip x264 - Kkhan Silver RG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "894671_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1020530/id_894671_0.srt",
+          "release": "IndonesianEden Lake (2008) versi BluRay Ganool",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1603900_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1020530/ms_1603900_0.srt",
+          "release": "MalayEden Lake (2008) BluRay 720p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "722231_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1020530/ms_722231_0.srt",
+          "release": "MalayEden Lake (2008) - Dvdrip",
+          "source": "subscene",
+          "acc": 7
+        }
+      ]
+    },
+    "tt0878804": {
+      "updated_at": 1789097259,
+      "sub_count": 13,
+      "subtitles": [
+        {
+          "id": "2074646_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0878804/id_2074646_0.srt",
+          "release": "IndonesianThe.Blind.Side.2009.1080p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "407367_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0878804/id_407367_0.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "313280_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0878804/id_313280_0.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "313280_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0878804/id_313280_1.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "313280_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0878804/id_313280_2.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "313280_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0878804/id_313280_3.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "313280_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0878804/id_313280_4.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "313280_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0878804/id_313280_5.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "313280_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0878804/id_313280_6.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "313280_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0878804/id_313280_7.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "313280_8",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0878804/id_313280_8.srt",
+          "release": "IndonesianThe Blind Side",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1277260_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0878804/ms_1277260_0.srt",
+          "release": "MalayThe.Blind.Side.2009.720p.BluRay.malay",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1810482_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0878804/ms_1810482_0.srt",
+          "release": "MalayThe Blind Side (2009) BluRay",
+          "source": "subscene",
+          "acc": 10
+        }
+      ]
+    },
+    "tt1024648": {
+      "updated_at": 1789097302,
+      "sub_count": 24,
+      "subtitles": [
+        {
+          "id": "685188_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1024648/id_685188_0.srt",
+          "release": "IndonesianArgo.dvdscr.Ganool.com.mkv",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "691944_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1024648/id_691944_0.srt",
+          "release": "IndonesianArgo.2012.WEBRip.READNFO.XviD-RESiSTANCE",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "700589_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1024648/id_700589_0.srt",
+          "release": "IndonesianArgo.2012.EXTENDED.BRRip.x264.720p.1080p.Bahasa",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "676839_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1024648/id_676839_0.srt",
+          "release": "IndonesianArgo.2012.DVDSCR.XviD-WTF",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "676860_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1024648/id_676860_0.srt",
+          "release": "IndonesianArgo.2012.DVDSCR.XviD-EDAW2013.500MB",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "676068_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1024648/id_676068_0.srt",
+          "release": "IndonesianArgo.2012.DVDSCR.Filtered.x264-scOrp.Bahasa",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "683769_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1024648/id_683769_0.srt",
+          "release": "IndonesianArgo.2012.All.DVDRip.and.Ganool.sebuah-dongeng.blogspot.com",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "683771_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1024648/id_683771_0.srt",
+          "release": "IndonesianArgo.2012.All.BluRayRip.1080p.720p.and.Ganool.sebuah-dongeng...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "682707_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1024648/id_682707_0.srt",
+          "release": "IndonesianArgo.2012.All.BluRay.Rip.1080p.720p.x264.Ganool.Bahasa",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2548195_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1024648/id_2548195_0.srt",
+          "release": "IndonesianArgo.2012.ALL.Bluray (not extended version)",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "681796_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1024648/id_681796_0.srt",
+          "release": "IndonesianArgo.2012. READNFO.DVDRip.XviD.AC3-BiDA.Bahasa",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "658274_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1024648/id_658274_0.srt",
+          "release": "IndonesianArgo DVDRip R5 LiNE",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "701602_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1024648/id_701602_0.srt",
+          "release": "IndonesianArgo DVDRip",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "688177_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1024648/id_688177_0.srt",
+          "release": "IndonesianArgo 2012 TS XViD-UNiQUE IDWS",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "677272_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1024648/id_677272_0.srt",
+          "release": "IndonesianArgo 2012 DVDSCR.XviD-WTF.ind",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "685598_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1024648/id_685598_0.srt",
+          "release": "IndonesianArgo 2012 DVDrip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "697807_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1024648/id_697807_0.srt",
+          "release": "IndonesianArgo 1080p BluRay Extended & Theatrical Version",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "697807_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1024648/id_697807_1.srt",
+          "release": "IndonesianArgo 1080p BluRay Extended & Theatrical Version",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "697807_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1024648/id_697807_2.srt",
+          "release": "IndonesianArgo 1080p BluRay Extended & Theatrical Version",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "697807_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1024648/id_697807_3.srt",
+          "release": "IndonesianArgo 1080p BluRay Extended & Theatrical Version",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "697807_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1024648/id_697807_4.srt",
+          "release": "IndonesianArgo 1080p BluRay Extended & Theatrical Version",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "682689_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1024648/id_682689_0.srt",
+          "release": "IndonesianArgo (2012) BluRay720p 720p BluRay x264-SPARKS",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3207502_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1024648/ms_3207502_0.srt",
+          "release": "MalayArgo.2012.Theatrical.Cut.2160p.UHD.BluRay.REMUX.HDR.HEVC.DTS...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1444577_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1024648/ms_1444577_0.srt",
+          "release": "MalayArgo (2012) BluRay Extended",
+          "source": "subscene",
+          "acc": 4
+        }
+      ]
+    },
+    "tt1840309": {
+      "updated_at": 1789097382,
+      "sub_count": 44,
+      "subtitles": [
+        {
+          "id": "2918562_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1840309/id_2918562_0.srt",
+          "release": "IndonesianDivergent.2014.WEBRip.Netflix",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2918562_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1840309/id_2918562_0.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "951986_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1840309/id_951986_0.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.HDRip.720p.1080p.and.Ganool.sebuah-don...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "951986_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1840309/id_951986_1.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.HDRip.720p.1080p.and.Ganool.sebuah-don...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "951986_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1840309/id_951986_2.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.HDRip.720p.1080p.and.Ganool.sebuah-don...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "951986_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1840309/id_951986_3.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.HDRip.720p.1080p.and.Ganool.sebuah-don...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "951986_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1840309/id_951986_4.srt",
+          "release": "IndonesianDivergent.2014.WEB-DL.HDRip.720p.1080p.and.Ganool.sebuah-don...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2095670_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1840309/id_2095670_0.srt",
+          "release": "IndonesianDivergent.2014.SEMUA.BluRay-ID",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "890783_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1840309/id_890783_0.srt",
+          "release": "IndonesianDivergent.2014.NEW.720p.HDCAM.V2.x264.Pimp4003",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "890783_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1840309/id_890783_1.srt",
+          "release": "IndonesianDivergent.2014.NEW.720p.HDCAM.V2.x264.Pimp4003",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "890783_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1840309/id_890783_2.srt",
+          "release": "IndonesianDivergent.2014.NEW.720p.HDCAM.V2.x264.Pimp4003",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "890783_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1840309/id_890783_3.srt",
+          "release": "IndonesianDivergent.2014.NEW.720p.HDCAM.V2.x264.Pimp4003",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "890783_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1840309/id_890783_0.srt",
+          "release": "IndonesianDivergent.2014.CAM.XVID.READNFO-EVE.Anoax",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "890783_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1840309/id_890783_1.srt",
+          "release": "IndonesianDivergent.2014.CAM.XVID.READNFO-EVE.Anoax",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "890783_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1840309/id_890783_2.srt",
+          "release": "IndonesianDivergent.2014.CAM.XVID.READNFO-EVE.Anoax",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "890783_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1840309/id_890783_3.srt",
+          "release": "IndonesianDivergent.2014.CAM.XVID.READNFO-EVE.Anoax",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "952790_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1840309/id_952790_0.srt",
+          "release": "IndonesianDivergent.2014.Blu-Ray.BDRip.720p.1080p.and.Ganool.YIFY.sebu...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "952790_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1840309/id_952790_1.srt",
+          "release": "IndonesianDivergent.2014.Blu-Ray.BDRip.720p.1080p.and.Ganool.YIFY.sebu...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "952790_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1840309/id_952790_2.srt",
+          "release": "IndonesianDivergent.2014.Blu-Ray.BDRip.720p.1080p.and.Ganool.YIFY.sebu...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "952790_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1840309/id_952790_3.srt",
+          "release": "IndonesianDivergent.2014.Blu-Ray.BDRip.720p.1080p.and.Ganool.YIFY.sebu...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "952790_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1840309/id_952790_4.srt",
+          "release": "IndonesianDivergent.2014.Blu-Ray.BDRip.720p.1080p.and.Ganool.YIFY.sebu...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "952006_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1840309/id_952006_0.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "952006_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1840309/id_952006_1.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "952006_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1840309/id_952006_2.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "952006_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1840309/id_952006_3.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "952006_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1840309/id_952006_4.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "952006_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1840309/id_952006_5.srt",
+          "release": "IndonesianDivergent.2014.All.WEB-DL.HDRip.er1ck9",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "952571_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1840309/id_952571_0.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "952571_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1840309/id_952571_1.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "952571_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1840309/id_952571_2.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "952571_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1840309/id_952571_3.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "952571_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1840309/id_952571_4.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "952571_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1840309/id_952571_5.srt",
+          "release": "IndonesianDivergent.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2610832_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1840309/id_2610832_0.srt",
+          "release": "IndonesianDivergent.2014.ALL.Bluray",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "952458_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1840309/id_952458_0.srt",
+          "release": "IndonesianDivergent.2014.720p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "954325_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1840309/id_954325_0.srt",
+          "release": "IndonesianDivergent.2014.1080p.720p.ALL.BLURAY",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "952579_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1840309/id_952579_0.srt",
+          "release": "IndonesianDivergent.2014.1080p.720p.ALL-BluRay.x264.YIFY-SPARKS",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "952136_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1840309/id_952136_0.srt",
+          "release": "IndonesianDivergent 2014 HDRip WEB-DL-PLAYNOW.filmeuy.com",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "883881_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1840309/id_883881_0.srt",
+          "release": "Indonesian--->TRAILER<--- Divergent 2014 Final Trailer (For IMDB...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2725611_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1840309/ms_2725611_0.srt",
+          "release": "MalayDivergent.2014.720p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "952771_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1840309/ms_952771_0.srt",
+          "release": "MalayDivergent-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "952771_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1840309/ms_952771_1.srt",
+          "release": "MalayDivergent-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "952771_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1840309/ms_952771_2.srt",
+          "release": "MalayDivergent-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "952771_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1840309/ms_952771_3.srt",
+          "release": "MalayDivergent-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt2639336": {
+      "updated_at": 1789097518,
+      "sub_count": 8,
+      "subtitles": [
+        {
+          "id": "1985937_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2639336/id_1985937_0.srt",
+          "release": "IndonesianGreta.2019.WEBRip - indonesia",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1985971_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2639336/id_1985971_0.srt",
+          "release": "IndonesianGreta.2019.720p.WEB-DL.x264-MkvCage.ws",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2191850_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2639336/id_2191850_0.srt",
+          "release": "IndonesianGreta.2019.720p.1080p.All.BluRay.By.BukanPolisi",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2564197_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2639336/id_2564197_0.srt",
+          "release": "IndonesianGreta.2018.720p.BluRay.x264-Pahe.in",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1990753_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2639336/id_1990753_0.srt",
+          "release": "IndonesianGreta.2018.1080p.BluRay.x264.6CH-Pahe.in",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2564197_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2639336/id_2564197_0.srt",
+          "release": "IndonesianGreta.2018.1080p.BluRay.x264-GECKOS",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1992517_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2639336/ms_1992517_0.srt",
+          "release": "MalayGreta.2018.720p.BluRay.x264-[YTS.AM]",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2456539_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2639336/ms_2456539_0.srt",
+          "release": "MalayGreta.2018.720p.BluRay.x264-GECKOS",
+          "source": "subscene",
+          "acc": 6
+        }
+      ]
+    },
+    "tt10720352": {
+      "updated_at": 1789097533,
+      "sub_count": 4,
+      "subtitles": [
+        {
+          "id": "3329050_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt10720352/id_3329050_0.srt",
+          "release": "IndonesianArthur-the-King-2024-YTS-Xvid-x265-x264-WebRip-WebDL-Pahe-in...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "3329050_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt10720352/id_3329050_1.srt",
+          "release": "IndonesianArthur-the-King-2024-YTS-Xvid-x265-x264-WebRip-WebDL-Pahe-in...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3329050_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt10720352/id_3329050_2.srt",
+          "release": "IndonesianArthur-the-King-2024-YTS-Xvid-x265-x264-WebRip-WebDL-Pahe-in...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3329050_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt10720352/id_3329050_3.srt",
+          "release": "IndonesianArthur-the-King-2024-YTS-Xvid-x265-x264-WebRip-WebDL-Pahe-in...",
+          "source": "subscene",
+          "acc": 10
+        }
+      ]
+    },
+    "tt0139654": {
+      "updated_at": 1789097661,
+      "sub_count": 23,
+      "subtitles": [
+        {
+          "id": "1603333_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0139654/id_1603333_0.srt",
+          "release": "IndonesianTraining.Day.2001.AllBrRip.1080p-720p.x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3015452_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0139654/id_3015452_0.srt",
+          "release": "IndonesianTraining.Day.2001.ALL.REMASTERED.BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2548210_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0139654/id_2548210_0.srt",
+          "release": "IndonesianTraining.Day.2001.ALL.Bluray",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "521532_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0139654/id_521532_0.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BRRip.x264",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "747283_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0139654/id_747283_0.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "747283_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0139654/id_747283_1.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "747283_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0139654/id_747283_2.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "747283_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0139654/id_747283_3.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "747283_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0139654/id_747283_4.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "747283_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0139654/id_747283_5.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "747283_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0139654/id_747283_6.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "747283_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0139654/id_747283_7.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "747283_8",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0139654/id_747283_8.srt",
+          "release": "IndonesianTraining.Day.2001.720p.BluRay.x264-WiKi.id",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "747283_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0139654/id_747283_0.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "747283_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0139654/id_747283_1.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "747283_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0139654/id_747283_2.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "747283_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0139654/id_747283_3.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "747283_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0139654/id_747283_4.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "747283_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0139654/id_747283_5.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "747283_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0139654/id_747283_6.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "747283_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0139654/id_747283_7.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "747283_8",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0139654/id_747283_8.srt",
+          "release": "IndonesianTraining Day subtitle for all versions",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1424279_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0139654/ms_1424279_0.srt",
+          "release": "MalayTraining Day 2001 Semua BR",
+          "source": "subscene",
+          "acc": 3
+        }
+      ]
+    },
+    "tt1790864": {
+      "updated_at": 1789097845,
+      "sub_count": 66,
+      "subtitles": [
+        {
+          "id": "1018348_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1018348_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.Semua.DVDRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1020916_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/id_1020916_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.Semua.BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1018200_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/id_1018200_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.DVDRip.Cinemaindo.Ganool",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1024690_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/id_1024690_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.DVDRip.500MB.Ganool",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "992373_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/id_992373_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.CAM.875MB",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1011497_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/id_1011497_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.CAM.450MB.Ganool. Duet Maut",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1011497_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/id_1011497_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.CAM.450MB.Ganool. Duet Maut",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1021848_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/id_1021848_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.HDCAM.720p.and.Ganool.WWW.SEBUAH-DO...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1021848_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/id_1021848_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.HDCAM.720p.and.Ganool.WWW.SEBUAH-DO...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1021848_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/id_1021848_2.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.HDCAM.720p.and.Ganool.WWW.SEBUAH-DO...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1021848_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1021848_3.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.HDCAM.720p.and.Ganool.WWW.SEBUAH-DO...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1021848_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/id_1021848_4.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.HDCAM.720p.and.Ganool.WWW.SEBUAH-DO...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1018203_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/id_1018203_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.PROPER.GANOOL-RARBG-EVO",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1018203_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/id_1018203_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.PROPER.GANOOL-RARBG-EVO",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1021049_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/id_1021049_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1021049_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/id_1021049_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1021049_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/id_1021049_2.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1021049_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/id_1021049_3.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1021049_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/id_1021049_4.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1021049_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/id_1021049_5.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1021049_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1021049_6.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1021049_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/id_1021049_7.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.er1ck9",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1021852_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/id_1021852_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.and.Ganool.WWW.SEBUAH-DONGEN...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1021852_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/id_1021852_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.and.Ganool.WWW.SEBUAH-DONGEN...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1021852_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/id_1021852_2.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.and.Ganool.WWW.SEBUAH-DONGEN...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1021852_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/id_1021852_3.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.and.Ganool.WWW.SEBUAH-DONGEN...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1021852_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/id_1021852_4.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.DVDRip.and.Ganool.WWW.SEBUAH-DONGEN...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1021049_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/id_1021049_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1021049_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/id_1021049_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1021049_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/id_1021049_2.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1021049_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1021049_3.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1021049_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/id_1021049_4.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1021049_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/id_1021049_5.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1021049_6",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/id_1021049_6.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1021049_7",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/id_1021049_7.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1020946_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/id_1020946_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.720p.Ogi.Prince",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1023351_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/id_1023351_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.720p-480p-1080p-Ganool",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1023351_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/id_1023351_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.BluRay.720p-480p-1080p-Ganool",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1021853_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/id_1021853_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.Blu-Ray.BDRip.720p.1080p.Ganool.and...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1021853_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/id_1021853_1.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.Blu-Ray.BDRip.720p.1080p.Ganool.and...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1021853_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1021853_2.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.Blu-Ray.BDRip.720p.1080p.Ganool.and...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1021853_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/id_1021853_3.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.Blu-Ray.BDRip.720p.1080p.Ganool.and...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1021853_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/id_1021853_4.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.All.Blu-Ray.BDRip.720p.1080p.Ganool.and...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2071881_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/id_2071881_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.720p.BluRay.x264.900MB-Pahe.in",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1020889_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/id_1020889_0.srt",
+          "release": "IndonesianThe.Maze.Runner.2014.720p.Bluray.Cinemaindo.Ganool",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "988362_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/id_988362_0.srt",
+          "release": "IndonesianThe Maze Runner 2014 English CAM x264 875MB",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1018126_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/id_1018126_0.srt",
+          "release": "IndonesianThe Maze Runner 2014 DVD Version",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1021692_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/id_1021692_0.srt",
+          "release": "IndonesianThe Maze Runner 2014 Bluray",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1018142_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/id_1018142_0.srt",
+          "release": "IndonesianThe Maze Runner 2014 ALL DVDRip x264",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1016819_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/id_1016819_0.srt",
+          "release": "IndonesianThe Maze Runner (2014) HDCAM 720p",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1715935_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/id_1715935_0.srt",
+          "release": "IndonesianThe Maze Runner (2014) BluRay 720p 800MB Ganool",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2936042_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/ms_2936042_0.srt",
+          "release": "MalayThe.Maze.Runner.2014.PROPER.1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1018668_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/ms_1018668_0.srt",
+          "release": "MalayThe.Maze.Runner.2014.All.DVDRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1021643_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/ms_1021643_0.srt",
+          "release": "MalayThe.Maze.Runner.2014.All.Bluray.Rip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1019014_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/ms_1019014_0.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-DvdRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1019014_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/ms_1019014_1.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-DvdRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1019014_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1790864/ms_1019014_2.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-DvdRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1020906_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1790864/ms_1020906_0.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1020906_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1790864/ms_1020906_1.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1020906_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1790864/ms_1020906_2.srt",
+          "release": "MalayThe-Maze-Runner-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "998795_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1790864/ms_998795_0.srt",
+          "release": "MalayThe Maze Runner 2014 Malay Camrip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "998795_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1790864/ms_998795_1.srt",
+          "release": "MalayThe Maze Runner 2014 Malay Camrip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1018355_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1790864/ms_1018355_0.srt",
+          "release": "MalayThe Maze Runner (2014) PROPER DVDRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1217981_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1790864/ms_1217981_0.srt",
+          "release": "MalayThe Maze Runner (2014) 720p Bluray",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1217982_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1790864/ms_1217982_0.srt",
+          "release": "MalayThe Maze Runner (2014) 1080p Bluray",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1034735_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1790864/ms_1034735_0.srt",
+          "release": "MalayDICEPATKAN 1 SAAT DARI FILE ASAL FROM APIQ ADER",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
+    },
+    "tt0103855": {
+      "updated_at": 1789097879,
+      "sub_count": 16,
+      "subtitles": [
+        {
+          "id": "971137_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0103855/id_971137_0.srt",
+          "release": "IndonesianThe_Bodyguard.2004-DVDRip.x264.AAC-SeeingMole",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1452097_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0103855/id_1452097_0.srt",
+          "release": "Indonesian[email protected].",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2516041_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0103855/id_2516041_0.srt",
+          "release": "IndonesianThe.Bodyguard.2004.THAI.WEB-DL.HBOGO",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "742630_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0103855/id_742630_0.srt",
+          "release": "IndonesianThe.BodyGuard.2004.2CD",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "742630_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0103855/id_742630_1.srt",
+          "release": "IndonesianThe.BodyGuard.2004.2CD",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2786192_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0103855/id_2786192_0.srt",
+          "release": "IndonesianThe.Bodyguard.1992.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2786192_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0103855/id_2786192_0.srt",
+          "release": "IndonesianThe.Bodyguard.1992.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "668442_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0103855/id_668442_0.srt",
+          "release": "IndonesianThe.Bodyguard.1992.DVDrip",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2072444_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0103855/id_2072444_0.srt",
+          "release": "IndonesianThe.Bodyguard.1992.720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "554491_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0103855/id_554491_0.srt",
+          "release": "IndonesianThe.Bodyguard.1992.720p.BluRay.X264-7SinS",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "873897_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0103855/id_873897_0.srt",
+          "release": "IndonesianThe Bodyguard 2004",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "847130_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0103855/id_847130_0.srt",
+          "release": "IndonesianThe Bodyguard (2004) for filmeuy.com (sub indo)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1411875_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0103855/ms_1411875_0.srt",
+          "release": "Malay[CilokMovie3] The Bodyguard [2004] DVDRip Malay/Indon",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2786195_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0103855/ms_2786195_0.srt",
+          "release": "MalayThe.Bodyguard.1992.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2786195_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0103855/ms_2786195_0.srt",
+          "release": "MalayThe.Bodyguard.1992.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2592868_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0103855/ms_2592868_0.srt",
+          "release": "MalayThe.Bodyguard.1992.720p.BRRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 5
+        }
+      ]
+    },
+    "tt5463162": {
+      "updated_at": 1789097978,
+      "sub_count": 125,
+      "subtitles": [
+        {
+          "id": "1915204_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1915204_0.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1915204_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1915204_1.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1915204_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1915204_2.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1915204_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1915204_3.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1915205_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1915205_0.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1915205_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1915205_1.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1915205_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1915205_2.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1915205_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1915205_3.srt",
+          "release": "IndonesianOnce-Upon-A-Deadpool-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-4...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1885529_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1885529_0.srt",
+          "release": "IndonesianOnce Upon A Deadpool - Official Trailer",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2855044_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_2855044_0.srt",
+          "release": "IndonesianDeadpool.2.2018.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2855044_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_2855044_0.srt",
+          "release": "IndonesianDeadpool.2.2018.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2401097_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_2401097_0.srt",
+          "release": "IndonesianDeadpool.2.2018.WEB-DL.DSNP",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1778433_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1778433_0.srt",
+          "release": "IndonesianDeadpool.2.2018.HDTS.XViD.AC3-ETRG",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1780564_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1780564_0.srt",
+          "release": "IndonesianDeadpool-2-2018-www-SeeHD-HDCAM-CAM-720p-480p-WWW.SEBUAH-DON...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1780564_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1780564_1.srt",
+          "release": "IndonesianDeadpool-2-2018-www-SeeHD-HDCAM-CAM-720p-480p-WWW.SEBUAH-DON...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1780564_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1780564_2.srt",
+          "release": "IndonesianDeadpool-2-2018-www-SeeHD-HDCAM-CAM-720p-480p-WWW.SEBUAH-DON...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1780564_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1780564_3.srt",
+          "release": "IndonesianDeadpool-2-2018-www-SeeHD-HDCAM-CAM-720p-480p-WWW.SEBUAH-DON...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1819787_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1819787_0.srt",
+          "release": "IndonesianDeadpool-2-2018-WEBDL-WEBRip-HDRip-720p-1080p-480p-WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1819787_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1819787_1.srt",
+          "release": "IndonesianDeadpool-2-2018-WEBDL-WEBRip-HDRip-720p-1080p-480p-WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1819787_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1819787_2.srt",
+          "release": "IndonesianDeadpool-2-2018-WEBDL-WEBRip-HDRip-720p-1080p-480p-WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1819787_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1819787_3.srt",
+          "release": "IndonesianDeadpool-2-2018-WEBDL-WEBRip-HDRip-720p-1080p-480p-WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1819787_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1819787_4.srt",
+          "release": "IndonesianDeadpool-2-2018-WEBDL-WEBRip-HDRip-720p-1080p-480p-WWW.SEBUA...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1807283_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1807283_0.srt",
+          "release": "IndonesianDeadpool-2-2018-V2-HDTC-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1807283_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1807283_1.srt",
+          "release": "IndonesianDeadpool-2-2018-V2-HDTC-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1807283_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1807283_2.srt",
+          "release": "IndonesianDeadpool-2-2018-V2-HDTC-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1807283_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1807283_3.srt",
+          "release": "IndonesianDeadpool-2-2018-V2-HDTC-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1780565_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1780565_0.srt",
+          "release": "IndonesianDeadpool-2-2018-TS-HDTS-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1780565_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1780565_1.srt",
+          "release": "IndonesianDeadpool-2-2018-TS-HDTS-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1780565_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1780565_2.srt",
+          "release": "IndonesianDeadpool-2-2018-TS-HDTS-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1780565_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1780565_3.srt",
+          "release": "IndonesianDeadpool-2-2018-TS-HDTS-720p-480p-WWW.SEBUAH-DONGENG.COM",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820916_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1820916_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-WEBDL-WEBRip-HDRip-7...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820916_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1820916_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-WEBDL-WEBRip-HDRip-7...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820916_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1820916_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-WEBDL-WEBRip-HDRip-7...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820916_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1820916_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-WEBDL-WEBRip-HDRip-7...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820917_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1820917_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-BRRip-BluRay-BDRip-7...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820917_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1820917_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-BRRip-BluRay-BDRip-7...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1820917_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1820917_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-BRRip-BluRay-BDRip-7...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1820917_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1820917_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-UNRATED-BRRip-BluRay-BDRip-7...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2406639_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_2406639_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Super-Duper-Cut-REMASTERED-720p-BluRay-x264-...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1819823_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1819823_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-WebDL-HDRip-WebRip-EveryAgent",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1819823_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1819823_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-WebDL-HDRip-WebRip-EveryAgent",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1821242_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1821242_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1821242_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1821242_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1821242_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1821242_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1821242_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1821242_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1821242_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1821242_4.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1821242_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1821242_5.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-WebDL-HDRip-AM...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1821242_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1821242_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1821242_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1821242_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1821242_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1821242_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1821242_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1821242_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1821242_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1821242_4.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1821242_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1821242_5.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-UNRATED-Super-Duper-Cut-BluRay-BRRIP-A...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1807282_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1807282_0.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-NEW-HDTC-720p-480p-WWW.SEBUAH-DONGENG....",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1807282_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1807282_1.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-NEW-HDTC-720p-480p-WWW.SEBUAH-DONGENG....",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1807282_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1807282_2.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-NEW-HDTC-720p-480p-WWW.SEBUAH-DONGENG....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1807282_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1807282_3.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-NEW-HDTC-720p-480p-WWW.SEBUAH-DONGENG....",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1812640_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1812640_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-Korsub-HDRip-720p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1812640_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1812640_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-Korsub-HDRip-720p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1812640_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1812640_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-Korsub-HDRip-720p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1812640_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1812640_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-Korsub-HDRip-720p-WWW.SEBUAH-DONGENG.C...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820915_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1820915_0.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-BRRip-BluRay-BDRip-720p-1080p-480p-WWW...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820915_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_1820915_1.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-BRRip-BluRay-BDRip-720p-1080p-480p-WWW...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820915_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1820915_2.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-BRRip-BluRay-BDRip-720p-1080p-480p-WWW...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820915_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1820915_3.srt",
+          "release": "IndonesianDeadpool-2-2018-SEMUA-BRRip-BluRay-BDRip-720p-1080p-480p-WWW...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1821242_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1821242_0.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1821242_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/id_1821242_1.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1821242_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/id_1821242_2.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1821242_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/id_1821242_3.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1821242_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/id_1821242_4.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1821242_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/id_1821242_5.srt",
+          "release": "IndonesianDeadpool-2-2018-Semua-BluRay-BRRIP-Durasi-01:59:20",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1786166_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/id_1786166_0.srt",
+          "release": "IndonesianDeadpool 2 (2018) HDTC",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2695150_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/id_2695150_0.srt",
+          "release": "IndonesianDeadpool 2 (2018) Extended ★★★ BluRay",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1778430_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/id_1778430_0.srt",
+          "release": "IndonesianDeadpool 2 (2018) CAM HDTS 720p",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820918_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/id_1820918_0.srt",
+          "release": "IndonesianDeadpool 2 (2018) - WebRip & Web-Dl SUPER DUPER CUT UNRA...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820815_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/id_1820815_0.srt",
+          "release": "IndonesianDeadpool 2 (2018) - BluRay SUPER DUPER CUT UNRATED",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2855053_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/ms_2855053_0.srt",
+          "release": "MalayDeadpool.2.2018.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2855053_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/ms_2855053_0.srt",
+          "release": "MalayDeadpool.2.2018.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2899263_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/ms_2899263_0.srt",
+          "release": "MalayDeadpool.2.2018.THEATRICAL.BDRip.x264-ROVERS",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1820318_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/ms_1820318_0.srt",
+          "release": "MalayDeadpool-2 (2018) All-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820318_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/ms_1820318_1.srt",
+          "release": "MalayDeadpool-2 (2018) All-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820318_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/ms_1820318_2.srt",
+          "release": "MalayDeadpool-2 (2018) All-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820318_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/ms_1820318_3.srt",
+          "release": "MalayDeadpool-2 (2018) All-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820318_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/ms_1820318_0.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820318_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/ms_1820318_1.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820318_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/ms_1820318_2.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1820318_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/ms_1820318_3.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-WebDl-By-BlackCape",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1820433_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/ms_1820433_0.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1820433_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/ms_1820433_1.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1820433_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/ms_1820433_2.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820433_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/ms_1820433_3.srt",
+          "release": "MalayDeadpool-2 (2018) All-Super-Duper-Cut-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820318_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/ms_1820318_0.srt",
+          "release": "MalayDeadpool-2 (2018) All-Hc-HdRip-By-BlackCape",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820318_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/ms_1820318_1.srt",
+          "release": "MalayDeadpool-2 (2018) All-Hc-HdRip-By-BlackCape",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820318_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/ms_1820318_2.srt",
+          "release": "MalayDeadpool-2 (2018) All-Hc-HdRip-By-BlackCape",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820318_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/ms_1820318_3.srt",
+          "release": "MalayDeadpool-2 (2018) All-Hc-HdRip-By-BlackCape",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820433_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/ms_1820433_0.srt",
+          "release": "MalayDeadpool-2 (2018) All-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1820433_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/ms_1820433_1.srt",
+          "release": "MalayDeadpool-2 (2018) All-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1820433_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/ms_1820433_2.srt",
+          "release": "MalayDeadpool-2 (2018) All-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1820433_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/ms_1820433_3.srt",
+          "release": "MalayDeadpool-2 (2018) All-BluRay-By-BlackCape",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1782967_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/ms_1782967_0.srt",
+          "release": "MalayDeadpool 2 HDCAM",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820836_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/ms_1820836_0.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820836_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/ms_1820836_1.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820836_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/ms_1820836_2.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820836_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/ms_1820836_3.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820836_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/ms_1820836_4.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820836_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/ms_1820836_0.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1820836_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/ms_1820836_1.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1820836_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/ms_1820836_2.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1820836_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/ms_1820836_3.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1820836_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/ms_1820836_4.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) WEB-DL",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820836_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/ms_1820836_0.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) HC HDRip KORSUB",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820836_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/ms_1820836_1.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) HC HDRip KORSUB",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820836_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/ms_1820836_2.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) HC HDRip KORSUB",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820836_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/ms_1820836_3.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) HC HDRip KORSUB",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820836_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/ms_1820836_4.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) HC HDRip KORSUB",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1820836_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt5463162/ms_1820836_0.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1820836_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt5463162/ms_1820836_1.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1820836_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt5463162/ms_1820836_2.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1820836_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt5463162/ms_1820836_3.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1820836_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt5463162/ms_1820836_4.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay UNRATED: Super Duper C...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1820836_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt5463162/ms_1820836_0.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1820836_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt5463162/ms_1820836_1.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1820836_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt5463162/ms_1820836_2.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1820836_3",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt5463162/ms_1820836_3.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1820836_4",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt5463162/ms_1820836_4.srt",
+          "release": "Malay100Malay ★ Deadpool 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 10
+        }
+      ]
+    },
+    "tt1276104": {
+      "updated_at": 1789098013,
+      "sub_count": 15,
+      "subtitles": [
+        {
+          "id": "645261_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1276104/id_645261_0.srt",
+          "release": "Indonesianlooperts72.Ganool.com",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "647199_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1276104/id_647199_0.srt",
+          "release": "IndonesianLooper.2012.KORSUB.720p-720p HDRip 800MB Ganool.IND1",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "647266_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1276104/id_647266_0.srt",
+          "release": "IndonesianLooper.2012.All.KORSUB.HDRip.720p.and.Ganool.sebuah-dongeng....",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "647266_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1276104/id_647266_1.srt",
+          "release": "IndonesianLooper.2012.All.KORSUB.HDRip.720p.and.Ganool.sebuah-dongeng....",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "652331_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1276104/id_652331_0.srt",
+          "release": "IndonesianLooper.2012.All.DVDRip.and.Ganool.sebuah-dongeng.blogspot.co...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "663005_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1276104/id_663005_0.srt",
+          "release": "IndonesianLooper.2012.All.BluRayRip.1080p.720p.and.Ganool.sebuah-donge...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "688144_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1276104/id_688144_0.srt",
+          "release": "IndonesianLooper.2012.720p.BluRay.x264.indofiles.org",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2539945_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1276104/id_2539945_0.srt",
+          "release": "IndonesianLooper.2012.2160p.UHD.BluRay.x265.HDR10Plus.DD+5.1-Pahe.in",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "652628_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1276104/id_652628_0.srt",
+          "release": "IndonesianLooper 2012 DVDRip XviD Ganool",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "663068_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1276104/id_663068_0.srt",
+          "release": "IndonesianLooper 2012 BluRay 720p 1080p x264",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "640117_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1276104/id_640117_0.srt",
+          "release": "IndonesianLooper (2012) HD-TS 450 MB Manual Translate",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "646501_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1276104/id_646501_0.srt",
+          "release": "IndonesianHD rip ganool",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2539945_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1276104/id_2539945_0.srt",
+          "release": "Indonesian2160p UHD BluRay DTS-HD MA 5.1 HDR10+ HEVC HYBRID REMUX-LOOP",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "652425_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1276104/ms_652425_0.srt",
+          "release": "MalayLooper.2012.DVDRip.XviD malay",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "805792_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1276104/ms_805792_0.srt",
+          "release": "MalayLooper.2012.BluRay.720p.1080p.Malay",
+          "source": "subscene",
+          "acc": 5
+        }
+      ]
+    },
+    "tt1464335": {
+      "updated_at": 1789098084,
+      "sub_count": 52,
+      "subtitles": [
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.720p.BluRay.x265.DTS-HD.MA.5.1-MTeam",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.720p.BluRay.x264.DTS-HD.MA.5.1-MTeam",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.1080p.BluRay.x264.DTS-HD.MA.DD5.1-MTeam",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.1080p.BluRay.REMUX.AVC.DTS-HD.MA.x265.DD7.1-G...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.1080p.BluRay.REMUX.AVC.DTS-HD.MA.x264.DD7.1-G...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.1080p.BluRay.REMUX.AVC.DTS-HD.MA.5.1-GDHD",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2763095_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1464335/ms_2763095_0.srt",
+          "release": "EnglishUncharted.2022.1080p.Bluray.DTS-HD.MA.5.1.x264-EVO",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2756420_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1464335/id_2756420_0.srt",
+          "release": "IndonesianUnchartedㅡ2022-BluRay-DTS-MT-YIFY-RARBG",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2896860_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1464335/id_2896860_0.srt",
+          "release": "IndonesianUncharted.2022.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2896860_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1464335/id_2896860_0.srt",
+          "release": "IndonesianUncharted.2022.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2714101_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/id_2714101_0.srt",
+          "release": "IndonesianUncharted.2022.HDCAM.x264.QRips",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2755063_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/id_2755063_0.srt",
+          "release": "IndonesianUncharted.2022.2160p.WEB-DL.DD5.1.H265-EVO",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2769917_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1464335/id_2769917_0.srt",
+          "release": "IndonesianUncharted.2022.1080p.UHD.BluRay.x265.HDR.DV.DD+5.1-Pahe.in",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2714101_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1464335/id_2714101_0.srt",
+          "release": "IndonesianUncharted.2022.1080p.HDCAM.H264.AC3.Will1869",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2715242_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1464335/id_2715242_0.srt",
+          "release": "IndonesianUncharted.2022.1080p.HDCAM.H264.AC3.Will1869",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2757969_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1464335/id_2757969_0.srt",
+          "release": "IndonesianUncharted.2022.1080p.BluRay.x264.DD5.1-Pahe",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2755175_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1464335/id_2755175_0.srt",
+          "release": "IndonesianUncharted.2022.1080p.Bluray.DTS-HD.MA.5.1.X264-EVO",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2787367_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1464335/id_2787367_0.srt",
+          "release": "IndonesianUncharted.2009.720p.WEBRip.x264.AAC",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2756260_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1464335/id_2756260_0.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-WEBRIP-WEBHD-WEBDL-WEB-SEM...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2756260_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1464335/id_2756260_1.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-WEBRIP-WEBHD-WEBDL-WEB-SEM...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2756260_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/id_2756260_2.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-WEBRIP-WEBHD-WEBDL-WEB-SEM...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2756260_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/id_2756260_3.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-WEBRIP-WEBHD-WEBDL-WEB-SEM...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2764957_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1464335/id_2764957_0.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-WEBRip-WEBHD-WEBDL-Pahein-...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2764957_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1464335/id_2764957_1.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-WEBRip-WEBHD-WEBDL-Pahein-...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2764957_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1464335/id_2764957_2.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-WEBRip-WEBHD-WEBDL-Pahein-...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2764957_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1464335/id_2764957_3.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-WEBRip-WEBHD-WEBDL-Pahein-...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2756277_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1464335/id_2756277_0.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2756277_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1464335/id_2756277_1.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2756277_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1464335/id_2756277_2.srt",
+          "release": "IndonesianUncharted-2022-YTS-XVID-X265-X264-Semua-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2764959_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1464335/id_2764959_0.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-SEMUA-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2764959_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/id_2764959_1.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-SEMUA-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2764959_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/id_2764959_2.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-SEMUA-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2764959_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1464335/id_2764959_3.srt",
+          "release": "IndonesianUNCHARTED-2022-YTS-XviD-X265-X264-SEMUA-BRRip-BluRayRip-BDRi...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2764956_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1464335/id_2764956_0.srt",
+          "release": "IndonesianUNCHARTED-2022-X264-Will1869-HDCAM-1080p-720p.480p.WWW.IDFL....",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2764956_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1464335/id_2764956_1.srt",
+          "release": "IndonesianUNCHARTED-2022-X264-Will1869-HDCAM-1080p-720p.480p.WWW.IDFL....",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2764956_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1464335/id_2764956_2.srt",
+          "release": "IndonesianUNCHARTED-2022-X264-Will1869-HDCAM-1080p-720p.480p.WWW.IDFL....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2764956_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1464335/id_2764956_3.srt",
+          "release": "IndonesianUNCHARTED-2022-X264-Will1869-HDCAM-1080p-720p.480p.WWW.IDFL....",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2715242_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1464335/id_2715242_0.srt",
+          "release": "IndonesianUncharted-2022-HDCAM-[01:46:00]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2789419_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1464335/id_2789419_0.srt",
+          "release": "IndonesianUncharted BlurayTuan_Nobody",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2754993_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1464335/id_2754993_0.srt",
+          "release": "IndonesianUncharted 2022 1080p WEB-DL DDP5 1 H264-EVO",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2755043_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/id_2755043_0.srt",
+          "release": "IndonesianUncharted 2022 1080p WEB-DL DDP5",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2864193_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/id_2864193_0.srt",
+          "release": "IndonesianUncharted (2022) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2690832_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1464335/id_2690832_0.srt",
+          "release": "Indonesian-->TRAILER <-- Uncharted Trailer",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2896865_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1464335/ms_2896865_0.srt",
+          "release": "MalayUncharted.2022.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2755078_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1464335/ms_2755078_0.srt",
+          "release": "MalayUncharted.2022.WEBRip",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2755078_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1464335/ms_2755078_1.srt",
+          "release": "MalayUncharted.2022.WEBRip",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2896865_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1464335/ms_2896865_0.srt",
+          "release": "MalayUncharted.2022.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2755078_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1464335/ms_2755078_0.srt",
+          "release": "MalayUncharted.2022.WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2755078_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1464335/ms_2755078_1.srt",
+          "release": "MalayUncharted.2022.WEB-DL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2755165_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1464335/ms_2755165_0.srt",
+          "release": "MalayUncharted.2022.UHD.BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2755165_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1464335/ms_2755165_1.srt",
+          "release": "MalayUncharted.2022.UHD.BluRay",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2759281_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1464335/ms_2759281_0.srt",
+          "release": "MalayUncharted 2022 1080p WEB-DL DDP5 1 H264-EVO",
+          "source": "subscene",
+          "acc": 7
+        }
+      ]
+    },
+    "tt3890160": {
+      "updated_at": 1789098147,
+      "sub_count": 52,
+      "subtitles": [
+        {
+          "id": "1637243_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/id_1637243_0.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1637243_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/id_1637243_1.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1637243_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3890160/id_1637243_2.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1637243_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3890160/id_1637243_3.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1637243_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3890160/id_1637243_4.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1637243_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3890160/id_1637243_5.srt",
+          "release": "IndonesianВaby.Driver.2017.All.WEB-DL.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1637237_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3890160/id_1637237_0.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1637237_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3890160/id_1637237_1.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1637237_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3890160/id_1637237_2.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1637237_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3890160/id_1637237_3.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1637237_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/id_1637237_4.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1637237_5",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/id_1637237_5.srt",
+          "release": "IndonesianВaby.Driver.2017.All.BLURAY.by.Lebah.Jelek",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2692094_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3890160/id_2692094_0.srt",
+          "release": "IndonesianBaby.Driver.2017.WEBRip.Netflix",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2692094_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3890160/id_2692094_0.srt",
+          "release": "IndonesianBaby.Driver.2017.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1605030_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3890160/id_1605030_0.srt",
+          "release": "IndonesianBaby.Driver.2017.TS.XviD.AC3-TiTAN",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1629910_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3890160/id_1629910_0.srt",
+          "release": "IndonesianBaby.Driver.2017.SEMUA.HDRip.WEBRip.WEB-DL ( Revisi dr sub s...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1629910_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3890160/id_1629910_1.srt",
+          "release": "IndonesianBaby.Driver.2017.SEMUA.HDRip.WEBRip.WEB-DL ( Revisi dr sub s...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1629910_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3890160/id_1629910_2.srt",
+          "release": "IndonesianBaby.Driver.2017.SEMUA.HDRip.WEBRip.WEB-DL ( Revisi dr sub s...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1629910_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3890160/id_1629910_3.srt",
+          "release": "IndonesianBaby.Driver.2017.SEMUA.HDRip.WEBRip.WEB-DL ( Revisi dr sub s...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2829347_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3890160/id_2829347_0.srt",
+          "release": "IndonesianBaby.Driver.2017.HBO.id",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1952305_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/id_1952305_0.srt",
+          "release": "IndonesianBaby.Driver.2017.BluRay",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1637272_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/id_1637272_0.srt",
+          "release": "IndonesianBaby.Driver.2017.All-BluRay-HeisenbergLab",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2072183_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3890160/id_2072183_0.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.REMASTERED.x264.950MB-Pahe.in",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1629522_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3890160/id_1629522_0.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.1080p.WEB-DL.DD5.1.H264-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1628871_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3890160/id_1628871_0.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.1080p.HDRip.WEBRip.WEB-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1628871_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3890160/id_1628871_1.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.1080p.HDRip.WEBRip.WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1628871_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3890160/id_1628871_2.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.1080p.HDRip.WEBRip.WEB-DL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1628871_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3890160/id_1628871_3.srt",
+          "release": "IndonesianBaby.Driver.2017.720p.1080p.HDRip.WEBRip.WEB-DL",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1635920_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3890160/id_1635920_0.srt",
+          "release": "IndonesianBaby.Driver.2017-BluRay.720p.1080p.BDRip.BRRip ?",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1635920_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3890160/id_1635920_1.srt",
+          "release": "IndonesianBaby.Driver.2017-BluRay.720p.1080p.BDRip.BRRip ?",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1635920_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/id_1635920_2.srt",
+          "release": "IndonesianBaby.Driver.2017-BluRay.720p.1080p.BDRip.BRRip ?",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1635920_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/id_1635920_3.srt",
+          "release": "IndonesianBaby.Driver.2017-BluRay.720p.1080p.BDRip.BRRip ?",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1602465_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3890160/id_1602465_0.srt",
+          "release": "IndonesianBaby Driver HDCAM Ganool.ee",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1585592_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3890160/id_1585592_0.srt",
+          "release": "Indonesian--->TRAILER<--- Baby Driver",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2692098_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3890160/ms_2692098_0.srt",
+          "release": "MalayBaby.Driver.2017.WEBRip.Netflix",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2692098_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3890160/ms_2692098_0.srt",
+          "release": "MalayBaby.Driver.2017.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1629404_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3890160/ms_1629404_0.srt",
+          "release": "MalayBaby.Driver.2017.720p.WEB-DL.x264.800MB-Pahe.in",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2675817_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3890160/ms_2675817_0.srt",
+          "release": "MalayBaby.Driver.2017.1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1631012_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3890160/ms_1631012_0.srt",
+          "release": "MalayBaby-Driver (2017) All-WebDl-By -MSC-",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1631012_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3890160/ms_1631012_1.srt",
+          "release": "MalayBaby-Driver (2017) All-WebDl-By -MSC-",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1636026_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/ms_1636026_0.srt",
+          "release": "MalayBaby-Driver (2017) All-BluRayRip By -MSC-",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1645327_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/ms_1645327_0.srt",
+          "release": "MalayBaby Driver. 720p/1080p BluRay Version",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1630871_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3890160/ms_1630871_0.srt",
+          "release": "MalayBaby Driver [2017].720p.WEB-DL.B.M'sia",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1636787_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3890160/ms_1636787_0.srt",
+          "release": "MalayBaby Driver (2017) WEB-DL1080p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1636787_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3890160/ms_1636787_1.srt",
+          "release": "MalayBaby Driver (2017) WEB-DL1080p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1636787_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3890160/ms_1636787_0.srt",
+          "release": "MalayBaby Driver (2017) WEB-DL 720p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1636787_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3890160/ms_1636787_1.srt",
+          "release": "MalayBaby Driver (2017) WEB-DL 720p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1636787_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3890160/ms_1636787_0.srt",
+          "release": "MalayBaby Driver (2017) BluRay 720p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1636787_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3890160/ms_1636787_1.srt",
+          "release": "MalayBaby Driver (2017) BluRay 720p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1636787_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3890160/ms_1636787_0.srt",
+          "release": "MalayBaby Driver (2017) BluRay 1080p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1636787_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3890160/ms_1636787_1.srt",
+          "release": "MalayBaby Driver (2017) BluRay 1080p | Malay Subtitle",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1655881_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3890160/ms_1655881_0.srt",
+          "release": "Malaybaby driver",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
+    },
+    "tt0108358": {
+      "updated_at": 1789098163,
+      "sub_count": 3,
+      "subtitles": [
+        {
+          "id": "488532_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0108358/id_488532_0.srt",
+          "release": "IndonesianTombstone.1993.BRRip.XviD-ViP3R.Indonesia",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3299860_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0108358/ms_3299860_0.srt",
+          "release": "MalayTombstone.1993.1080p.BluRay.x265-RARBG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "757866_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0108358/ms_757866_0.srt",
+          "release": "MalayTombstone 1993 Bluray 720p",
+          "source": "subscene",
+          "acc": 2
+        }
+      ]
+    },
+    "tt0070047": {
+      "updated_at": 1789098277,
+      "sub_count": 5,
+      "subtitles": [
+        {
+          "id": "2586802_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0070047/id_2586802_0.srt",
+          "release": "IndonesianThe.Exorcist.1973.Theatrical.ALL.Bluray",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "782571_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0070047/id_782571_0.srt",
+          "release": "IndonesianThe.Exorcist.1973.DVDRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "597034_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0070047/id_597034_0.srt",
+          "release": "IndonesianThe.Exorcist.1973.DC.720p.BluRay.x264-SiNNERS-Manual Transla...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "770482_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0070047/ms_770482_0.srt",
+          "release": "IndonesianThe.Exorcist.1973.720p.BrRip.x264.bitloks.YIFY",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "468654_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0070047/ms_468654_0.srt",
+          "release": "MalayThe Exorcist [1973] Extended Directors Cut Blu-ray H264",
+          "source": "subscene",
+          "acc": 7
+        }
+      ]
     }
   },
-  "total_items": 370
+  "total_items": 385
 }
