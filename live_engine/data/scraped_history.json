@@ -102459,7 +102459,1229 @@
           "acc": 8
         }
       ]
+    },
+    "tt2737304": {
+      "updated_at": 1789166307,
+      "sub_count": 10,
+      "subtitles": [
+        {
+          "id": "1907340_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt2737304/id_1907340_0.srt",
+          "release": "IndonesianBird.Box.2018.All WEBRip.x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1906296_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt2737304/id_1906296_0.srt",
+          "release": "IndonesianBird.Box.2018.1080p.NF.WEBRip.x265.10bit.HDR.DDP5.1.Atmos.ww...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1899490_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt2737304/id_1899490_0.srt",
+          "release": "IndonesianBird.Box 2018.WEBrip-WEB-DL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1907197_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt2737304/id_1907197_0.srt",
+          "release": "IndonesianBird-Box-2018-All-WEBDL-WEBRip-HDRip-720p-480p-1080p-AKTSUKI...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2551437_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt2737304/id_2551437_0.srt",
+          "release": "IndonesianBird Box-(2018)-WEB-DL-NF",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1909124_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt2737304/ms_1909124_0.srt",
+          "release": "MalayBird.Box.2018.WEBRip.x264.www.Fakute.com",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2707249_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt2737304/ms_2707249_0.srt",
+          "release": "MalayBird.Box.2018.NF.1080p.WEB-DL.H264.AC3-EVO",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1987740_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt2737304/ms_1987740_0.srt",
+          "release": "MalayBird.Box.2018.720p.WEBRip",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1900947_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt2737304/ms_1900947_0.srt",
+          "release": "MalayBird.Box.2018.720p.NF.WEB-DL.x264.850MB-Pahe.in",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2204697_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt2737304/ms_2204697_0.srt",
+          "release": "MalayBird.Box.2018.1080p.WEBRip.x264-[YTS.AM][Matja™]",
+          "source": "subscene",
+          "acc": 10
+        }
+      ]
+    },
+    "tt7349950": {
+      "updated_at": 1789166426,
+      "sub_count": 68,
+      "subtitles": [
+        {
+          "id": "1982952_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_1982952_0.srt",
+          "release": "EnglishIT CHAPTER TWO - Official Teaser Trailer [1080p]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1982952_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/ms_1982952_0.srt",
+          "release": "EnglishIT CHAPTER TWO - Official Teaser Trailer [480p]",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1982952_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_1982952_0.srt",
+          "release": "EnglishIT CHAPTER TWO - Official Teaser Trailer [1080p]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2066277_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/id_2066277_0.srt",
+          "release": "IndonesianITㅡChapterTwo-2019-HC-HDRip-KORSUB-STUTTERSHIT",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2066498_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/id_2066498_0.srt",
+          "release": "IndonesianIt.Chapter.Two.2019.HC.HDRip.AC3.x264-CMRG[EtMovies].id",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2066498_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/id_2066498_1.srt",
+          "release": "IndonesianIt.Chapter.Two.2019.HC.HDRip.AC3.x264-CMRG[EtMovies].id",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2066160_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/id_2066160_0.srt",
+          "release": "IndonesianIt.Chapter.Two.2019.HC.HDRip.720p.1080p.H264.AAC.cpTmovie.co...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2449483_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7349950/id_2449483_0.srt",
+          "release": "IndonesianIt.Chapter.Two.2019.BluRay.x264-DRONES / FGT / RARBG / EVO /...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2093717_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/id_2093717_0.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-WEB-DL-WEBRip-HDRip-1080p-720p.480p.WWW....",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2093717_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/id_2093717_1.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-WEB-DL-WEBRip-HDRip-1080p-720p.480p.WWW....",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2093717_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7349950/id_2093717_2.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-WEB-DL-WEBRip-HDRip-1080p-720p.480p.WWW....",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2093717_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/id_2093717_3.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-WEB-DL-WEBRip-HDRip-1080p-720p.480p.WWW....",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2093716_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/id_2093716_0.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2093716_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/id_2093716_1.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2093716_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/id_2093716_2.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2093716_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/id_2093716_3.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-KORSUBS-HDRip-HC-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2098963_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/id_2098963_0.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.10...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2098963_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7349950/id_2098963_1.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.10...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2098963_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/id_2098963_2.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.10...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2098963_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/id_2098963_3.srt",
+          "release": "IndonesianIT-Chapter-Two-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.10...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2065100_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7349950/id_2065100_0.srt",
+          "release": "IndonesianIt-Chapter-Two-2019-HC HDRip 720p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2064208_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/id_2064208_0.srt",
+          "release": "IndonesianIT Chapter Two HC-HDRip",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2065297_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/id_2065297_0.srt",
+          "release": "IndonesianIT Chapter Two (2019) HDRip 720p",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2051926_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/id_2051926_0.srt",
+          "release": "IndonesianIt Chapter Two (2019) Cam",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2052162_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/id_2052162_0.srt",
+          "release": "IndonesianIt Chapter Two (2019)",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2064876_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/id_2064876_0.srt",
+          "release": "IndonesianIT Chapter 2 HDrip resync GuavaBerry",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2063914_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/id_2063914_0.srt",
+          "release": "IndonesianFilm IT Chapter two 2019 HD",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.1080p.WEB-DL.DD5.1.H264-FGT",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.HDRip.AC3.x264-CMRG",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.720p/1080p.WEBRip.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.720p.WEBRip.800MB.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.720p.WEB-DL.XviD.AC3-FGT",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.720p.WEB-DL.2CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.1080p.WEBRip.x264-RARBG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.1080p.WEB-DL.H264.AC3-EVO",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.1080p.WEB-DL.DD5.1.HEVC.x265-RMTeam",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2093041_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2093041_0.srt",
+          "release": "MalayIt:Chapter.Two.2019.1080p.WEB-DL.DD5.1.H264-FGT",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.1080p.BluRay.x264.TrueHD.7.1.Atmos-MTeam",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.BluRay.1080p.DD5.1.x264-MTeam",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.BLURAY (02:49:25)",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.BDRip.XviD.AC3-EVO",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.720p/1080p.BRRip.XviD.AC3-XVID",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2099704_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_2099704_0.srt",
+          "release": "MalayIt:Chapter.Two-2019.1080p.BluRay.x264.TrueHD.7.1.Atmos-MTeam",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2092806_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2092806_0.srt",
+          "release": "MalayIt: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2092806_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2092806_1.srt",
+          "release": "MalayIt: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2092806_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2092806_0.srt",
+          "release": "MalayIt: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2092806_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2092806_1.srt",
+          "release": "MalayIt: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2099391_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/ms_2099391_0.srt",
+          "release": "MalayIT: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2099391_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/ms_2099391_0.srt",
+          "release": "MalayIT: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2449484_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/ms_2449484_0.srt",
+          "release": "MalayIt.Chapter.Two.2019.BluRay.x264-DRONES / FGT / RARBG / EVO /...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) WEB-DL 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 720p",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 720p",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 720p",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 1080p",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) HC HDRip 1080p",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 720p",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2101284_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7349950/ms_2101284_0.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2101284_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7349950/ms_2101284_1.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2101284_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7349950/ms_2101284_2.srt",
+          "release": "Malay100Malay ★ It: Chapter Two (2019) BluRay 1080p",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
+    },
+    "tt22687790": {
+      "updated_at": 1789166554,
+      "sub_count": 9,
+      "subtitles": [
+        {
+          "id": "3205671_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt22687790/id_3205671_0.srt",
+          "release": "IndonesianA.Haunting.In.Venice.2023.WEBRip.x264.AAC-[YTS.MX] / AMZN",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3205688_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt22687790/id_3205688_0.srt",
+          "release": "IndonesianA.Haunting.In.Venice.2023.WEBRip-HUZZAH/YTS/DLL",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3205683_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt22687790/id_3205683_0.srt",
+          "release": "IndonesianA.Haunting.In.Venice.2023.WEBRip-DSN+",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3242938_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt22687790/id_3242938_0.srt",
+          "release": "IndonesianA.Haunting.In.Venice.2023.BluRay.x264.AAC5.1-[YTS.MX]",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3198597_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt22687790/ms_3198597_0.srt",
+          "release": "MalayA.Haunting.in.Venice.2023.WEB",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "3205643_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt22687790/ms_3205643_0.srt",
+          "release": "MalayA.Haunting.in.Venice.2023.MA.WEB-DL | WEB-HD | WEBRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3205643_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt22687790/ms_3205643_1.srt",
+          "release": "MalayA.Haunting.in.Venice.2023.MA.WEB-DL | WEB-HD | WEBRip",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3198595_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt22687790/ms_3198595_0.srt",
+          "release": "MalayA.Haunting.in.Venice.2023.HDTS",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "3236325_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt22687790/ms_3236325_0.srt",
+          "release": "MalayA.Haunting.in.Venice.2023.720p.BluRay.x264",
+          "source": "subscene",
+          "acc": 7
+        }
+      ]
+    },
+    "tt4160708": {
+      "updated_at": 1789166631,
+      "sub_count": 53,
+      "subtitles": [
+        {
+          "id": "1402257_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/id_1402257_0.srt",
+          "release": "IndonesianDont.Breathe.2016.CAM.Ganool.Cacuiazu",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1402257_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/id_1402257_1.srt",
+          "release": "IndonesianDont.Breathe.2016.CAM.Ganool.Cacuiazu",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1402257_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/id_1402257_2.srt",
+          "release": "IndonesianDont.Breathe.2016.CAM.Ganool.Cacuiazu",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1402257_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4160708/id_1402257_3.srt",
+          "release": "IndonesianDont.Breathe.2016.CAM.Ganool.Cacuiazu",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1424833_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/id_1424833_0.srt",
+          "release": "IndonesianDont.Breathe.2016.All.WEBRip.720p.1080p-STUTTERSHIT",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1441381_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4160708/id_1441381_0.srt",
+          "release": "IndonesianDont.Breathe.2016.All.WEB-DL.720p.1080p-FGT-iFT",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1451350_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/id_1451350_0.srt",
+          "release": "IndonesianDont.Breathe.2016.All.BluRay.BDRip.BRRip.720p.1080p.SPARKS-F...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1588580_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4160708/id_1588580_0.srt",
+          "release": "IndonesianDont.Breathe.2016.720p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1446236_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4160708/id_1446236_0.srt",
+          "release": "IndonesianDont.Breathe.2016.480p.720p.1080p.BluRay.x264-SPARKS [Teks H...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1446236_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4160708/id_1446236_1.srt",
+          "release": "IndonesianDont.Breathe.2016.480p.720p.1080p.BluRay.x264-SPARKS [Teks H...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1446236_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/id_1446236_2.srt",
+          "release": "IndonesianDont.Breathe.2016.480p.720p.1080p.BluRay.x264-SPARKS [Teks H...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1446236_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/id_1446236_3.srt",
+          "release": "IndonesianDont.Breathe.2016.480p.720p.1080p.BluRay.x264-SPARKS [Teks H...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1446236_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/id_1446236_4.srt",
+          "release": "IndonesianDont.Breathe.2016.480p.720p.1080p.BluRay.x264-SPARKS [Teks H...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1443491_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4160708/id_1443491_0.srt",
+          "release": "IndonesianDont.Breathe.2016.1080p.WEB-DL.DD5.1.H264-FGT [Teks Kuning]",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1443491_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/id_1443491_1.srt",
+          "release": "IndonesianDont.Breathe.2016.1080p.WEB-DL.DD5.1.H264-FGT [Teks Kuning]",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1443491_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4160708/id_1443491_2.srt",
+          "release": "IndonesianDont.Breathe.2016.1080p.WEB-DL.DD5.1.H264-FGT [Teks Kuning]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1443491_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/id_1443491_3.srt",
+          "release": "IndonesianDont.Breathe.2016.1080p.WEB-DL.DD5.1.H264-FGT [Teks Kuning]",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1443491_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4160708/id_1443491_4.srt",
+          "release": "IndonesianDont.Breathe.2016.1080p.WEB-DL.DD5.1.H264-FGT [Teks Kuning]",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1405826_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4160708/id_1405826_0.srt",
+          "release": "IndonesianDont-Breathe-2016-CAM-Ganool-GradyEveryAgent.",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1445877_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4160708/id_1445877_0.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-WEBDL-KakekSalto",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1445877_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/id_1445877_1.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-WEBDL-KakekSalto",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1445877_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/id_1445877_2.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-WEBDL-KakekSalto",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1445877_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/id_1445877_3.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-WEBDL-KakekSalto",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1445877_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4160708/id_1445877_4.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-WEBDL-KakekSalto",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1435931_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/id_1435931_0.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-HDRip-WEBRip-KakekSalto",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1435931_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4160708/id_1435931_1.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-HDRip-WEBRip-KakekSalto",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1435931_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/id_1435931_2.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-HDRip-WEBRip-KakekSalto",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1435931_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4160708/id_1435931_3.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-HDRip-WEBRip-KakekSalto",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1435931_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4160708/id_1435931_4.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-HDRip-WEBRip-KakekSalto",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1445878_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4160708/id_1445878_0.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-BluRay-BDRip-KakekSalto",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1445878_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/id_1445878_1.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-BluRay-BDRip-KakekSalto",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1445878_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/id_1445878_2.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-BluRay-BDRip-KakekSalto",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1445878_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/id_1445878_3.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-BluRay-BDRip-KakekSalto",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1445878_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4160708/id_1445878_4.srt",
+          "release": "IndonesianDont-Breathe-2016-720p-1080p-BluRay-BDRip-KakekSalto",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1442408_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/id_1442408_0.srt",
+          "release": "IndonesianDon't.Breathe.2016.SEMUA.WEB-DL.GradyEveryAgent",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1431356_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4160708/id_1431356_0.srt",
+          "release": "IndonesianDon't.Breathe.2016.HDRip.XViD.AC3-ETRG",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2074640_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/id_2074640_0.srt",
+          "release": "IndonesianDon't.Breathe.2016.720p.BluRay.x264-[YTS.PE]",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1425507_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4160708/id_1425507_0.srt",
+          "release": "IndonesianDon't-Breathe-2016-SEMUA-HDRip-Webripp-GradyBersama.EveryAge...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1446381_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4160708/id_1446381_0.srt",
+          "release": "IndonesianDon't-Breathe-2016-SEMUA-BluRay-BDRipp-480p-720p-1080p-Grady...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2869022_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4160708/id_2869022_0.srt",
+          "release": "IndonesianDon't Breathe (2016) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1586310_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/id_1586310_0.srt",
+          "release": "IndonesianDon't Breathe",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2893981_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/ms_2893981_0.srt",
+          "release": "MalayDont.Breathe.2016.720p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1447307_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/ms_1447307_0.srt",
+          "release": "MalayDont.Breathe.2016.1080p.WEBRip.x264.AAC2.0-Malay",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1445919_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/ms_1445919_0.srt",
+          "release": "MalayDont Breathe BLURAY By MSC",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1445919_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4160708/ms_1445919_0.srt",
+          "release": "MalayDont Breathe BLURAY By MSC",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1425731_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/ms_1425731_0.srt",
+          "release": "MalayDon't.Breathe.2016.Semua.HDRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1425731_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4160708/ms_1425731_0.srt",
+          "release": "MalayDon't.Breathe.2016.Semua.HDRip",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1445944_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/ms_1445944_0.srt",
+          "release": "MalayDon't Breathe (2016) 720p BluRay | Malay Subtitle",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1445944_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/ms_1445944_1.srt",
+          "release": "MalayDon't Breathe (2016) 720p BluRay | Malay Subtitle",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1425486_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4160708/ms_1425486_0.srt",
+          "release": "MalayDon't Breathe (2016) 720p HDRip ShAaNiG | Malay Subtitle",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1445944_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4160708/ms_1445944_0.srt",
+          "release": "MalayDon't Breathe (2016) 720p BluRay | Malay Subtitle",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1445944_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4160708/ms_1445944_1.srt",
+          "release": "MalayDon't Breathe (2016) 720p BluRay | Malay Subtitle",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1423387_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4160708/ms_1423387_0.srt",
+          "release": "MalayDon't Breathe (2016) 215 MB (226,351,885 bytes)",
+          "source": "subscene",
+          "acc": 10
+        }
+      ]
+    },
+    "tt0185937": {
+      "updated_at": 1789166711,
+      "sub_count": 9,
+      "subtitles": [
+        {
+          "id": "396071_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0185937/id_396071_0.srt",
+          "release": "IndonesianThe.Blair.WitchProject.BRRip.720p.Amiable",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1822634_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0185937/id_1822634_0.srt",
+          "release": "IndonesianThe.Blair.Witch.Project.1999.Retailer",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "456790_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0185937/id_456790_0.srt",
+          "release": "IndonesianThe.Blair.Witch.Project.1999.DVDRip.XviD.iNT-PFa",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2778055_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0185937/id_2778055_0.srt",
+          "release": "IndonesianThe.Blair.Witch.Project.1999.ALL.BluRay",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1048572_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0185937/id_1048572_0.srt",
+          "release": "Indonesianthe.blair.witch.project.1999.1080p.proper.bluray.x264-meth",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2169528_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0185937/id_2169528_0.srt",
+          "release": "IndonesianThe Blair.Witch.Project.1999.BluRay.1080p.DTS-HD.MA.2.0.AVC....",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1027496_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0185937/id_1027496_0.srt",
+          "release": "IndonesianThe Blair Witch Project 1999 720p BRRIP X264 AC3 DiRTYBURGER",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1027496_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0185937/id_1027496_1.srt",
+          "release": "IndonesianThe Blair Witch Project 1999 720p BRRIP X264 AC3 DiRTYBURGER",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1027496_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0185937/id_1027496_2.srt",
+          "release": "IndonesianThe Blair Witch Project 1999 720p BRRIP X264 AC3 DiRTYBURGER",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
     }
   },
-  "total_items": 446
+  "total_items": 451
 }
