@@ -95015,7 +95015,381 @@
           "acc": 10
         }
       ]
+    },
+    "tt1397280": {
+      "updated_at": 1789121902,
+      "sub_count": 46,
+      "subtitles": [
+        {
+          "id": "824317_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1397280/id_824317_0.srt",
+          "release": "Indonesian[files.indowebster.com]-tkendvr.Ganool.com",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "683827_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1397280/id_683827_0.srt",
+          "release": "IndonesianTaken.2.UNRATED.EXTENDED.indofiles.org.1080p.720p.BluRay.x26...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2073107_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1397280/id_2073107_0.srt",
+          "release": "IndonesianTaken.2.2012.UNRATED.EXTENDED.720p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1124279_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1397280/id_1124279_0.srt",
+          "release": "IndonesianTaken.2.2012.UNRATED.EXTENDED.720p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2198568_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1397280/id_2198568_0.srt",
+          "release": "IndonesianTaken.2.2012.UNRATED.EXTENDED.1080p.BluRay.x264.YIFY - KaEmD...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "671136_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1397280/id_671136_0.srt",
+          "release": "IndonesianTaken.2.2012.UNRATED.EXTENDED.1080p.720p.BluRay",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "671065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1397280/id_671065_0.srt",
+          "release": "IndonesianTaken.2.2012.UNRATED.EXTENDED.1080p.720p.and.Ganool.Fathur I...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "666381_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1397280/id_666381_0.srt",
+          "release": "IndonesianTaken.2.2012.RC BluRay and Ganool.Fathur IDFL.Indonesia",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "665513_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1397280/id_665513_0.srt",
+          "release": "IndonesianTaken.2.2012.HDRip 720p.Ganool.Fathur IDFL.Indonesia",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "783254_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1397280/id_783254_0.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.WEB-DL.er1ck9",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "783254_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1397280/id_783254_1.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.WEB-DL.er1ck9",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "783254_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1397280/id_783254_2.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.WEB-DL.er1ck9",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "783254_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1397280/id_783254_3.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.WEB-DL.er1ck9",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "783254_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1397280/id_783254_4.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.WEB-DL.er1ck9",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "783254_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1397280/id_783254_0.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "783254_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1397280/id_783254_1.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "783254_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1397280/id_783254_2.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "783254_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1397280/id_783254_3.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "783254_4",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1397280/id_783254_4.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.Alternate.Ending.All.BluRay.er1ck9",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "672173_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1397280/id_672173_0.srt",
+          "release": "IndonesianTaken.2.2012.EXTRA.ALTERNATE.ENDING.720p.WEB-DL.AAC.x264",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "665400_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1397280/id_665400_0.srt",
+          "release": "IndonesianTaken.2.2012.DVDRIP.XVID.AC3.5.1.HS.Fathur IDFL.Indonesia",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "665553_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1397280/id_665553_0.srt",
+          "release": "IndonesianTaken.2.2012.All.WEB-DL.1080p.720p.and.Ganool.sebuah-dongeng...",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "665560_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1397280/id_665560_0.srt",
+          "release": "IndonesianTaken.2.2012.All.WEB-DL.1080p.720p.and.Ganool.Fathur IDFL.In...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "665767_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1397280/id_665767_0.srt",
+          "release": "IndonesianTaken.2.2012.All.RC.BluRayRip.and.Ganool.sebuah-dongeng.blog...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "665449_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1397280/id_665449_0.srt",
+          "release": "IndonesianTaken.2.2012.All.HDRip.720p.and.Ganool.sebuah-dongeng.blogsp...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "670922_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1397280/id_670922_0.srt",
+          "release": "IndonesianTaken.2.2012.All.EXTENDED.BluRayRip.1080p.720p.and.Ganool.se...",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "665446_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1397280/id_665446_0.srt",
+          "release": "IndonesianTaken.2.2012.All.DVDRip.and.Ganool.sebuah-dongeng.blogspot.c...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "665881_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1397280/id_665881_0.srt",
+          "release": "IndonesianTaken.2.2012.4.in.1.DVDRip.HDRip.WEB.DL.BBRip.Ganool.IDFL.us",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "665881_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1397280/id_665881_1.srt",
+          "release": "IndonesianTaken.2.2012.4.in.1.DVDRip.HDRip.WEB.DL.BBRip.Ganool.IDFL.us",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "665881_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1397280/id_665881_2.srt",
+          "release": "IndonesianTaken.2.2012.4.in.1.DVDRip.HDRip.WEB.DL.BBRip.Ganool.IDFL.us",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "665881_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1397280/id_665881_3.srt",
+          "release": "IndonesianTaken.2.2012.4.in.1.DVDRip.HDRip.WEB.DL.BBRip.Ganool.IDFL.us",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "637885_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1397280/id_637885_0.srt",
+          "release": "IndonesianTaken 2 2012 TS",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "638010_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1397280/id_638010_0.srt",
+          "release": "IndonesianTaken 2 (2012) TS XviD UknOwn",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "665256_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1397280/id_665256_0.srt",
+          "release": "IndonesianTaken 2 (2012) To DVDRIP",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "638010_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1397280/id_638010_0.srt",
+          "release": "IndonesianTaken 2 (2012) First Telesync 480p XviD UknOwn Version",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "665771_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1397280/id_665771_0.srt",
+          "release": "IndonesianTaken 2 (2012) All.DVDRip.HDRip",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "658324_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt1397280/id_658324_0.srt",
+          "release": "IndonesianTaken 2 (2012)",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "665514_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt1397280/id_665514_0.srt",
+          "release": "IndonesianMatto Ibra",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "665222_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt1397280/id_665222_0.srt",
+          "release": "Indonesiandvdrip (resyn to all dvdrip vers)",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "669137_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt1397280/id_669137_0.srt",
+          "release": "Indonesian2012",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "665598_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt1397280/ms_665598_0.srt",
+          "release": "MalayTaken.2.2012.BDRIP ALL VRSION.superadlen",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "674992_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt1397280/ms_674992_0.srt",
+          "release": "MalayTaken.2.2012.720p.HDRip.x264.AC3.5.1-JYK(eMiNt)",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "670991_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt1397280/ms_670991_0.srt",
+          "release": "MalayTaken 2 UNRATED EXTENDED 2012 720p 1080p BrRip x264 YIFY",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "670991_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt1397280/ms_670991_0.srt",
+          "release": "MalayTaken 2 2012 Unrated Extended BluRayRip 480p 720p 1080p x264",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "665646_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt1397280/ms_665646_0.srt",
+          "release": "MalayTaken 2 2012 DVDRip XviD S4A",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "665646_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt1397280/ms_665646_0.srt",
+          "release": "MalayTaken 2 (2012) DVDRip",
+          "source": "subscene",
+          "acc": 6
+        }
+      ]
     }
   },
-  "total_items": 400
+  "total_items": 401
 }
