@@ -13,9 +13,32 @@ __pycache__
 data/subtitles_all.txt.gz
 CF-WORKER-MANUAL-COPY-PASTE/
 CF-WORKER/
-B2-ACC-SCRIPT/
 b2_accounts.env
 .env.b2.multi.acc
 Recaptcha-Bypass/pyproject.toml
 Recaptcha-Bypass/RecaptchaSolver.py
 Recaptcha-Bypass/test.py
+B2-ACC-SEEDR-ARIA-PROJEK/
+b2_account_stremio_subtitle_project/
+b2_account_seedr_project/
+B2-ACC-SCRIPT/.archive
+B2-ACC-SCRIPT/b2 backblaze/
+B2-ACC-SCRIPT/data/
+B2-ACC-SCRIPT/output/
+B2-ACC-SCRIPT/00_b2_config.py
+B2-ACC-SCRIPT/01_b2_email_handler.py
+B2-ACC-SCRIPT/02_b2_browser_worker.py
+B2-ACC-SCRIPT/02_b2_step01_signup.py
+B2-ACC-SCRIPT/02_b2_step02_setup.py
+B2-ACC-SCRIPT/02_b2_step03_login_2fa.py
+B2-ACC-SCRIPT/02_b2_step04_bucket_cors.py
+B2-ACC-SCRIPT/02_b2_step05_app_keys.py
+B2-ACC-SCRIPT/command test.md
+B2-ACC-SCRIPT/run_all.py
+B2-ACC-SCRIPT/temp/
+B2-ACC-SCRIPT/.env
+B2-ACC-SCRIPT/TEST/00_email_test.py
+
+B2-ACC-SCRIPT/TEST/01_b2_email_handler_v2test.py
+B2-ACC-SCRIPT/TEST/01_b2_keytest.py
+B2-ACC-SCRIPT/TEST/run_all_v2test.py
