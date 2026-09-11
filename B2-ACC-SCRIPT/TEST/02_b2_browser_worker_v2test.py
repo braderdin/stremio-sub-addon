@@ -39,14 +39,14 @@ step05 = importlib.import_module("02_b2_step05_app_keys")
 # -------------------------------------------------------------
 # Fungsi Bantuan Asal (Kekal 100%)
 # -------------------------------------------------------------
-def human_delay(min_s: float = 0.5, max_s: float = 1.5):
+def human_delay(min_s: float = 3.0, max_s: float = 5.0):
     time.sleep(random.uniform(min_s, max_s))
 
 def human_type(locator, text: str):
     locator.click()
-    human_delay(0.2, 0.4)
-    locator.press_sequentially(text, delay=random.randint(45, 85))
-    human_delay(0.3, 0.6)
+    human_delay(1.5, 2.5)
+    locator.press_sequentially(text, delay=random.randint(120, 250))
+    human_delay(3.0, 4.0)
 
 def resolve_cloudflare_turnstile(page, max_retries: int = 20):
     for _ in range(max_retries):
@@ -110,7 +110,9 @@ def process_b2_account(acc_data: dict) -> dict:
     key_name = acc_data["key_name"]
     acc_idx = acc_data["index"]
 
-    with Camoufox(headless=True, geoip=True) as browser:
+    # Menjalankan pelayar dalam mod HEADED (headless=False)
+    # Supaya anda boleh melihat paparan skrin dan membuat klik manual jika teka-teki gambar muncul
+    with Camoufox(headless=False, geoip=True) as browser:
         context = browser.new_context(
             viewport={"width": 1366, "height": 768},
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0"
@@ -119,10 +121,10 @@ def process_b2_account(acc_data: dict) -> dict:
 
         try:
             # -------------------------------------------------------------
-            # LOGIK RESUME PINTAR (Jika akaun sudah dicipta seperti Akaun 012)
+            # LOGIK RESUME PINTAR (Jika akaun sudah dicipta)
             # -------------------------------------------------------------
             page.goto("https://secure.backblaze.com/user_signin.htm", wait_until="load", timeout=45000)
-            human_delay(1.5, 2.5)
+            human_delay(2.5, 5.5)
 
             email_field = page.locator('#email-field, input[name="email-field"]').first
             is_existing_account = False
@@ -132,7 +134,7 @@ def process_b2_account(acc_data: dict) -> dict:
                 is_existing_account = True
 
             if not is_existing_account:
-                # LANGKAH 1: Signup & Pautan (Termasuk semakan dan penyelesaian captcha di dalamnya)
+                # LANGKAH 1: Signup & Pautan (Termasuk pintasan audio + fallback manual pada captcha)
                 activation_link = step01.run_step01(
                     page, target_email, email_handler, human_delay, human_type, resolve_cloudflare_turnstile
                 )
