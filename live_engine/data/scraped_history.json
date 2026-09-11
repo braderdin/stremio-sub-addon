@@ -88541,7 +88541,245 @@
           "acc": 2
         }
       ]
+    },
+    "tt0936501": {
+      "updated_at": 1789090766,
+      "sub_count": 29,
+      "subtitles": [
+        {
+          "id": "824312_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0936501/id_824312_0.srt",
+          "release": "Indonesian[files.indowebster.com]-IDFL.org.Taken.2008.720p.aNoNim",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "188137_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0936501/id_188137_0.srt",
+          "release": "IndonesianTaken[2008]DvDrip-aXXo",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "429088_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0936501/id_429088_0.srt",
+          "release": "IndonesianTaken.DVDRip.sempurnaa",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "920090_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0936501/id_920090_0.srt",
+          "release": "IndonesianTaken.BRRip.720p.BluRay.FatNanda",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "920090_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0936501/id_920090_1.srt",
+          "release": "IndonesianTaken.BRRip.720p.BluRay.FatNanda",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "920090_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0936501/id_920090_2.srt",
+          "release": "IndonesianTaken.BRRip.720p.BluRay.FatNanda",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "920090_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0936501/id_920090_3.srt",
+          "release": "IndonesianTaken.BRRip.720p.BluRay.FatNanda",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "564940_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0936501/id_564940_0.srt",
+          "release": "IndonesianTaken.2008.Unrated.1080p.BluRay.REMUX.DTS-HD.5.1-NoGrp",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "671835_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0936501/id_671835_0.srt",
+          "release": "IndonesianTaken.2008.Ext.BDRip.m-720p.AC3.x264-HD17",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2753438_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0936501/id_2753438_0.srt",
+          "release": "IndonesianTaken.2008.BluRay.x264-REFiNED",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1148176_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0936501/id_1148176_0.srt",
+          "release": "IndonesianTaken.2008.BluRay.720p.1080p",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "564940_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0936501/id_564940_0.srt",
+          "release": "IndonesianTaken.2008.720p.BluRay.X264-HiDt",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "422539_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0936501/id_422539_0.srt",
+          "release": "IndonesianTaken.2008.720p.BluRay.DTS.x264-ESiR",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2198565_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0936501/id_2198565_0.srt",
+          "release": "IndonesianTaken.2008.1080pBrRip.x264.YIFY - KaEmDe Production",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1197884_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0936501/id_1197884_0.srt",
+          "release": "IndonesianTaken.2008.1080p.BluRay.x264.anoXmous",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "671205_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0936501/id_671205_0.srt",
+          "release": "IndonesianTaken.2008.1080p.BluRay.AVC.DTS-HD.MA.5.1.x264-BluWave",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "436782_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0936501/id_436782_0.srt",
+          "release": "IndonesianTaken.2008",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "369503_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0936501/id_369503_0.srt",
+          "release": "IndonesianTaken BRrip 720p scorp 400mb.mkv",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "222571_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0936501/id_222571_0.srt",
+          "release": "IndonesianTaken 2008 Indo subs",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "900762_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0936501/id_900762_0.srt",
+          "release": "IndonesianTaken 2008 Extended Cut 720p.BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "367003_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0936501/id_367003_0.srt",
+          "release": "IndonesianTAKEN 2008 1920x816 7.91Gb",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "306327_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0936501/id_306327_0.srt",
+          "release": "IndonesianTaken",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "464255_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0936501/id_464255_0.srt",
+          "release": "Indonesian720p BluRay x264 Release",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "388062_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0936501/ms_388062_0.srt",
+          "release": "MalayTaken[2008]DvDrip-aXXo Malay",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "230866_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0936501/ms_230866_0.srt",
+          "release": "MalayTaken[2008]",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "240902_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0936501/ms_240902_0.srt",
+          "release": "MalayTaken.[2008].RETAIL.DVDRIP.XVID.[Eng]-DUQA",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "627639_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0936501/ms_627639_0.srt",
+          "release": "MalayTaken.2008.All BluRayRip Malay subs Translated by Dairabi",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "351971_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0936501/ms_351971_0.srt",
+          "release": "MalayTaken bbrip 720p",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "839670_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0936501/ms_839670_0.srt",
+          "release": "MalayTaken 2008 BrRip.x264.YIFY",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
     }
   },
-  "total_items": 369
+  "total_items": 370
 }
