@@ -21,6 +21,8 @@ DrissionPage>=4.0.0
 # Tambahan untuk Automasi IMAP Emel & Parsing
 imap-tools>=1.7.0
 
-# Recapcha solver
 pydub
 SpeechRecognition
+
+py7zr
+rarfile
