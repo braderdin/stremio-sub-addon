@@ -103911,7 +103911,293 @@
           "acc": 8
         }
       ]
+    },
+    "tt3766354": {
+      "updated_at": 1789175493,
+      "sub_count": 35,
+      "subtitles": [
+        {
+          "id": "3128867_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3766354/ms_3128867_0.srt",
+          "release": "EnglishThe Equalizer 2 (2018) BlueRay 1080 UHD Pahe version.",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1952312_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3766354/id_1952312_0.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1879172_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3766354/id_1879172_0.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.WEBDL.FGT-EVO",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1879172_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3766354/id_1879172_1.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.WEBDL.FGT-EVO",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1879172_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3766354/id_1879172_2.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.WEBDL.FGT-EVO",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1880127_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3766354/id_1880127_0.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.BluRay.FGT-RARBG",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1880127_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3766354/id_1880127_1.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.BluRay.FGT-RARBG",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1880127_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3766354/id_1880127_2.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.All.BluRay.FGT-RARBG",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1877146_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3766354/id_1877146_0.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.720p.WEB-DL.MkvCage.ws",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "3106674_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3766354/id_3106674_0.srt",
+          "release": "IndonesianHYBRID.2160p.BluRay.REMUX.HEVC.DV.TrueHD.Atmos.7.1-Flights",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2072194_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3766354/id_2072194_0.srt",
+          "release": "IndonesianThe.Equalizer.2.2018.1080p.BluRay.x264.DTS-FGT",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1879670_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3766354/id_1879670_0.srt",
+          "release": "IndonesianThe.Equalizer.2.(2018).Web-DL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1880068_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3766354/id_1880068_0.srt",
+          "release": "IndonesianThe.Equalizer.2.(2018).BluRay",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1872193_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3766354/id_1872193_0.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW....",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1872193_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3766354/id_1872193_1.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW....",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1872193_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3766354/id_1872193_2.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW....",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1872193_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3766354/id_1872193_3.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-WEBDL-WEBRip-HDRip-720p-480p-1080p-WWW....",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1879764_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3766354/id_1879764_0.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1879764_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3766354/id_1879764_1.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1879764_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3766354/id_1879764_2.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1879764_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3766354/id_1879764_3.srt",
+          "release": "IndonesianThe-Equalizer-2-2018-SEMUA-BRRip-BluRayRip-BDRip-720p-480p-1...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "3205587_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3766354/id_3205587_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3186416_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3766354/id_3186416_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) [1080p] [BluRay] [YTS.MX]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1872101_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3766354/id_1872101_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) WEBDL 1080p 720p",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1815368_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3766354/id_1815368_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) Cam",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1882058_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt3766354/id_1882058_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) BluRay",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1872681_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt3766354/id_1872681_0.srt",
+          "release": "IndonesianThe Equalizer 2 (2018) 720p WEB-DL 850MB Ganol",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1819904_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt3766354/id_1819904_0.srt",
+          "release": "IndonesianThe Equalizer (2018) HD-TS",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3106674_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt3766354/id_3106674_0.srt",
+          "release": "IndonesianHYBRID.2160p.BluRay.REMUX.HEVC.DV.TrueHD.Atmos.7.1-Flights",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2798581_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt3766354/ms_2798581_0.srt",
+          "release": "MalayThe.Equalizer.2.2018.BDRip.x264-DEFLATE",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1873152_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt3766354/ms_1873152_0.srt",
+          "release": "MalayThe.Equalizer.2.2018.720p.1080p.WEB-DL",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1879931_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt3766354/ms_1879931_0.srt",
+          "release": "MalayThe.Equalizer.2.2018.720p.1080p.BluRay",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "3130909_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt3766354/ms_3130909_0.srt",
+          "release": "MalayThe.Equalizer.2.2018.2160p.BluRay.x265.10bit.SDR.DTS-HD.MA.T...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2895089_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt3766354/ms_2895089_0.srt",
+          "release": "MalayThe.Equalizer.2.2018.2160p.BluRay.x265.10bit.HDR.TrueHD.7.1....",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1878033_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt3766354/ms_1878033_0.srt",
+          "release": "MalayThe Equalizer 2  (ALL WEB-DL)",
+          "source": "subscene",
+          "acc": 5
+        }
+      ]
     }
   },
-  "total_items": 452
+  "total_items": 453
 }
