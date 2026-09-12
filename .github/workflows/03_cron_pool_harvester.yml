@@ -45,8 +45,8 @@ jobs:
       - name: Jalankan Skrip Penuaian Kolam Tajuk (Harvester)
         run: |
           START_YR="${{ inputs.start_year || 2026 }}"
-          END_YR="${{ inputs.end_year || 1990 }}"
-          MAX_SERIES="${{ inputs.max_series || 35 }}"
+          END_YR="${{ inputs.end_year || 1980 }}"
+          MAX_SERIES="${{ inputs.max_series || 100 }}"
           python live_engine/08_movie_pool_harvester.py --start-year "$START_YR" --end-year "$END_YR" --max-series "$MAX_SERIES"
 
       - name: Commit dan Simpan Rekod Kolam Filem (Auto-Rebase Safe)

@@ -113,60 +113,6 @@ jobs:
           B2_ACC10_BUCKET_NAME: ${{ secrets.B2_ACC10_BUCKET_NAME }}
           B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
           B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
-
-          # B2 ACC 11 - 15
-          B2_ACC11_KEY_ID: ${{ secrets.B2_ACC11_KEY_ID }}
-          B2_ACC11_APP_KEY: ${{ secrets.B2_ACC11_APP_KEY }}
-          B2_ACC11_BUCKET_NAME: ${{ secrets.B2_ACC11_BUCKET_NAME }}
-          B2_ACC11_BUCKET_ID: ${{ secrets.B2_ACC11_BUCKET_ID }}
-          B2_ACC11_S3_API_ENDPOINT: ${{ secrets.B2_ACC11_S3_API_ENDPOINT }}
-          B2_ACC12_KEY_ID: ${{ secrets.B2_ACC12_KEY_ID }}
-          B2_ACC12_APP_KEY: ${{ secrets.B2_ACC12_APP_KEY }}
-          B2_ACC12_BUCKET_NAME: ${{ secrets.B2_ACC12_BUCKET_NAME }}
-          B2_ACC12_BUCKET_ID: ${{ secrets.B2_ACC12_BUCKET_ID }}
-          B2_ACC12_S3_API_ENDPOINT: ${{ secrets.B2_ACC12_S3_API_ENDPOINT }}
-          B2_ACC13_KEY_ID: ${{ secrets.B2_ACC13_KEY_ID }}
-          B2_ACC13_APP_KEY: ${{ secrets.B2_ACC13_APP_KEY }}
-          B2_ACC13_BUCKET_NAME: ${{ secrets.B2_ACC13_BUCKET_NAME }}
-          B2_ACC13_BUCKET_ID: ${{ secrets.B2_ACC13_BUCKET_ID }}
-          B2_ACC13_S3_API_ENDPOINT: ${{ secrets.B2_ACC13_S3_API_ENDPOINT }}
-          B2_ACC14_KEY_ID: ${{ secrets.B2_ACC14_KEY_ID }}
-          B2_ACC14_APP_KEY: ${{ secrets.B2_ACC14_APP_KEY }}
-          B2_ACC14_BUCKET_NAME: ${{ secrets.B2_ACC14_BUCKET_NAME }}
-          B2_ACC14_BUCKET_ID: ${{ secrets.B2_ACC14_BUCKET_ID }}
-          B2_ACC14_S3_API_ENDPOINT: ${{ secrets.B2_ACC14_S3_API_ENDPOINT }}
-          B2_ACC15_KEY_ID: ${{ secrets.B2_ACC15_KEY_ID }}
-          B2_ACC15_APP_KEY: ${{ secrets.B2_ACC15_APP_KEY }}
-          B2_ACC15_BUCKET_NAME: ${{ secrets.B2_ACC15_BUCKET_NAME }}
-          B2_ACC15_BUCKET_ID: ${{ secrets.B2_ACC15_BUCKET_ID }}
-          B2_ACC15_S3_API_ENDPOINT: ${{ secrets.B2_ACC15_S3_API_ENDPOINT }}
-
-          # B2 ACC 16 - 20
-          B2_ACC16_KEY_ID: ${{ secrets.B2_ACC16_KEY_ID }}
-          B2_ACC16_APP_KEY: ${{ secrets.B2_ACC16_APP_KEY }}
-          B2_ACC16_BUCKET_NAME: ${{ secrets.B2_ACC16_BUCKET_NAME }}
-          B2_ACC16_BUCKET_ID: ${{ secrets.B2_ACC16_BUCKET_ID }}
-          B2_ACC16_S3_API_ENDPOINT: ${{ secrets.B2_ACC16_S3_API_ENDPOINT }}
-          B2_ACC17_KEY_ID: ${{ secrets.B2_ACC17_KEY_ID }}
-          B2_ACC17_APP_KEY: ${{ secrets.B2_ACC17_APP_KEY }}
-          B2_ACC17_BUCKET_NAME: ${{ secrets.B2_ACC17_BUCKET_NAME }}
-          B2_ACC17_BUCKET_ID: ${{ secrets.B2_ACC17_BUCKET_ID }}
-          B2_ACC17_S3_API_ENDPOINT: ${{ secrets.B2_ACC17_S3_API_ENDPOINT }}
-          B2_ACC18_KEY_ID: ${{ secrets.B2_ACC18_KEY_ID }}
-          B2_ACC18_APP_KEY: ${{ secrets.B2_ACC18_APP_KEY }}
-          B2_ACC18_BUCKET_NAME: ${{ secrets.B2_ACC18_BUCKET_NAME }}
-          B2_ACC18_BUCKET_ID: ${{ secrets.B2_ACC18_BUCKET_ID }}
-          B2_ACC18_S3_API_ENDPOINT: ${{ secrets.B2_ACC18_S3_API_ENDPOINT }}
-          B2_ACC19_KEY_ID: ${{ secrets.B2_ACC19_KEY_ID }}
-          B2_ACC19_APP_KEY: ${{ secrets.B2_ACC19_APP_KEY }}
-          B2_ACC19_BUCKET_NAME: ${{ secrets.B2_ACC19_BUCKET_NAME }}
-          B2_ACC19_BUCKET_ID: ${{ secrets.B2_ACC19_BUCKET_ID }}
-          B2_ACC19_S3_API_ENDPOINT: ${{ secrets.B2_ACC19_S3_API_ENDPOINT }}
-          B2_ACC20_KEY_ID: ${{ secrets.B2_ACC20_KEY_ID }}
-          B2_ACC20_APP_KEY: ${{ secrets.B2_ACC20_APP_KEY }}
-          B2_ACC20_BUCKET_NAME: ${{ secrets.B2_ACC20_BUCKET_NAME }}
-          B2_ACC20_BUCKET_ID: ${{ secrets.B2_ACC20_BUCKET_ID }}
-          B2_ACC20_S3_API_ENDPOINT: ${{ secrets.B2_ACC20_S3_API_ENDPOINT }}
         run: |
           LIMIT="${{ inputs.limit || 15 }}"
           DELAY="${{ inputs.delay || 1.0 }}"
