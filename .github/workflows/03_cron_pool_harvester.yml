@@ -1,0 +1,86 @@
+name: 03 Cron Movie Pool Harvester
+
+on:
+  schedule:
+    # Berjalan setiap 2 hari sekali pada jam 03:00 UTC (11:00 AM Waktu Malaysia)
+    - cron: '0 3 */2 * *'
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 'Tahun mula sedutan katalog (Mundur ke belakang)'
+        required: false
+        default: '2026'
+      end_year:
+        description: 'Tahun akhir sedutan katalog'
+        required: false
+        default: '1990'
+      max_series:
+        description: 'Jumlah had siri TV untuk diekstrak episod terperinci'
+        required: false
+        default: '35'
+
+jobs:
+  harvest-movie-pool:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repositori
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # Sejarah penuh untuk sokongan git rebase automatik
+
+      - name: Sediakan Persekitaran Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Pasang Pustaka Dependensi
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Jalankan Skrip Penuaian Kolam Tajuk (Harvester)
+        run: |
+          START_YR="${{ inputs.start_year || 2026 }}"
+          END_YR="${{ inputs.end_year || 1990 }}"
+          MAX_SERIES="${{ inputs.max_series || 35 }}"
+          python live_engine/08_movie_pool_harvester.py --start-year "$START_YR" --end-year "$END_YR" --max-series "$MAX_SERIES"
+
+      - name: Commit dan Simpan Rekod Kolam Filem (Auto-Rebase Safe)
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Tambah fail kolam ke staging
+          [ -f "live_engine/data/movie_pool.json" ] && git add live_engine/data/movie_pool.json
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "cron: refresh and expand movie_pool.json [skip ci]"
+            
+            # Rebase automatik sekiranya remote mempunyai commit baharu semasa job berjalan
+            for i in {1..3}; do
+              git fetch origin main
+              if git rebase origin/main; then
+                if git push origin main; then
+                  echo "✅ Berjaya sync rekod movie_pool.json ke GitHub!"
+                  exit 0
+                fi
+              else
+                git rebase --abort
+                git pull origin main --no-rebase -X ours -m "merge: resolve movie pool sync [skip ci]"
+                if git push origin main; then
+                  echo "✅ Berjaya merge & push rekod movie_pool.json ke GitHub!"
+                  exit 0
+                fi
+              fi
+              echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
+              sleep 2
+            done
+            exit 1
+          else
+            echo "ℹ️ Tiada perubahan pada movie_pool.json dikesan."
+          fi
