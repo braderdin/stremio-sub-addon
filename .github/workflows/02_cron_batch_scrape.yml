@@ -56,6 +56,10 @@ jobs:
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
           
+          # Kunci Utama (JSON Format - Semua Akaun B2)
+          B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran (Legacy Fallback)
           # B2 ACC 1 - 5
           B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
           B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}

@@ -1,4 +1,5 @@
 import os
+import json
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -38,29 +39,57 @@ B2_MAX_BYTES_PER_ACCOUNT = int(9.5 * 1024 * 1024 * 1024)
 
 def get_b2_accounts() -> list:
     """
-    Mengesan dan mengumpul semua senarai akaun B2 dari B2_ACC1_* hingga B2_ACC20_*
+    Mengesan dan mengumpul senarai akaun B2.
+    Keutamaan 1: Membaca format JSON tunggal daripada B2_MULTI_ACCOUNT_JSON.
+    Keutamaan 2 (Fallback): Mengimbas format B2_ACC1_* hingga B2_ACC50_* (.env.local / legacy env).
     """
     accounts = []
-    index = 1
-    while True:
+
+    # 1. Semak jika pembolehubah JSON wujud (GitHub Actions / Cloudflare Secret)
+    multi_json_raw = os.getenv("B2_MULTI_ACCOUNT_JSON", "").strip()
+    if multi_json_raw:
+        try:
+            parsed = json.loads(multi_json_raw)
+            if isinstance(parsed, list) and len(parsed) > 0:
+                for idx, item in enumerate(parsed, 1):
+                    if isinstance(item, dict):
+                        key_id = str(item.get("key_id", "")).strip()
+                        app_key = str(item.get("app_key", "")).strip()
+                        bucket_name = str(item.get("bucket_name", "")).strip()
+
+                        if key_id and app_key and bucket_name:
+                            accounts.append({
+                                "index": item.get("index", idx),
+                                "key_id": key_id,
+                                "app_key": app_key,
+                                "bucket_name": bucket_name,
+                                "bucket_id": str(item.get("bucket_id", "")).strip(),
+                                "endpoint": str(item.get("endpoint", "s3.us-west-004.backblazeb2.com")).strip()
+                            })
+
+                if accounts:
+                    return accounts
+        except Exception as e:
+            print(f"⚠️ Ralat membaca B2_MULTI_ACCOUNT_JSON: {e}. Beralih ke format B2_ACC...")
+
+    # 2. Fallback: Baca format lama B2_ACC1_* hingga B2_ACC50_*
+    for index in range(1, 51):
         key_id = os.getenv(f"B2_ACC{index}_KEY_ID")
         app_key = os.getenv(f"B2_ACC{index}_APP_KEY")
         bucket_name = os.getenv(f"B2_ACC{index}_BUCKET_NAME")
-        bucket_id = os.getenv(f"B2_ACC{index}_BUCKET_ID")
+        bucket_id = os.getenv(f"B2_ACC{index}_BUCKET_ID", "")
         endpoint = os.getenv(f"B2_ACC{index}_S3_API_ENDPOINT", "s3.us-west-004.backblazeb2.com")
 
-        if not key_id or not app_key or not bucket_name:
-            break
+        if key_id and app_key and bucket_name:
+            accounts.append({
+                "index": index,
+                "key_id": key_id.strip(),
+                "app_key": app_key.strip(),
+                "bucket_name": bucket_name.strip(),
+                "bucket_id": bucket_id.strip() if bucket_id else "",
+                "endpoint": endpoint.strip()
+            })
 
-        accounts.append({
-            "index": index,
-            "key_id": key_id,
-            "app_key": app_key,
-            "bucket_name": bucket_name,
-            "bucket_id": bucket_id,
-            "endpoint": endpoint
-        })
-        index += 1
     return accounts
 
 B2_ACCOUNTS = get_b2_accounts()
