@@ -103681,7 +103681,237 @@
           "acc": 9
         }
       ]
+    },
+    "tt0455944": {
+      "updated_at": 1789175324,
+      "sub_count": 28,
+      "subtitles": [
+        {
+          "id": "2744434_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0455944/id_2744434_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2744434_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0455944/id_2744434_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1031847_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0455944/id_1031847_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.All.BluRay.720p.1080p.Ganool.NoviceSoldie...",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1097814_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0455944/id_1097814_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.BrRip.2CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "1028219_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0455944/id_1028219_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1028378_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0455944/id_1028378_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.BluRay.x264.YIFY",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2070769_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0455944/id_2070769_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.BluRay.x264.900MB-Pahe.in",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1027985_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0455944/id_1027985_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.BluRay.x264-SPARKS",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "1028042_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0455944/id_1028042_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.1080P.BluRay.x264-SPARKS Cat4pat una...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1028341_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0455944/id_1028341_0.srt",
+          "release": "IndonesianThe.Equalizer.2014.720p.1080P.AllBluRay.Ganool.YIFI.SPARKS.R...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "3106666_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0455944/id_3106666_0.srt",
+          "release": "IndonesianHYBRID.2160p.BluRay.REMUX.HEVC.DV.TrueHD.Atmos.7.1-Flights",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1028029_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0455944/id_1028029_0.srt",
+          "release": "IndonesianThe.Equalizer.2014 ganool",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1033144_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0455944/id_1033144_0.srt",
+          "release": "IndonesianThe Equalizer 2014 BluRay 720p Ganool-Irfan.Yamakasi",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1030867_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0455944/id_1030867_0.srt",
+          "release": "IndonesianThe Equalizer 2014 Bluray",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "3205584_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0455944/id_3205584_0.srt",
+          "release": "IndonesianThe Equalizer (2014) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "3186414_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0455944/id_3186414_0.srt",
+          "release": "IndonesianThe Equalizer (2014) [1080p] [BluRay] [YTS.MX]",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1009367_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0455944/id_1009367_0.srt",
+          "release": "IndonesianThe Equalizer (2014) HDCAM 550MB Ganool",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1028013_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0455944/id_1028013_0.srt",
+          "release": "IndonesianThe Equalizer",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "3106666_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0455944/id_3106666_0.srt",
+          "release": "IndonesianHYBRID.2160p.BluRay.REMUX.HEVC.DV.TrueHD.Atmos.7.1-Flights",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "1028794_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0455944/ms_1028794_0.srt",
+          "release": "MalayThe-Equalizer-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1028794_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt0455944/ms_1028794_1.srt",
+          "release": "MalayThe-Equalizer-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "1028794_2",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0455944/ms_1028794_2.srt",
+          "release": "MalayThe-Equalizer-2014-All-BluRayRip-Apiq-Ader",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "1030516_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0455944/ms_1030516_0.srt",
+          "release": "MalayThe Equalizer 2014 720p 1080p BluRay x264",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "1028540_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0455944/ms_1028540_0.srt",
+          "release": "MalayThe Equalizer 2014 720p 1080p BluRay x264",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2895085_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0455944/ms_2895085_0.srt",
+          "release": "MalayThe Equalizer 2014 1080p BluRay REMUX AVC DTS-HD MA 7.1-HDAc...",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "1031481_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0455944/ms_1031481_0.srt",
+          "release": "MalayThe Equalizer 2014 1080p",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "1028305_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt0455944/ms_1028305_0.srt",
+          "release": "MalayThe Equalizer (2014) All BluRayRip By -AreQiemz-",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "1030837_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0455944/ms_1030837_0.srt",
+          "release": "MalayThe Equalizer (2014) 720p BluRay x264-SPARKS",
+          "source": "subscene",
+          "acc": 8
+        }
+      ]
     }
   },
-  "total_items": 451
+  "total_items": 452
 }
