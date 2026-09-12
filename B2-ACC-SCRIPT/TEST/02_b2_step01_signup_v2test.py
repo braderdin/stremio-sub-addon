@@ -195,11 +195,11 @@ def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
     print("\n" + "=" * 70)
     print(f"🚨 [TINDAKAN DIPERLUKAN] Sila selesaikan cabaran {target_mode.upper()} pada skrin pelayar.")
     print("👉 Klik petak gambar atau langkau cabaran pada tetingkap yang terbuka.")
-    print("⏳ Skrip bersedia menunggu anda selesai (had masa 30 saat)...")
+    print("⏳ Skrip bersedia menunggu anda selesai (had masa 60 saat)...")
     print("=" * 70 + "\n")
 
     manual_start = time.time()
-    while time.time() - manual_start < 30:
+    while time.time() - manual_start < 60:
         token = get_recaptcha_token(page)
         if token:
             print(f"[✓] Token {target_mode} berjaya dikesan daripada penyelesaian pada skrin!")

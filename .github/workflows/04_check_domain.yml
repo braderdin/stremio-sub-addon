@@ -1,0 +1,34 @@
+name: Semakan Status Domain NIC.EU.ORG
+
+on:
+  schedule:
+    # Berjalan pada 00:00 UTC (08:00 AM MYT) setiap 2 hari
+    - cron: "0 0 */2 * *"
+  workflow_dispatch:
+
+jobs:
+  check-domain-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Pasang Persekitaran Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Pasang Pustaka
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install dnspython python-dotenv requests
+
+      - name: Jalankan Skrip Semakan Domain
+        env:
+          X_TELEGRAM_BOT_TOKEN: ${{ secrets.X_TELEGRAM_BOT_TOKEN }}
+          X_TELEGRAM_CHAT_ID: ${{ secrets.X_TELEGRAM_CHAT_ID }}
+        run: |
+          python check-domain/check_domain.py
