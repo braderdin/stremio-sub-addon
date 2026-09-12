@@ -13,16 +13,16 @@ on:
       end_year:
         description: 'Tahun akhir sedutan katalog'
         required: false
-        default: '1990'
+        default: '1980'
       max_series:
         description: 'Jumlah had siri TV untuk diekstrak episod terperinci'
         required: false
-        default: '35'
+        default: '100'
 
 jobs:
   harvest-movie-pool:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 58
     permissions:
       contents: write
     steps:

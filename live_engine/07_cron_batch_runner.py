@@ -4,6 +4,7 @@ import json
 import time
 import argparse
 import importlib
+from pathlib import Path
 from curl_cffi import requests
 
 # Import modul enjin secara dinamik
@@ -14,9 +15,10 @@ _history = importlib.import_module("04_history_tracker")
 _scraper = importlib.import_module("05_subtitle_scraper")
 _ondemand = importlib.import_module("06_ondemand_runner")
 
-# Tetapan laluan fail JSON untuk sejarah semakan
+# Tetapan laluan fail JSON untuk sejarah semakan dan kolam tajuk
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 NO_SUBS_HISTORY_FILE = os.path.join(DATA_DIR, "no_subs_history.json")
+MOVIE_POOL_FILE = os.path.join(DATA_DIR, "movie_pool.json")
 
 # 16 Genre Utama Cinemeta (Filem)
 ALL_MOVIE_GENRES = [
@@ -31,16 +33,16 @@ SERIES_GENRES = [
 ]
 
 FALLBACK_SEED_LIST = [
-    {"imdb_id": "tt0145487", "title": "Spider-Man", "year": "2002"},
-    {"imdb_id": "tt0499549", "title": "Avatar", "year": "2009"},
-    {"imdb_id": "tt0848228", "title": "The Avengers", "year": "2012"},
-    {"imdb_id": "tt0372784", "title": "Batman Begins", "year": "2005"},
-    {"imdb_id": "tt0241527", "title": "Harry Potter and the Sorcerer's Stone", "year": "2001"},
-    {"imdb_id": "tt0232500", "title": "The Fast and the Furious", "year": "2001"},
-    {"imdb_id": "tt2911666", "title": "John Wick", "year": "2014"},
-    {"imdb_id": "tt0418279", "title": "Transformers", "year": "2007"},
-    {"imdb_id": "tt0369610", "title": "Jurassic World", "year": "2015"},
-    {"imdb_id": "tt0133093", "title": "The Matrix", "year": "1999"}
+    {"imdb_id": "tt0145487", "title": "Spider-Man", "year": "2002", "type": "movie"},
+    {"imdb_id": "tt0499549", "title": "Avatar", "year": "2009", "type": "movie"},
+    {"imdb_id": "tt0848228", "title": "The Avengers", "year": "2012", "type": "movie"},
+    {"imdb_id": "tt0372784", "title": "Batman Begins", "year": "2005", "type": "movie"},
+    {"imdb_id": "tt0241527", "title": "Harry Potter and the Sorcerer's Stone", "year": "2001", "type": "movie"},
+    {"imdb_id": "tt0232500", "title": "The Fast and the Furious", "year": "2001", "type": "movie"},
+    {"imdb_id": "tt2911666", "title": "John Wick", "year": "2014", "type": "movie"},
+    {"imdb_id": "tt0418279", "title": "Transformers", "year": "2007", "type": "movie"},
+    {"imdb_id": "tt0369610", "title": "Jurassic World", "year": "2015", "type": "movie"},
+    {"imdb_id": "tt0133093", "title": "The Matrix", "year": "1999", "type": "movie"}
 ]
 
 def load_no_subs_history() -> dict:
@@ -67,115 +69,63 @@ def save_no_subs_record(history_dict: dict, imdb_id: str, title: str, year: str)
     except Exception as e:
         print(f"⚠️ Gagal mengemas kini {NO_SUBS_HISTORY_FILE}: {e}")
 
-def build_infinite_catalog_targets() -> list[dict]:
-    """
-    Membina 100 endpoint katalog berstruktur (Deep Pagination & Multi-Genre).
-    Menggunakan sintaks rasmi Stremio: genre={genre}&skip={skip}.json
-    """
-    targets = []
-
-    # 1. Top Movies Umum (Deep Pagination: Top 500 Filem)
-    targets.append({
-        "name": "Top Movies (1 - 50)",
-        "url": "https://v3-cinemeta.strem.io/catalog/movie/top.json"
-    })
-    for skip in range(50, 500, 50):
-        targets.append({
-            "name": f"Top Movies ({skip + 1} - {skip + 50})",
-            "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/skip={skip}.json"
-        })
-
-    # 2. Filem Mengikut Genre (16 Genre x 4 Halaman = Top 200 per genre)
-    for genre in ALL_MOVIE_GENRES:
-        targets.append({
-            "name": f"{genre} Movie (1 - 50)",
-            "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/genre={genre}.json"
-        })
-        for skip in [50, 100, 150]:
-            targets.append({
-                "name": f"{genre} Movie ({skip + 1} - {skip + 50})",
-                "url": f"https://v3-cinemeta.strem.io/catalog/movie/top/genre={genre}&skip={skip}.json"
-            })
-
-    # 3. Top Series Umum (Top 250 Siri TV)
-    targets.append({
-        "name": "Top Series (1 - 50)",
-        "url": "https://v3-cinemeta.strem.io/catalog/series/top.json"
-    })
-    for skip in range(50, 250, 50):
-        targets.append({
-            "name": f"Top Series ({skip + 1} - {skip + 50})",
-            "url": f"https://v3-cinemeta.strem.io/catalog/series/top/skip={skip}.json"
-        })
-
-    # 4. Siri TV Mengikut Genre (7 Genre x 3 Halaman = Top 150 per genre)
-    for genre in SERIES_GENRES:
-        targets.append({
-            "name": f"{genre} Series (1 - 50)",
-            "url": f"https://v3-cinemeta.strem.io/catalog/series/top/genre={genre}.json"
-        })
-        for skip in [50, 100]:
-            targets.append({
-                "name": f"{genre} Series ({skip + 1} - {skip + 50})",
-                "url": f"https://v3-cinemeta.strem.io/catalog/series/top/genre={genre}&skip={skip}.json"
-            })
-
-    return targets
-
-def fetch_dynamic_infinite_queue() -> list[dict]:
-    """
-    Menyedut 100 endpoint katalog Cinemeta dengan pengasingan tajuk unik automatik.
-    """
-    targets = build_infinite_catalog_targets()
-    print(f"📡 [Infinite Catalog Fetcher] Menyedut daripada {len(targets)} endpoint katalog Cinemeta...")
-    unique_pool = {}
-
-    for idx, target in enumerate(targets, 1):
-        url = target["url"]
-        name = target["name"]
+def load_movie_pool_data() -> dict:
+    """Membaca rekod kolam tajuk dari fail data/movie_pool.json."""
+    if os.path.exists(MOVIE_POOL_FILE):
         try:
-            res = requests.get(url, timeout=8)
-            if res.status_code == 200:
-                metas = res.json().get("metas", [])
-                new_added = 0
-                for item in metas:
-                    imdb_id = item.get("id", "").strip()
-                    title = item.get("name", "").strip()
-                    rel_info = str(item.get("releaseInfo", "")).strip()
-                    year = rel_info.split("–")[0].split("-")[0].strip()
+            with open(MOVIE_POOL_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    return data
+        except Exception as e:
+            print(f"⚠️ Ralat membaca {MOVIE_POOL_FILE}: {e}")
+    return {}
 
-                    if imdb_id and title and imdb_id.startswith("tt"):
-                        if imdb_id not in unique_pool:
-                            unique_pool[imdb_id] = {
-                                "imdb_id": imdb_id,
-                                "title": title,
-                                "year": year
-                            }
-                            new_added += 1
-                print(f"   [{idx:03d}/{len(targets):03d}] ✅ {name:32} -> Entri: {len(metas):2d} | Unik Baru: {new_added:2d}")
-            else:
-                print(f"   [{idx:03d}/{len(targets):03d}] ❌ (HTTP {res.status_code}) -> {name}")
-        except Exception:
-            print(f"   [{idx:03d}/{len(targets):03d}] ⚠️ (Timeout/Gagal) -> {name}")
+def save_movie_pool_data(pool_dict: dict):
+    """Menyimpan semula baki kolam tajuk ke fail data/movie_pool.json."""
+    os.makedirs(DATA_DIR, exist_ok=True)
+    try:
+        with open(MOVIE_POOL_FILE, "w", encoding="utf-8") as f:
+            json.dump(pool_dict, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"⚠️ Gagal mengemas kini {MOVIE_POOL_FILE}: {e}")
 
-        time.sleep(0.05)
+def get_candidates_from_pool(pool_dict: dict, no_subs_history: dict) -> list[dict]:
+    """
+    Menyusun calon sedia ada daripada fail kolam dan menapis tajuk yang sudah diproses.
+    Jika kolam kosong, menggunakan senarai benih sandaran tempatan.
+    """
+    valid_candidates = []
 
-    if not unique_pool:
-        print("   ⚠️ Gagal menyedut katalog Cinemeta, menggunakan fallback tempatan.")
+    for imdb_id, item in pool_dict.items():
+        # 1. Langkau jika sudah diproses
+        if _history.is_imdb_processed(imdb_id):
+            continue
+
+        # 2. Langkau jika tiada sarikata
+        if imdb_id in no_subs_history:
+            continue
+
+        valid_candidates.append(item)
+
+    # Fallback kecemasan sekiranya kolam kosong atau belum dijana oleh fail 08
+    if not valid_candidates and not pool_dict:
+        print("⚠️ Kolam movie_pool.json kosong atau belum dijana. Menggunakan fallback sandaran.")
         for item in FALLBACK_SEED_LIST:
-            unique_pool[item["imdb_id"]] = item
+            fid = item["imdb_id"]
+            if not _history.is_imdb_processed(fid) and fid not in no_subs_history:
+                valid_candidates.append(item)
 
-    print(f"✅ Jumlah calon unik sedia ada dalam kolam: {len(unique_pool)} tajuk.")
-    return list(unique_pool.values())
+    return valid_candidates
 
 def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
     """
     Melaksanakan pengikisan kelompok berjadual secara modular.
-    Menggunakan Round-Robin B2 storage dan Infinite Catalog Pool.
+    Menggunakan Round-Robin B2 storage dan Kolam Tajuk Setempat (movie_pool.json).
     """
     total_b2_accs = len(_config.B2_ACCOUNTS)
     print("=" * 80)
-    print("🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER (INFINITE CATALOG ENGINE)")
+    print("🔄 MEMULAKAN CRON BATCH SUBTITLE SCRAPER (DARI KOLAM MOVIE_POOL.JSON)")
     print(f"   ├─ Had Sasaran Sesi Ini : {target_limit} tajuk baru")
     print(f"   ├─ Jumlah Akaun B2 Siap : {total_b2_accs} akaun (Round-Robin Active)")
     print(f"   └─ Sela Masa (Delay)    : {delay_sec} saat")
@@ -184,11 +134,18 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
     no_subs_history = load_no_subs_history()
     print(f"📋 Rekod 'Tiada Sarikata' sedia ada: {len(no_subs_history)} tajuk.")
 
-    candidates = fetch_dynamic_infinite_queue()
+    # Baca kolam tajuk dari fail setempat
+    movie_pool = load_movie_pool_data()
+    print(f"📦 Jumlah keseluruhan entri dalam movie_pool.json: {len(movie_pool)} entri.")
+
+    candidates = get_candidates_from_pool(movie_pool, no_subs_history)
+    print(f"🎯 Calon sah yang sedia dikikis dalam giliran: {len(candidates)} entri.")
+
     processed_count = 0
     skipped_exist_count = 0
     skipped_no_subs_count = 0
     all_b2_dead = False
+    pool_modified = False
 
     for item in candidates:
         if processed_count >= target_limit:
@@ -207,29 +164,53 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
         imdb_id = item["imdb_id"]
         movie_title = item["title"]
         movie_year = item.get("year", "")
+        item_type = item.get("type", "movie")
 
         # 1. Semak rekod siap kikis tempatan
         if _history.is_imdb_processed(imdb_id):
             skipped_exist_count += 1
+            if imdb_id in movie_pool:
+                del movie_pool[imdb_id]
+                pool_modified = True
             continue
 
         # 2. Semak rekod tiada sarikata tempatan
         if imdb_id in no_subs_history:
             skipped_no_subs_count += 1
+            if imdb_id in movie_pool:
+                del movie_pool[imdb_id]
+                pool_modified = True
             continue
 
-        print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses: {movie_title} ({movie_year}) -> {imdb_id}")
+        # Format carian pintar: jika episod siri TV (S01E01), bantu enjin teks Subscene
+        search_query = movie_title
+        season_num = item.get("season")
+        episode_num = item.get("episode")
+        if item_type == "series" and season_num is not None and episode_num is not None:
+            search_query = f"{movie_title} S{int(season_num):02d}E{int(episode_num):02d}"
+
+        print(f"\n📦 [{processed_count + 1}/{target_limit}] Memproses: {search_query} ({movie_year}) -> {imdb_id}")
 
         # 3. Panggil enjin on-demand
         try:
-            success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=movie_title, year=movie_year)
+            success = _ondemand.run_ondemand_scrape(imdb_id, custom_query=search_query, year=movie_year)
             if success:
                 processed_count += 1
-                print(f"   ✅ Berjaya memuat naik sarikata bagi {movie_title} ({imdb_id})")
+                print(f"   ✅ Berjaya memuat naik sarikata bagi {search_query} ({imdb_id})")
+                
+                # Singkirkan daripada kolam aktif kerana telah selesai diproses
+                if imdb_id in movie_pool:
+                    del movie_pool[imdb_id]
+                    pool_modified = True
             else:
                 if not _b2.is_all_b2_exhausted():
                     save_no_subs_record(no_subs_history, imdb_id, movie_title, movie_year)
                     print(f"   ⚠️ Disimpan ke no_subs_history: {movie_title} ({imdb_id})")
+                    
+                    # Singkirkan daripada kolam aktif kerana disahkan tiada sarikata
+                    if imdb_id in movie_pool:
+                        del movie_pool[imdb_id]
+                        pool_modified = True
                 else:
                     print(f"   ⚠️ Dibatalkan daripada rekod no_subs (Ralat storan B2 dikesan).")
                     all_b2_dead = True
@@ -246,6 +227,11 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
 
         time.sleep(delay_sec)
 
+    # Simpan semula status terkini fail kolam jika terdapat penyingkiran item
+    if pool_modified:
+        save_movie_pool_data(movie_pool)
+        print("💾 Kolam movie_pool.json berjaya dikemas kini.")
+
     total_skipped = skipped_exist_count + skipped_no_subs_count
     print("\n" + "=" * 80)
     print("✨ TUGASAN CRON BATCH SELESAI")
@@ -253,7 +239,7 @@ def run_batch_cron_scrape(target_limit: int = 20, delay_sec: float = 1.0):
     print(f"   ├─ Tajuk Dilangkau Kerana Sudah Wujud  : {skipped_exist_count}")
     print(f"   ├─ Tajuk Dilangkau Kerana Tiada Sub    : {skipped_no_subs_count}")
     print(f"   ├─ Status B2 Storage                  : {'⚠️ SEMUA AKAUN CAP' if all_b2_dead else '✅ BERFUNGSI (ROTATING)'}")
-    print(f"   └─ Baki Calon Dalam Kolam             : {max(0, len(candidates) - (processed_count + total_skipped))}")
+    print(f"   └─ Baki Calon Dalam Kolam             : {len(movie_pool)}")
     print("=" * 80)
 
     sys.exit(0)
