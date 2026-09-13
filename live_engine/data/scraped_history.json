@@ -145151,7 +145151,1245 @@
           "acc": 6
         }
       ]
+    },
+    "tt0461770": {
+      "updated_at": 1789302949,
+      "sub_count": 9,
+      "subtitles": [
+        {
+          "id": "2454114_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0461770/id_2454114_0.srt",
+          "release": "IndonesianEnchanted.2007.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2454114_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt0461770/id_2454114_0.srt",
+          "release": "IndonesianEnchanted.2007.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2070442_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt0461770/id_2070442_0.srt",
+          "release": "IndonesianEnchanted.2007.720p.BluRay.x264.800MB-Pahe.in",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "499350_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt0461770/id_499350_0.srt",
+          "release": "IndonesianEnchanted.2007.720p.BluRay.DTS.x264-ESiR",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "157859_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt0461770/id_157859_0.srt",
+          "release": "IndonesianEnchanted",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2934637_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt0461770/ms_2934637_0.srt",
+          "release": "MalayEnchanted.720p.BluRay.x264-REFiNED",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2454116_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0461770/ms_2454116_0.srt",
+          "release": "MalayEnchanted.2007.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2454116_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt0461770/ms_2454116_0.srt",
+          "release": "MalayEnchanted.2007.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "722246_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt0461770/ms_722246_0.srt",
+          "release": "MalayEnchanted (2007) Bluray",
+          "source": "subscene",
+          "acc": 9
+        }
+      ]
+    },
+    "tt0138749": {
+      "updated_at": 1789303065,
+      "sub_count": 5,
+      "subtitles": [
+        {
+          "id": "1970204_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt0138749/id_1970204_0.srt",
+          "release": "IndonesianThe.Road.to.El.Dorado.2000.Bluray",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "1944065_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-011-DIN/subs/tt0138749/id_1944065_0.srt",
+          "release": "IndonesianThe.Road.To.El.Dorado.2000.720p.BluRay.x264-[YTS.AM]",
+          "source": "subscene",
+          "acc": 11
+        },
+        {
+          "id": "617719_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-012-DIN/subs/tt0138749/id_617719_0.srt",
+          "release": "IndonesianThe Road to El Dorado [2000]",
+          "source": "subscene",
+          "acc": 12
+        },
+        {
+          "id": "709785_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-013-DIN/subs/tt0138749/id_709785_0.srt",
+          "release": "IndonesianThe Road to El Dorado (2000) DVDRip",
+          "source": "subscene",
+          "acc": 13
+        },
+        {
+          "id": "1144205_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-014-DIN/subs/tt0138749/ms_1144205_0.srt",
+          "release": "MalayThe.Road.to.El.Dorado.2000.m720p dual audio Ganool.com",
+          "source": "subscene",
+          "acc": 14
+        }
+      ]
+    },
+    "tt11152168": {
+      "updated_at": 1789303147,
+      "sub_count": 2,
+      "subtitles": [
+        {
+          "id": "3338994_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-015-DIN/subs/tt11152168/id_3338994_0.srt",
+          "release": "IndonesianIf.2024.TELESYNC.1080p.x264.COLLECTiVE",
+          "source": "subscene",
+          "acc": 15
+        },
+        {
+          "id": "3342810_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-016-DIN/subs/tt11152168/id_3342810_0.srt",
+          "release": "IndonesianIF.2024.1080p.WEB-DL",
+          "source": "subscene",
+          "acc": 16
+        }
+      ]
+    },
+    "tt4520988": {
+      "updated_at": 1789303325,
+      "sub_count": 93,
+      "subtitles": [
+        {
+          "id": "2101338_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-017-DIN/subs/tt4520988/ms_2101338_0.srt",
+          "release": "EnglishFrozen II (2019).HDCamRip",
+          "source": "subscene",
+          "acc": 17
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.1080p.WEB-DL.AAC2.0.H.264",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-019-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.WEBRip.x264-ION10",
+          "source": "subscene",
+          "acc": 19
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.WEB-DL.SUBPACK-FGT",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-022-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 22
+        },
+        {
+          "id": "2119787_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-023-DIN/subs/tt4520988/id_2119787_0.srt",
+          "release": "IndonesianFrozen.II.2019.Semua.DVDScr.Pahe [Brontosaurus Beranak]",
+          "source": "subscene",
+          "acc": 23
+        },
+        {
+          "id": "2119787_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-024-DIN/subs/tt4520988/id_2119787_1.srt",
+          "release": "IndonesianFrozen.II.2019.Semua.DVDScr.Pahe [Brontosaurus Beranak]",
+          "source": "subscene",
+          "acc": 24
+        },
+        {
+          "id": "2119787_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-025-DIN/subs/tt4520988/id_2119787_2.srt",
+          "release": "IndonesianFrozen.II.2019.Semua.DVDScr.Pahe [Brontosaurus Beranak]",
+          "source": "subscene",
+          "acc": 25
+        },
+        {
+          "id": "2144406_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-026-DIN/subs/tt4520988/id_2144406_0.srt",
+          "release": "IndonesianFrozen.II.2019.Semua-BRRip-BluRay & Pahe.in",
+          "source": "subscene",
+          "acc": 26
+        },
+        {
+          "id": "2129879_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-027-DIN/subs/tt4520988/id_2129879_0.srt",
+          "release": "IndonesianFrozen.II.2019.DVDScr.XVID.AC3.HQve-CM8.id",
+          "source": "subscene",
+          "acc": 27
+        },
+        {
+          "id": "2285288_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-028-DIN/subs/tt4520988/id_2285288_0.srt",
+          "release": "IndonesianFrozen.II.2019.BluRay.x265-RARBG / FGT / YOL0W / SWTYBLZ",
+          "source": "subscene",
+          "acc": 28
+        },
+        {
+          "id": "2509056_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-029-DIN/subs/tt4520988/id_2509056_0.srt",
+          "release": "IndonesianFrozen.II.2019.BluRay.H264.AAC-RARBG / SWTYBLZ / EXTREME / F...",
+          "source": "subscene",
+          "acc": 29
+        },
+        {
+          "id": "2104246_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-030-DIN/subs/tt4520988/id_2104246_0.srt",
+          "release": "IndonesianFrozen.II.2019.720p.HDCAM.getb8.x264",
+          "source": "subscene",
+          "acc": 30
+        },
+        {
+          "id": "2104246_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-031-DIN/subs/tt4520988/id_2104246_1.srt",
+          "release": "IndonesianFrozen.II.2019.720p.HDCAM.getb8.x264",
+          "source": "subscene",
+          "acc": 31
+        },
+        {
+          "id": "2104246_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-032-DIN/subs/tt4520988/id_2104246_2.srt",
+          "release": "IndonesianFrozen.II.2019.720p.HDCAM.getb8.x264",
+          "source": "subscene",
+          "acc": 32
+        },
+        {
+          "id": "2104246_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4520988/id_2104246_3.srt",
+          "release": "IndonesianFrozen.II.2019.720p.HDCAM.getb8.x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2163802_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4520988/id_2163802_0.srt",
+          "release": "IndonesianFrozen.II.2019.720p.BluRay.x264-YOL0W",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.2160p.WEB-DL.TrueHD.7.1.Atmos.DV.MP4.x265",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.1080p.WEBRip.x264/x265-RARBG",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.1080p.WEB-DL.H264.DDP5.1-EVO",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.1080p.WEB-DL.DDP7.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2484540_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4520988/id_2484540_0.srt",
+          "release": "IndonesianFrozen.II.2019.1080p.WEB-DL.AAC2.0.H.264",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2142882_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4520988/id_2142882_0.srt",
+          "release": "IndonesianFrozen.2.2019.WEB-DL",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2142882_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4520988/id_2142882_0.srt",
+          "release": "IndonesianFrozen.2.2019.WEB-DL",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2118590_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4520988/id_2118590_0.srt",
+          "release": "IndonesianFrozen.2.2019.DVDScr.XVID.AC3.HQ.Hive-CM8",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2130135_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-011-DIN/subs/tt4520988/id_2130135_0.srt",
+          "release": "IndonesianFrozen.2.2019.DVDScr",
+          "source": "subscene",
+          "acc": 11
+        },
+        {
+          "id": "2144269_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-012-DIN/subs/tt4520988/id_2144269_0.srt",
+          "release": "IndonesianFrozen.2.2019.Bluray 720p.1080p.",
+          "source": "subscene",
+          "acc": 12
+        },
+        {
+          "id": "2564037_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-013-DIN/subs/tt4520988/id_2564037_0.srt",
+          "release": "IndonesianFrozen.2..2019.DSNP.WEB-DL",
+          "source": "subscene",
+          "acc": 13
+        },
+        {
+          "id": "2144448_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-014-DIN/subs/tt4520988/id_2144448_0.srt",
+          "release": "IndonesianFrozen-II-2019-WEBRip-WEBDL-HDRip-1080p-720p.480p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 14
+        },
+        {
+          "id": "2144448_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-015-DIN/subs/tt4520988/id_2144448_1.srt",
+          "release": "IndonesianFrozen-II-2019-WEBRip-WEBDL-HDRip-1080p-720p.480p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 15
+        },
+        {
+          "id": "2144448_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-016-DIN/subs/tt4520988/id_2144448_2.srt",
+          "release": "IndonesianFrozen-II-2019-WEBRip-WEBDL-HDRip-1080p-720p.480p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 16
+        },
+        {
+          "id": "2144448_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-017-DIN/subs/tt4520988/id_2144448_3.srt",
+          "release": "IndonesianFrozen-II-2019-WEBRip-WEBDL-HDRip-1080p-720p.480p.WWW.SEBUAH...",
+          "source": "subscene",
+          "acc": 17
+        },
+        {
+          "id": "2144446_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-018-DIN/subs/tt4520988/id_2144446_0.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-DVDSCR-Pahein-480p.720p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 18
+        },
+        {
+          "id": "2144446_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-019-DIN/subs/tt4520988/id_2144446_1.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-DVDSCR-Pahein-480p.720p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 19
+        },
+        {
+          "id": "2144446_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt4520988/id_2144446_2.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-DVDSCR-Pahein-480p.720p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2144446_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt4520988/id_2144446_3.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-DVDSCR-Pahein-480p.720p.WWW.SEBUAH-DONG...",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2144449_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-022-DIN/subs/tt4520988/id_2144449_0.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 22
+        },
+        {
+          "id": "2144449_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-023-DIN/subs/tt4520988/id_2144449_1.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 23
+        },
+        {
+          "id": "2144449_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-024-DIN/subs/tt4520988/id_2144449_2.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 24
+        },
+        {
+          "id": "2144449_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-025-DIN/subs/tt4520988/id_2144449_3.srt",
+          "release": "IndonesianFrozen-II-2019-SEMUA-BRRip-BluRayRip-BDRip-720p-480p.1080p.W...",
+          "source": "subscene",
+          "acc": 25
+        },
+        {
+          "id": "2142966_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-026-DIN/subs/tt4520988/id_2142966_0.srt",
+          "release": "IndonesianFrozen-2-2019-WEBRip-x265-x264",
+          "source": "subscene",
+          "acc": 26
+        },
+        {
+          "id": "2143098_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-027-DIN/subs/tt4520988/id_2143098_0.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-WEBRip-WEBHD-WEBDL-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 27
+        },
+        {
+          "id": "2143098_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-028-DIN/subs/tt4520988/id_2143098_1.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-WEBRip-WEBHD-WEBDL-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 28
+        },
+        {
+          "id": "2143098_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-029-DIN/subs/tt4520988/id_2143098_2.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-WEBRip-WEBHD-WEBDL-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 29
+        },
+        {
+          "id": "2119609_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-030-DIN/subs/tt4520988/id_2119609_0.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-DVDScr-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 30
+        },
+        {
+          "id": "2119609_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-031-DIN/subs/tt4520988/id_2119609_1.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-DVDScr-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 31
+        },
+        {
+          "id": "2119609_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-032-DIN/subs/tt4520988/id_2119609_2.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-DVDScr-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 32
+        },
+        {
+          "id": "2144177_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4520988/id_2144177_0.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-BRRip-BlurayRip-x265-x264",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2144174_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4520988/id_2144174_0.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-BRRip-BluRay-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2144174_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4520988/id_2144174_1.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-BRRip-BluRay-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2144174_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4520988/id_2144174_2.srt",
+          "release": "IndonesianFrozen-2-2019-Semua-BRRip-BluRay-Pahe-IDFL",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2319764_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4520988/id_2319764_0.srt",
+          "release": "IndonesianFrozen II.HDRip.2019.Indo",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2097525_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4520988/id_2097525_0.srt",
+          "release": "IndonesianFrozen 2 HDCam indoxx1",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2096750_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4520988/id_2096750_0.srt",
+          "release": "IndonesianFrozen 2 2019 720p HDCAM-GETB8",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2142810_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4520988/id_2142810_0.srt",
+          "release": "IndonesianFrozen 2 2019 1080p WEB-DL H264 AC3-EVO",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2118608_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4520988/id_2118608_0.srt",
+          "release": "IndonesianFrozen 2 (2019) DVDSCR",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.WEB-DL.AAC2.0.H.264",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-011-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.WEBRip.x264-ION10",
+          "source": "subscene",
+          "acc": 11
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-012-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.WEBRip.iTunes",
+          "source": "subscene",
+          "acc": 12
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-013-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.WEB-DL.SUBPACK-FGT",
+          "source": "subscene",
+          "acc": 13
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-014-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 14
+        },
+        {
+          "id": "2157575_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-015-DIN/subs/tt4520988/ms_2157575_0.srt",
+          "release": "MalayFrozen.II.2019.Semua.BluRay",
+          "source": "subscene",
+          "acc": 15
+        },
+        {
+          "id": "2163804_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-016-DIN/subs/tt4520988/ms_2163804_0.srt",
+          "release": "MalayFrozen.II.2019.720p.BluRay.x264-YOL0W",
+          "source": "subscene",
+          "acc": 16
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-017-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.2160p.WEB-DL.TrueHD.7.1.Atmos.DV.MP4.x265",
+          "source": "subscene",
+          "acc": 17
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-018-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.WEBRip.x264/x265-RARBG",
+          "source": "subscene",
+          "acc": 18
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-019-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.WEB-DL.H264.DDP5.1-EVO",
+          "source": "subscene",
+          "acc": 19
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.WEB-DL.DDP7.1.Atmos.H.264",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2484537_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt4520988/ms_2484537_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.WEB-DL.AAC2.0.H.264",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2454852_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-022-DIN/subs/tt4520988/ms_2454852_0.srt",
+          "release": "MalayFrozen.II.2019.1080p.BluRay.x264-YOL0W",
+          "source": "subscene",
+          "acc": 22
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-025-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II.2019.720p/1080p.WEBRip.x264.AAC-[YTS.MX]",
+          "source": "subscene",
+          "acc": 25
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-026-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II.2019.720p/1080p.WEBRip.x264.AAC-[YTS.MX]",
+          "source": "subscene",
+          "acc": 26
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-027-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II.2019.720p/1080p.WEBRip.2CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 27
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-028-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II.2019.720p/1080p.WEBRip.2CH.x265.HEVC-PSA",
+          "source": "subscene",
+          "acc": 28
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-029-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II.2019.720p.WEBRip.800MB.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 29
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-030-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II.2019.720p.WEBRip.800MB.x264-GalaxyRG",
+          "source": "subscene",
+          "acc": 30
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-031-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.BRRip.XviD.MP3-XVID",
+          "source": "subscene",
+          "acc": 31
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-032-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.BRRip.XviD.MP3-XVID",
+          "source": "subscene",
+          "acc": 32
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.BLURAY (01:43:14)",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.BLURAY (01:43:14)",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.x264-[YTS.LT]",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.x264-YOL0W",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.x264-YOL0W",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2144712_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt4520988/ms_2144712_0.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2144712_1",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt4520988/ms_2144712_1.srt",
+          "release": "MalayFrozen-II-2019.720p/1080p.BluRay.H264.AAC-RARBG",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2119675_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt4520988/ms_2119675_0.srt",
+          "release": "MalayFrozen II (2019) DVDScr.XVID.AC3",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2142812_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt4520988/ms_2142812_0.srt",
+          "release": "MalayFrozen 2 2019 1080p WEB-DL H264 AC3-EVO",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2142104_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-011-DIN/subs/tt4520988/ms_2142104_0.srt",
+          "release": "MalayFrozen 2 (2019) 1080p HDrip.XviD.AC3.EVO",
+          "source": "subscene",
+          "acc": 11
+        },
+        {
+          "id": "2122876_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-012-DIN/subs/tt4520988/ms_2122876_0.srt",
+          "release": "MalayFrozen 2 (2019) - DVDScr",
+          "source": "subscene",
+          "acc": 12
+        },
+        {
+          "id": "2144530_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-013-DIN/subs/tt4520988/ms_2144530_0.srt",
+          "release": "MalayFrozen 2 (2019) - Bluray720p/1080p",
+          "source": "subscene",
+          "acc": 13
+        }
+      ]
+    },
+    "tt7979580": {
+      "updated_at": 1789303428,
+      "sub_count": 42,
+      "subtitles": [
+        {
+          "id": "2462487_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-014-DIN/subs/tt7979580/id_2462487_0.srt",
+          "release": "IndonesianㆍㅡThe-Mitchells-Vs-The-Machinesㅡㆍ2021-WEBRip-AAC-YTS...",
+          "source": "subscene",
+          "acc": 14
+        },
+        {
+          "id": "2462446_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-015-DIN/subs/tt7979580/id_2462446_0.srt",
+          "release": "IndonesianㅡThe Mitchells.vs.The.Machinesㅡ.NF-360P/720P/1080P",
+          "source": "subscene",
+          "acc": 15
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.NF.WEB-DL.DDP5.1.At...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-017-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.WEBRip.x264-ION10",
+          "source": "subscene",
+          "acc": 17
+        },
+        {
+          "id": "2470845_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt7979580/id_2470845_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2683450_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt7979580/id_2683450_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2470845_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt7979580/id_2470845_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2683450_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt7979580/id_2683450_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2462262_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-022-DIN/subs/tt7979580/id_2462262_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.NF.WEB-DL",
+          "source": "subscene",
+          "acc": 22
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-023-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.HDRip.XviD.AC3-EVO",
+          "source": "subscene",
+          "acc": 23
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.BluRay.1400MB.DD5.1...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-025-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.BRRip.x264-ION10",
+          "source": "subscene",
+          "acc": 25
+        },
+        {
+          "id": "2461565_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-026-DIN/subs/tt7979580/id_2461565_0.srt",
+          "release": "IndonesianThe.Mitchells.Vs.The.Machines.2021.720p.WEBRip.x264",
+          "source": "subscene",
+          "acc": 26
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-027-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.720p.WEB.h264-RUMOUR",
+          "source": "subscene",
+          "acc": 27
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-028-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.720p.BluRay.x264.DTS-MT",
+          "source": "subscene",
+          "acc": 28
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-029-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.720p.BluRay.H264.AAC-RARB...",
+          "source": "subscene",
+          "acc": 29
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-030-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.720p.BluRay.800MB.x264-Ga...",
+          "source": "subscene",
+          "acc": 30
+        },
+        {
+          "id": "2461427_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-031-DIN/subs/tt7979580/id_2461427_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.NF.WEB-DL.DDP5.1.At...",
+          "source": "subscene",
+          "acc": 31
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-032-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.NF.WEB-DL.DDP5.1.At...",
+          "source": "subscene",
+          "acc": 32
+        },
+        {
+          "id": "2461479_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-001-DIN/subs/tt7979580/id_2461479_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.NF.WEB-DL.DDP5.1.At...",
+          "source": "subscene",
+          "acc": 1
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-002-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.1080p.BluRay.x265-RARBG",
+          "source": "subscene",
+          "acc": 2
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-003-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.1080p.BluRay.x264.DTS-MT",
+          "source": "subscene",
+          "acc": 3
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-004-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.the.Machines.2021.1080p.BluRay.H264.AAC-RAR...",
+          "source": "subscene",
+          "acc": 4
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-005-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.Bluray.DTS-HD.MA.5....",
+          "source": "subscene",
+          "acc": 5
+        },
+        {
+          "id": "2640255_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-006-DIN/subs/tt7979580/id_2640255_0.srt",
+          "release": "IndonesianThe.Mitchells.Vs.The.Machines.2021.1080p.Bluray.DTS-HD.MA.5....",
+          "source": "subscene",
+          "acc": 6
+        },
+        {
+          "id": "2641736_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-007-DIN/subs/tt7979580/id_2641736_0.srt",
+          "release": "IndonesianThe.Mitchells.vs.The.Machines.2021.1080p.BluRay.1400MB.DD5.1...",
+          "source": "subscene",
+          "acc": 7
+        },
+        {
+          "id": "2636474_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-008-DIN/subs/tt7979580/id_2636474_0.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-YTS-XviD-X265-X264-SEMUA-...",
+          "source": "subscene",
+          "acc": 8
+        },
+        {
+          "id": "2636474_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-009-DIN/subs/tt7979580/id_2636474_1.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-YTS-XviD-X265-X264-SEMUA-...",
+          "source": "subscene",
+          "acc": 9
+        },
+        {
+          "id": "2636474_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-010-DIN/subs/tt7979580/id_2636474_2.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-YTS-XviD-X265-X264-SEMUA-...",
+          "source": "subscene",
+          "acc": 10
+        },
+        {
+          "id": "2636474_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-011-DIN/subs/tt7979580/id_2636474_3.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-YTS-XviD-X265-X264-SEMUA-...",
+          "source": "subscene",
+          "acc": 11
+        },
+        {
+          "id": "2464730_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-012-DIN/subs/tt7979580/id_2464730_0.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-WEBRip-WEBHD-WEBDL-HDRip-...",
+          "source": "subscene",
+          "acc": 12
+        },
+        {
+          "id": "2464730_1",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-013-DIN/subs/tt7979580/id_2464730_1.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-WEBRip-WEBHD-WEBDL-HDRip-...",
+          "source": "subscene",
+          "acc": 13
+        },
+        {
+          "id": "2464730_2",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-014-DIN/subs/tt7979580/id_2464730_2.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-WEBRip-WEBHD-WEBDL-HDRip-...",
+          "source": "subscene",
+          "acc": 14
+        },
+        {
+          "id": "2464730_3",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-015-DIN/subs/tt7979580/id_2464730_3.srt",
+          "release": "IndonesianThe-Mitchells-Vs-The-Machines-2021-WEBRip-WEBHD-WEBDL-HDRip-...",
+          "source": "subscene",
+          "acc": 15
+        },
+        {
+          "id": "2723243_0",
+          "lang": "id",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-016-DIN/subs/tt7979580/id_2723243_0.srt",
+          "release": "IndonesianThe Mitchells Vs The Machines (2021) ★★★ BluRay",
+          "source": "subscene",
+          "acc": 16
+        },
+        {
+          "id": "2470850_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-019-DIN/subs/tt7979580/ms_2470850_0.srt",
+          "release": "MalayThe.Mitchells.vs.The.Machines.2021.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 19
+        },
+        {
+          "id": "2683454_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt7979580/ms_2683454_0.srt",
+          "release": "MalayThe.Mitchells.vs.The.Machines.2021.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2470850_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-019-DIN/subs/tt7979580/ms_2470850_0.srt",
+          "release": "MalayThe.Mitchells.vs.The.Machines.2021.WEB-DL.Netflix",
+          "source": "subscene",
+          "acc": 19
+        },
+        {
+          "id": "2683454_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-020-DIN/subs/tt7979580/ms_2683454_0.srt",
+          "release": "MalayThe.Mitchells.vs.The.Machines.2021.WEB-DL.iTunes",
+          "source": "subscene",
+          "acc": 20
+        },
+        {
+          "id": "2461441_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-021-DIN/subs/tt7979580/ms_2461441_0.srt",
+          "release": "MalayThe.Mitchells.vs.The.Machines.2021.1080p.WEB.h264-RUMOUR",
+          "source": "subscene",
+          "acc": 21
+        },
+        {
+          "id": "2697251_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-022-DIN/subs/tt7979580/ms_2697251_0.srt",
+          "release": "MalayThe.Mitchells.vs.the.Machines.2021.1080p.BluRay.H264.AAC-RAR...",
+          "source": "subscene",
+          "acc": 22
+        },
+        {
+          "id": "2462723_0",
+          "lang": "ms",
+          "url": "https://b2-private-stremio-sub-addon.braderdin360.workers.dev/stremio-sub-engine-023-DIN/subs/tt7979580/ms_2462723_0.srt",
+          "release": "Malay480p, 720p, 1080p WEB-DL Original dan Rasmi dari Netflix",
+          "source": "subscene",
+          "acc": 23
+        }
+      ]
     }
   },
-  "total_items": 640
+  "total_items": 645
 }
