@@ -29,9 +29,79 @@ GH_PAT = os.getenv("GH_PAT", "")
 GH_OWNER = os.getenv("GH_OWNER", "braderdin")
 GH_REPO = os.getenv("GH_REPO", "stremio-sub-addon")
 
-# Tetapan Upstash Redis & Search
-UPSTASH_REDIS_REST_URL = os.getenv("UPSTASH_REDIS_REST_URL", "")
-UPSTASH_REDIS_REST_TOKEN = os.getenv("UPSTASH_REDIS_REST_TOKEN", "")
+# [PERUBAHAN FUNGSI]: Pengesanan dan pengumpulan senarai multi-akaun Upstash Redis.
+# Keutamaan 1: Membaca format JSON tunggal daripada REDIS_MULTI_ACCOUNT_JSON (GitHub Actions / Cloudflare).
+# Keutamaan 2: Mengimbas format UPSTASH_REDIS_00_* hingga UPSTASH_REDIS_09_* (.env.local / Local Run).
+# Keutamaan 3 (Fallback Selamat): Membaca UPSTASH_REDIS_REST_URL & UPSTASH_REDIS_REST_TOKEN tunggal sedia ada.
+def get_redis_accounts() -> list:
+    accounts = []
+
+    # 1. Semak jika pembolehubah JSON wujud (GitHub Actions / Cloudflare Secret)
+    multi_json_raw = os.getenv("REDIS_MULTI_ACCOUNT_JSON", "").strip()
+    if multi_json_raw:
+        try:
+            parsed = json.loads(multi_json_raw)
+            if isinstance(parsed, list) and len(parsed) > 0:
+                for idx, item in enumerate(parsed, 1):
+                    if isinstance(item, dict):
+                        url = str(item.get("redis_rest_url") or item.get("url") or "").strip()
+                        token = str(item.get("redis_rest_token") or item.get("token") or "").strip()
+                        if url and token:
+                            accounts.append({
+                                "index": int(item.get("index", idx)),
+                                "url": url.rstrip("/"),
+                                "token": token
+                            })
+                if accounts:
+                    # Susun mengikut index supaya Index 1 (Akaun Asal) sentiasa di kedudukan pertama
+                    accounts.sort(key=lambda x: x["index"])
+                    return accounts
+        except Exception as e:
+            print(f"⚠️ Ralat membaca REDIS_MULTI_ACCOUNT_JSON: {e}. Beralih ke format UPSTASH_REDIS_XX...")
+
+    # 2. Imbas format UPSTASH_REDIS_00_* hingga UPSTASH_REDIS_09_* (.env.local)
+    for index in range(0, 10):
+        idx_str = f"{index:02d}"  # '00', '01', ..., '09'
+        url = os.getenv(f"UPSTASH_REDIS_{idx_str}_REST_URL") or os.getenv(f"UPSTASH_REDIS_{index}_REST_URL")
+        # Menyokong format biasa dan variasi typo tanpa underscore (REST_TOKEN)
+        token = (
+            os.getenv(f"UPSTASH_REDIS_{idx_str}_REST_TOKEN")
+            or os.getenv(f"UPSTASH_REDIS_{idx_str}REST_TOKEN")
+            or os.getenv(f"UPSTASH_REDIS_{index}_REST_TOKEN")
+            or os.getenv(f"UPSTASH_REDIS_{index}REST_TOKEN")
+        )
+
+        if url and token:
+            accounts.append({
+                "index": index + 1,  # Akaun 00 dipetakan ke Index 1 (Akaun Asal)
+                "url": url.strip().rstrip("/"),
+                "token": token.strip()
+            })
+
+    # 3. Fallback Selamat: Jika tiada akaun ditemui, guna pembolehubah tunggal sedia ada
+    if not accounts:
+        single_url = os.getenv("UPSTASH_REDIS_REST_URL", "").strip()
+        single_token = os.getenv("UPSTASH_REDIS_REST_TOKEN", "").strip()
+        if single_url and single_token:
+            accounts.append({
+                "index": 1,
+                "url": single_url.rstrip("/"),
+                "token": single_token
+            })
+
+    return accounts
+
+REDIS_ACCOUNTS = get_redis_accounts()
+
+# [PERUBAHAN FUNGSI]: Sandaran Keserasian Belakang (Backward Compatibility).
+# Menjamin pembolehubah asal kekal wujud supaya tiada modul luar mengalami ImportError.
+if REDIS_ACCOUNTS:
+    UPSTASH_REDIS_REST_URL = REDIS_ACCOUNTS[0]["url"]
+    UPSTASH_REDIS_REST_TOKEN = REDIS_ACCOUNTS[0]["token"]
+else:
+    UPSTASH_REDIS_REST_URL = os.getenv("UPSTASH_REDIS_REST_URL", "")
+    UPSTASH_REDIS_REST_TOKEN = os.getenv("UPSTASH_REDIS_REST_TOKEN", "")
+
 REDIS_TCP_URL = os.getenv("REDIS_TCP_URL", "")
 
 # Limit Storan B2 (9.5 GB dalam Bytes untuk elak caj overage Freetier)

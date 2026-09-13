@@ -48,6 +48,11 @@ jobs:
         env:
           CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
           ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+
+          # [PERUBAHAN FUNGSI]: Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun)
+          REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran Redis Asal (Legacy Fallback)
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
           
