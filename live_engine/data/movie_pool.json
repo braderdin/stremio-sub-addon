@@ -81526,5 +81526,69 @@
     "type": "series",
     "source": "cinemeta_episode_meta",
     "added_at": "2026-09-12 10:40:35"
+  },
+  "tt0373883": {
+    "imdb_id": "tt0373883",
+    "title": "Halloween",
+    "year": "2007",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt1104001": {
+    "imdb_id": "tt1104001",
+    "title": "Tron: Legacy",
+    "year": "2010",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt0328880": {
+    "imdb_id": "tt0328880",
+    "title": "Brother Bear",
+    "year": "2003",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt0080455": {
+    "imdb_id": "tt0080455",
+    "title": "The Blues Brothers",
+    "year": "1980",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt27489557": {
+    "imdb_id": "tt27489557",
+    "title": "Abigail",
+    "year": "2024",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt0212338": {
+    "imdb_id": "tt0212338",
+    "title": "Meet the Parents",
+    "year": "2000",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt0082198": {
+    "imdb_id": "tt0082198",
+    "title": "Conan the Barbarian",
+    "year": "1982",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
+  },
+  "tt6587094": {
+    "imdb_id": "tt6587094",
+    "title": "Five Came Back",
+    "year": "2017",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-13 08:20:00"
   }
 }
