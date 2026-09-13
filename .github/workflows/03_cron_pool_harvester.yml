@@ -55,25 +55,29 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Tambah fail kolam ke staging
+          # [PERUBAHAN FUNGSI]: Gabungkan jurnal WAL SQLite ke fail utama sebelum commit
+          python3 -c "import sqlite3; conn = sqlite3.connect('live_engine/data/stremio_cache.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
+
+          # [PERUBAHAN FUNGSI]: Tambah fail binari SQLite dan fail sandaran kolam ke staging
+          [ -f "live_engine/data/stremio_cache.db" ] && git add live_engine/data/stremio_cache.db
           [ -f "live_engine/data/movie_pool.json" ] && git add live_engine/data/movie_pool.json
           
           if ! git diff --cached --quiet; then
-            git commit -m "cron: refresh and expand movie_pool.json [skip ci]"
+            git commit -m "cron: refresh and expand movie_pool in stremio_cache.db [skip ci]"
             
             # Rebase automatik sekiranya remote mempunyai commit baharu semasa job berjalan
             for i in {1..3}; do
               git fetch origin main
               if git rebase origin/main; then
                 if git push origin main; then
-                  echo "✅ Berjaya sync rekod movie_pool.json ke GitHub!"
+                  echo "✅ Berjaya sync rekod movie_pool ke GitHub!"
                   exit 0
                 fi
               else
                 git rebase --abort
                 git pull origin main --no-rebase -X ours -m "merge: resolve movie pool sync [skip ci]"
                 if git push origin main; then
-                  echo "✅ Berjaya merge & push rekod movie_pool.json ke GitHub!"
+                  echo "✅ Berjaya merge & push rekod movie_pool ke GitHub!"
                   exit 0
                 fi
               fi
@@ -82,5 +86,5 @@ jobs:
             done
             exit 1
           else
-            echo "ℹ️ Tiada perubahan pada movie_pool.json dikesan."
+            echo "ℹ️ Tiada perubahan pada movie_pool dikesan."
           fi

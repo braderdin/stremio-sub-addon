@@ -49,7 +49,7 @@ jobs:
           CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
           ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
 
-          # [PERUBAHAN FUNGSI]: Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun)
+          # Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun)
           REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
 
           # Kunci Sandaran Redis Asal (Legacy Fallback)
@@ -117,7 +117,7 @@ jobs:
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           python live_engine/06_ondemand_runner.py --imdb "$TARGET_IMDB"
 
-      - name: Commit dan Simpan Rekod JSON Terkini (Auto-Rebase Safe)
+      - name: Commit dan Simpan Rekod Scraped History Sahaja (Auto-Rebase Safe)
         if: always() # Sentiasa simpan rekod yang sempat dimuat naik
         run: |
           git config --global user.name "github-actions[bot]"
@@ -125,32 +125,36 @@ jobs:
           
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           
-          if [ -f "live_engine/data/scraped_history.json" ]; then
-            git add live_engine/data/scraped_history.json
-            if ! git diff --cached --quiet; then
-              git commit -m "auto: update scraped_history.json for $TARGET_IMDB [skip ci]"
-              
-              # Rebase automatik sekiranya remote mempunyai commit baharu semasa scraper sedang berjalan
-              for i in {1..3}; do
-                git fetch origin main
-                if git rebase origin/main; then
-                  if git push origin main; then
-                    echo "✅ Berjaya sync rekod on-demand history ke GitHub!"
-                    exit 0
-                  fi
-                else
-                  git rebase --abort
-                  git pull origin main --no-rebase -X ours -m "merge: resolve ondemand history sync for $TARGET_IMDB [skip ci]"
-                  if git push origin main; then
-                    echo "✅ Berjaya merge & push rekod on-demand history ke GitHub!"
-                    exit 0
-                  fi
+          # [PERUBAHAN FUNGSI]: Gabungkan jurnal WAL SQLite ke fail utama sebelum staging
+          python3 -c "import sqlite3; conn = sqlite3.connect('live_engine/data/stremio_cache.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
+
+          # [PERUBAHAN FUNGSI]: Hanya pantau fail SQLite dan scraped_history.json (no_subs_history tidak disimpan)
+          [ -f "live_engine/data/stremio_cache.db" ] && git add live_engine/data/stremio_cache.db
+          [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: update scraped_history in db & json for $TARGET_IMDB [skip ci]"
+            
+            # Rebase automatik sekiranya remote mempunyai commit baharu semasa scraper sedang berjalan
+            for i in {1..3}; do
+              git fetch origin main
+              if git rebase origin/main; then
+                if git push origin main; then
+                  echo "✅ Berjaya sync rekod on-demand scraped_history ke GitHub!"
+                  exit 0
                 fi
-                echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
-                sleep 2
-              done
-              exit 1
-            else
-              echo "ℹ️ Tiada perubahan rekod dikesan."
-            fi
+              else
+                git rebase --abort
+                git pull origin main --no-rebase -X ours -m "merge: resolve ondemand history sync for $TARGET_IMDB [skip ci]"
+                if git push origin main; then
+                  echo "✅ Berjaya merge & push rekod on-demand history ke GitHub!"
+                  exit 0
+                fi
+              fi
+              echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
+              sleep 2
+            done
+            exit 1
+          else
+            echo "ℹ️ Tiada perubahan rekod scraped_history dikesan (Mungkin sarikata tiada di Subscene atau sudah wujud)."
           fi

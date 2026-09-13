@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import time
+import sqlite3
 import argparse
 import importlib
 from pathlib import Path
@@ -16,8 +17,9 @@ if str(LIVE_ENGINE_DIR) not in sys.path:
 _config = importlib.import_module("00_config")
 _history = importlib.import_module("04_history_tracker")
 
-# Tetapan direktori dan fail data
+# [PERUBAHAN FUNGSI]: Menghalakan laluan data ke SQLite stremio_cache.db dan mengekalkan JSON sebagai fallback
 DATA_DIR = _config.DATA_DIR
+DB_FILE = DATA_DIR / "stremio_cache.db"
 MOVIE_POOL_FILE = DATA_DIR / "movie_pool.json"
 NO_SUBS_HISTORY_FILE = DATA_DIR / "no_subs_history.json"
 
@@ -59,8 +61,84 @@ FALLBACK_SEED_LIST = [
     {"imdb_id": "tt0133093", "title": "The Matrix", "year": "1999", "type": "movie"}
 ]
 
+def _get_connection() -> sqlite3.Connection:
+    """
+    [PERUBAHAN FUNGSI]: Membuka sambungan SQLite dengan mod WAL dan timeout selamat
+    bagi menjamin kestabilan penulisan berbilang proses.
+    """
+    conn = sqlite3.connect(str(DB_FILE), timeout=15)
+    conn.execute("PRAGMA journal_mode = WAL;")
+    conn.execute("PRAGMA synchronous = NORMAL;")
+    return conn
+
+def _ensure_tables():
+    """[PERUBAHAN FUNGSI]: Memastikan jadual movie_pool dan no_subs_history wujud dalam SQLite."""
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    try:
+        with _get_connection() as conn:
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS movie_pool (
+                    imdb_id TEXT PRIMARY KEY,
+                    title TEXT,
+                    year TEXT,
+                    media_type TEXT,
+                    series_id TEXT,
+                    episode_title TEXT,
+                    season INTEGER,
+                    episode INTEGER,
+                    source TEXT,
+                    added_at TEXT
+                );
+            """)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS no_subs_history (
+                    imdb_id TEXT PRIMARY KEY,
+                    title TEXT,
+                    year TEXT,
+                    checked_at TEXT
+                );
+            """)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_pool_type ON movie_pool(media_type);")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_pool_series ON movie_pool(series_id);")
+    except Exception as e:
+        print(f"⚠️ Ralat inisialisasi jadual SQLite: {e}")
+
+_ensure_tables()
+
 def load_movie_pool() -> dict:
-    """Membaca kolam fail movie_pool.json sedia ada jika wujud."""
+    """
+    [PERUBAHAN FUNGSI]: Membaca kolam tajuk dari SQLite movie_pool secara pantas.
+    Menyediakan fallback ke movie_pool.json sekiranya pangkalan data belum wujud.
+    """
+    pool = {}
+    if DB_FILE.exists():
+        try:
+            with _get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    SELECT imdb_id, title, year, media_type, series_id, episode_title, season, episode, source, added_at
+                    FROM movie_pool;
+                """)
+                for row in cursor.fetchall():
+                    iid = str(row[0]).strip()
+                    pool[iid] = {
+                        "imdb_id": iid,
+                        "title": row[1],
+                        "year": row[2],
+                        "type": row[3] or "movie",
+                        "series_id": row[4],
+                        "episode_title": row[5],
+                        "season": row[6],
+                        "episode": row[7],
+                        "source": row[8],
+                        "added_at": row[9]
+                    }
+            if pool:
+                return pool
+        except Exception as e:
+            print(f"⚠️ Ralat membaca SQLite movie_pool: {e}. Beralih ke fallback JSON...")
+
+    # Fallback ke fail JSON
     if MOVIE_POOL_FILE.exists():
         try:
             with open(MOVIE_POOL_FILE, "r", encoding="utf-8") as f:
@@ -72,18 +150,90 @@ def load_movie_pool() -> dict:
     return {}
 
 def save_movie_pool(pool: dict) -> bool:
-    """Menyimpan kamus kolam terkini ke data/movie_pool.json."""
+    """
+    [PERUBAHAN FUNGSI]: Menyimpan kolam tajuk terus ke pangkalan data SQLite movie_pool
+    menggunakan transaksi 'executemany' pantas serta menyegerakkan fail JSON untuk sandaran.
+    """
+    try:
+        records = []
+        for k, item in pool.items():
+            if isinstance(item, dict):
+                iid = str(item.get("imdb_id") or k).strip()
+                title = str(item.get("title", ""))
+                year = str(item.get("year", ""))
+                media_type = str(item.get("type", "movie"))
+                series_id = str(item.get("series_id", ""))
+                episode_title = str(item.get("episode_title", ""))
+                season = item.get("season")
+                episode = item.get("episode")
+                source = str(item.get("source", "cinemeta"))
+                added_at = str(item.get("added_at", ""))
+
+                records.append((
+                    iid,
+                    title,
+                    year,
+                    media_type,
+                    series_id,
+                    episode_title,
+                    int(season) if season is not None else None,
+                    int(episode) if episode is not None else None,
+                    source,
+                    added_at
+                ))
+
+        with _get_connection() as conn:
+            # 1. Bersihkan rekod dalam DB yang telah tiada dalam senarai kolam aktif (pruned)
+            cursor = conn.cursor()
+            cursor.execute("SELECT imdb_id FROM movie_pool;")
+            db_ids = {row[0] for row in cursor.fetchall()}
+            ids_to_delete = db_ids - set(pool.keys())
+            if ids_to_delete:
+                conn.executemany("DELETE FROM movie_pool WHERE imdb_id = ?;", [(i,) for i in ids_to_delete])
+
+            # 2. Masukkan atau kemas kini rekod baharu secara kelompok
+            if records:
+                conn.executemany("""
+                    INSERT OR REPLACE INTO movie_pool (
+                        imdb_id, title, year, media_type, series_id, episode_title, season, episode, source, added_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                """, records)
+
+    except Exception as e:
+        print(f"❌ Ralat menyimpan SQLite movie_pool: {e}")
+
+    # Segerakkan ke fail JSON sebagai sandaran
     try:
         DATA_DIR.mkdir(parents=True, exist_ok=True)
         with open(MOVIE_POOL_FILE, "w", encoding="utf-8") as f:
             json.dump(pool, f, indent=2, ensure_ascii=False)
         return True
     except Exception as e:
-        print(f"❌ Ralat menyimpan {MOVIE_POOL_FILE.name}: {e}")
+        print(f"⚠️ Gagal menyegerakkan salinan JSON {MOVIE_POOL_FILE.name}: {e}")
         return False
 
 def load_no_subs_history() -> dict:
-    """Membaca rekod tajuk yang disahkan tiada sarikata dari no_subs_history.json."""
+    """
+    [PERUBAHAN FUNGSI]: Membaca rekod tajuk tiada sarikata dari SQLite no_subs_history.
+    """
+    data = {}
+    if DB_FILE.exists():
+        try:
+            with _get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT imdb_id, title, year, checked_at FROM no_subs_history;")
+                for row in cursor.fetchall():
+                    data[row[0]] = {
+                        "title": row[1],
+                        "year": row[2],
+                        "checked_at": row[3]
+                    }
+            if data:
+                return data
+        except Exception as e:
+            print(f"⚠️ Ralat membaca SQLite no_subs_history: {e}. Menggunakan fallback JSON...")
+
+    # Fallback ke fail JSON
     if NO_SUBS_HISTORY_FILE.exists():
         try:
             with open(NO_SUBS_HISTORY_FILE, "r", encoding="utf-8") as f:
@@ -97,20 +247,20 @@ def load_no_subs_history() -> dict:
 def prune_processed_items(pool: dict) -> tuple[dict, int]:
     """
     Menyingkirkan tajuk daripada kolam yang telah pun wujud dalam:
-    1. data/scraped_history.json (Sudah berjaya dikikis)
-    2. data/no_subs_history.json (Disahkan tiada sarikata BM/ID)
+    1. SQLite scraped_history (melalui semakan pantas O(1) _history.is_imdb_processed)
+    2. SQLite no_subs_history
     """
     no_subs_history = load_no_subs_history()
     cleaned_pool = {}
     pruned_count = 0
 
     for imdb_id, item in pool.items():
-        # Semak rekod siap kikis
+        # Semak rekod siap kikis di SQLite
         if _history.is_imdb_processed(imdb_id):
             pruned_count += 1
             continue
 
-        # Semak rekod tiada sarikata
+        # Semak rekod tiada sarikata di SQLite
         if imdb_id in no_subs_history:
             pruned_count += 1
             continue
@@ -120,7 +270,7 @@ def prune_processed_items(pool: dict) -> tuple[dict, int]:
     return cleaned_pool, pruned_count
 
 # ==============================================================================
-# MODUL 1: SEDUTAN KATALOG CINEMETA ASAS & GENRE (KEKALKAN GAYA ASAL 07)
+# MODUL 1: SEDUTAN KATALOG CINEMETA ASAS & GENRE
 # ==============================================================================
 def harvest_cinemeta_standard() -> tuple[list[dict], list[dict]]:
     """
@@ -346,7 +496,6 @@ def expand_series_episodes(
     """
     print(f"\n🎞️ [Modul 4] Mengekstrak Episod Siri TV Popular (Maksima {max_series_to_expand} Siri)...")
     
-    # Singkirkan duplikasi siri TV berdasarkan root imdb_id
     unique_series_map = {}
     for s in series_list:
         s_id = s["imdb_id"]
@@ -375,7 +524,6 @@ def expand_series_episodes(
                     ep_title = v.get("name") or v.get("title") or f"Episod {ep_num}"
                     
                     if season_num is not None and ep_num is not None:
-                        # Bina format Stremio ttXXXXXXX:season:episode
                         custom_ep_id = f"{root_id}:{int(season_num)}:{int(ep_num)}"
                         
                         episode_entries.append({
@@ -391,7 +539,6 @@ def expand_series_episodes(
                         })
                         added_for_series += 1
                         
-                        # Kawal had episod agar tidak memonopoli kolam
                         if added_for_series >= max_episodes_per_series:
                             break
 
@@ -414,20 +561,21 @@ def run_movie_pool_harvest(
     max_series: int = 35
 ):
     """
-    Melaksanakan keseluruhan proses penuaian kolam tajuk:
-    1. Membaca kolam sedia ada dan menyingkirkan item siap diproses / tiada sub.
+    [PERUBAHAN FUNGSI]: Melaksanakan penuaian kolam tajuk dan menyimpannya terus ke SQLite & JSON:
+    1. Membaca kolam sedia ada dari SQLite dan menyingkirkan item siap diproses / tiada sub.
     2. Menyedut Cinemeta Standard, Cinemeta Mengikut Tahun, dan CyberFlix.
     3. Mengekstrak episod siri TV popular.
-    4. Menggabungkan semua calon unik baharu dan menyimpan ke movie_pool.json.
+    4. Menggabungkan semua calon baharu dan menyimpannya ke SQLite movie_pool & movie_pool.json.
     """
     print("=" * 80)
     print("🌾 MEMULAKAN PROSES PENUAIAN KOLAM TAJUK FILEM & SIRI (08_MOVIE_POOL_HARVESTER)")
     print(f"   ├─ Julat Tahun Sedutan : {start_year} hingga {end_year}")
     print(f"   ├─ Had Siri Diekstrak  : {max_series} siri drama")
-    print(f"   └─ Lokasi Fail Kolam   : {MOVIE_POOL_FILE}")
+    print(f"   ├─ Pangkalan Data SQL  : {DB_FILE}")
+    print(f"   └─ Fail Sandaran JSON  : {MOVIE_POOL_FILE}")
     print("=" * 80)
 
-    # 1. Baca dan bersihkan kolam semasa
+    # 1. Baca dan bersihkan kolam semasa dari SQLite
     existing_pool = load_movie_pool()
     initial_count = len(existing_pool)
     print(f"📂 Kolam sedia ada sebelum pembersihan: {initial_count} tajuk.")
@@ -510,7 +658,7 @@ def run_movie_pool_harvest(
                 }
                 newly_added += 1
 
-    # 4. Simpan kolam ke fail fizikal JSON
+    # 4. [PERUBAHAN FUNGSI]: Simpan ke SQLite movie_pool dan selaraskan ke fail JSON
     save_movie_pool(cleaned_pool)
 
     print("\n" + "=" * 80)
@@ -518,7 +666,7 @@ def run_movie_pool_harvest(
     print(f"   ├─ Jumlah Asal Kolam         : {initial_count} tajuk")
     print(f"   ├─ Disaring Keluar (Pruned)  : {pruned_count} tajuk")
     print(f"   ├─ Tajuk Baharu Ditambah     : {newly_added} tajuk")
-    print(f"   └─ Jumlah Akhir Kolam Aktif  : {len(cleaned_pool)} calon sedia dikikis")
+    print(f"   └─ Jumlah Akhir Kolam Aktif  : {len(cleaned_pool)} calon sedia dikikis (Disimpan ke SQLite & JSON)")
     print("=" * 80)
 
 if __name__ == "__main__":
