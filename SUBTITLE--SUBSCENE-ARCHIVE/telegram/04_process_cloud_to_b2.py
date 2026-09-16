@@ -11,9 +11,10 @@ import argparse
 import subprocess
 import urllib.request
 import urllib.parse
+import json
 from pathlib import Path
 from datetime import datetime
-from typing import Optional, Dict, List, Tuple
+from typing import Optional, Dict, List, Tuple, Any
 
 from rich.console import Console
 from rich.panel import Panel
@@ -24,9 +25,8 @@ from guessit import guessit
 console = Console()
 
 # ==============================================================================
-# 1. INTEGRASI PERSEKITARAN DINAMIK (.env.local / GITHUB SECRETS)
+# 1. INTEGRASI PERSEKITARAN DINAMIK
 # ==============================================================================
-# Resolusi laluan dinamik: beroperasi lancar di WSL tempatan mahupun GitHub Actions Runner
 CURRENT_FILE = Path(__file__).resolve()
 TELEGRAM_DIR = CURRENT_FILE.parent                          # .../SUBTITLE--SUBSCENE-ARCHIVE/telegram
 BASE_WORK_DIR = TELEGRAM_DIR.parent                         # .../SUBTITLE--SUBSCENE-ARCHIVE
@@ -42,7 +42,7 @@ SESSION_FILE = TELEGRAM_DIR / "processor_bot.session"
 MANIFEST_DB = DATA_DIR / "cloud_parts_manifest.db"
 
 def load_environment():
-    """Memuat konfigurasi daripada .env.local jika wujud, sebaliknya guna os.environ."""
+    """Memuat konfigurasi daripada .env.local jika wujud (Local run)."""
     if ENV_LOCAL_PATH.exists():
         with open(ENV_LOCAL_PATH, "r", encoding="utf-8") as f:
             for line in f:
@@ -54,7 +54,6 @@ def load_environment():
 
 load_environment()
 
-# Tambah folder live_engine ke barisan pertama sys.path secara dinamik
 if str(LIVE_ENGINE_PATH) not in sys.path:
     sys.path.insert(0, str(LIVE_ENGINE_PATH))
 
@@ -74,7 +73,7 @@ TG_CHAT_ID = os.environ.get("TG_CHAT_ID", "")
 # 2. PENGURUSAN NOTIFIKASI TELEGRAM BOT
 # ==============================================================================
 def send_telegram_notification(message_text: str):
-    """Menghantar laporan status terus kepada Telegram Chat ID pengguna."""
+    """Menghantar laporan status terus kepada Telegram Chat ID peribadi."""
     if not TG_BOT_TOKEN or not TG_CHAT_ID:
         return
 
@@ -93,63 +92,109 @@ def send_telegram_notification(message_text: str):
         console.print(f"[yellow]⚠️ Gagal menghantar notifikasi Telegram: {e}[/yellow]")
 
 # ==============================================================================
-# 3. KORPUS CARIAN PANGKALAN DATA METADATA SQLITE
+# 3. KORPUS CARIAN PANGKALAN DATA METADATA SQLITE & CINEMETA FALLBACK
 # ==============================================================================
 METADATA_DBS = sorted(list(DATA_DIR.glob("subtitles_metadata_part_*.db")))
 
-def lookup_subtitle_metadata(clean_filename: str, original_path: str) -> Dict:
-    """Mencari maklumat IMDb dan metadata daripada fail part .db tanpa API luaran."""
-    clean_fn = Path(clean_filename).name
+def fetch_cinemeta_imdb(query_title: str, year: Optional[int], media_type: str = "movie") -> Tuple[Optional[str], Optional[str]]:
+    """Carian sandaran terus ke Cinemeta jika tiada dalam SQLite."""
+    clean_q = re.sub(r"[-_]+", " ", query_title).strip()
+    if not clean_q:
+        return None, None
 
-    # 1. Semak merentasi fail-fail pangkalan data metadata SQLite tempatan
+    encoded = urllib.parse.quote(clean_q)
+    url = f"https://v3-cinemeta.strem.io/catalog/{media_type}/top/search={encoded}.json"
+    headers = {"User-Agent": "Mozilla/5.0 (StremioSubArchiveFast/2.0)"}
+
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=4.0) as resp:
+            if resp.status == 200:
+                data = json.loads(resp.read().decode("utf-8"))
+                metas = data.get("metas", [])
+                if not metas and media_type == "series":
+                    return fetch_cinemeta_imdb(clean_q, year, "movie")
+                if metas:
+                    for m in metas:
+                        rel_yr = m.get("releaseInfo") or m.get("year")
+                        if year and rel_yr:
+                            try:
+                                if abs(int(str(rel_yr)[:4]) - int(year)) <= 1:
+                                    return m.get("imdb_id"), m.get("name")
+                            except Exception:
+                                pass
+                    return metas[0].get("imdb_id"), metas[0].get("name")
+    except Exception:
+        pass
+    return None, None
+
+def lookup_subtitle_metadata(parent_zip_name: str, slug: str, sub_filename: str) -> Dict[str, Any]:
+    """Mencari maklumat IMDb secara pantas melalui SQLite dengan keutamaan padanan pintar."""
+    clean_zip = Path(parent_zip_name).name
+
     for db_file in METADATA_DBS:
         try:
             conn = sqlite3.connect(f"file:{db_file}?mode=ro", uri=True)
             cur = conn.cursor()
+
+            # 1. Padanan tepat nama pek arkib (.zip/.rar)
             cur.execute("""
                 SELECT imdb_id, canonical_title, clean_title, media_type, year, season, episode, language, subscene_id
                 FROM subtitle_metadata
-                WHERE filename = ? OR archive_path LIKE ?
+                WHERE filename = ?
                 LIMIT 1;
-            """, (clean_fn, f"%{clean_fn}%"))
+            """, (clean_zip,))
             row = cur.fetchone()
+
+            # 2. Padanan melalui folder slug jika nama zip berbeza
+            if not row and slug:
+                cur.execute("""
+                    SELECT imdb_id, canonical_title, clean_title, media_type, year, season, episode, language, subscene_id
+                    FROM subtitle_metadata
+                    WHERE slug = ?
+                    LIMIT 1;
+                """, (slug,))
+                row = cur.fetchone()
+
             conn.close()
 
-            if row:
+            if row and row[0]:
                 return {
                     "imdb_id": row[0],
-                    "canonical_title": row[1],
-                    "clean_title": row[2],
-                    "media_type": row[3],
+                    "canonical_title": row[1] or row[2],
+                    "clean_title": row[2] or slug,
+                    "media_type": row[3] or "movie",
                     "year": row[4],
                     "season": row[5],
                     "episode": row[6],
-                    "language": row[7],
+                    "language": row[7] or ("ms" if "malay" in slug.lower() else "id"),
                     "subscene_id": row[8]
                 }
         except Exception:
             continue
 
-    # 2. Penapis sokongan GuessIt jika entri tiada dalam arkib katalog
+    # 3. Penapis GuessIt & Carian Cinemeta Sandaran
     try:
-        guess = guessit(clean_filename)
-        title = guess.get("title", Path(clean_filename).stem)
-        year = guess.get("year")
-        season = guess.get("season")
-        episode = guess.get("episode")
-        if isinstance(season, list): season = season[0]
-        if isinstance(episode, list): episode = episode[0]
-        media_type = "series" if (season or episode) else "movie"
+        guess = guessit(sub_filename)
+        g_title = guess.get("title", slug.replace("-", " "))
+        g_year = guess.get("year")
+        g_season = guess.get("season")
+        g_episode = guess.get("episode")
+        if isinstance(g_season, list): g_season = g_season[0]
+        if isinstance(g_episode, list): g_episode = g_episode[0]
+        m_type = "series" if (g_season or g_episode) else "movie"
+
+        imdb_id, canon_title = fetch_cinemeta_imdb(str(g_title), g_year, m_type)
 
         return {
-            "imdb_id": None,
-            "canonical_title": str(title),
-            "clean_title": str(title),
-            "media_type": media_type,
-            "year": year,
-            "season": season,
-            "episode": episode,
-            "language": "ms" if "malay" in clean_filename.lower() else "id",
+            "imdb_id": imdb_id,
+            "canonical_title": canon_title or str(g_title),
+            "clean_title": str(g_title),
+            "media_type": m_type,
+            "year": g_year,
+            "season": g_season,
+            "episode": g_episode,
+            "language": "ms" if "malay" in parent_zip_name.lower() else "id",
             "subscene_id": None
         }
     except Exception:
@@ -164,11 +209,27 @@ def extract_text_content(file_bytes: bytes) -> Optional[str]:
             continue
     return None
 
+def detect_season_episode(sub_filename: str, default_season: Optional[int] = None) -> Tuple[Optional[int], Optional[int]]:
+    """Mengekstrak maklumat Musim (Season) dan Episod (Episode) dari nama fail sarikata sebenar."""
+    m = re.search(r"\b[sS](\d+)[eE](\d+)\b", sub_filename)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+
+    m2 = re.search(r"\b(\d+)x(\d+)\b", sub_filename)
+    if m2:
+        return int(m2.group(1)), int(m2.group(2))
+
+    m3 = re.search(r"\b(?:ep|episode|e)[.\s_-]*(\d+)\b", sub_filename, re.I)
+    if m3:
+        s = default_season if default_season is not None else 1
+        return s, int(m3.group(1))
+
+    return default_season, None
+
 # ==============================================================================
-# 4. PEMILIHAN & KEMAS KINI STATUS PEK ARKIB
+# 4. PENGURUSAN STATUS MANIFES AWAN
 # ==============================================================================
 def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tuple]:
-    """Mengambil bahagian arkib yang sudah sedia di Telegram tetapi belum dimuat naik ke B2."""
     if not MANIFEST_DB.exists():
         console.print(f"[bold red]❌ Pangkalan data {MANIFEST_DB} tidak dijumpai![/bold red]")
         return None
@@ -180,7 +241,7 @@ def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tup
         cur.execute("""
             SELECT id, archive_name, part_number, part_filename, size_bytes, tg_message_id, tg_file_id
             FROM archive_split_manifest
-            WHERE part_filename = ? AND status = 'uploaded';
+            WHERE part_filename = ?;
         """, (specified_part,))
     else:
         cur.execute("""
@@ -196,7 +257,6 @@ def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tup
     return row
 
 def update_part_status(part_filename: str, new_status: str):
-    """Mengemas kini status pemprosesan di cloud_parts_manifest.db."""
     conn = sqlite3.connect(str(MANIFEST_DB))
     cur = conn.cursor()
     cur.execute("""
@@ -208,7 +268,7 @@ def update_part_status(part_filename: str, new_status: str):
     conn.close()
 
 # ==============================================================================
-# 5. ALIRAN PEMPROSESAN UTAMA TELETHON ➔ B2 ➔ REDIS
+# 5. ALIRAN PEMPROSESAN TELEGRAM ➔ B2 ➔ REDIS
 # ==============================================================================
 async def process_cloud_archive(target_part: Optional[str] = None):
     part_record = get_next_uploaded_part(target_part)
@@ -222,11 +282,10 @@ async def process_cloud_archive(target_part: Optional[str] = None):
         f"[bold cyan]🚀 ENJIN PEMPROSESAN AWAN SUBTITLE (TELEGRAM ➔ B2 ➔ REDIS)[/bold cyan]\n"
         f"[white]Pek Sasaran:[/white] [yellow]{part_filename}[/yellow] (Pek #{part_num})\n"
         f"[white]Telegram Message ID:[/white] [green]{tg_msg_id}[/green]\n"
-        f"[white]Infrastruktur:[/white] [magenta]B2 Multi-Bucket & Upstash Sharding[/magenta]",
+        f"[white]Metadata SQLite Part Dikesan:[/white] [cyan]{len(METADATA_DBS)} fail pangkalan data[/cyan]",
         border_style="cyan"
     ))
 
-    # Sediakan ruang sementara runner
     if TEMP_RUNNER_DIR.exists():
         shutil.rmtree(TEMP_RUNNER_DIR, ignore_errors=True)
     TEMP_RUNNER_DIR.mkdir(parents=True, exist_ok=True)
@@ -240,153 +299,201 @@ async def process_cloud_archive(target_part: Optional[str] = None):
 
     start_time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     uploaded_b2_count = 0
+    skipped_exist_count = 0
     errors_encountered: List[str] = []
 
     try:
-        # 1. Tarik Fail dari Saluran Telegram
+        # 1. Muat turun dari Telegram Channel
         console.print(f"[cyan]📥 Menarik arkib dari Telegram Channel (Msg ID: {tg_msg_id})...[/cyan]")
         msg = await client.get_messages(TG_CHANNEL_ID, ids=tg_msg_id)
         if not msg:
-            raise Exception(f"Mesej Telegram {tg_msg_id} tidak ditemui!")
+            raise Exception(f"Mesej Telegram ID {tg_msg_id} tidak ditemui!")
 
         await client.download_media(msg, file=str(downloaded_archive_path))
-        console.print(f"   [green]✔ Selesai muat turun arkib:[/green] {downloaded_archive_path.name}")
+        console.print(f"   [green]✔ Selesai muat turun:[/green] {downloaded_archive_path.name}")
 
-        # 2. Ekstrak arkib .7z ke folder sementara
-        console.print("[cyan]📦 Mengekstrak pek arkib kendiri...[/cyan]")
+        # 2. Ekstrak arkib .7z
+        console.print("[cyan]📦 Mengekstrak pek arkib ke direktori sementara...[/cyan]")
         cmd_extract = ["7z", "x", "-y", f"-o{extract_target_dir}", str(downloaded_archive_path)]
         res_7z = subprocess.run(cmd_extract, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         if res_7z.returncode != 0:
-            raise Exception("Gagal mengekstrak arkib menggunakan arahan 7z!")
+            raise Exception("Gagal mengekstrak fail .7z menggunakan sistem 7z!")
 
-        # Padam fail arkib .7z sebaik sahaja diekstrak bagi mengelakkan limpahan cakera
         downloaded_archive_path.unlink(missing_ok=True)
 
-        # 3. Kumpulkan semua fail sarikata fizikal
-        discovered_subs: List[Tuple[str, bytes]] = []
+        # 3. Kumpulkan senarai sarikata berserta metadata induk
+        discovered_subs: List[Dict[str, Any]] = []
 
         for root, _, files in os.walk(extract_target_dir):
             for fn in files:
                 f_path = Path(root) / fn
                 ext = f_path.suffix.lower()
+                rel_parts = f_path.relative_to(extract_target_dir).parts
+                slug = rel_parts[-2] if len(rel_parts) >= 2 else f_path.parent.name
 
                 if ext == ".zip":
                     try:
                         with zipfile.ZipFile(f_path, "r") as zf:
                             for zn in zf.namelist():
                                 if zn.lower().endswith((".srt", ".ass", ".ssa")):
-                                    discovered_subs.append((Path(zn).name, zf.read(zn)))
+                                    discovered_subs.append({
+                                        "sub_filename": Path(zn).name,
+                                        "sub_bytes": zf.read(zn),
+                                        "parent_zip": fn,
+                                        "slug": slug
+                                    })
                     except Exception as e:
-                        errors_encountered.append(f"Ralat baca zip {fn}: {e}")
+                        errors_encountered.append(f"Ralat ekstrak zip {fn}: {e}")
                 elif ext == ".rar":
                     try:
                         with rarfile.RarFile(f_path, "r") as rf:
                             for rn in rf.namelist():
                                 if rn.lower().endswith((".srt", ".ass", ".ssa")):
-                                    discovered_subs.append((Path(rn).name, rf.read(rn)))
+                                    discovered_subs.append({
+                                        "sub_filename": Path(rn).name,
+                                        "sub_bytes": rf.read(rn),
+                                        "parent_zip": fn,
+                                        "slug": slug
+                                    })
                     except Exception as e:
-                        errors_encountered.append(f"Ralat baca rar {fn}: {e}")
+                        errors_encountered.append(f"Ralat ekstrak rar {fn}: {e}")
                 elif ext in [".srt", ".ass", ".ssa"]:
                     try:
                         with open(f_path, "rb") as sf:
-                            discovered_subs.append((f_path.name, sf.read()))
+                            discovered_subs.append({
+                                "sub_filename": fn,
+                                "sub_bytes": sf.read(),
+                                "parent_zip": fn,
+                                "slug": slug
+                            })
                     except Exception as e:
-                        errors_encountered.append(f"Ralat baca fail srt {fn}: {e}")
+                        errors_encountered.append(f"Ralat baca srt {fn}: {e}")
 
-        console.print(f"   [green]✔ Sebanyak {len(discovered_subs):,} fail sarikata ditemui dalam pek ini.[/green]")
+        total_discovered = len(discovered_subs)
+        console.print(f"   [green]✔ Sebanyak {total_discovered:,} fail sarikata ditemui dalam pek ini.[/green]\n")
 
-        # 4. Padanan Metadata, Muat Naik ke B2 & Rekod ke Redis
+        # 4. Muat Naik ke B2 & Kemas Kini Redis
         lang_code = "ms" if archive_name == "malay" else "id"
 
-        for sub_name, sub_bytes in discovered_subs:
+        for item in discovered_subs:
+            sub_filename = item["sub_filename"]
+            sub_bytes = item["sub_bytes"]
+            parent_zip = item["parent_zip"]
+            slug = item["slug"]
+
             srt_content = extract_text_content(sub_bytes)
             if not srt_content or len(srt_content.strip()) < 50:
                 continue
 
-            meta = lookup_subtitle_metadata(sub_name, sub_name)
+            meta = lookup_subtitle_metadata(parent_zip, slug, sub_filename)
             imdb_id = meta.get("imdb_id")
+
             if not imdb_id or not imdb_id.startswith("tt"):
                 continue
 
+            # Semak rekod sedia ada di Redis
             existing_records = _redis_db.get_subtitle_records(imdb_id)
             existing_ids = {str(r.get("id")) for r in existing_records if isinstance(r, dict) and "id" in r}
 
-            subscene_id = meta.get("subscene_id") or str(int(time.time()))
-            record_id = f"sub_{subscene_id}_{Path(sub_name).stem}"
+            clean_release = Path(sub_filename).stem
+            subscene_id = meta.get("subscene_id") or str(abs(hash(clean_release)) % 10000000)
+            record_id = f"sub_{subscene_id}_{clean_release[:30]}"
 
             if record_id in existing_ids:
+                skipped_exist_count += 1
                 continue
 
-            b2_sub_ext = Path(sub_name).suffix.lower() or ".srt"
+            b2_sub_ext = Path(sub_filename).suffix.lower() or ".srt"
             b2_path = f"subs/{imdb_id}/{lang_code}_{record_id}{b2_sub_ext}"
-            release_name = Path(sub_name).stem
 
             try:
                 b2_res = _b2_storage.upload_subtitle_to_b2(b2_path, srt_content)
                 b2_url = b2_res["url"]
                 b2_acc_idx = b2_res["account_index"]
 
+                target_redis = _redis_db.get_target_redis_account(imdb_id)
+                target_redis_idx = target_redis.get("index", 1)
+
                 new_record = {
                     "id": record_id,
                     "lang": lang_code,
                     "url": b2_url,
-                    "release": release_name,
+                    "release": clean_release,
                     "source": "subscene",
                     "acc": int(b2_acc_idx)
                 }
 
-                season = meta.get("season")
-                episode = meta.get("episode")
+                s_num, e_num = detect_season_episode(sub_filename, default_season=meta.get("season"))
 
-                if season and episode:
-                    new_record["season"] = int(season)
-                    new_record["episode"] = int(episode)
-                    ep_imdb_key = f"{imdb_id}:{season}:{episode}"
+                if s_num is not None and e_num is not None:
+                    new_record["season"] = s_num
+                    new_record["episode"] = e_num
+                    ep_imdb_key = f"{imdb_id}:{s_num}:{e_num}"
                     _redis_db.save_subtitle_records_batch(ep_imdb_key, [new_record])
+                    _redis_db.save_subtitle_records_batch(imdb_id, [new_record])
+                    display_target = f"{imdb_id} (S{s_num:02d}E{e_num:02d})"
+                else:
+                    _redis_db.save_subtitle_records_batch(imdb_id, [new_record])
+                    display_target = imdb_id
 
-                _redis_db.save_subtitle_records_batch(imdb_id, [new_record])
                 uploaded_b2_count += 1
 
+                # Paparan Jadual Status Interaktif
+                table = Table(title=f"✨ Status Muat Naik [{uploaded_b2_count}]", border_style="green")
+                table.add_column("Atribut", style="cyan", no_wrap=True)
+                table.add_column("Nilai / Keterangan", style="white")
+
+                table.add_row("Pek Arkib", part_filename)
+                table.add_row("Nama Fail", sub_filename)
+                table.add_row("IMDb Sasaran", display_target)
+                table.add_row("Akaun B2 Digunakan", f"[bold yellow]Akaun B2 #{b2_acc_idx}[/bold yellow] ({b2_res['bucket_name']})")
+                table.add_row("Cloudflare Worker URL", f"[link={b2_url}]{b2_url}[/link]")
+                table.add_row("Akaun Redis Digunakan", f"[bold magenta]Akaun Redis #{target_redis_idx}[/bold magenta] (Shard Modulo)")
+
+                console.print(table)
+
             except _b2_storage.AllB2AccountsExhaustedException:
-                errors_encountered.append("Semua kuota akaun Backblaze B2 telah habis!")
+                errors_encountered.append("Kesemua kuota akaun Backblaze B2 telah habis!")
                 break
             except Exception as up_err:
-                errors_encountered.append(f"Muat naik B2 gagal bagi {sub_name}: {up_err}")
+                errors_encountered.append(f"Gagal muat naik {sub_filename}: {up_err}")
 
-        update_part_status(part_filename, "completed")
-        console.print(f"\n[bold green]✨ Bahagian {part_filename} siap diproses sepenuhnya![/bold green]")
+        # Kawalan Keselamatan: Hanya tanda completed jika ada fail berjaya dimuat naik atau memang sudah sedia wujud
+        if uploaded_b2_count > 0 or skipped_exist_count == total_discovered:
+            update_part_status(part_filename, "completed")
+            console.print(f"\n[bold green]✨ Bahagian {part_filename} selesai diproses sepenuhnya![/bold green]")
+        else:
+            console.print(f"\n[bold red]⚠️ Amaran: 0 fail dimuat naik bagi {part_filename}. Status kekal 'uploaded'.[/bold red]")
 
     except Exception as ex:
-        console.print(f"[bold red]❌ Ralat kritikal memproses bahagian {part_filename}: {ex}[/bold red]")
+        console.print(f"[bold red]❌ Ralat kritikal pada {part_filename}: {ex}[/bold red]")
         errors_encountered.append(str(ex))
     finally:
         await client.disconnect()
         if TEMP_RUNNER_DIR.exists():
             shutil.rmtree(TEMP_RUNNER_DIR, ignore_errors=True)
 
-    # 5. Hantar Notifikasi Lengkap ke Telegram
+    # 5. Hantar Notifikasi Status ke Telegram
     end_time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     error_summary = "\n".join([f"• {e}" for e in errors_encountered[:5]]) if errors_encountered else "Tiada Ralat"
 
-    status_icon = "✅ BERJAYA" if not errors_encountered else "⚠️ SELESAI DENGAN AMARAN"
+    status_icon = "✅ BERJAYA" if (uploaded_b2_count > 0 and not errors_encountered) else "⚠️ PERIKSA LAPORAN"
     telegram_msg = (
         f"<b>🤖 STATUS PEMPROSESAN AWAN SUBTITLE</b>\n\n"
         f"<b>Status:</b> {status_icon}\n"
         f"<b>Pek Diproses:</b> <code>{part_filename}</code>\n"
         f"<b>Mula:</b> {start_time_stamp}\n"
         f"<b>Tamat:</b> {end_time_stamp}\n"
-        f"<b>Jumlah Sarikata Dimuat Naik ke B2:</b> {uploaded_b2_count:,} fail\n"
+        f"<b>Jumlah Dimuat Naik ke B2:</b> {uploaded_b2_count:,} fail\n"
+        f"<b>Dilangkau (Sedia Wujud):</b> {skipped_exist_count:,} fail\n"
         f"<b>Ralat:</b>\n<code>{error_summary}</code>"
     )
 
     send_telegram_notification(telegram_msg)
 
-# ==============================================================================
-# TITIK MASUK UTAMA CLI
-# ==============================================================================
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Enjin Pemprosesan Awan Subtitle Telethon ke B2 & Redis")
-    parser.add_argument("--part", type=str, default=None, help="Nama bahagian arkib spesifik (contoh: malay_part_001.7z)")
+    parser.add_argument("--part", type=str, default=None, help="Nama bahagian arkib spesifik (contoh: indonesian_part_001.7z)")
     args = parser.parse_args()
 
     asyncio.run(process_cloud_archive(target_part=args.part))
