@@ -60,8 +60,7 @@ SUBTITLE--SUBSCENE-ARCHIVE/output/indonesian_contents_summary.txt
 SUBTITLE--SUBSCENE-ARCHIVE/output/malay_compact_summary.json
 SUBTITLE--SUBSCENE-ARCHIVE/output/malay_contents_summary.txt
 
-SUBTITLE--SUBSCENE-ARCHIVE/data/cinemeta_cache.json
-SUBTITLE--SUBSCENE-ARCHIVE/data/processed_archive_history.json
+
 SUBTITLE--SUBSCENE-ARCHIVE/data/redis_daily_tracker.json
 
 
