@@ -24,14 +24,20 @@ from guessit import guessit
 console = Console()
 
 # ==============================================================================
-# 1. INTEGRASI PERSEKITARAN (.env.local / GITHUB SECRETS)
+# 1. INTEGRASI PERSEKITARAN DINAMIK (.env.local / GITHUB SECRETS)
 # ==============================================================================
-BASE_WORK_DIR = Path("/home/braderdin/stremio-sub-addon/SUBTITLE--SUBSCENE-ARCHIVE")
-ENV_LOCAL_PATH = Path("/home/braderdin/stremio-sub-addon/.env.local")
+# Resolusi laluan dinamik: beroperasi lancar di WSL tempatan mahupun GitHub Actions Runner
+CURRENT_FILE = Path(__file__).resolve()
+TELEGRAM_DIR = CURRENT_FILE.parent                          # .../SUBTITLE--SUBSCENE-ARCHIVE/telegram
+BASE_WORK_DIR = TELEGRAM_DIR.parent                         # .../SUBTITLE--SUBSCENE-ARCHIVE
+REPO_ROOT = BASE_WORK_DIR.parent                            # .../stremio-sub-addon
+
+LIVE_ENGINE_PATH = REPO_ROOT / "live_engine"
+ENV_LOCAL_PATH = REPO_ROOT / ".env.local"
 DATA_DIR = BASE_WORK_DIR / "data"
 OUTPUT_DIR = BASE_WORK_DIR / "output"
 TEMP_RUNNER_DIR = BASE_WORK_DIR / "temp_runner"
-SESSION_FILE = BASE_WORK_DIR / "telegram" / "processor_bot.session"
+SESSION_FILE = TELEGRAM_DIR / "processor_bot.session"
 
 MANIFEST_DB = DATA_DIR / "cloud_parts_manifest.db"
 
@@ -48,10 +54,9 @@ def load_environment():
 
 load_environment()
 
-# Import modul live_engine sedia ada
-LIVE_ENGINE_PATH = "/home/braderdin/stremio-sub-addon/live_engine"
-if LIVE_ENGINE_PATH not in sys.path:
-    sys.path.append(LIVE_ENGINE_PATH)
+# Tambah folder live_engine ke barisan pertama sys.path secara dinamik
+if str(LIVE_ENGINE_PATH) not in sys.path:
+    sys.path.insert(0, str(LIVE_ENGINE_PATH))
 
 import importlib
 _config = importlib.import_module("00_config")
@@ -93,10 +98,10 @@ def send_telegram_notification(message_text: str):
 METADATA_DBS = sorted(list(DATA_DIR.glob("subtitles_metadata_part_*.db")))
 
 def lookup_subtitle_metadata(clean_filename: str, original_path: str) -> Dict:
-    """Mencari maklumat IMDb dan metadata daripada 6 fail part .db tanpa API luaran."""
+    """Mencari maklumat IMDb dan metadata daripada fail part .db tanpa API luaran."""
     clean_fn = Path(clean_filename).name
 
-    # 1. Semak merentasi fail-fail pangkalan data metadata SQLite
+    # 1. Semak merentasi fail-fail pangkalan data metadata SQLite tempatan
     for db_file in METADATA_DBS:
         try:
             conn = sqlite3.connect(f"file:{db_file}?mode=ro", uri=True)
@@ -125,7 +130,7 @@ def lookup_subtitle_metadata(clean_filename: str, original_path: str) -> Dict:
         except Exception:
             continue
 
-    # 2. Penapis sokongan GuessIt jika entri tidak wujud dalam katalog
+    # 2. Penapis sokongan GuessIt jika entri tiada dalam arkib katalog
     try:
         guess = guessit(clean_filename)
         title = guess.get("title", Path(clean_filename).stem)
@@ -164,7 +169,11 @@ def extract_text_content(file_bytes: bytes) -> Optional[str]:
 # ==============================================================================
 def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tuple]:
     """Mengambil bahagian arkib yang sudah sedia di Telegram tetapi belum dimuat naik ke B2."""
-    conn = sqlite3.connect(MANIFEST_DB)
+    if not MANIFEST_DB.exists():
+        console.print(f"[bold red]❌ Pangkalan data {MANIFEST_DB} tidak dijumpai![/bold red]")
+        return None
+
+    conn = sqlite3.connect(str(MANIFEST_DB))
     cur = conn.cursor()
 
     if specified_part:
@@ -188,7 +197,7 @@ def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tup
 
 def update_part_status(part_filename: str, new_status: str):
     """Mengemas kini status pemprosesan di cloud_parts_manifest.db."""
-    conn = sqlite3.connect(MANIFEST_DB)
+    conn = sqlite3.connect(str(MANIFEST_DB))
     cur = conn.cursor()
     cur.execute("""
         UPDATE archive_split_manifest
@@ -217,7 +226,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
         border_style="cyan"
     ))
 
-    # Sediakan direktori sementara yang bersih
+    # Sediakan ruang sementara runner
     if TEMP_RUNNER_DIR.exists():
         shutil.rmtree(TEMP_RUNNER_DIR, ignore_errors=True)
     TEMP_RUNNER_DIR.mkdir(parents=True, exist_ok=True)
@@ -234,7 +243,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
     errors_encountered: List[str] = []
 
     try:
-        # 1. Tarik Fail 50MB dari Saluran Telegram
+        # 1. Tarik Fail dari Saluran Telegram
         console.print(f"[cyan]📥 Menarik arkib dari Telegram Channel (Msg ID: {tg_msg_id})...[/cyan]")
         msg = await client.get_messages(TG_CHANNEL_ID, ids=tg_msg_id)
         if not msg:
@@ -250,7 +259,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
         if res_7z.returncode != 0:
             raise Exception("Gagal mengekstrak arkib menggunakan arahan 7z!")
 
-        # Padam fail arkib .7z yang dimuat turun untuk jimat ruang storan serta-merta
+        # Padam fail arkib .7z sebaik sahaja diekstrak bagi mengelakkan limpahan cakera
         downloaded_archive_path.unlink(missing_ok=True)
 
         # 3. Kumpulkan semua fail sarikata fizikal
@@ -261,7 +270,6 @@ async def process_cloud_archive(target_part: Optional[str] = None):
                 f_path = Path(root) / fn
                 ext = f_path.suffix.lower()
 
-                # Jika terdapat arkib bersarang (.zip / .rar), bongkar dalam memori
                 if ext == ".zip":
                     try:
                         with zipfile.ZipFile(f_path, "r") as zf:
@@ -300,7 +308,6 @@ async def process_cloud_archive(target_part: Optional[str] = None):
             if not imdb_id or not imdb_id.startswith("tt"):
                 continue
 
-            # Semak rekod sedia ada di Redis
             existing_records = _redis_db.get_subtitle_records(imdb_id)
             existing_ids = {str(r.get("id")) for r in existing_records if isinstance(r, dict) and "id" in r}
 
@@ -310,7 +317,6 @@ async def process_cloud_archive(target_part: Optional[str] = None):
             if record_id in existing_ids:
                 continue
 
-            # Muat naik fail sarikata ke B2
             b2_sub_ext = Path(sub_name).suffix.lower() or ".srt"
             b2_path = f"subs/{imdb_id}/{lang_code}_{record_id}{b2_sub_ext}"
             release_name = Path(sub_name).stem
@@ -329,7 +335,6 @@ async def process_cloud_archive(target_part: Optional[str] = None):
                     "acc": int(b2_acc_idx)
                 }
 
-                # Simpan rekod ke Upstash Redis
                 season = meta.get("season")
                 episode = meta.get("episode")
 
@@ -348,7 +353,6 @@ async def process_cloud_archive(target_part: Optional[str] = None):
             except Exception as up_err:
                 errors_encountered.append(f"Muat naik B2 gagal bagi {sub_name}: {up_err}")
 
-        # Kemas kini status dalam SQLite manifes
         update_part_status(part_filename, "completed")
         console.print(f"\n[bold green]✨ Bahagian {part_filename} siap diproses sepenuhnya![/bold green]")
 
@@ -357,11 +361,10 @@ async def process_cloud_archive(target_part: Optional[str] = None):
         errors_encountered.append(str(ex))
     finally:
         await client.disconnect()
-        # Pembersihan cakera penuh (Zero Disk Footprint)
         if TEMP_RUNNER_DIR.exists():
             shutil.rmtree(TEMP_RUNNER_DIR, ignore_errors=True)
 
-    # 5. Hantar Notifikasi Lengkap ke Telegram Pengguna
+    # 5. Hantar Notifikasi Lengkap ke Telegram
     end_time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     error_summary = "\n".join([f"• {e}" for e in errors_encountered[:5]]) if errors_encountered else "Tiada Ralat"
 
