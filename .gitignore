@@ -43,4 +43,25 @@ B2-ACC-SCRIPT/TEST/01_b2_email_handler_v2test.py
 B2-ACC-SCRIPT/TEST/01_b2_keytest.py
 B2-ACC-SCRIPT/TEST/run_all_v2test.py
 
-SUBTITLE--SUBSCENE-ARCHIVE/
+
+SUBTITLE--SUBSCENE-ARCHIVE/00_inspect_archives.py
+SUBTITLE--SUBSCENE-ARCHIVE/01_summarize_to_json.py
+SUBTITLE--SUBSCENE-ARCHIVE/02_process_local_archives.py
+SUBTITLE--SUBSCENE-ARCHIVE/03_build_slug_catalog.py
+SUBTITLE--SUBSCENE-ARCHIVE/04_redis_check_limit_freetier.py
+SUBTITLE--SUBSCENE-ARCHIVE/command-test.md
+SUBTITLE--SUBSCENE-ARCHIVE/run_all.py
+SUBTITLE--SUBSCENE-ARCHIVE/archive-split/
+SUBTITLE--SUBSCENE-ARCHIVE/data/slugs_catalog.json
+
+SUBTITLE--SUBSCENE-ARCHIVE/data/split_manifest.db*
+SUBTITLE--SUBSCENE-ARCHIVE/output/indonesian_compact_summary.json
+SUBTITLE--SUBSCENE-ARCHIVE/output/indonesian_contents_summary.txt
+SUBTITLE--SUBSCENE-ARCHIVE/output/malay_compact_summary.json
+SUBTITLE--SUBSCENE-ARCHIVE/output/malay_contents_summary.txt
+
+SUBTITLE--SUBSCENE-ARCHIVE/data/cinemeta_cache.json
+SUBTITLE--SUBSCENE-ARCHIVE/data/processed_archive_history.json
+SUBTITLE--SUBSCENE-ARCHIVE/data/redis_daily_tracker.json
+
+

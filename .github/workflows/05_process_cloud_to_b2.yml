@@ -1,0 +1,135 @@
+name: 05 Process Cloud Subtitles To B2
+
+on:
+  schedule:
+    # Berjalan 2 kali sehari: 12:00 AM (16:00 UTC) dan 4:00 AM (20:00 UTC) MYT
+    - cron: '0 16,20 * * *'
+  workflow_dispatch:
+    inputs:
+      part:
+        description: 'Nama pek spesifik (cth: malay_part_001.7z) - Kosongkan untuk auto-pick'
+        required: false
+        default: ''
+
+jobs:
+  process-telegram-to-b2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120 # Had masa 2 jam
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repositori
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Sejarah penuh untuk sokongan git rebase selamat
+
+      - name: Sediakan Persekitaran Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Pasang Pakej Sistem Tambahan
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y p7zip-full
+
+      - name: Pasang Pustaka Dependensi
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Jalankan Enjin Pemprosesan Awan Subtitle
+        env:
+          # Konfigurasi Telegram
+          TG_APP_API_ID: ${{ secrets.TG_APP_API_ID }}
+          TG_APP_API_HASH: ${{ secrets.TG_APP_API_HASH }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHANNEL_ID: ${{ secrets.TG_CHANNEL_ID }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TG_UPSTASH_REDIS_REST_URL: ${{ secrets.TG_UPSTASH_REDIS_REST_URL }}
+          TG_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.TG_UPSTASH_REDIS_REST_TOKEN }}
+
+          # Konfigurasi Teras Stremio Addon & Worker
+          CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
+          ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+
+          # Kunci Multi-Akaun Redis
+          REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+
+          # Kunci Multi-Akaun Backblaze B2 (JSON atau Fallback)
+          B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
+          B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
+          B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
+          B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
+          B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
+          B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+          B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
+          B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
+          B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
+          B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
+          B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+          B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
+          B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
+          B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
+          B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
+          B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+          B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
+          B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
+          B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
+          B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
+          B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+          B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
+          B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
+          B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
+          B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
+          B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
+        run: |
+          SPECIFIC_PART="${{ inputs.part }}"
+          if [ -n "$SPECIFIC_PART" ]; then
+            python SUBTITLE--SUBSCENE-ARCHIVE/telegram/04_process_cloud_to_b2.py --part "$SPECIFIC_PART"
+          else
+            python SUBTITLE--SUBSCENE-ARCHIVE/telegram/04_process_cloud_to_b2.py
+          fi
+
+      - name: Commit dan Simpan Status Manifes (Auto-Rebase Safe)
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Gabungkan WAL SQLite manifes sebelum penolakan git
+          python3 -c "import sqlite3; conn = sqlite3.connect('SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
+
+          # Pantau perubahan pada fail status pangkalan data
+          [ -f "SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db" ] && git add SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db
+
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(archive): update cloud_parts_manifest.db status [skip ci]"
+
+            # Mekanisme percubaan 3 kali bersama pull rebase
+            for i in {1..3}; do
+              git fetch origin main
+              if git rebase origin/main; then
+                if git push origin main; then
+                  echo "✅ Berjaya segerakkan cloud_parts_manifest.db ke GitHub!"
+                  exit 0
+                fi
+              else
+                git rebase --abort
+                git pull origin main --no-rebase -X ours -m "merge: resolve split_manifest sync [skip ci]"
+                if git push origin main; then
+                  echo "✅ Berjaya merge & push manifes ke GitHub!"
+                  exit 0
+                fi
+              fi
+              echo "⚠️ Percubaan $i gagal kerana remote dikemas kini, mencuba semula..."
+              sleep 2
+            done
+            exit 1
+          else
+            echo "ℹ️ Tiada perubahan status pada cloud_parts_manifest.db dikesan."
+          fi

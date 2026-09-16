@@ -6,6 +6,7 @@ python-dotenv>=1.2.3
 lxml>=6.1.2
 rich>=15.0.0
 dnspython>=2.6.0
+guessit==3.8.0
 
 # Penambahan Baharu untuk Upstash & B2
 upstash-redis>=1.8.0
@@ -28,4 +29,5 @@ SpeechRecognition
 py7zr
 rarfile
 
-
+telethon==1.36.0
+cryptography==42.0.8
