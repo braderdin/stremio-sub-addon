@@ -63,4 +63,6 @@ SUBTITLE--SUBSCENE-ARCHIVE/output/malay_contents_summary.txt
 
 SUBTITLE--SUBSCENE-ARCHIVE/data/redis_daily_tracker.json
 
-
+*.db-wal
+*.db-shm
+*.db-journal
