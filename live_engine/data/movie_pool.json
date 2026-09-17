@@ -124270,5 +124270,441 @@
     "episode": 7,
     "source": "cinemeta_episode_meta",
     "added_at": "2026-09-15 08:36:13"
+  },
+  "tt27165187": {
+    "imdb_id": "tt27165187",
+    "title": "The End of Oak Street",
+    "year": "2026",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt33095251": {
+    "imdb_id": "tt33095251",
+    "title": "Tony",
+    "year": "2026",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6803046": {
+    "imdb_id": "tt6803046",
+    "title": "The Vast of Night",
+    "year": "2019",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0452694": {
+    "imdb_id": "tt0452694",
+    "title": "The Time Traveler's Wife",
+    "year": "2009",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0088128": {
+    "imdb_id": "tt0088128",
+    "title": "Sixteen Candles",
+    "year": "1984",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt14536120": {
+    "imdb_id": "tt14536120",
+    "title": "The Master and Margarita",
+    "year": "2024",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt1161864": {
+    "imdb_id": "tt1161864",
+    "title": "The Rite",
+    "year": "2011",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0844708": {
+    "imdb_id": "tt0844708",
+    "title": "The Last House on the Left",
+    "year": "2009",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0830558": {
+    "imdb_id": "tt0830558",
+    "title": "The Girl Next Door",
+    "year": "2007",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0084516": {
+    "imdb_id": "tt0084516",
+    "title": "Poltergeist",
+    "year": "1982",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0125659": {
+    "imdb_id": "tt0125659",
+    "title": "Open Your Eyes",
+    "year": "1997",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt38551209": {
+    "imdb_id": "tt38551209",
+    "title": "Sheep in the Box",
+    "year": "2026",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt32768323": {
+    "imdb_id": "tt32768323",
+    "title": "The Assessment",
+    "year": "2024",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt1318514": {
+    "imdb_id": "tt1318514",
+    "title": "Rise of the Planet of the Apes",
+    "year": "2011",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt9848626": {
+    "imdb_id": "tt9848626",
+    "title": "Hotel Transylvania 4: Transformania",
+    "year": "2022",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0104652": {
+    "imdb_id": "tt0104652",
+    "title": "Porco Rosso",
+    "year": "1992",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt13675832": {
+    "imdb_id": "tt13675832",
+    "title": "As If",
+    "year": "2021",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0038355": {
+    "imdb_id": "tt0038355",
+    "title": "The Big Sleep",
+    "year": "1946",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt1386588": {
+    "imdb_id": "tt1386588",
+    "title": "The Other Guys",
+    "year": "2010",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0106519": {
+    "imdb_id": "tt0106519",
+    "title": "Carlito's Way",
+    "year": "1993",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0362227": {
+    "imdb_id": "tt0362227",
+    "title": "The Terminal",
+    "year": "2004",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0290002": {
+    "imdb_id": "tt0290002",
+    "title": "Meet the Fockers",
+    "year": "2004",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0082085": {
+    "imdb_id": "tt0082085",
+    "title": "Blow Out",
+    "year": "1981",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt7939766": {
+    "imdb_id": "tt7939766",
+    "title": "I'm Thinking of Ending Things",
+    "year": "2020",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt7282468": {
+    "imdb_id": "tt7282468",
+    "title": "Burning",
+    "year": "2018",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0486822": {
+    "imdb_id": "tt0486822",
+    "title": "Disturbia",
+    "year": "2007",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt23469812": {
+    "imdb_id": "tt23469812",
+    "title": "Looking Through Water",
+    "year": "2025",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0416236": {
+    "imdb_id": "tt0416236",
+    "title": "The Spiderwick Chronicles",
+    "year": "2008",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt35495035": {
+    "imdb_id": "tt35495035",
+    "title": "The Money Maker",
+    "year": "2026",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt21940010": {
+    "imdb_id": "tt21940010",
+    "title": "A Million Miles Away",
+    "year": "2023",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt35521200": {
+    "imdb_id": "tt35521200",
+    "title": "Two Prosecutors",
+    "year": "2025",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt7280898": {
+    "imdb_id": "tt7280898",
+    "title": "22 July",
+    "year": "2018",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt5431890": {
+    "imdb_id": "tt5431890",
+    "title": "Official Secrets",
+    "year": "2019",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6823148": {
+    "imdb_id": "tt6823148",
+    "title": "Benedetta",
+    "year": "2021",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt0065150": {
+    "imdb_id": "tt0065150",
+    "title": "The Undefeated",
+    "year": "1969",
+    "type": "movie",
+    "source": "cinemeta_standard",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:1": {
+    "imdb_id": "tt6037988:1:1",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Dispatcher",
+    "season": 1,
+    "episode": 1,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:2": {
+    "imdb_id": "tt6037988:1:2",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Call",
+    "season": 1,
+    "episode": 2,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:3": {
+    "imdb_id": "tt6037988:1:3",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Lie",
+    "season": 1,
+    "episode": 3,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:4": {
+    "imdb_id": "tt6037988:1:4",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Truth",
+    "season": 1,
+    "episode": 4,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:5": {
+    "imdb_id": "tt6037988:1:5",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Prophet",
+    "season": 1,
+    "episode": 5,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt6037988:1:6": {
+    "imdb_id": "tt6037988:1:6",
+    "series_id": "tt6037988",
+    "title": "Last Seen",
+    "episode_title": "The Choice",
+    "season": 1,
+    "episode": 6,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:1": {
+    "imdb_id": "tt37439410:1:1",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Karen",
+    "season": 1,
+    "episode": 1,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:2": {
+    "imdb_id": "tt37439410:1:2",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Hanneke",
+    "season": 1,
+    "episode": 2,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:3": {
+    "imdb_id": "tt37439410:1:3",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Simon",
+    "season": 1,
+    "episode": 3,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:4": {
+    "imdb_id": "tt37439410:1:4",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Michel",
+    "season": 1,
+    "episode": 4,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:5": {
+    "imdb_id": "tt37439410:1:5",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Patricia",
+    "season": 1,
+    "episode": 5,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:6": {
+    "imdb_id": "tt37439410:1:6",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Babette",
+    "season": 1,
+    "episode": 6,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
+  },
+  "tt37439410:1:7": {
+    "imdb_id": "tt37439410:1:7",
+    "series_id": "tt37439410",
+    "title": "The Perfect Lie",
+    "episode_title": "Ivo",
+    "season": 1,
+    "episode": 7,
+    "year": "2026",
+    "type": "series",
+    "source": "cinemeta_episode_meta",
+    "added_at": "2026-09-17 08:35:20"
   }
 }
