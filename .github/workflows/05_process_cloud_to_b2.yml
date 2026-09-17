@@ -11,6 +11,11 @@ on:
         required: false
         default: ''
 
+# Kawal giliran supaya tidak jalan serentak
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   process-telegram-to-b2:
     runs-on: ubuntu-latest
