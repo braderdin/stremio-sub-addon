@@ -14,7 +14,7 @@ on:
 jobs:
   process-telegram-to-b2:
     runs-on: ubuntu-latest
-    timeout-minutes: 120 # Had masa 2 jam
+    timeout-minutes: 180 # Had masa 3 jam
     permissions:
       contents: write
 
