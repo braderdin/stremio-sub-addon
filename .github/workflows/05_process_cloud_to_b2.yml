@@ -2,8 +2,8 @@ name: 05 Process Cloud Subtitles To B2
 
 on:
   schedule:
-    # Berjalan 5 kali sehari: Jam dalam UTC (bersamaan 10 malam, 12 tengah malam, 2 pagi, 4 pagi, dan 6 pagi MYT).
-    - cron: '17 14,16,18,20,22 * * *'
+    # Berjalan 5 kali sehari: Jam dalam UTC (bersamaan jam 5 petang, 8 malam, 11 malam, 2 pagi 5 pagi MYT).
+    - cron: '17 9,12,15,18,21 * * *'
   workflow_dispatch:
     inputs:
       part:
