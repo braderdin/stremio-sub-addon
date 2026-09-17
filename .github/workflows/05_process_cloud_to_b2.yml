@@ -104,13 +104,17 @@ jobs:
           # Gabungkan WAL SQLite manifes sebelum penolakan git
           python3 -c "import sqlite3; conn = sqlite3.connect('SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
 
-          # Pantau perubahan pada fail status pangkalan data
+          # Pantau perubahan pada fail manifes sahaja
           [ -f "SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db" ] && git add SUBTITLE--SUBSCENE-ARCHIVE/data/cloud_parts_manifest.db
 
           if ! git diff --cached --quiet; then
             git commit -m "chore(archive): update cloud_parts_manifest.db status [skip ci]"
 
-            # Mekanisme percubaan 3 kali bersama pull rebase
+            # Hapuskan sebarang perubahan sementara fail lain (.session dsb) agar ruang kerja 100% bersih
+            git checkout -- . 2>/dev/null || true
+            git clean -fd 2>/dev/null || true
+
+            # Mekanisme tolak selamat bersama pelindung abort
             for i in {1..3}; do
               git fetch origin main
               if git rebase origin/main; then
@@ -119,8 +123,8 @@ jobs:
                   exit 0
                 fi
               else
-                git rebase --abort
-                git pull origin main --no-rebase -X ours -m "merge: resolve split_manifest sync [skip ci]"
+                git rebase --abort 2>/dev/null || true
+                git pull origin main --no-rebase -X ours -m "merge: resolve manifest sync [skip ci]"
                 if git push origin main; then
                   echo "✅ Berjaya merge & push manifes ke GitHub!"
                   exit 0

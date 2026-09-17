@@ -66,3 +66,5 @@ SUBTITLE--SUBSCENE-ARCHIVE/data/redis_daily_tracker.json
 *.db-wal
 *.db-shm
 *.db-journal
+*.session
+*.session-journal
