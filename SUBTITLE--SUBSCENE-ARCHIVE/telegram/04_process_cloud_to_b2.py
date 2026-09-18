@@ -101,15 +101,71 @@ def send_telegram_notification(message_text: str):
         console.print(f"[yellow]⚠️ Gagal menghantar notifikasi Telegram: {e}[/yellow]")
 
 # ==============================================================================
-# 3. CARIAN METADATA SQLITE & FALLBACK CINEMETA
+# 3. UTILITI PEMBERSIHAN TITIK & PENGESANAN METADATA SLUG
+# ==============================================================================
+# [FUNGSI KOD]: Kamus penukaran perkataan ordinal musim Subscene kepada angka
+ORDINAL_SEASONS = {
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5,
+    "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10,
+    "eleventh": 11, "twelfth": 12, "thirteenth": 13, "fourteenth": 14, "fifteenth": 15
+}
+
+# [FUNGSI KOD]: Menapis aksara ketat (hanya a-z, A-Z, 0-9 dan titik .) tanpa ruang
+def sanitize_to_dots(text: str) -> str:
+    """
+    Menukar semua aksara selain a-z, A-Z, 0-9 dan titik (.) kepada titik.
+    Membuang ruang (space) dan simbol khas. Titik berturutan digabungkan.
+    """
+    if not text:
+        return ""
+    clean = re.sub(r"[^a-zA-Z0-9.]+", ".", str(text))
+    clean = re.sub(r"\.+", ".", clean).strip(".")
+    return clean
+
+# [FUNGSI KOD]: Mengekstrak tajuk bersih, tahun, dan nombor musim dari folder slug Subscene
+def parse_slug_metadata(slug: str) -> Tuple[str, Optional[int], Optional[int]]:
+    """Mengekstrak tajuk bersih, tahun dan nombor musim daripada slug folder."""
+    if not slug:
+        return "", None, None
+
+    s = slug.lower().strip()
+    detected_season = None
+    detected_year = None
+
+    # 1. Semak tahun di hujung slug (cth: ...-2019)
+    m_yr = re.search(r"[-_](19\d{2}|20\d{2})$", s)
+    if m_yr:
+        detected_year = int(m_yr.group(1))
+        s = s[:m_yr.start()]
+
+    # 2. Semak musim ordinal (cth: -first-season, -fourth-season)
+    for word, num in ORDINAL_SEASONS.items():
+        pattern = rf"[-_]{word}[-_]season$"
+        if re.search(pattern, s):
+            detected_season = num
+            s = re.sub(pattern, "", s)
+            break
+
+    # 3. Semak musim berangka (cth: -season-1, -season-02, -s2)
+    if not detected_season:
+        m_s = re.search(r"[-_](?:season|s)[-_]?(\d{1,2})$", s)
+        if m_s:
+            detected_season = int(m_s.group(1))
+            s = s[:m_s.start()]
+
+    clean_title = s.replace("-", " ").replace("_", " ").strip()
+    return clean_title, detected_year, detected_season
+
+# ==============================================================================
+# 4. CARIAN METADATA SQLITE & FALLBACK CINEMETA
 # ==============================================================================
 METADATA_DBS = sorted(list(DATA_DIR.glob("subtitles_metadata_part_*.db")))
 
 # [FUNGSI KOD]: Carian IMDb ID sandaran melalui API Cinemeta jika tiada rekod SQLite
 def fetch_cinemeta_imdb(query_title: str, year: Optional[int], media_type: str = "movie") -> Tuple[Optional[str], Optional[str]]:
     """Mendapatkan IMDb ID melalui API awam Cinemeta jika pangkalan data SQLite kosong."""
-    clean_q = re.sub(r"[-_]+", " ", query_title).strip()
-    if not clean_q:
+    clean_q = re.sub(r"[-_.]+", " ", query_title).strip()
+    if not clean_q or len(clean_q) < 2:
         return None, None
 
     encoded = urllib.parse.quote(clean_q)
@@ -184,31 +240,72 @@ def lookup_subtitle_metadata(parent_zip_name: str, slug: str, sub_filename: str)
         except Exception:
             continue
 
-    # 3. Analisis nama menggunakan GuessIt & Cinemeta jika tiada dalam SQLite
+    # 3. KEUTAMAAN UTAMA: Analisis terus daripada folder slug Subscene
+    slug_title, slug_year, slug_season = parse_slug_metadata(slug)
+    s_num, e_num = detect_season_episode(sub_filename, default_season=slug_season)
+    m_type = "series" if (slug_season or s_num is not None) else "movie"
+
+    if slug_title and len(slug_title) >= 2:
+        imdb_id, canon_title = fetch_cinemeta_imdb(slug_title, slug_year, m_type)
+        if imdb_id:
+            return {
+                "imdb_id": imdb_id,
+                "canonical_title": canon_title or slug_title,
+                "clean_title": slug_title,
+                "media_type": m_type,
+                "year": slug_year,
+                "season": slug_season or s_num,
+                "episode": e_num,
+                "language": "ms" if "malay" in parent_zip_name.lower() else "id",
+                "subscene_id": None
+            }
+
+    # 4. Fallback kedua: GuessIt pada nama bungkusan zip luaran
+    try:
+        guess_zip = guessit(clean_zip)
+        z_title = guess_zip.get("title")
+        z_year = guess_zip.get("year") or slug_year
+        if z_title:
+            imdb_id, canon_title = fetch_cinemeta_imdb(str(z_title), z_year, m_type)
+            if imdb_id:
+                return {
+                    "imdb_id": imdb_id,
+                    "canonical_title": canon_title or str(z_title),
+                    "clean_title": str(z_title),
+                    "media_type": m_type,
+                    "year": z_year,
+                    "season": slug_season or s_num,
+                    "episode": e_num,
+                    "language": "ms" if "malay" in parent_zip_name.lower() else "id",
+                    "subscene_id": None
+                }
+    except Exception:
+        pass
+
+    # 5. Fallback terakhir: GuessIt pada nama fail sarikata fizikal dalaman
     try:
         guess = guessit(sub_filename)
-        g_title = guess.get("title", slug.replace("-", " "))
-        g_year = guess.get("year")
+        g_title = guess.get("title", slug_title or slug.replace("-", " "))
+        g_year = guess.get("year") or slug_year
         g_season = guess.get("season")
         g_episode = guess.get("episode")
         if isinstance(g_season, list): g_season = g_season[0]
         if isinstance(g_episode, list): g_episode = g_episode[0]
 
-        # Sekat musim tidak munasabah yang terhasil daripada tahun
         if g_season and int(g_season) > 99:
             g_season = None
 
-        m_type = "series" if (g_season or g_episode) else "movie"
-        imdb_id, canon_title = fetch_cinemeta_imdb(str(g_title), g_year, m_type)
+        m_type_final = "series" if (g_season or g_episode or slug_season) else "movie"
+        imdb_id, canon_title = fetch_cinemeta_imdb(str(g_title), g_year, m_type_final)
 
         return {
             "imdb_id": imdb_id,
             "canonical_title": canon_title or str(g_title),
             "clean_title": str(g_title),
-            "media_type": m_type,
+            "media_type": m_type_final,
             "year": g_year,
-            "season": g_season,
-            "episode": g_episode,
+            "season": g_season or slug_season,
+            "episode": g_episode or e_num,
             "language": "ms" if "malay" in parent_zip_name.lower() else "id",
             "subscene_id": None
         }
@@ -229,27 +326,34 @@ def extract_text_content(file_bytes: bytes) -> Optional[str]:
 def detect_season_episode(sub_filename: str, default_season: Optional[int] = None) -> Tuple[Optional[int], Optional[int]]:
     """
     Mengekstrak nombor Musim dan Episod untuk rujukan siri televisyen.
-    Kalis daripada kekeliruan resolusi skrin (cth: 848x480) dan tahun (cth: 2018/2019).
+    Menyokong frasa penuh perkataan dan kalis resolusi skrin (cth: 848x480).
     """
     # 1. Bersihkan resolusi video lazim dan tag kualiti terlebih dahulu
     clean_name = re.sub(r"\b(?:\d{3,4}x\d{3,4}|480p|576p|720p|1080p|2160p|4k|uhd)\b", "", sub_filename, flags=re.I)
 
-    # 2. Corak piawai: S01E02 / S1E2 / S01.E02 (Musim: 1-99, Episod: 1-1500)
+    # 2. Corak perkataan penuh: Season 2 Episode 1 / Musim 1 Episod 3
+    m_full = re.search(r"\b(?:season|musim|s)[.\s_-]*(\d{1,2})[.\s_-]*(?:episode|eps|ep|e)[.\s_-]*(\d{1,3})\b", clean_name, re.I)
+    if m_full:
+        s, e = int(m_full.group(1)), int(m_full.group(2))
+        if 1 <= s <= 99 and 1 <= e <= 1500:
+            return s, e
+
+    # 3. Corak standard: S01E02 / S1E2 / S01.E02
     m = re.search(r"\b[sS](\d{1,2})[.\s_-]*[eE](\d{1,3})\b", clean_name)
     if m:
         s, e = int(m.group(1)), int(m.group(2))
         if 1 <= s <= 99 and 1 <= e <= 1500:
             return s, e
 
-    # 3. Corak perkataan penuh episod: ep10, episode 09
-    m3 = re.search(r"\b(?:ep|episode)[.\s_-]*(\d{1,3})\b", clean_name, re.I)
+    # 4. Corak episod perkataan tunggal: ep10, episode 09, eps 05
+    m3 = re.search(r"\b(?:ep|episode|eps)[.\s_-]*(\d{1,3})\b", clean_name, re.I)
     if m3:
         e = int(m3.group(1))
         s = default_season if (default_season is not None and 1 <= default_season <= 99) else 1
         if 1 <= s <= 99 and 1 <= e <= 1500:
             return s, e
 
-    # Corak singkatan e01 / e12 (sempadan perkataan ketat agar tidak padan perkataan seperti 'pahe'/'finale')
+    # Corak singkatan e01 / e12
     m3_alt = re.search(r"\b[eE](\d{1,3})\b", clean_name)
     if m3_alt:
         e = int(m3_alt.group(1))
@@ -257,21 +361,21 @@ def detect_season_episode(sub_filename: str, default_season: Optional[int] = Non
         if 1 <= s <= 99 and 1 <= e <= 1500:
             return s, e
 
-    # 4. Corak 1x02 / 01x02 (Dihadkan ketat: Musim 1-2 digit, Episod 1-3 digit)
+    # 5. Corak 1x02 / 01x02 (Dihadkan ketat: Musim 1-2 digit, Episod 1-3 digit)
     m2 = re.search(r"\b(\d{1,2})x(\d{1,3})\b", clean_name)
     if m2:
         s, e = int(m2.group(1)), int(m2.group(2))
         if 1 <= s <= 99 and 1 <= e <= 1500:
             return s, e
 
-    # 5. Nilai musim sedia ada dari metadata jika tiada nombor episod spesifik
+    # 6. Nilai musim sedia ada dari metadata jika tiada nombor episod spesifik
     if default_season is not None and 1 <= default_season <= 99:
         return default_season, None
 
     return None, None
 
 # ==============================================================================
-# 4. PENGURUSAN STATUS MANIFES AWAN (SQLite)
+# 5. PENGURUSAN STATUS MANIFES AWAN (SQLite)
 # ==============================================================================
 # [FUNGSI KOD]: Mengambil giliran rekod pek arkib yang berstatus 'uploaded'
 def get_next_uploaded_part(specified_part: Optional[str] = None) -> Optional[Tuple]:
@@ -316,7 +420,7 @@ def update_part_status(part_filename: str, new_status: str):
     conn.close()
 
 # ==============================================================================
-# 5. ALIRAN PEMPROSESAN UTAMA (TELEGRAM ➔ B2 ➔ REDIS)
+# 6. ALIRAN PEMPROSESAN UTAMA (TELEGRAM ➔ B2 ➔ REDIS)
 # ==============================================================================
 # [FUNGSI KOD]: Aliran kerja muat turun, ekstraksi memori, tapisan teks, muat naik B2, & rekod Redis
 async def process_cloud_archive(target_part: Optional[str] = None):
@@ -447,12 +551,14 @@ async def process_cloud_archive(target_part: Optional[str] = None):
             existing_ids = {str(r.get("id", "")) for r in existing_records if isinstance(r, dict)}
             existing_releases = {str(r.get("release", "")) for r in existing_records if isinstance(r, dict)}
 
-            # [FUNGSI KOD]: Pilihan B - Pembersihan aksara kawalan ASCII (< 32, 127-159) & simbol terlarang sistem fail
+            # [FUNGSI KOD]: Pembersihan aksara ketat (a-z, A-Z, 0-9 dan .) & sokongan aksara asing via slug
             raw_stem = Path(sub_filename).stem
-            sanitized_stem = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", raw_stem)
-            clean_release = re.sub(r'[\\/*?:"<>|]', "_", sanitized_stem).strip()
-            if not clean_release:
-                clean_release = "release_unknown"
+            clean_release = sanitize_to_dots(raw_stem)
+
+            # Jaring keselamatan: jika nama 100% aksara asing (Korea/Cina/Jepun), gunakan slug
+            if not clean_release or len(clean_release) < 2:
+                clean_slug = sanitize_to_dots(slug) if slug else "release"
+                clean_release = f"{clean_slug}.sub"
 
             # [FUNGSI KOD]: Hash MD5 konsisten (menggantikan hash() bawaan Python yang rawak antara larian)
             subscene_id = meta.get("subscene_id")
@@ -460,7 +566,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
                 subscene_id = hashlib.md5(clean_release.encode("utf-8", errors="ignore")).hexdigest()[:8]
 
             # [FUNGSI KOD]: Had panjang nama keluaran 120 aksara selamat
-            record_id = f"sub_{subscene_id}_{clean_release[:120]}"
+            record_id = sanitize_to_dots(f"sub.{subscene_id}.{clean_release[:150]}")
 
             # [FUNGSI KOD]: Dua lapisan perlindungan pendua (elak muat naik fail serupa)
             if record_id in existing_ids or clean_release in existing_releases:
@@ -468,8 +574,10 @@ async def process_cloud_archive(target_part: Optional[str] = None):
                 continue
 
             # [FUNGSI KOD]: Menjana laluan storan Backblaze B2 yang bebas ralat penamaan
-            b2_sub_ext = Path(sub_filename).suffix.lower() or ".srt"
-            b2_path = f"subs/{imdb_id}/{lang_code}_{record_id}{b2_sub_ext}"
+            raw_ext = Path(sub_filename).suffix.lower()
+            clean_ext_dot = "." + sanitize_to_dots(raw_ext) if raw_ext else ".srt"
+            b2_sub_ext = clean_ext_dot if clean_ext_dot != "." else ".srt"
+            b2_path = f"subs/{imdb_id}/{lang_code}.{record_id}{b2_sub_ext}"
 
             try:
                 # [FUNGSI KOD]: Muat naik fail sarikata ke B2 melalui giliran multi-akaun
@@ -509,7 +617,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
 
                 # [FUNGSI KOD]: Cetakan log terminal Rich bebas daripada ralat tag kurungan
                 try:
-                    safe_fn = escape(clean_release[:90])
+                    safe_fn = escape(clean_release[:120])
                     safe_url = escape(b2_url)
 
                     if IS_GITHUB_ACTIONS:
