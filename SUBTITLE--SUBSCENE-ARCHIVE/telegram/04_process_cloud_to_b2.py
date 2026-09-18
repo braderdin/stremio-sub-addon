@@ -459,8 +459,8 @@ async def process_cloud_archive(target_part: Optional[str] = None):
             if not subscene_id:
                 subscene_id = hashlib.md5(clean_release.encode("utf-8", errors="ignore")).hexdigest()[:8]
 
-            # [FUNGSI KOD]: Had panjang nama keluaran 90 aksara selamat
-            record_id = f"sub_{subscene_id}_{clean_release[:90]}"
+            # [FUNGSI KOD]: Had panjang nama keluaran 120 aksara selamat
+            record_id = f"sub_{subscene_id}_{clean_release[:120]}"
 
             # [FUNGSI KOD]: Dua lapisan perlindungan pendua (elak muat naik fail serupa)
             if record_id in existing_ids or clean_release in existing_releases:
@@ -509,7 +509,7 @@ async def process_cloud_archive(target_part: Optional[str] = None):
 
                 # [FUNGSI KOD]: Cetakan log terminal Rich bebas daripada ralat tag kurungan
                 try:
-                    safe_fn = escape(clean_release[:60])
+                    safe_fn = escape(clean_release[:90])
                     safe_url = escape(b2_url)
 
                     if IS_GITHUB_ACTIONS:
