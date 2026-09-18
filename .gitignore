@@ -68,3 +68,5 @@ SUBTITLE--SUBSCENE-ARCHIVE/data/redis_daily_tracker.json
 *.db-journal
 *.session
 *.session-journal
+
+ondemand_title_packs/archive/
