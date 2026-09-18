@@ -1,0 +1,60 @@
+name: 06 Auto Merge Dependabot Updates
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependabot-guardian:
+    runs-on: ubuntu-latest
+    # Hanya aktif jika PR dibuka oleh bot Dependabot
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: 📥 Checkout Kod Sumber
+        uses: actions/checkout@v4
+
+      - name: 🔍 Ekstrak Metadata Dependabot
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: 🐍 Pasang Python Runner
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 📦 Pasang Keperluan Pustaka
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: 🧪 Ujian Validasi Kod & Integriti Sintaks (Smoke Test)
+        run: |
+          echo "Memeriksa sintaks skrip enjin utama..."
+          python -m py_compile live_engine/*.py || exit 1
+          python -m py_compile SUBTITLE--SUBSCENE-ARCHIVE/telegram/*.py || exit 1
+          echo "✅ Kesemua skrip melepasi pemeriksaan sintaks tanpa ralat."
+
+      - name: 🤖 Auto-Merge (Hanya Minor & Patch)
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Kemas kini jenis Minor/Patch dikesan. Menggabungkan PR secara automatik..."
+          gh pr review --approve "$PR_URL"
+          gh pr merge --squash --auto "$PR_URL"
+
+      - name: ⚠️ Amaran Major Update (Perlu Semakan Manual)
+        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment "$PR_URL" --body "⚠️ **Major Update Dikesan!** Alur kerja ini tidak menggabungkan kemas kini major secara automatik untuk melindungi kestabilan enjin. Sila semak perubahan kod (*breaking changes*) secara manual sebelum merge."

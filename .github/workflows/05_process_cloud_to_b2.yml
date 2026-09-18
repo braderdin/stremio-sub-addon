@@ -2,7 +2,7 @@ name: 05 Process Cloud Subtitles To B2
 
 on:
   schedule:
-    # Berjalan 5 kali sehari: Jam dalam UTC (bersamaan jam 5 petang, 8 malam, 11 malam, 2 pagi 5 pagi MYT).
+    # Berjalan 5 kali sehari: Jam dalam UTC (bersamaan jam 5 petang, 8 malam, 11 malam, 2 pagi, 5 pagi MYT).
     - cron: '17 9,12,15,18,21 * * *'
   workflow_dispatch:
     inputs:
@@ -11,9 +11,9 @@ on:
         required: false
         default: ''
 
-# Kawal giliran supaya tidak jalan serentak
+# Kunci giliran: runner beratur satu demi satu dan tidak bertindih
 concurrency:
-  group: ${{ github.workflow }}
+  group: process-cloud-archive-queue
   cancel-in-progress: false
 
 jobs:
@@ -28,6 +28,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Sejarah penuh untuk sokongan git rebase selamat
+
+      - name: Segerakkan Manifes Terkini (Pre-run Pull)
+        run: |
+          # Memastikan runner membaca status komit terkini yang baru di-push runner sebelumnya
+          git fetch origin main
+          git reset --hard origin/main
 
       - name: Sediakan Persekitaran Python 3.11
         uses: actions/setup-python@v5
@@ -115,7 +121,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "chore(archive): update cloud_parts_manifest.db status [skip ci]"
 
-            # Hapuskan sebarang perubahan sementara fail lain (.session dsb) agar ruang kerja 100% bersih
+            # Hapuskan sebarang perubahan sementara fail lain (.session, output, temp) agar ruang kerja 100% bersih
             git checkout -- . 2>/dev/null || true
             git clean -fd 2>/dev/null || true
 
