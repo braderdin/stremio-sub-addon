@@ -44,22 +44,26 @@ jobs:
         run: |
           python -m camoufox fetch
 
-      - name: Jalankan Skrip On-Demand Scraper
+      - name: Jalankan Skrip On-Demand Scraper & Fallback Arkib ZIP
         env:
           CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
           ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
 
-          # Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun)
+          # Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun Sharded)
           REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
 
           # Kunci Sandaran Redis Asal (Legacy Fallback)
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+
+          # Kunci Khas TG Upstash Redis (Pemetaan Pakej Arkib ZIP Cold Storage)
+          TG_UPSTASH_REDIS_REST_URL: ${{ secrets.TG_UPSTASH_REDIS_REST_URL }}
+          TG_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.TG_UPSTASH_REDIS_REST_TOKEN }}
           
           # Kunci Utama (JSON Format - Semua Akaun B2)
           B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
 
-          # Kunci Sandaran (Legacy Fallback)
+          # Kunci Sandaran B2 (Legacy Fallback)
           # B2 ACC 1 - 5
           B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
           B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
@@ -115,7 +119,12 @@ jobs:
           B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
         run: |
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
-          python live_engine/06_ondemand_runner.py --imdb "$TARGET_IMDB"
+          
+          echo "🔍 [LANGKAH 1/2] Menjalankan On-Demand Scraper Laman Web..."
+          python live_engine/06_ondemand_runner.py --imdb "$TARGET_IMDB" || true
+
+          echo "📦 [LANGKAH 2/2] Menjalankan Fallback Pakej Arkib ZIP (B2 & TG Redis)..."
+          python live_engine/10_fallback_zip_pack_importer.py --imdb "$TARGET_IMDB"
 
       - name: Commit dan Simpan Rekod Scraped History Sahaja (Auto-Rebase Safe)
         if: always() # Sentiasa simpan rekod yang sempat dimuat naik
@@ -125,10 +134,10 @@ jobs:
           
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           
-          # [PERUBAHAN FUNGSI]: Gabungkan jurnal WAL SQLite ke fail utama sebelum staging
+          # Gabungkan jurnal WAL SQLite ke fail utama sebelum staging
           python3 -c "import sqlite3; conn = sqlite3.connect('live_engine/data/stremio_cache.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
 
-          # [PERUBAHAN FUNGSI]: Hanya pantau fail SQLite dan scraped_history.json (no_subs_history tidak disimpan)
+          # Hanya pantau fail SQLite dan scraped_history.json (no_subs_history diabaikan)
           [ -f "live_engine/data/stremio_cache.db" ] && git add live_engine/data/stremio_cache.db
           [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
 
@@ -156,5 +165,5 @@ jobs:
             done
             exit 1
           else
-            echo "ℹ️ Tiada perubahan rekod scraped_history dikesan (Mungkin sarikata tiada di Subscene atau sudah wujud)."
+            echo "ℹ️ Tiada perubahan rekod scraped_history dikesan."
           fi

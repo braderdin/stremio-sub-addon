@@ -31,3 +31,7 @@ rarfile
 
 telethon==1.45.0
 cryptography==50.0.1
+
+cinemagoer>=2023.5.1
+thefuzz>=0.22.1
+rapidfuzz>=3.0.0
