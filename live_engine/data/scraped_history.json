@@ -150625,5 +150625,50 @@
     "subs_count": 3,
     "source": "fallback_zip_pack",
     "timestamp": "2026-09-19 04:07:04"
+  },
+  "tt24852002": {
+    "imdb_id": "tt24852002",
+    "title": "10 Days of a Bad Man",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-19 19:02:56"
+  },
+  "tt2375559": {
+    "imdb_id": "tt2375559",
+    "title": "1: Nenokkadine",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-19 19:02:58"
+  },
+  "tt4685428": {
+    "imdb_id": "tt4685428",
+    "title": "1 Buck",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-19 19:03:01"
+  },
+  "tt5128266": {
+    "imdb_id": "tt5128266",
+    "title": "10 Endrathukulla",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-19 19:03:03"
+  },
+  "tt13010546": {
+    "imdb_id": "tt13010546",
+    "title": "1 Pandhu 4 Run 1 Wicket",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-19 19:03:06"
   }
 }
