@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       batch_limit:
-        description: 'Had bilangan pakej diproses sesi ini (contoh: 50)'
+        description: 'Had bilangan pakej diproses sesi ini (contoh: 100)'
         required: true
-        default: '50'
+        default: '100'
 
 concurrency:
   group: b2-pack-cron-sync
@@ -17,7 +17,7 @@ concurrency:
 jobs:
   b2-cron-sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 110
     permissions:
       contents: write
     steps:
@@ -108,7 +108,7 @@ jobs:
           B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
           B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
         run: |
-          LIMIT_VAL="${{ github.event.inputs.batch_limit || 50 }}"
+          LIMIT_VAL="${{ github.event.inputs.batch_limit || 100 }}"
           echo "🚀 Menjalankan Cron Sync B2 Packs (Had: $LIMIT_VAL tajuk)..."
           python live_engine/12_sync_b2_packs_to_active_storage.py --limit "$LIMIT_VAL" --delay 0.1
 
