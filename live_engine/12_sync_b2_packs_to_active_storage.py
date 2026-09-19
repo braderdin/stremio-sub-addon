@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.2 DETAILED LOGS)
+# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.2 FIXED)
 # LOKASI: /home/braderdin/stremio-sub-addon/live_engine/12_sync_b2_packs_to_active_storage.py
 # ==============================================================================
 
@@ -428,8 +428,8 @@ def run_cron_sync(batch_limit: int, delay: float):
         f"[bold green]✨ CRON SYNC SELESAI[/bold green]\n"
         f"├─ Berjaya Diproses & Diselaraskan : [yellow]{success_processed:,}[/yellow] tajuk\n"
         f"└─ Pangkalan Data Penjejak Aktif  : [cyan]{ACTIVE_SYNCED_TRACKER_DB}[/cyan]",
-        title="Ringkasan Cron", border_style="green"]
-    )
+        title="Ringkasan Cron", border_style="green"
+    ))
 
 # ==============================================================================
 # ENTRY POINT CLI
