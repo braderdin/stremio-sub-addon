@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.2 FIXED)
+# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V2.0 SMART CLOUD SYNC)
 # LOKASI: /home/braderdin/stremio-sub-addon/live_engine/12_sync_b2_packs_to_active_storage.py
 # ==============================================================================
 
@@ -36,9 +36,8 @@ DATA_DIR = LIVE_ENGINE_DIR / "data"
 SCRAPED_HISTORY_PATH = DATA_DIR / "scraped_history.json"
 ACTIVE_SYNCED_TRACKER_DB = DATA_DIR / "b2_active_synced_tracker.db"
 
-# Laluan pangkalan data rujukan (Hanya Baca / Read-Only)
+# Laluan rujukan utama: Pangkalan data fail yang telah selamat dimuat naik ke B2 (Read-Only)
 ONDEMAND_DATA_DIR = PROJECT_ROOT / "ondemand_title_packs" / "data"
-PACKAGED_TRACKER_PATH = ONDEMAND_DATA_DIR / "malay_packaged_tracker.db"
 UPLOADED_TRACKER_PATH = ONDEMAND_DATA_DIR / "malay_b2_uploaded_tracker.db"
 
 if str(LIVE_ENGINE_DIR) not in sys.path:
@@ -53,7 +52,7 @@ except ImportError as e:
     sys.exit(1)
 
 # ==============================================================================
-# KONFIGURASI KUNCI KHAS TG UPSTASH REDIS (PENGAMBILAN METADATA PAKEJ)
+# KONFIGURASI KUNCI KHAS TG UPSTASH REDIS (SANDARAN METADATA PAKEJ)
 # ==============================================================================
 ENV_LOCAL_PATH = PROJECT_ROOT / ".env.local"
 env_vars = dotenv_values(str(ENV_LOCAL_PATH)) if ENV_LOCAL_PATH.exists() else {}
@@ -128,18 +127,24 @@ def parse_season_episode(filename: str) -> Tuple[Optional[int], Optional[int]]:
     return None, None
 
 def get_redis_shard_index(imdb_id: str) -> int:
-    """Mengira shard Redis utama mana yang digunakan berdasarkan modulo hash."""
+    """Mengira shard Redis utama mana yang digunakan berdasarkan modulo hashing."""
     try:
         if hasattr(_redis, "REDIS_ACCOUNTS") and _redis.REDIS_ACCOUNTS:
             total_shards = len(_redis.REDIS_ACCOUNTS)
-            hash_val = int(hashlib.md5(imdb_id.encode("utf-8")).hexdigest(), 16)
-            return (hash_val % total_shards) + 1
+            clean_id = str(imdb_id or "").strip()
+            match = re.search(r"tt(\d+)", clean_id)
+            if match:
+                num = int(match.group(1))
+                return (num % total_shards) + 1
+            else:
+                hash_val = int(hashlib.md5(clean_id.encode("utf-8")).hexdigest(), 16)
+                return (hash_val % total_shards) + 1
     except Exception:
         pass
     return 1
 
 # ==============================================================================
-# BACAAN PAKEJ DARI TG UPSTASH REDIS
+# BACAAN PAKEJ DARI TG UPSTASH REDIS (SANDARAN JIKA PERLU)
 # ==============================================================================
 def fetch_pack_metadata(base_imdb_id: str) -> Optional[Dict[str, Any]]:
     if not TG_REDIS_URL or not TG_REDIS_TOKEN:
@@ -194,7 +199,7 @@ def append_to_scraped_history(imdb_id: str, title: str, year: str, media_type: s
 def download_zip_binary(url: str) -> Optional[bytes]:
     raw_data = None
     headers = {
-        "User-Agent": "Mozilla/5.0 (StremioCronSyncRunner/1.0)",
+        "User-Agent": "Mozilla/5.0 (StremioCronSyncRunner/2.0)",
         "Accept": "*/*"
     }
 
@@ -220,68 +225,89 @@ def download_zip_binary(url: str) -> Optional[bytes]:
     return raw_data
 
 # ==============================================================================
-# ALUR UTAMA CRON SYNC & PRE-WARM
+# ALUR UTAMA CRON SYNC & PRE-WARM (BERASASKAN AWAN B2 DISAHKAN)
 # ==============================================================================
 def run_cron_sync(batch_limit: int, delay: float):
     console.print("\n" + "=" * 80)
-    console.print("🚀 [bold green]CRON SYNC: MIGRASI PAKEJ ZIP B2 KE STESEN AKTIF REDIS & B2[/bold green]")
+    console.print("🚀 [bold green]CRON SYNC: MIGRASI PAKEJ ZIP B2 KE STESEN AKTIF REDIS & B2 (V2.0)[/bold green]")
     console.print("=" * 80 + "\n")
 
-    if not PACKAGED_TRACKER_PATH.exists():
-        console.print(f"[bold red]❌ Ralat: Fail sumber rujukan tidak dijumpai: {PACKAGED_TRACKER_PATH}[/bold red]")
+    if not UPLOADED_TRACKER_PATH.exists():
+        console.print(f"[bold red]❌ Ralat: Fail penjejak B2 tidak dijumpai: {UPLOADED_TRACKER_PATH}[/bold red]")
         sys.exit(1)
 
-    # 1. Buka pangkalan data rujukan secara Read-Only
+    # 1. Buka pangkalan data fail yang SAH berada di B2 secara Read-Only
     try:
-        pkg_conn = sqlite3.connect(f"file:{PACKAGED_TRACKER_PATH}?mode=ro", uri=True)
-        pkg_cur = pkg_conn.cursor()
-        pkg_cur.execute("SELECT imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes, zip_hash FROM malay_packaged_tracker;")
-        all_packages = pkg_cur.fetchall()
-        pkg_conn.close()
+        up_conn = sqlite3.connect(f"file:{UPLOADED_TRACKER_PATH}?mode=ro", uri=True)
+        up_cur = up_conn.cursor()
+        
+        up_cur.execute("PRAGMA table_info(b2_uploaded_packs);")
+        cols = [c[1] for c in up_cur.fetchall()]
+        has_hash_col = "zip_hash" in cols
+
+        query = """
+            SELECT imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes,
+        """ + ("zip_hash, " if has_hash_col else "NULL, ") + """
+            b2_url, bucket_name, account_index
+            FROM b2_uploaded_packs
+            WHERE b2_url IS NOT NULL AND b2_url != '' AND redis_synced = 1
+            ORDER BY id ASC;
+        """
+        up_cur.execute(query)
+        all_cloud_packages = up_cur.fetchall()
+        up_conn.close()
     except Exception as e:
-        console.print(f"[bold red]❌ Gagal membaca malay_packaged_tracker.db secara read-only: {e}[/bold red]")
+        console.print(f"[bold red]❌ Gagal membaca malay_b2_uploaded_tracker.db secara read-only: {e}[/bold red]")
         sys.exit(1)
 
     # 2. Buka penjejak aktif tempatan
     active_conn = init_active_synced_db()
     active_cur = active_conn.cursor()
-    active_cur.execute("SELECT imdb_id, zip_hash, total_subs_uploaded FROM b2_active_synced;")
+    active_cur.execute("SELECT imdb_id, zip_hash, total_subs_uploaded, status FROM b2_active_synced;")
     local_synced_meta: Dict[str, Dict[str, Any]] = {
-        r[0]: {"hash": r[1], "uploaded_count": r[2]}
+        r[0]: {"hash": r[1], "uploaded_count": r[2], "status": r[3]}
         for r in active_cur.fetchall()
     }
 
-    # 3. Logik Pintar 3-Lapisan untuk Menapis Senarai Tugasan
+    # 3. Logik Pintar Penapisan 3-Lapisan Berasaskan Awan B2
     tasks_to_process = []
-    for pkg in all_packages:
-        imdb_id, zip_fn, title, year, m_type, subs_count, sz_bytes, pkg_hash = pkg
+    for pkg in all_cloud_packages:
+        imdb_id, zip_fn, title, year, m_type, subs_count, sz_bytes, b2_hash, b2_url, bucket, acc_idx = pkg
 
         if imdb_id not in local_synced_meta:
             tasks_to_process.append((pkg, "BARU"))
             continue
 
         local_info = local_synced_meta[imdb_id]
-        
-        if pkg_hash and local_info["hash"]:
-            if pkg_hash != local_info["hash"]:
+
+        if local_info.get("status") != "COMPLETED":
+            tasks_to_process.append((pkg, "CUBA_SEMULA"))
+            continue
+
+        # Semakan 1: Integriti Hash SHA-256 Awan
+        if b2_hash and local_info["hash"]:
+            if b2_hash != local_info["hash"]:
                 tasks_to_process.append((pkg, "KEMAS_KINI"))
                 continue
-        
+
+        # Semakan 2: Bilangan fail sarikata
         if subs_count != local_info["uploaded_count"]:
             tasks_to_process.append((pkg, "KEMAS_KINI"))
             continue
 
+        # Identikal dan siap sepenuhnya -> Langkau (Skip)
+
     console.print(Panel.fit(
-        f"[bold cyan]Status Penapisan Cron Tri-Metric:[/bold cyan]\n"
-        f"├─ Jumlah Pakej dalam Katalog : [yellow]{len(all_packages):,}[/yellow] tajuk\n"
-        f"├─ Sedia Ada di Stesen Aktif  : [green]{len(all_packages) - len(tasks_to_process):,}[/green] tajuk (Kekal Selari)\n"
-        f"├─ Perlu Diproses Sesi Ini    : [cyan]{len(tasks_to_process):,}[/cyan] tajuk\n"
-        f"└─ Had Kuota Batch Sesi Ini   : [bold magenta]{batch_limit if batch_limit > 0 else 'SEMUA'}[/bold magenta]",
+        f"[bold cyan]Status Penapisan Cron Tri-Metric (B2 Awan Disahkan):[/bold cyan]\n"
+        f"├─ Fail ZIP Sah di B2 Awan     : [yellow]{len(all_cloud_packages):,}[/yellow] tajuk\n"
+        f"├─ Sedia Ada di Stesen Aktif   : [green]{len(all_cloud_packages) - len(tasks_to_process):,}[/green] tajuk (Kekal Selari)\n"
+        f"├─ Perlu Diproses Sesi Ini     : [cyan]{len(tasks_to_process):,}[/cyan] tajuk\n"
+        f"└─ Had Kuota Batch Sesi Ini    : [bold magenta]{batch_limit if batch_limit > 0 else 'SEMUA'}[/bold magenta]",
         border_style="cyan"
     ))
 
     if not tasks_to_process:
-        console.print("[bold green]✨ Kesemua pakej ZIP B2 telah diselaraskan sepenuhnya ke stesen aktif![/bold green]\n")
+        console.print("[bold green]✨ Kesemua pakej ZIP B2 yang sah telah diselaraskan sepenuhnya ke stesen aktif![/bold green]\n")
         active_conn.close()
         return
 
@@ -291,15 +317,20 @@ def run_cron_sync(batch_limit: int, delay: float):
     console.print(f"\n[bold yellow]⚡ Memproses {len(batch_run):,} tajuk pilihan...[/bold yellow]\n")
 
     for item, action_type in batch_run:
-        imdb_id, zip_fn, title, year, m_type, subs_count, sz_bytes, pkg_hash = item
+        imdb_id, zip_fn, title, year, m_type, subs_count, sz_bytes, b2_hash, b2_url, bucket, acc_idx = item
 
-        pack_meta = fetch_pack_metadata(imdb_id)
-        if not pack_meta or not pack_meta.get("b2_url"):
-            console.print(f"⚠️ [yellow]{imdb_id}[/yellow]: URL B2 tidak ditemui di TG Redis. Langkau.")
+        # Utamakan URL muat turun terus daripada rekod B2 Tracker
+        b2_zip_url = b2_url
+        if not b2_zip_url:
+            pack_meta = fetch_pack_metadata(imdb_id)
+            if pack_meta:
+                b2_zip_url = pack_meta.get("b2_url")
+
+        if not b2_zip_url:
+            console.print(f"⚠️ [yellow]{imdb_id}[/yellow]: URL B2 tidak ditemui. Langkau.")
             continue
 
-        b2_zip_url = pack_meta["b2_url"]
-        
+        # Muat turun arkib ZIP dari B2
         zip_bytes = download_zip_binary(b2_zip_url)
         if not zip_bytes:
             console.print(f"❌ [red]{imdb_id}[/red]: Gagal memuat turun fail ZIP binari dari {b2_zip_url}")
@@ -330,7 +361,7 @@ def run_cron_sync(batch_limit: int, delay: float):
         episodic_groups: Dict[str, List[Dict[str, Any]]] = {}
         shard_idx = get_redis_shard_index(imdb_id)
 
-        # Paparan Jadual Terperinci untuk Setiap Judul & Fail Sarikata
+        # Paparan Jadual Terperinci bagi Setiap Tajuk & Fail Sarikata
         table = Table(title=f"📦 Pakej: [bold cyan]{zip_fn}[/bold cyan] ({title})", border_style="cyan")
         table.add_column("No", style="dim", justify="right")
         table.add_column("Nama Fail Sarikata (Ekstrak)", style="white")
@@ -371,7 +402,6 @@ def run_cron_sync(batch_limit: int, delay: float):
 
                 uploaded_records.append(record)
 
-                # Tambah baris ke jadual terperinci
                 b2_desc = f"B2 Akaun #{b2_res['account_index']}"
                 redis_desc = f"Redis Shard #{shard_idx}"
                 table.add_row(str(idx), f"{safe_rel}{ext}", b2_desc, redis_desc)
@@ -385,7 +415,6 @@ def run_cron_sync(batch_limit: int, delay: float):
         if not uploaded_records:
             continue
 
-        # Paparkan jadual terperinci di terminal log GitHub Actions
         console.print(table)
 
         # Simpan ke Redis utama (10 Sharded Accounts)
@@ -396,7 +425,9 @@ def run_cron_sync(batch_limit: int, delay: float):
         # Rekod ke scraped_history.json
         append_to_scraped_history(imdb_id, title, year, m_type, len(uploaded_records))
 
-        # Kemas kini penjejak aktif tempatan
+        # Kunci hash rujukan secara idempoten
+        target_sync_hash = b2_hash if b2_hash else real_hash
+
         active_cur.execute("""
             INSERT INTO b2_active_synced 
             (imdb_id, canonical_title, release_year, media_type, zip_filename, zip_hash, total_subs_in_zip, total_subs_uploaded, redis_keys_updated, status)
@@ -412,7 +443,7 @@ def run_cron_sync(batch_limit: int, delay: float):
                 redis_keys_updated = excluded.redis_keys_updated,
                 synced_at = CURRENT_TIMESTAMP,
                 status = 'COMPLETED';
-        """, (imdb_id, title, year, m_type, zip_fn, real_hash, subs_count, len(uploaded_records), len(uploaded_records) + len(episodic_groups)))
+        """, (imdb_id, title, year, m_type, zip_fn, target_sync_hash, subs_count, len(uploaded_records), len(uploaded_records) + len(episodic_groups)))
         active_conn.commit()
 
         success_processed += 1
