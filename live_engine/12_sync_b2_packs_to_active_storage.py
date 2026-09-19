@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.0)
+# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.1)
 # LOKASI: /home/braderdin/stremio-sub-addon/live_engine/12_sync_b2_packs_to_active_storage.py
 # ==============================================================================
 
@@ -228,7 +228,7 @@ def run_cron_sync(batch_limit: int, delay: float):
         all_packages = pkg_cur.fetchall()
         pkg_conn.close()
     except Exception as e:
-        console.print(f"[bold red]❌ Gagal membaca malays_packaged_tracker.db secara read-only: {e}[/bold red]")
+        console.print(f"[bold red]❌ Gagal membaca malay_packaged_tracker.db secara read-only: {e}[/bold red]")
         sys.exit(1)
 
     # 2. Buka penjejak aktif tempatan
@@ -374,8 +374,8 @@ def run_cron_sync(batch_limit: int, delay: float):
         for ep_key, ep_recs in episodic_groups.items():
             _redis.save_subtitle_records_batch(ep_key, ep_recs)
 
-        # Rekod ke scraped_history.json
-        append_to_scraped_history(imdb_id, title, year, media_type, len(uploaded_records))
+        # Rekod ke scraped_history.json menggunakan m_type yang sah
+        append_to_scraped_history(imdb_id, title, year, m_type, len(uploaded_records))
 
         # Kemas kini penjejak aktif tempatan
         active_cur.execute("""
