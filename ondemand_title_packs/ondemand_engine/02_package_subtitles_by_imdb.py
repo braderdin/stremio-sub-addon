@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO ONDEMAND SUBTITLE PACKAGER - V2 (1 IMDB ID = 1 CLEAN ZIP)
+# PROJEK: STREMIO ONDEMAND SUBTITLE PACKAGER - V2.3 (ZERO-DUPLICATE & SMART MERGE)
 # LOKASI: /home/braderdin/stremio-sub-addon/ondemand_title_packs/ondemand_engine/02_package_subtitles_by_imdb.py
 # ==============================================================================
 
 import os
 import re
 import sys
+import io
+import time
 import zipfile
 import sqlite3
 import hashlib
 import subprocess
 from pathlib import Path
-from typing import Optional, Dict, Any, Tuple, List
+from typing import Optional, Dict, Any, Tuple, List, Set
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from rich.console import Console
@@ -45,12 +47,58 @@ for p in [DATA_DIR, TEMP_DIR, OUTPUT_ZIP_DIR]:
 
 WORKER_THREADS = 12
 MAX_FILENAME_LENGTH = 180
+VALID_SUB_EXTENSIONS = {".srt", ".ass", ".ssa", ".vtt", ".sub", ".smi"}
+
+def is_valid_sub(filename: str) -> bool:
+    fn_lower = filename.lower()
+    return (
+        any(fn_lower.endswith(ext) for ext in VALID_SUB_EXTENSIONS)
+        and not fn_lower.startswith("__macosx")
+        and ".ds_store" not in fn_lower
+    )
+
+# ==============================================================================
+# PEMBERSIHAN NAMA FAIL SARIKATA & PENYELESAIAN DUPLIKASI
+# ==============================================================================
+def sanitize_sub_filename(fn: str) -> Tuple[str, str]:
+    """Membersihkan nama fail sarikata kepada format selamat tanpa ruang kosong/simbol pelik."""
+    p = Path(fn)
+    ext = p.suffix.lower() if p.suffix else ".srt"
+    if ext not in VALID_SUB_EXTENSIONS:
+        ext = ".srt"
+    stem = p.stem
+    # Gantikan semua selain abjad, angka, sempang, dan garis bawah kepada titik
+    clean_stem = re.sub(r"[^\w\d\-_]", ".", stem)
+    clean_stem = re.sub(r"\.+", ".", clean_stem).strip(".")
+    if not clean_stem:
+        clean_stem = "subtitle"
+    return clean_stem, ext
+
+def make_unique_entry_name(base_stem: str, ext: str, existing_names: Set[str], sub_id: Optional[str] = None) -> str:
+    """Memastikan nama fail di dalam arkib ZIP 100% unik tanpa duplikasi."""
+    candidate = f"{base_stem}{ext}"
+    if candidate not in existing_names:
+        return candidate
+
+    # Jika bertindih dan ada sub_id unik dari Subscene
+    if sub_id:
+        safe_sub_id = re.sub(r"[^\w\d]", "", str(sub_id))
+        candidate_with_id = f"{base_stem}.{safe_sub_id}{ext}"
+        if candidate_with_id not in existing_names:
+            return candidate_with_id
+
+    # Jika masih bertindih, gunakan penomboran berurutan _02, _03, ...
+    idx = 2
+    while True:
+        candidate_seq = f"{base_stem}_{idx:02d}{ext}"
+        if candidate_seq not in existing_names:
+            return candidate_seq
+        idx += 1
 
 # ==============================================================================
 # PENGESANAN PINTAR LALUAN FOLDER STAGING
 # ==============================================================================
 def resolve_actual_staging_root(staging_path: Path) -> Path:
-    """Mengesan laluan folder sebenar tempat semua direktori slug disimpan."""
     p_exact = staging_path / "malay" / "malay subtitles"
     if p_exact.exists() and p_exact.is_dir():
         return p_exact
@@ -94,7 +142,6 @@ def init_tracker_db() -> sqlite3.Connection:
         );
     """)
 
-    # Migrasi automatik: Pastikan lajur zip_hash wujud jika menggunakan DB sedia ada
     cur = conn.cursor()
     cur.execute("PRAGMA table_info(malay_packaged_tracker);")
     cols = [col[1] for col in cur.fetchall()]
@@ -168,7 +215,7 @@ def ensure_staging_ready() -> Path:
     return actual_root
 
 # ==============================================================================
-# FASA 2: EKSTRAKSI SARIKATA DARI DALAM PAKEJ
+# FASA 2: EKSTRAKSI SARIKATA DARI DALAM PAKEJ SUMBER
 # ==============================================================================
 def find_source_file_path(slug_root: Path, slug: str, pkg_name: Optional[str], sub_fn: str) -> Optional[Path]:
     slug_dir = slug_root / slug
@@ -198,7 +245,7 @@ def find_source_file_path(slug_root: Path, slug: str, pkg_name: Optional[str], s
 def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[bytes]:
     ext = pkg_path.suffix.lower()
 
-    if ext in [".srt", ".ass", ".ssa", ".vtt", ".sub", ".smi"]:
+    if ext in VALID_SUB_EXTENSIONS:
         try:
             return pkg_path.read_bytes()
         except Exception:
@@ -214,6 +261,9 @@ def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[b
                 base_name = Path(target_name).name.lower()
                 for n in names:
                     if Path(n).name.lower() == base_name:
+                        return zf.read(n)
+                for n in names:
+                    if not n.startswith("__MACOSX") and any(n.lower().endswith(sub_ext) for sub_ext in VALID_SUB_EXTENSIONS):
                         return zf.read(n)
         except Exception:
             pass
@@ -245,7 +295,7 @@ def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[b
     return None
 
 # ==============================================================================
-# FASA 3: PEKERJA PEMBUNGKUSAN (MENJANA HASH SHA-256)
+# FASA 3: PEKERJA PEMBUNGKUSAN PINTAR (SMART MERGE, ZERO-DUPLICATE & ATOMIC WRITE)
 # ==============================================================================
 def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> Optional[Tuple[str, str, str, str, str, int, int, str]]:
     imdb_id = group_data["imdb_id"]
@@ -257,53 +307,128 @@ def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> O
 
     zip_fn = generate_zip_name(imdb_id, canonical_title, release_year, slug)
     target_zip_path = OUTPUT_ZIP_DIR / zip_fn
+    temp_zip_path = OUTPUT_ZIP_DIR / f"{target_zip_path.stem}.{os.getpid()}.{int(time.time() * 1000)}.tmp"
 
-    written_entries = set()
-    total_packed = 0
+    collected_subs: Dict[str, bytes] = {}
+    seen_hashes: Set[str] = set()
 
-    try:
-        with zipfile.ZipFile(target_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z_out:
-            for rec in records:
-                pkg_name = rec["package_name"]
-                sub_fn = rec["sub_filename"]
-                internal_path = rec["internal_sub_path"]
-                sub_id = rec["subscene_id"] or "sub"
+    def register_sub(raw_fn: str, data: bytes, sub_id: Optional[str] = None):
+        """Mendaftarkan sari kata dengan sanitasi awal, tapisan MD5, dan nama unik mutlak."""
+        if not data or len(data) < 10:
+            return
 
-                pkg_p = find_source_file_path(slug_root, rec["slug"], pkg_name, sub_fn)
-                if not pkg_p:
-                    continue
+        h = hashlib.md5(data).hexdigest()
+        # Jika kandungan sama persis sudah wujud, abaikan untuk jimat storan
+        if h in seen_hashes:
+            return
+        seen_hashes.add(h)
 
-                sub_bytes = extract_raw_subtitle_bytes(pkg_p, internal_path)
-                if not sub_bytes:
-                    continue
+        stem, ext = sanitize_sub_filename(raw_fn)
+        final_name = make_unique_entry_name(stem, ext, set(collected_subs.keys()), sub_id)
+        collected_subs[final_name] = data
 
-                entry_name = sub_fn
-                if entry_name in written_entries:
-                    entry_name = f"{sub_id}_{sub_fn}"
-                if entry_name in written_entries:
-                    entry_name = f"{total_packed + 1}_{sub_fn}"
+    # 1. BUKA & EKSTRAK FAIL .ZIP SEDIA ADA (JIKA WUJUD) UNTUK DIGABUNGKAN
+    if target_zip_path.exists():
+        try:
+            with zipfile.ZipFile(target_zip_path, "r") as z_in:
+                for item in z_in.infolist():
+                    if item.is_dir():
+                        continue
+                    name_lower = item.filename.lower()
+                    if "__macosx" in name_lower or ".ds_store" in name_lower:
+                        continue
 
-                z_out.writestr(entry_name, sub_bytes)
-                written_entries.add(entry_name)
-                total_packed += 1
+                    raw_data = z_in.read(item.filename)
+                    if len(raw_data) < 10:
+                        continue
 
-        if total_packed > 0:
-            zip_bytes = target_zip_path.read_bytes()
-            sz_bytes = len(zip_bytes)
-            zip_sha256 = hashlib.sha256(zip_bytes).hexdigest()
+                    # BONGKAR JIKA SEBELUM INI ADA ZIP DI DALAM ZIP
+                    if name_lower.endswith(".zip") or raw_data.startswith(b"PK\x03\x04"):
+                        try:
+                            with zipfile.ZipFile(io.BytesIO(raw_data), "r") as inner_z:
+                                for inner_item in inner_z.infolist():
+                                    if inner_item.is_dir():
+                                        continue
+                                    if is_valid_sub(inner_item.filename):
+                                        inner_bytes = inner_z.read(inner_item.filename)
+                                        register_sub(Path(inner_item.filename).name, inner_bytes)
+                        except Exception:
+                            pass
+                    elif is_valid_sub(item.filename):
+                        register_sub(Path(item.filename).name, raw_data)
+        except Exception:
+            collected_subs.clear()
+            seen_hashes.clear()
 
-            return (
-                imdb_id, zip_fn, canonical_title,
-                release_year or "", media_type, total_packed, sz_bytes, zip_sha256
-            )
-        else:
-            if target_zip_path.exists():
+    # 2. EKSTRAK SARIKATA BAHARU DARIPADA KATALOG & GABUNGKAN
+    for rec in records:
+        pkg_name = rec["package_name"]
+        sub_fn = rec["sub_filename"]
+        internal_path = rec["internal_sub_path"]
+        sub_id = rec["subscene_id"] or "sub"
+
+        pkg_p = find_source_file_path(slug_root, rec["slug"], pkg_name, sub_fn)
+        if not pkg_p:
+            continue
+
+        sub_bytes = extract_raw_subtitle_bytes(pkg_p, internal_path)
+        if not sub_bytes or len(sub_bytes) < 10:
+            continue
+
+        # SIFAR ZIP BERSARANG: BONGKAR JIKA SUMBER ADALAH ZIP
+        if sub_bytes.startswith(b"PK\x03\x04") or (sub_fn and sub_fn.lower().endswith(".zip")):
+            try:
+                with zipfile.ZipFile(io.BytesIO(sub_bytes), "r") as inner_z:
+                    for inner_item in inner_z.infolist():
+                        if inner_item.is_dir():
+                            continue
+                        if is_valid_sub(inner_item.filename):
+                            inner_bytes = inner_z.read(inner_item.filename)
+                            register_sub(Path(inner_item.filename).name, inner_bytes, sub_id)
+            except Exception:
+                pass
+            continue
+
+        # FAIL SARIKATA TEKS BIASA
+        register_sub(Path(sub_fn).name, sub_bytes, sub_id)
+
+    if not collected_subs:
+        if target_zip_path.exists():
+            try:
                 target_zip_path.unlink()
-            return None
+            except Exception:
+                pass
+        return None
+
+    # 3. PENULISAN ATOMIK KE FAIL .TMP LALU MENGGANTIKAN FAIL ASAL
+    try:
+        with zipfile.ZipFile(temp_zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z_out:
+            for entry_name, s_bytes in collected_subs.items():
+                z_out.writestr(entry_name, s_bytes)
+
+        # Semak integriti fail zip sebelum menimpa fail sasaran
+        with zipfile.ZipFile(temp_zip_path, "r") as z_test:
+            if z_test.testzip() is not None:
+                raise zipfile.BadZipFile("Ujian integriti fail zip gagal!")
+
+        temp_zip_path.replace(target_zip_path)
+
+        final_bytes = target_zip_path.read_bytes()
+        sz_bytes = len(final_bytes)
+        zip_sha256 = hashlib.sha256(final_bytes).hexdigest()
+        total_packed = len(collected_subs)
+
+        return (
+            imdb_id, zip_fn, canonical_title,
+            release_year or "", media_type, total_packed, sz_bytes, zip_sha256
+        )
 
     except Exception:
-        if target_zip_path.exists():
-            target_zip_path.unlink()
+        if temp_zip_path.exists():
+            try:
+                temp_zip_path.unlink()
+            except Exception:
+                pass
         return None
 
 # ==============================================================================
@@ -311,18 +436,17 @@ def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> O
 # ==============================================================================
 def main():
     console.print("\n" + "=" * 80)
-    console.print("📦 [bold green]ENJIN PENGELOMPOKKAN SARIKATA MENGIKUT IMDB ID (V2.1 - SHA256 ENABLED)[/bold green]")
+    console.print("📦 [bold green]ENJIN PENGELOMPOKKAN SARIKATA MENGIKUT IMDB ID (V2.3 - ZERO-DUPLICATE & SMART MERGE)[/bold green]")
     console.print("=" * 80 + "\n")
 
     slug_root = ensure_staging_ready()
 
     tracker_conn = init_tracker_db()
     tracker_cur = tracker_conn.cursor()
-    
-    # Ambil rekod sedia ada berserta jumlah sarikata dan hash
-    tracker_cur.execute("SELECT imdb_id, total_subs_count, zip_hash FROM malay_packaged_tracker;")
+
+    tracker_cur.execute("SELECT imdb_id, total_subs_count, zip_hash, zip_filename FROM malay_packaged_tracker;")
     existing_tracker: Dict[str, Dict[str, Any]] = {
-        r[0]: {"total_subs": r[1], "hash": r[2]}
+        r[0]: {"total_subs": r[1], "hash": r[2], "zip_filename": r[3]}
         for r in tracker_cur.fetchall()
     }
 
@@ -371,17 +495,18 @@ def main():
     total_valid_groups = len(imdb_groups)
     console.print(f"   [green]✔ Ditemui [yellow]{total_valid_groups:,}[/yellow] tajuk IMDb unik untuk dipakej.[/green]")
 
-    # Penapisan Pintar: Semak jika bilangan sarikata dalam katalog bertambah (cth: episod baru ditambah)
+    # PENAPISAN PINTAR: Semak jika bilangan fail dalam katalog meningkat selepas baiki NULL
     groups_to_process = []
     for imdb, g_data in imdb_groups.items():
-        current_subs_count = len(g_data["records"])
+        current_catalog_subs = len(g_data["records"])
         expected_zip = generate_zip_name(imdb, g_data["canonical_title"], g_data["release_year"], g_data["slug"])
-        zip_exists = (OUTPUT_ZIP_DIR / expected_zip).exists()
+        zip_path = OUTPUT_ZIP_DIR / expected_zip
+        zip_exists = zip_path.exists()
 
         if imdb in existing_tracker and zip_exists:
             tracked_info = existing_tracker[imdb]
-            # Jika jumlah fail sarikata sama dan hash wujud, langkau selamat
-            if current_subs_count == tracked_info["total_subs"] and tracked_info["hash"]:
+            # Langkau hanya jika jumlah fail sama dan hash SHA-256 sudah direkodkan
+            if current_catalog_subs == tracked_info["total_subs"] and tracked_info["hash"]:
                 continue
 
         groups_to_process.append(g_data)
@@ -405,7 +530,7 @@ def main():
         TimeElapsedColumn(),
         console=console
     ) as progress:
-        task = progress.add_task("Membungkus fail ZIP mengikut IMDb...", total=len(groups_to_process))
+        task = progress.add_task("Membungkus & mengemas kini fail ZIP mengikut IMDb...", total=len(groups_to_process))
 
         with ThreadPoolExecutor(max_workers=WORKER_THREADS) as executor:
             future_to_group = {
@@ -459,7 +584,7 @@ def main():
     tracker_cur.execute("PRAGMA wal_checkpoint(TRUNCATE);")
     tracker_conn.close()
 
-    table = Table(title="📋 Ringkasan Pakej Sari Kata Siap (SHA-256 Integrated)", border_style="cyan")
+    table = Table(title="📋 Ringkasan Pakej Sari Kata Siap (Zero-Duplicate & Smart Merge)", border_style="cyan")
     table.add_column("Status / Maklumat", style="yellow")
     table.add_column("Jumlah Rekod", justify="right", style="green")
 
@@ -469,7 +594,7 @@ def main():
     table.add_row("Pangkalan Data Penjejak Selesai", str(TRACKER_DB_PATH))
 
     console.print("\n", table)
-    console.print(f"\n[bold green]✨ SEMPURNA! Pakej sedia untuk pemeriksaan tri-metrik sebelum dimuat naik![/bold green]\n")
+    console.print(f"\n[bold green]✨ SEMPURNA! Arkib sedia tanpa sebarang isu fail berulang di masa hadapan![/bold green]\n")
 
 if __name__ == "__main__":
     main()
