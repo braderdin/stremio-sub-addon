@@ -9,6 +9,7 @@ import re
 import sys
 import zipfile
 import sqlite3
+import hashlib
 import subprocess
 from pathlib import Path
 from typing import Optional, Dict, Any, Tuple, List
@@ -50,7 +51,6 @@ MAX_FILENAME_LENGTH = 180
 # ==============================================================================
 def resolve_actual_staging_root(staging_path: Path) -> Path:
     """Mengesan laluan folder sebenar tempat semua direktori slug disimpan."""
-    # 1. Semakan keutamaan laluan yang dilaporkan wujud
     p_exact = staging_path / "malay" / "malay subtitles"
     if p_exact.exists() and p_exact.is_dir():
         return p_exact
@@ -66,7 +66,6 @@ def resolve_actual_staging_root(staging_path: Path) -> Path:
                 return sub
         return p_m
 
-    # 2. Imbasan automatik mencari direktori yang memegang ribuan slug
     for root, dirs, _ in os.walk(staging_path):
         if len(dirs) > 500:
             return Path(root)
@@ -74,7 +73,7 @@ def resolve_actual_staging_root(staging_path: Path) -> Path:
     return staging_path
 
 # ==============================================================================
-# INISIALISASI PANGKALAN DATA PENJEJAK
+# INISIALISASI PANGKALAN DATA PENJEJAK DENGAN MIGRASI SHA-256
 # ==============================================================================
 def init_tracker_db() -> sqlite3.Connection:
     conn = sqlite3.connect(str(TRACKER_DB_PATH))
@@ -90,15 +89,25 @@ def init_tracker_db() -> sqlite3.Connection:
             media_type TEXT NOT NULL,
             total_subs_count INTEGER NOT NULL,
             zip_size_bytes INTEGER NOT NULL,
+            zip_hash TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
     """)
+
+    # Migrasi automatik: Pastikan lajur zip_hash wujud jika menggunakan DB sedia ada
+    cur = conn.cursor()
+    cur.execute("PRAGMA table_info(malay_packaged_tracker);")
+    cols = [col[1] for col in cur.fetchall()]
+    if "zip_hash" not in cols:
+        cur.execute("ALTER TABLE malay_packaged_tracker ADD COLUMN zip_hash TEXT;")
+        conn.commit()
+
     conn.execute("CREATE INDEX IF NOT EXISTS idx_trk_imdb ON malay_packaged_tracker (imdb_id);")
     conn.commit()
     return conn
 
 # ==============================================================================
-# FORMAT NAMA FAIL ZIP
+# FORMAT NAMA FAIL ZIP (BERSIH TANPA RUANG KOSONG)
 # ==============================================================================
 def sanitize_title_for_filename(title: str, fallback_slug: str) -> str:
     if not title:
@@ -166,7 +175,6 @@ def find_source_file_path(slug_root: Path, slug: str, pkg_name: Optional[str], s
     if not slug_dir.exists() or not slug_dir.is_dir():
         return None
 
-    # 1. Semak padanan fail secara langsung
     if pkg_name:
         p = slug_dir / pkg_name
         if p.exists() and p.is_file():
@@ -177,7 +185,6 @@ def find_source_file_path(slug_root: Path, slug: str, pkg_name: Optional[str], s
         if p.exists() and p.is_file():
             return p
 
-    # 2. Imbasan fleksibel dalam direktori slug jika ada perbezaan huruf besar/kecil
     target_names = {x.lower() for x in [pkg_name, sub_fn] if x}
     try:
         for f in slug_dir.iterdir():
@@ -191,14 +198,12 @@ def find_source_file_path(slug_root: Path, slug: str, pkg_name: Optional[str], s
 def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[bytes]:
     ext = pkg_path.suffix.lower()
 
-    # Jika fail sarikata berdiri sendiri (.srt terus)
     if ext in [".srt", ".ass", ".ssa", ".vtt", ".sub", ".smi"]:
         try:
             return pkg_path.read_bytes()
         except Exception:
             return None
 
-    # Jika arkib .zip
     if ext == ".zip":
         try:
             with zipfile.ZipFile(pkg_path, "r") as zf:
@@ -213,7 +218,6 @@ def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[b
         except Exception:
             pass
 
-    # Jika arkib .rar menggunakan rarfile
     if ext == ".rar":
         try:
             import rarfile
@@ -229,7 +233,6 @@ def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[b
         except Exception:
             pass
 
-    # Sandaran universal menggunakan 7z stdout
     try:
         base_fn = Path(internal_path).name
         cmd = ["7z", "e", "-so", "-y", str(pkg_path), base_fn]
@@ -242,9 +245,9 @@ def extract_raw_subtitle_bytes(pkg_path: Path, internal_path: str) -> Optional[b
     return None
 
 # ==============================================================================
-# FASA 3: PEKERJA PEMBUNGKUSAN (1 IMDB ID = 1 ZIP BERSIH)
+# FASA 3: PEKERJA PEMBUNGKUSAN (MENJANA HASH SHA-256)
 # ==============================================================================
-def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> Optional[Tuple[str, str, str, str, str, int, int]]:
+def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> Optional[Tuple[str, str, str, str, str, int, int, str]]:
     imdb_id = group_data["imdb_id"]
     canonical_title = group_data["canonical_title"]
     release_year = group_data["release_year"]
@@ -285,10 +288,13 @@ def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> O
                 total_packed += 1
 
         if total_packed > 0:
-            sz_bytes = target_zip_path.stat().st_size
+            zip_bytes = target_zip_path.read_bytes()
+            sz_bytes = len(zip_bytes)
+            zip_sha256 = hashlib.sha256(zip_bytes).hexdigest()
+
             return (
                 imdb_id, zip_fn, canonical_title,
-                release_year or "", media_type, total_packed, sz_bytes
+                release_year or "", media_type, total_packed, sz_bytes, zip_sha256
             )
         else:
             if target_zip_path.exists():
@@ -305,19 +311,24 @@ def package_single_imdb_worker(group_data: Dict[str, Any], slug_root: Path) -> O
 # ==============================================================================
 def main():
     console.print("\n" + "=" * 80)
-    console.print("📦 [bold green]ENJIN PENGELOMPOKKAN SARIKATA MENGIKUT IMDB ID (V2)[/bold green]")
+    console.print("📦 [bold green]ENJIN PENGELOMPOKKAN SARIKATA MENGIKUT IMDB ID (V2.1 - SHA256 ENABLED)[/bold green]")
     console.print("=" * 80 + "\n")
 
     slug_root = ensure_staging_ready()
 
     tracker_conn = init_tracker_db()
     tracker_cur = tracker_conn.cursor()
-    tracker_cur.execute("SELECT imdb_id FROM malay_packaged_tracker;")
-    already_packaged: set = {r[0] for r in tracker_cur.fetchall()}
+    
+    # Ambil rekod sedia ada berserta jumlah sarikata dan hash
+    tracker_cur.execute("SELECT imdb_id, total_subs_count, zip_hash FROM malay_packaged_tracker;")
+    existing_tracker: Dict[str, Dict[str, Any]] = {
+        r[0]: {"total_subs": r[1], "hash": r[2]}
+        for r in tracker_cur.fetchall()
+    }
 
-    console.print(f"📋 Rekod yang telah siap sebelum ini: [green]{len(already_packaged):,}[/green] tajuk.")
+    console.print(f"📋 Rekod tracker sedia ada: [green]{len(existing_tracker):,}[/green] tajuk.")
 
-    console.print("🔍 [cyan]Mengumpulkan entri sarikata sah (imdb_id IS NOT NULL)...[/cyan]")
+    console.print("🔍 [cyan]Mengumpulkan entri sarikata sah daripada katalog...[/cyan]")
     imdb_groups: Dict[str, Dict[str, Any]] = {}
 
     for cat_db in CATALOG_DBS:
@@ -360,18 +371,26 @@ def main():
     total_valid_groups = len(imdb_groups)
     console.print(f"   [green]✔ Ditemui [yellow]{total_valid_groups:,}[/yellow] tajuk IMDb unik untuk dipakej.[/green]")
 
+    # Penapisan Pintar: Semak jika bilangan sarikata dalam katalog bertambah (cth: episod baru ditambah)
     groups_to_process = []
     for imdb, g_data in imdb_groups.items():
-        if imdb in already_packaged:
-            expected_zip = generate_zip_name(imdb, g_data["canonical_title"], g_data["release_year"], g_data["slug"])
-            if (OUTPUT_ZIP_DIR / expected_zip).exists():
+        current_subs_count = len(g_data["records"])
+        expected_zip = generate_zip_name(imdb, g_data["canonical_title"], g_data["release_year"], g_data["slug"])
+        zip_exists = (OUTPUT_ZIP_DIR / expected_zip).exists()
+
+        if imdb in existing_tracker and zip_exists:
+            tracked_info = existing_tracker[imdb]
+            # Jika jumlah fail sarikata sama dan hash wujud, langkau selamat
+            if current_subs_count == tracked_info["total_subs"] and tracked_info["hash"]:
                 continue
+
         groups_to_process.append(g_data)
 
-    console.print(f"   [yellow]⚡ Judul yang perlu dipakej sekarang: {len(groups_to_process):,} tajuk.[/yellow]\n")
+    console.print(f"   [yellow]⚡ Judul yang perlu dipakej / dikemas kini: {len(groups_to_process):,} tajuk.[/yellow]\n")
 
     if not groups_to_process:
         console.print("[bold green]✨ Semua tajuk dengan IMDb sah telah siap dipakej sepenuhnya![/bold green]\n")
+        tracker_conn.close()
         return
 
     success_count = 0
@@ -397,20 +416,24 @@ def main():
             for future in as_completed(future_to_group):
                 res = future.result()
                 if res:
-                    imdb_id, zip_fn, title, year, m_type, count_subs, sz_bytes = res
-                    batch_tracker.append((imdb_id, zip_fn, title, year, m_type, count_subs, sz_bytes))
+                    imdb_id, zip_fn, title, year, m_type, count_subs, sz_bytes, z_hash = res
+                    batch_tracker.append((imdb_id, zip_fn, title, year, m_type, count_subs, sz_bytes, z_hash))
                     success_count += 1
                     total_subs_packed += count_subs
 
                     if len(batch_tracker) >= 100:
                         tracker_cur.executemany("""
                             INSERT INTO malay_packaged_tracker 
-                            (imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
+                            (imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes, zip_hash)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                             ON CONFLICT(imdb_id) DO UPDATE SET
                                 zip_filename = excluded.zip_filename,
+                                canonical_title = excluded.canonical_title,
+                                release_year = excluded.release_year,
+                                media_type = excluded.media_type,
                                 total_subs_count = excluded.total_subs_count,
-                                zip_size_bytes = excluded.zip_size_bytes;
+                                zip_size_bytes = excluded.zip_size_bytes,
+                                zip_hash = excluded.zip_hash;
                         """, batch_tracker)
                         tracker_conn.commit()
                         batch_tracker.clear()
@@ -420,29 +443,33 @@ def main():
         if batch_tracker:
             tracker_cur.executemany("""
                 INSERT INTO malay_packaged_tracker 
-                (imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                (imdb_id, zip_filename, canonical_title, release_year, media_type, total_subs_count, zip_size_bytes, zip_hash)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(imdb_id) DO UPDATE SET
                     zip_filename = excluded.zip_filename,
+                    canonical_title = excluded.canonical_title,
+                    release_year = excluded.release_year,
+                    media_type = excluded.media_type,
                     total_subs_count = excluded.total_subs_count,
-                    zip_size_bytes = excluded.zip_size_bytes;
+                    zip_size_bytes = excluded.zip_size_bytes,
+                    zip_hash = excluded.zip_hash;
             """, batch_tracker)
             tracker_conn.commit()
 
     tracker_cur.execute("PRAGMA wal_checkpoint(TRUNCATE);")
     tracker_conn.close()
 
-    table = Table(title="📋 Ringkasan Pakej Sari Kata Siap (On-Demand Ready)", border_style="cyan")
+    table = Table(title="📋 Ringkasan Pakej Sari Kata Siap (SHA-256 Integrated)", border_style="cyan")
     table.add_column("Status / Maklumat", style="yellow")
     table.add_column("Jumlah Rekod", justify="right", style="green")
 
-    table.add_row("Tajuk Filem/Siri Selesai (Fail ZIP)", f"{success_count:,}")
+    table.add_row("Tajuk Selesai / Dikemas Kini", f"{success_count:,}")
     table.add_row("Jumlah Fail Sari Kata Bersih Dipakej", f"{total_subs_packed:,}")
     table.add_row("Direktori Simpanan Pakej", str(OUTPUT_ZIP_DIR))
     table.add_row("Pangkalan Data Penjejak Selesai", str(TRACKER_DB_PATH))
 
     console.print("\n", table)
-    console.print(f"\n[bold green]✨ SEMPURNA! Pakej on-demand siap sedia untuk diselaraskan ke Backblaze B2 / GitHub Actions![/bold green]\n")
+    console.print(f"\n[bold green]✨ SEMPURNA! Pakej sedia untuk pemeriksaan tri-metrik sebelum dimuat naik![/bold green]\n")
 
 if __name__ == "__main__":
     main()
