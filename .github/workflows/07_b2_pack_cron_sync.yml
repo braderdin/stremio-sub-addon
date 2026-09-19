@@ -1,0 +1,162 @@
+name: 07 B2 Pack Cron Sync & Pre-Warm
+
+on:
+  schedule:
+    - cron: '19 */2 * * *' # Berjalan setiap 2 jam pada minit ke-19
+  workflow_dispatch:
+    inputs:
+      batch_limit:
+        description: 'Had bilangan pakej diproses sesi ini (contoh: 50)'
+        required: true
+        default: '50'
+
+concurrency:
+  group: b2-pack-cron-sync
+  cancel-in-progress: false
+
+jobs:
+  b2-cron-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repositori
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Muat turun sejarah penuh untuk sokongan git rebase
+
+      - name: Sediakan Persekitaran Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Pasang Pustaka Dependensi
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Jalankan Skrip Cron Sync B2 & Pre-Warm Redis
+        env:
+          CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
+          ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+
+          # Kunci Utama JSON Multi-Akaun Upstash Redis (Sharded)
+          REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran Redis Asal (Legacy Fallback)
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+
+          # Kunci Khas TG Upstash Redis (Pemetaan Pakej Arkib ZIP)
+          TG_UPSTASH_REDIS_REST_URL: ${{ secrets.TG_UPSTASH_REDIS_REST_URL }}
+          TG_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.TG_UPSTASH_REDIS_REST_TOKEN }}
+          
+          # Kunci Utama (JSON Format - Semua Akaun B2)
+          B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran B2 (Legacy Fallback - ACC 1 hingga 10)
+          B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
+          B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
+          B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
+          B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
+          B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+          B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
+          B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
+          B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
+          B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
+          B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+          B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
+          B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
+          B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
+          B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
+          B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+          B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
+          B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
+          B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
+          B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
+          B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+          B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
+          B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
+          B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
+          B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
+          B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
+          B2_ACC6_KEY_ID: ${{ secrets.B2_ACC6_KEY_ID }}
+          B2_ACC6_APP_KEY: ${{ secrets.B2_ACC6_APP_KEY }}
+          B2_ACC6_BUCKET_NAME: ${{ secrets.B2_ACC6_BUCKET_NAME }}
+          B2_ACC6_BUCKET_ID: ${{ secrets.B2_ACC6_BUCKET_ID }}
+          B2_ACC6_S3_API_ENDPOINT: ${{ secrets.B2_ACC6_S3_API_ENDPOINT }}
+          B2_ACC7_KEY_ID: ${{ secrets.B2_ACC7_KEY_ID }}
+          B2_ACC7_APP_KEY: ${{ secrets.B2_ACC7_APP_KEY }}
+          B2_ACC7_BUCKET_NAME: ${{ secrets.B2_ACC7_BUCKET_NAME }}
+          B2_ACC7_BUCKET_ID: ${{ secrets.B2_ACC7_BUCKET_ID }}
+          B2_ACC7_S3_API_ENDPOINT: ${{ secrets.B2_ACC7_S3_API_ENDPOINT }}
+          B2_ACC8_KEY_ID: ${{ secrets.B2_ACC8_KEY_ID }}
+          B2_ACC8_APP_KEY: ${{ secrets.B2_ACC8_APP_KEY }}
+          B2_ACC8_BUCKET_NAME: ${{ secrets.B2_ACC8_BUCKET_NAME }}
+          B2_ACC8_BUCKET_ID: ${{ secrets.B2_ACC8_BUCKET_ID }}
+          B2_ACC8_S3_API_ENDPOINT: ${{ secrets.B2_ACC8_S3_API_ENDPOINT }}
+          B2_ACC9_KEY_ID: ${{ secrets.B2_ACC9_KEY_ID }}
+          B2_ACC9_APP_KEY: ${{ secrets.B2_ACC9_APP_KEY }}
+          B2_ACC9_BUCKET_NAME: ${{ secrets.B2_ACC9_BUCKET_NAME }}
+          B2_ACC9_BUCKET_ID: ${{ secrets.B2_ACC9_BUCKET_ID }}
+          B2_ACC9_S3_API_ENDPOINT: ${{ secrets.B2_ACC9_S3_API_ENDPOINT }}
+          B2_ACC10_KEY_ID: ${{ secrets.B2_ACC10_KEY_ID }}
+          B2_ACC10_APP_KEY: ${{ secrets.B2_ACC10_APP_KEY }}
+          B2_ACC10_BUCKET_NAME: ${{ secrets.B2_ACC10_BUCKET_NAME }}
+          B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
+          B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
+        run: |
+          LIMIT_VAL="${{ github.event.inputs.batch_limit || 50 }}"
+          echo "🚀 Menjalankan Cron Sync B2 Packs (Had: $LIMIT_VAL tajuk)..."
+          python live_engine/12_sync_b2_packs_to_active_storage.py --limit "$LIMIT_VAL" --delay 0.1
+
+      - name: Commit dan Simpan Rekod Penjejak & Scraped History (Auto-Rebase Safe)
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Gabungkan jurnal WAL SQLite ke fail utama sebelum staging
+          python3 -c "
+          import sqlite3
+          for db in ['live_engine/data/b2_active_synced_tracker.db', 'live_engine/data/stremio_cache.db']:
+              try:
+                  conn = sqlite3.connect(db)
+                  conn.execute('PRAGMA wal_checkpoint(TRUNCATE);')
+                  conn.close()
+              except Exception:
+                  pass
+          " 2>/dev/null || true
+
+          # Tambah fail penjejak aktif dan sejarah
+          [ -f "live_engine/data/b2_active_synced_tracker.db" ] && git add live_engine/data/b2_active_synced_tracker.db
+          [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: sync B2 active pre-warm records and history [skip ci]"
+            
+            # Rebase automatik sekiranya remote mempunyai commit baharu semasa proses berjalan
+            for i in {1..3}; do
+              git fetch origin main
+              if git rebase origin/main; then
+                if git push origin main; then
+                  echo "✅ Berjaya sync rekod b2_active_synced ke GitHub!"
+                  exit 0
+                fi
+              else
+                git rebase --abort
+                git pull origin main --no-rebase -X ours -m "merge: resolve b2 active sync history [skip ci]"
+                if git push origin main; then
+                  echo "✅ Berjaya merge & push rekod b2_active_synced ke GitHub!"
+                  exit 0
+                fi
+              fi
+              echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
+              sleep 2
+            done
+            exit 1
+          else
+            echo "ℹ️ Tiada perubahan rekod penjejak baharu dikesan."
+          fi
