@@ -158,7 +158,6 @@ def download_zip_binary(url: str) -> Optional[bytes]:
         "Accept": "*/*"
     }
 
-    # Percubaan 1: Menggunakan curl_cffi
     try:
         resp = requests.get(url, headers=headers, timeout=30)
         if resp.status_code == 200 and len(resp.content) > 50:
@@ -166,7 +165,6 @@ def download_zip_binary(url: str) -> Optional[bytes]:
     except Exception:
         pass
 
-    # Percubaan 2: Menggunakan urllib sekiranya curl_cffi gagal
     if not raw_data:
         try:
             req = urllib.request.Request(url, headers=headers)
@@ -181,7 +179,6 @@ def download_zip_binary(url: str) -> Optional[bytes]:
         console.print("[bold red]❌ Gagal: Data diterima daripada Cloudflare Worker kosong atau tidak lengkap.[/bold red]")
         return None
 
-    # Pengesahan Format Fail ZIP (Magic Bytes: PK\x03\x04 atau PK\x05\x06)
     if not raw_data.startswith(b"PK"):
         preview = raw_data[:150].decode("utf-8", errors="ignore")
         console.print(f"[bold red]❌ Kandungan diterima bukan format ZIP binari yang sah! Respon pelayan:\n{preview}[/bold red]")
@@ -202,14 +199,16 @@ def run_fallback_importer(target_imdb: str) -> bool:
         border_style="cyan"
     ))
 
-    # 1. Semak sama ada sarikata daripada arkib ini sudah sedia ada di Redis utama
+    # 1. Semak sama ada sarikata sudah ada dan URL sah (tiada ruang kosong)
     existing_records = _redis.get_subtitle_records(base_imdb_id)
     has_pack_already = any(
-        isinstance(r, dict) and r.get("source") == "subscene_archive_pack"
+        isinstance(r, dict)
+        and r.get("source") == "subscene_archive_pack"
+        and " " not in r.get("url", "")
         for r in existing_records
     )
     if has_pack_already:
-        console.print(f"ℹ️ Sarikata arkib untuk [yellow]{base_imdb_id}[/yellow] telah sedia wujud di Redis utama. Langkau muat naik.")
+        console.print(f"ℹ️ Sarikata arkib sah untuk [yellow]{base_imdb_id}[/yellow] telah wujud di Redis utama. Langkau muat naik.")
         return True
 
     # 2. Ambil metadata fail ZIP daripada TG Upstash Redis
@@ -230,7 +229,7 @@ def run_fallback_importer(target_imdb: str) -> bool:
     console.print(f"   ├─ Fail ZIP : [yellow]{zip_fn}[/yellow]")
     console.print(f"   └─ URL B2   : [link={b2_zip_url}]{b2_zip_url}[/link]")
 
-    # 3. Muat turun fail ZIP binari dalam memori (Zero disk storage)
+    # 3. Muat turun fail ZIP binari dalam memori
     console.print("📥 Memuat turun fail ZIP dari B2 via Cloudflare Zero-Egress Proxy...")
     zip_bytes = download_zip_binary(b2_zip_url)
     if not zip_bytes:
@@ -270,7 +269,12 @@ def run_fallback_importer(target_imdb: str) -> bool:
         clean_rel = Path(raw_fn).stem
         ext = Path(raw_fn).suffix.lower() or ".srt"
 
-        b2_sub_path = f"subs/{base_imdb_id}/ms_pack_{idx}_{clean_rel}{ext}"
+        # Gantikan semua simbol dan ruang kosong dengan tanda titik tunggal
+        safe_rel = re.sub(r"[^\w\d]", ".", clean_rel)
+        safe_rel = re.sub(r"\.+", ".", safe_rel).strip(".")
+
+        # Laluan muat naik B2 bebas daripada sebarang ruang kosong
+        b2_sub_path = f"subs/{base_imdb_id}/ms_pack_{idx}_{safe_rel}{ext}"
 
         try:
             b2_res = _b2.upload_subtitle_to_b2(b2_sub_path, sub_item["content"])
@@ -295,7 +299,7 @@ def run_fallback_importer(target_imdb: str) -> bool:
                 episodic_groups[ep_key].append(record)
 
             uploaded_records.append(record)
-            console.print(f"  ✔ [B2 Acc #{b2_res['account_index']}] Diproses: [dim]{raw_fn}[/dim]")
+            console.print(f"  ✔ [B2 Acc #{b2_res['account_index']}] Diproses: [dim]{safe_rel}{ext}[/dim]")
 
         except _b2.AllB2AccountsExhaustedException as e:
             console.print(f"[bold red]🚨 {e}[/bold red]")
@@ -307,7 +311,7 @@ def run_fallback_importer(target_imdb: str) -> bool:
         console.print("[bold red]❌ Tiada sarikata yang berjaya dimuat naik ke B2.[/bold red]")
         return False
 
-    # 6. Simpan rekod secara berkelompok ke 10 Redis utama (Modulo Sharded)
+    # 6. Simpan rekod ke 10 Redis utama (Modulo Sharded)
     console.print("\n💾 Menyimpan rekod ke pangkalan data Redis utama (10 Akaun Sharded)...")
     _redis.save_subtitle_records_batch(base_imdb_id, uploaded_records)
 
