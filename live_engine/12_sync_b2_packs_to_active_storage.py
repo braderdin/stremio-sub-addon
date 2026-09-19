@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.1)
+# PROJEK: STREMIO LIVE ENGINE - B2 PACKS CRON SYNC & PRE-WARM ENGINE (V1.2 DETAILED LOGS)
 # LOKASI: /home/braderdin/stremio-sub-addon/live_engine/12_sync_b2_packs_to_active_storage.py
 # ==============================================================================
 
@@ -127,6 +127,17 @@ def parse_season_episode(filename: str) -> Tuple[Optional[int], Optional[int]]:
 
     return None, None
 
+def get_redis_shard_index(imdb_id: str) -> int:
+    """Mengira shard Redis utama mana yang digunakan berdasarkan modulo hash."""
+    try:
+        if hasattr(_redis, "REDIS_ACCOUNTS") and _redis.REDIS_ACCOUNTS:
+            total_shards = len(_redis.REDIS_ACCOUNTS)
+            hash_val = int(hashlib.md5(imdb_id.encode("utf-8")).hexdigest(), 16)
+            return (hash_val % total_shards) + 1
+    except Exception:
+        pass
+    return 1
+
 # ==============================================================================
 # BACAAN PAKEJ DARI TG UPSTASH REDIS
 # ==============================================================================
@@ -220,7 +231,7 @@ def run_cron_sync(batch_limit: int, delay: float):
         console.print(f"[bold red]❌ Ralat: Fail sumber rujukan tidak dijumpai: {PACKAGED_TRACKER_PATH}[/bold red]")
         sys.exit(1)
 
-    # 1. Buka pangkalan data rujukan secara Read-Only (Strict Isolation)
+    # 1. Buka pangkalan data rujukan secara Read-Only
     try:
         pkg_conn = sqlite3.connect(f"file:{PACKAGED_TRACKER_PATH}?mode=ro", uri=True)
         pkg_cur = pkg_conn.cursor()
@@ -251,18 +262,14 @@ def run_cron_sync(batch_limit: int, delay: float):
 
         local_info = local_synced_meta[imdb_id]
         
-        # Semak Lapisan Hash SHA-256
         if pkg_hash and local_info["hash"]:
             if pkg_hash != local_info["hash"]:
                 tasks_to_process.append((pkg, "KEMAS_KINI"))
                 continue
         
-        # Semak Bilangan Sarikata
         if subs_count != local_info["uploaded_count"]:
             tasks_to_process.append((pkg, "KEMAS_KINI"))
             continue
-
-        # Jika identikal, langkau (Skip)
 
     console.print(Panel.fit(
         f"[bold cyan]Status Penapisan Cron Tri-Metric:[/bold cyan]\n"
@@ -286,7 +293,6 @@ def run_cron_sync(batch_limit: int, delay: float):
     for item, action_type in batch_run:
         imdb_id, zip_fn, title, year, m_type, subs_count, sz_bytes, pkg_hash = item
 
-        # Ambil metadata URL B2 terkini dari TG Redis
         pack_meta = fetch_pack_metadata(imdb_id)
         if not pack_meta or not pack_meta.get("b2_url"):
             console.print(f"⚠️ [yellow]{imdb_id}[/yellow]: URL B2 tidak ditemui di TG Redis. Langkau.")
@@ -294,7 +300,6 @@ def run_cron_sync(batch_limit: int, delay: float):
 
         b2_zip_url = pack_meta["b2_url"]
         
-        # Muat turun ZIP dari B2
         zip_bytes = download_zip_binary(b2_zip_url)
         if not zip_bytes:
             console.print(f"❌ [red]{imdb_id}[/red]: Gagal memuat turun fail ZIP binari dari {b2_zip_url}")
@@ -302,7 +307,6 @@ def run_cron_sync(batch_limit: int, delay: float):
 
         real_hash = hashlib.sha256(zip_bytes).hexdigest()
 
-        # Ekstrak sarikata dari memori ZIP
         extracted_subs = []
         try:
             with zipfile.ZipFile(io.BytesIO(zip_bytes)) as zf:
@@ -322,9 +326,16 @@ def run_cron_sync(batch_limit: int, delay: float):
         if not extracted_subs:
             continue
 
-        # Muat naik fail .srt individu ke B2 Aktif & Kumpul untuk Redis
         uploaded_records = []
         episodic_groups: Dict[str, List[Dict[str, Any]]] = {}
+        shard_idx = get_redis_shard_index(imdb_id)
+
+        # Paparan Jadual Terperinci untuk Setiap Judul & Fail Sarikata
+        table = Table(title=f"📦 Pakej: [bold cyan]{zip_fn}[/bold cyan] ({title})", border_style="cyan")
+        table.add_column("No", style="dim", justify="right")
+        table.add_column("Nama Fail Sarikata (Ekstrak)", style="white")
+        table.add_column("Destinasi B2 Aktif", style="yellow")
+        table.add_column("Redis Utama", style="green")
 
         for idx, sub_item in enumerate(extracted_subs, 1):
             raw_fn = sub_item["filename"]
@@ -360,6 +371,11 @@ def run_cron_sync(batch_limit: int, delay: float):
 
                 uploaded_records.append(record)
 
+                # Tambah baris ke jadual terperinci
+                b2_desc = f"B2 Akaun #{b2_res['account_index']}"
+                redis_desc = f"Redis Shard #{shard_idx}"
+                table.add_row(str(idx), f"{safe_rel}{ext}", b2_desc, redis_desc)
+
             except _b2.AllB2AccountsExhaustedException as e:
                 console.print(f"\n[bold red]🚨 {e}[/bold red]")
                 break
@@ -369,12 +385,15 @@ def run_cron_sync(batch_limit: int, delay: float):
         if not uploaded_records:
             continue
 
+        # Paparkan jadual terperinci di terminal log GitHub Actions
+        console.print(table)
+
         # Simpan ke Redis utama (10 Sharded Accounts)
         _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
         for ep_key, ep_recs in episodic_groups.items():
             _redis.save_subtitle_records_batch(ep_key, ep_recs)
 
-        # Rekod ke scraped_history.json menggunakan m_type yang sah
+        # Rekod ke scraped_history.json
         append_to_scraped_history(imdb_id, title, year, m_type, len(uploaded_records))
 
         # Kemas kini penjejak aktif tempatan
@@ -397,7 +416,7 @@ def run_cron_sync(batch_limit: int, delay: float):
         active_conn.commit()
 
         success_processed += 1
-        console.print(f"  ✔ [{success_processed}/{len(batch_run)}] Selesai diselaraskan: [bold white]{title}[/bold white] ([yellow]{imdb_id}[/yellow]) -> [green]{len(uploaded_records)} sarikata[/green]")
+        console.print(f"  ✔ [{success_processed}/{len(batch_run)}] Selesai diselaraskan: [bold white]{title}[/bold white] ([yellow]{imdb_id}[/yellow]) -> [green]{len(uploaded_records)} sarikata berjaya[/green]\n")
 
         if delay > 0:
             time.sleep(delay)
@@ -409,8 +428,8 @@ def run_cron_sync(batch_limit: int, delay: float):
         f"[bold green]✨ CRON SYNC SELESAI[/bold green]\n"
         f"├─ Berjaya Diproses & Diselaraskan : [yellow]{success_processed:,}[/yellow] tajuk\n"
         f"└─ Pangkalan Data Penjejak Aktif  : [cyan]{ACTIVE_SYNCED_TRACKER_DB}[/cyan]",
-        title="Ringkasan Cron", border_style="green"
-    ))
+        title="Ringkasan Cron", border_style="green"]
+    )
 
 # ==============================================================================
 # ENTRY POINT CLI
