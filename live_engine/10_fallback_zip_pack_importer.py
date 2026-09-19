@@ -13,6 +13,7 @@ import time
 import zipfile
 import argparse
 import importlib
+import urllib.request
 from pathlib import Path
 from typing import Optional, Dict, Any, Tuple, List
 from curl_cffi import requests
@@ -49,7 +50,6 @@ except ImportError as e:
 ENV_LOCAL_PATH = PROJECT_ROOT / ".env.local"
 env_vars = dotenv_values(str(ENV_LOCAL_PATH)) if ENV_LOCAL_PATH.exists() else {}
 
-# Membaca persekitaran GitHub Secrets / .env.local tempatan
 TG_REDIS_URL = (
     os.getenv("TG_UPSTASH_REDIS_REST_URL")
     or env_vars.get("TG_UPSTASH_REDIS_REST_URL", "")
@@ -78,19 +78,16 @@ def parse_season_episode(filename: str) -> Tuple[Optional[int], Optional[int]]:
     """Mengekstrak maklumat Musim dan Episod daripada nama fail sarikata."""
     clean_fn = re.sub(r"(?i)\b(?:2160|1080|720|480)\b", " ", filename)
 
-    # 1. Format S01E02 / s1e2
     m1 = re.search(r"\b[sS](\d{1,2})[-_ ]*[eE](\d{1,3})\b", clean_fn)
     if m1:
         return int(m1.group(1)), int(m1.group(2))
 
-    # 2. Format 1x02
     m2 = re.search(r"\b(\d{1,2})x(\d{1,3})\b", clean_fn)
     if m2:
         s, e = int(m2.group(1)), int(m2.group(2))
         if s < 50 and e < 500:
             return s, e
 
-    # 3. Format Ep.02 / Episode 2
     m3 = re.search(r"\b(?:ep|episode|e)[-_\.\s]*(\d{1,3})\b", clean_fn, re.IGNORECASE)
     if m3:
         return 1, int(m3.group(1))
@@ -151,6 +148,48 @@ def append_to_scraped_history(imdb_id: str, title: str, year: str, media_type: s
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 # ==============================================================================
+# MUAT TURUN FAIL BINARI DENGAN PENGESAHAN MAGIC BYTES
+# ==============================================================================
+def download_zip_binary(url: str) -> Optional[bytes]:
+    """Muat turun fail ZIP binari tulen dengan semakan pengepala PK\x03\x04."""
+    raw_data = None
+    headers = {
+        "User-Agent": "Mozilla/5.0 (StremioFallbackRunner/1.0)",
+        "Accept": "*/*"
+    }
+
+    # Percubaan 1: Menggunakan curl_cffi
+    try:
+        resp = requests.get(url, headers=headers, timeout=30)
+        if resp.status_code == 200 and len(resp.content) > 50:
+            raw_data = resp.content
+    except Exception:
+        pass
+
+    # Percubaan 2: Menggunakan urllib sekiranya curl_cffi gagal
+    if not raw_data:
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                if resp.status == 200:
+                    raw_data = resp.read()
+        except Exception as e:
+            console.print(f"[bold red]❌ Ralat muat turun arkib ZIP: {e}[/bold red]")
+            return None
+
+    if not raw_data or len(raw_data) < 50:
+        console.print("[bold red]❌ Gagal: Data diterima daripada Cloudflare Worker kosong atau tidak lengkap.[/bold red]")
+        return None
+
+    # Pengesahan Format Fail ZIP (Magic Bytes: PK\x03\x04 atau PK\x05\x06)
+    if not raw_data.startswith(b"PK"):
+        preview = raw_data[:150].decode("utf-8", errors="ignore")
+        console.print(f"[bold red]❌ Kandungan diterima bukan format ZIP binari yang sah! Respon pelayan:\n{preview}[/bold red]")
+        return None
+
+    return raw_data
+
+# ==============================================================================
 # ALUR UTAMA PENGIMPORTAN FALLBACK
 # ==============================================================================
 def run_fallback_importer(target_imdb: str) -> bool:
@@ -191,16 +230,10 @@ def run_fallback_importer(target_imdb: str) -> bool:
     console.print(f"   ├─ Fail ZIP : [yellow]{zip_fn}[/yellow]")
     console.print(f"   └─ URL B2   : [link={b2_zip_url}]{b2_zip_url}[/link]")
 
-    # 3. Muat turun fail ZIP terus ke dalam memori (Zero disk storage)
+    # 3. Muat turun fail ZIP binari dalam memori (Zero disk storage)
     console.print("📥 Memuat turun fail ZIP dari B2 via Cloudflare Zero-Egress Proxy...")
-    try:
-        resp = requests.get(b2_zip_url, timeout=30)
-        if resp.status_code != 200 or len(resp.content) < 100:
-            console.print(f"[bold red]❌ Gagal memuat turun fail ZIP dari B2 (HTTP {resp.status_code})[/bold red]")
-            return False
-        zip_bytes = resp.content
-    except Exception as e:
-        console.print(f"[bold red]❌ Ralat muat turun B2: {e}[/bold red]")
+    zip_bytes = download_zip_binary(b2_zip_url)
+    if not zip_bytes:
         return False
 
     # 4. Ekstrak fail sarikata di dalam memori
@@ -219,7 +252,7 @@ def run_fallback_importer(target_imdb: str) -> bool:
                         "content": text_content
                     })
     except Exception as e:
-        console.print(f"[bold red]❌ Ralat membuka fail ZIP dalam memori: {e}[/bold red]")
+        console.print(f"[bold red]❌ Ralat membuka arkib ZIP: {e}[/bold red]")
         return False
 
     if not extracted_subs:
@@ -237,7 +270,6 @@ def run_fallback_importer(target_imdb: str) -> bool:
         clean_rel = Path(raw_fn).stem
         ext = Path(raw_fn).suffix.lower() or ".srt"
 
-        # Tentukan format path muat naik B2
         b2_sub_path = f"subs/{base_imdb_id}/ms_pack_{idx}_{clean_rel}{ext}"
 
         try:
@@ -277,18 +309,14 @@ def run_fallback_importer(target_imdb: str) -> bool:
 
     # 6. Simpan rekod secara berkelompok ke 10 Redis utama (Modulo Sharded)
     console.print("\n💾 Menyimpan rekod ke pangkalan data Redis utama (10 Akaun Sharded)...")
-    
-    # 6.1 Simpan entri peringkat siri / filem utama
     _redis.save_subtitle_records_batch(base_imdb_id, uploaded_records)
 
-    # 6.2 Simpan entri episod tepat jika ada
     for ep_key, ep_recs in episodic_groups.items():
         _redis.save_subtitle_records_batch(ep_key, ep_recs)
 
-    # 7. Kemas kini scraped_history.json sahaja (no_subs_history.json diabaikan)
+    # 7. Kemas kini scraped_history.json sahaja
     append_to_scraped_history(base_imdb_id, title, year, media_type, len(uploaded_records))
 
-    # Jadual Ringkasan Output
     table = Table(title="✨ Status Selesai: Fallback ZIP Pack Importer", border_style="green")
     table.add_column("Atribut", style="cyan")
     table.add_column("Perincian Rekod", style="white")
