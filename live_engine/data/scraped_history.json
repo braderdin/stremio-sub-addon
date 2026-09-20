@@ -156996,7 +156996,7 @@
     "media_type": "movie",
     "subs_count": 22,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-20 13:15:51"
+    "timestamp": "2026-09-20 13:18:47"
   },
   "tt19755170": {
     "imdb_id": "tt19755170",
@@ -158275,5 +158275,86 @@
     "subs_count": 2,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-09-20 13:16:12"
+  },
+  "tt7978672": {
+    "imdb_id": "tt7978672",
+    "title": "Black Water: Abyss",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:18:54"
+  },
+  "tt0090738": {
+    "imdb_id": "tt0090738",
+    "title": "Black Widow",
+    "year": "1987",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:18:58"
+  },
+  "tt2717822": {
+    "imdb_id": "tt2717822",
+    "title": "Blackhat",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 4,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:07"
+  },
+  "tt7349662": {
+    "imdb_id": "tt7349662",
+    "title": "BlacKkKlansman",
+    "year": "2018",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:12"
+  },
+  "tt14060094": {
+    "imdb_id": "tt14060094",
+    "title": "Blacklight",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:14"
+  },
+  "tt13058290": {
+    "imdb_id": "tt13058290",
+    "title": "Blackpink: Light Up the Sky",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 6,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:20"
+  },
+  "tt14880612": {
+    "imdb_id": "tt14880612",
+    "title": "Blackpink: The Movie",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:22"
+  },
+  "tt0120611": {
+    "imdb_id": "tt0120611",
+    "title": "Blade",
+    "year": "1998",
+    "media_type": "movie",
+    "subs_count": 7,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:29"
+  },
+  "tt0187738": {
+    "imdb_id": "tt0187738",
+    "title": "Blade II",
+    "year": "2002",
+    "media_type": "movie",
+    "subs_count": 5,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:19:34"
   }
 }
