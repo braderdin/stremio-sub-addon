@@ -156996,7 +156996,7 @@
     "media_type": "movie",
     "subs_count": 22,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-20 12:24:14"
+    "timestamp": "2026-09-20 13:15:51"
   },
   "tt19755170": {
     "imdb_id": "tt19755170",
@@ -158194,5 +158194,86 @@
     "subs_count": 11,
     "source": "fallback_zip_pack",
     "timestamp": "2026-09-20 13:08:26"
+  },
+  "tt0265086": {
+    "imdb_id": "tt0265086",
+    "title": "Black Hawk Down",
+    "year": "2002",
+    "media_type": "movie",
+    "subs_count": 7,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:15:58"
+  },
+  "tt0074211": {
+    "imdb_id": "tt0074211",
+    "title": "Black Magic 2",
+    "year": "1976",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:00"
+  },
+  "tt0264429": {
+    "imdb_id": "tt0264429",
+    "title": "Black Mask 2: City of Masks",
+    "year": "2002",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:02"
+  },
+  "tt1355683": {
+    "imdb_id": "tt1355683",
+    "title": "Black Mass",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:04"
+  },
+  "tt9495224": {
+    "imdb_id": "tt9495224",
+    "title": "Black Mirror: Bandersnatch",
+    "year": "2018",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:05"
+  },
+  "tt0758442": {
+    "imdb_id": "tt0758442",
+    "title": "Black Night",
+    "year": "2005",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:07"
+  },
+  "tt9114286": {
+    "imdb_id": "tt9114286",
+    "title": "Black Panther: Wakanda Forever",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:09"
+  },
+  "tt0462200": {
+    "imdb_id": "tt0462200",
+    "title": "Black Snake Moan",
+    "year": "2006",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:11"
+  },
+  "tt0947798": {
+    "imdb_id": "tt0947798",
+    "title": "Black Swan",
+    "year": "2010",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:16:12"
   }
 }
