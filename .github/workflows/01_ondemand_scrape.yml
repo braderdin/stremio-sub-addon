@@ -134,17 +134,21 @@ jobs:
           
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           
-          # Gabungkan jurnal WAL SQLite ke berkas utama sebelum staging
+          # 1. Gabungkan jurnal WAL SQLite ke fail fizikal sebelum staging
           python3 -c "import sqlite3; conn = sqlite3.connect('live_engine/data/stremio_cache.db'); conn.execute('PRAGMA wal_checkpoint(TRUNCATE);'); conn.close()" 2>/dev/null || true
 
-          # Pantau berkas cache SQLite dan scraped_history.json
+          # 2. Hanya stage fail SQLite cache dan scraped_history.json
           [ -f "live_engine/data/stremio_cache.db" ] && git add live_engine/data/stremio_cache.db
           [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
 
           if ! git diff --cached --quiet; then
             git commit -m "auto: update scraped_history in db & json for $TARGET_IMDB [skip ci]"
             
-            # Rebase otomatis jika remote menerima commit baru saat runner berjalan
+            # 3. Buang sebarang perubahan fail sampingan (seperti b2_active_synced_tracker.db) agar ruang kerja 100% bersih
+            git checkout -- . 2>/dev/null || true
+            git clean -fd 2>/dev/null || true
+
+            # 4. Tolak selamat dengan sokongan auto-rebase & fallback merge
             for i in {1..3}; do
               git fetch origin main
               if git rebase origin/main; then
@@ -153,8 +157,7 @@ jobs:
                   exit 0
                 fi
               else
-                git rebase --abort
-                # Hapus argumen -m agar tidak memicu 'unknown switch m'
+                git rebase --abort 2>/dev/null || true
                 git pull origin main --no-rebase -X ours --no-edit
                 if git push origin main; then
                   echo "✅ Berjaya merge & push rekod on-demand history ke GitHub!"
