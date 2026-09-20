@@ -156996,7 +156996,7 @@
     "media_type": "movie",
     "subs_count": 22,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-20 13:18:47"
+    "timestamp": "2026-09-20 13:22:53"
   },
   "tt19755170": {
     "imdb_id": "tt19755170",
@@ -158356,5 +158356,86 @@
     "subs_count": 5,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-09-20 13:19:34"
+  },
+  "tt1856101": {
+    "imdb_id": "tt1856101",
+    "title": "Blade Runner 2049",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 13,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:01"
+  },
+  "tt5084170": {
+    "imdb_id": "tt5084170",
+    "title": "Blade of the Immortal",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:03"
+  },
+  "tt0445934": {
+    "imdb_id": "tt0445934",
+    "title": "Blades of Glory",
+    "year": "2007",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:04"
+  },
+  "tt1540011": {
+    "imdb_id": "tt1540011",
+    "title": "Blair Witch",
+    "year": "2016",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:07"
+  },
+  "tt0124298": {
+    "imdb_id": "tt0124298",
+    "title": "Blast from the Past",
+    "year": "1999",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:09"
+  },
+  "tt14866710": {
+    "imdb_id": "tt14866710",
+    "title": "Blasted",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:10"
+  },
+  "tt5979872": {
+    "imdb_id": "tt5979872",
+    "title": "Bleach",
+    "year": "2018",
+    "media_type": "movie",
+    "subs_count": 6,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:15"
+  },
+  "tt14986406": {
+    "imdb_id": "tt14986406",
+    "title": "Bleach: Thousand-Year Blood War",
+    "year": "2022",
+    "media_type": "series",
+    "subs_count": 25,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:33"
+  },
+  "tt5813366": {
+    "imdb_id": "tt5813366",
+    "title": "Bleeding Steel",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 9,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 13:23:36"
   }
 }
