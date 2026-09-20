@@ -126,15 +126,15 @@ jobs:
           echo "📦 [LANGKAH 2/2] Menjalankan Fallback Pakej Arkib ZIP (B2 & TG Redis)..."
           python live_engine/10_fallback_zip_pack_importer.py --imdb "$TARGET_IMDB"
 
-      - name: Commit dan Simpan Rekod Penjejak & Scraped History (Auto-Rebase Safe)
+      - name: Commit dan Simpan Rekod Penjejak & Scraped History (Smart Merge Safe)
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
-          
-          # Gabungkan jurnal WAL SQLite ke fail utama sebelum staging
+
+          # 1. Pastikan jurnal WAL SQLite disatukan ke fail fizikal
           python3 -c "
           import sqlite3
           for db in ['live_engine/data/b2_active_synced_tracker.db', 'live_engine/data/stremio_cache.db']:
@@ -146,33 +146,88 @@ jobs:
                   pass
           " 2>/dev/null || true
 
-          # Pantau fail penjejak aktif, cache SQLite, dan scraped_history.json
-          [ -f "live_engine/data/b2_active_synced_tracker.db" ] && git add live_engine/data/b2_active_synced_tracker.db
-          [ -f "live_engine/data/stremio_cache.db" ] && git add live_engine/data/stremio_cache.db
-          [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
+          # 2. Sandarkan hasil larian runner ini ke folder sementara
+          mkdir -p /tmp/sync_backup
+          [ -f "live_engine/data/b2_active_synced_tracker.db" ] && cp "live_engine/data/b2_active_synced_tracker.db" /tmp/sync_backup/
+          [ -f "live_engine/data/stremio_cache.db" ] && cp "live_engine/data/stremio_cache.db" /tmp/sync_backup/
+          [ -f "live_engine/data/scraped_history.json" ] && cp "live_engine/data/scraped_history.json" /tmp/sync_backup/
 
-          if ! git diff --cached --quiet; then
-            git commit -m "auto: update active sync tracker & history for $TARGET_IMDB [skip ci]"
+          # 3. Gelung penyelarasan pintar (Smart In-Memory Data Merge)
+          for i in {1..3}; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Cantumkan data baharu runner ke dalam fail terkini dari origin/main
+            python3 -c "
+            import os, json, sqlite3, shutil
+            from pathlib import Path
+
+            # A. Gabungkan b2_active_synced_tracker.db (Baris SQLite)
+            bk_db = Path('/tmp/sync_backup/b2_active_synced_tracker.db')
+            cur_db = Path('live_engine/data/b2_active_synced_tracker.db')
+            cur_db.parent.mkdir(parents=True, exist_ok=True)
+
+            if bk_db.exists():
+                if not cur_db.exists():
+                    shutil.copy2(bk_db, cur_db)
+                else:
+                    try:
+                        conn = sqlite3.connect(str(cur_db))
+                        conn.execute('PRAGMA journal_mode = WAL;')
+                        conn.execute(f'ATTACH DATABASE \"{bk_db}\" AS backup_db;')
+                        conn.execute('''
+                            INSERT OR REPLACE INTO b2_active_synced
+                            SELECT * FROM backup_db.b2_active_synced;
+                        ''')
+                        conn.commit()
+                        conn.execute('DETACH DATABASE backup_db;')
+                        conn.execute('PRAGMA wal_checkpoint(TRUNCATE);')
+                        conn.close()
+                    except Exception:
+                        shutil.copy2(bk_db, cur_db)
+
+            # B. Gabungkan scraped_history.json (Kunci JSON)
+            bk_json = Path('/tmp/sync_backup/scraped_history.json')
+            cur_json = Path('live_engine/data/scraped_history.json')
             
-            for i in {1..3}; do
-              git fetch origin main
-              if git rebase origin/main; then
-                if git push origin main; then
-                  echo "✅ Berjaya sync rekod ke GitHub!"
-                  exit 0
-                fi
-              else
-                git rebase --abort
-                git pull origin main --no-rebase -X ours -m "merge: resolve ondemand history sync for $TARGET_IMDB [skip ci]"
-                if git push origin main; then
-                  echo "✅ Berjaya merge & push rekod ke GitHub!"
-                  exit 0
-                fi
-              fi
-              echo "⚠️ Percubaan $i gagal kerana remote berubah, mencuba semula..."
-              sleep 2
-            done
-            exit 1
-          else
-            echo "ℹ️ Tiada perubahan rekod penjejak atau sejarah dikesan."
-          fi
+            cur_data = {}
+            if cur_json.exists():
+                try:
+                    with open(cur_json, 'r', encoding='utf-8') as f:
+                        cur_data = json.load(f)
+                except Exception:
+                    cur_data = {}
+
+            if bk_json.exists():
+                try:
+                    with open(bk_json, 'r', encoding='utf-8') as f:
+                        b_data = json.load(f)
+                        cur_data.update(b_data)
+                except Exception:
+                    pass
+
+            with open(cur_json, 'w', encoding='utf-8') as f:
+                json.dump(cur_data, f, indent=2, ensure_ascii=False)
+            "
+
+            # 4. Stage dan Commit
+            [ -f "live_engine/data/b2_active_synced_tracker.db" ] && git add live_engine/data/b2_active_synced_tracker.db
+            [ -f "live_engine/data/scraped_history.json" ] && git add live_engine/data/scraped_history.json
+
+            if git diff --cached --quiet; then
+              echo "ℹ️ Tiada perubahan rekod penjejak baharu untuk di-push."
+              exit 0
+            fi
+
+            git commit -m "auto: update active sync tracker & history for $TARGET_IMDB [skip ci]"
+
+            if git push origin main; then
+              echo "✅ Berjaya sync rekod secara atomik ke GitHub!"
+              exit 0
+            fi
+
+            echo "⚠️ Percubaan $i ditolak kerana remote berubah semasa cantuman, mencuba semula..."
+            sleep 2
+          done
+
+          exit 1
