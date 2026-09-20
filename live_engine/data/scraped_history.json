@@ -156996,7 +156996,7 @@
     "media_type": "movie",
     "subs_count": 22,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-20 11:30:01"
+    "timestamp": "2026-09-20 12:24:14"
   },
   "tt19755170": {
     "imdb_id": "tt19755170",
@@ -158104,5 +158104,86 @@
     "subs_count": 14,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-09-20 11:38:13"
+  },
+  "tt13372884": {
+    "imdb_id": "tt13372884",
+    "title": "Black as Night",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:16"
+  },
+  "tt2630336": {
+    "imdb_id": "tt2630336",
+    "title": "Black Butler",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:18"
+  },
+  "tt10341034": {
+    "imdb_id": "tt10341034",
+    "title": "Black Box",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:21"
+  },
+  "tt22868844": {
+    "imdb_id": "tt22868844",
+    "title": "Black Clover: Sword of the Wizard King",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:24"
+  },
+  "tt6708668": {
+    "imdb_id": "tt6708668",
+    "title": "Black Crab",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:28"
+  },
+  "tt15475330": {
+    "imdb_id": "tt15475330",
+    "title": "Black Cake",
+    "year": "2023",
+    "media_type": "series",
+    "subs_count": 8,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:36"
+  },
+  "tt1683402": {
+    "imdb_id": "tt1683402",
+    "title": "Black Gold",
+    "year": "2011",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:38"
+  },
+  "tt11863046": {
+    "imdb_id": "tt11863046",
+    "title": "The Edge of All We Know",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:40"
+  },
+  "tt12607910": {
+    "imdb_id": "tt12607910",
+    "title": "Black Is King",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-20 12:24:42"
   }
 }
