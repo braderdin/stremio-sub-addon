@@ -195,11 +195,11 @@ def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
     print("\n" + "=" * 70)
     print(f"🚨 [TINDAKAN DIPERLUKAN] Sila selesaikan cabaran {target_mode.upper()} pada skrin pelayar.")
     print("👉 Klik petak gambar atau langkau cabaran pada tetingkap yang terbuka.")
-    print("⏳ Skrip bersedia menunggu anda selesai (had masa 60 saat)...")
+    print("⏳ Skrip bersedia menunggu anda selesai (had masa 90 saat)...")
     print("=" * 70 + "\n")
 
     manual_start = time.time()
-    while time.time() - manual_start < 60:
+    while time.time() - manual_start < 90:
         token = get_recaptcha_token(page)
         if token:
             print(f"[✓] Token {target_mode} berjaya dikesan daripada penyelesaian pada skrin!")
@@ -314,7 +314,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
     watchdog_start = time.time()
     reached_thank_you = False
 
-    while time.time() - watchdog_start < 120:
+    while time.time() - watchdog_start < 180:
         curr_url = page.url.lower()
         if "sign-up-thank-you" in curr_url:
             print(f"[✓] Berjaya tiba di halaman pengesahan: {page.url}")
@@ -355,7 +355,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
         page.wait_for_timeout(2000)
 
     if not reached_thank_you:
-        raise TimeoutError("Borang pendaftaran gagal tiba di 'sign-up-thank-you' dalam masa 120 saat.")
+        raise TimeoutError("Borang pendaftaran gagal tiba di 'sign-up-thank-you' dalam masa 180 saat.")
 
     # =============================================================
     # [FASA 4: SEMAKAN EMEL PENGAKTIFAN DI GMAIL]
