@@ -156996,7 +156996,7 @@
     "media_type": "movie",
     "subs_count": 22,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:17"
+    "timestamp": "2026-09-21 23:20:16"
   },
   "tt19755170": {
     "imdb_id": "tt19755170",
@@ -160461,7 +160461,7 @@
     "media_type": "movie",
     "subs_count": 3,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:24"
+    "timestamp": "2026-09-21 23:20:23"
   },
   "tt13650494": {
     "imdb_id": "tt13650494",
@@ -163386,7 +163386,7 @@
     "media_type": "movie",
     "subs_count": 4,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:33"
+    "timestamp": "2026-09-21 23:20:31"
   },
   "tt14730768": {
     "imdb_id": "tt14730768",
@@ -163746,7 +163746,7 @@
     "media_type": "movie",
     "subs_count": 8,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:42"
+    "timestamp": "2026-09-21 23:20:42"
   },
   "tt23650168": {
     "imdb_id": "tt23650168",
@@ -165447,7 +165447,7 @@
     "media_type": "movie",
     "subs_count": 1,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:44"
+    "timestamp": "2026-09-21 23:20:43"
   },
   "tt0033563": {
     "imdb_id": "tt0033563",
@@ -168597,7 +168597,7 @@
     "media_type": "movie",
     "subs_count": 4,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:47"
+    "timestamp": "2026-09-21 23:20:47"
   },
   "tt0910554": {
     "imdb_id": "tt0910554",
@@ -171405,7 +171405,7 @@
     "media_type": "movie",
     "subs_count": 6,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:32:53"
+    "timestamp": "2026-09-21 23:20:53"
   },
   "tt0295297": {
     "imdb_id": "tt0295297",
@@ -174915,7 +174915,7 @@
     "media_type": "movie",
     "subs_count": 7,
     "source": "cron_b2_pack_sync",
-    "timestamp": "2026-09-21 19:37:53"
+    "timestamp": "2026-09-21 23:20:59"
   },
   "tt5310090": {
     "imdb_id": "tt5310090",
@@ -175321,5 +175321,788 @@
     "subs_count": 1,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-09-21 19:42:03"
+  },
+  "tt2670454": {
+    "imdb_id": "tt2670454",
+    "title": "Jan Dara: The Finale",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:01"
+  },
+  "tt2599106": {
+    "imdb_id": "tt2599106",
+    "title": "Jan Dara: The Beginning",
+    "year": "2012",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:05"
+  },
+  "tt15258040": {
+    "imdb_id": "tt15258040",
+    "title": "Janet: Sumpah Terlarang",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:08"
+  },
+  "tt5946852": {
+    "imdb_id": "tt5946852",
+    "title": "Janatha Garage",
+    "year": "2016",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:11"
+  },
+  "tt11302324": {
+    "imdb_id": "tt11302324",
+    "title": "James May: Our Man in...",
+    "year": "2020",
+    "media_type": "series",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:19"
+  },
+  "tt0790724": {
+    "imdb_id": "tt0790724",
+    "title": "Jack Reacher",
+    "year": "2012",
+    "media_type": "movie",
+    "subs_count": 6,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:25"
+  },
+  "tt5321584": {
+    "imdb_id": "tt5321584",
+    "title": "Jang Yeong Sil",
+    "year": "2016",
+    "media_type": "series",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:28"
+  },
+  "tt30742760": {
+    "imdb_id": "tt30742760",
+    "title": "Janin Iblis Neraka",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:31"
+  },
+  "tt36506405": {
+    "imdb_id": "tt36506405",
+    "title": "Jangan Lupa Aku Cinta Padamu",
+    "year": "2024",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:33"
+  },
+  "tt1228705": {
+    "imdb_id": "tt1228705",
+    "title": "Iron Man 2",
+    "year": "2010",
+    "media_type": "movie",
+    "subs_count": 13,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:45"
+  },
+  "tt1760970": {
+    "imdb_id": "tt1760970",
+    "title": "Jangan Pandang Belakang Congkak 2",
+    "year": "2010",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:48"
+  },
+  "tt4896340": {
+    "imdb_id": "tt4896340",
+    "title": "James Bond",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:51"
+  },
+  "tt2083231": {
+    "imdb_id": "tt2083231",
+    "title": "Java Heat",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:54"
+  },
+  "tt11663228": {
+    "imdb_id": "tt11663228",
+    "title": "Jailer",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:21:57"
+  },
+  "tt4616014": {
+    "imdb_id": "tt4616014",
+    "title": "Jarhead 3: The Siege",
+    "year": "2016",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:01"
+  },
+  "tt0261392": {
+    "imdb_id": "tt0261392",
+    "title": "Jay and Silent Bob Strike Back",
+    "year": "2001",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:04"
+  },
+  "tt0473064": {
+    "imdb_id": "tt0473064",
+    "title": "Japan Sinks",
+    "year": "2006",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:07"
+  },
+  "tt11306376": {
+    "imdb_id": "tt11306376",
+    "title": "Jathi Ratnalu",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:10"
+  },
+  "tt0337651": {
+    "imdb_id": "tt0337651",
+    "title": "Jeena Marna Tere Sang",
+    "year": "1992",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:13"
+  },
+  "tt3699508": {
+    "imdb_id": "tt3699508",
+    "title": "Jarhead 2: Field of Fire",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:16"
+  },
+  "tt0301470": {
+    "imdb_id": "tt0301470",
+    "title": "Jeepers Creepers 2",
+    "year": "2003",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:19"
+  },
+  "tt27694298": {
+    "imdb_id": "tt27694298",
+    "title": "Jemputan Ke Neraka",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:23"
+  },
+  "tt1139592": {
+    "imdb_id": "tt1139592",
+    "title": "Jeepers Creepers III",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 4,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:28"
+  },
+  "tt11963590": {
+    "imdb_id": "tt11963590",
+    "title": "Jazzy Misfits",
+    "year": "2019",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:31"
+  },
+  "tt3364950": {
+    "imdb_id": "tt3364950",
+    "title": "Jeon Woo Chi",
+    "year": "2012",
+    "media_type": "series",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:33"
+  },
+  "tt21287314": {
+    "imdb_id": "tt21287314",
+    "title": "Jerangkung Dalam Almari",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:36"
+  },
+  "tt8323668": {
+    "imdb_id": "tt8323668",
+    "title": "Jerry and Marge Go Large",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:38"
+  },
+  "tt1588334": {
+    "imdb_id": "tt1588334",
+    "title": "Jeff, Who Lives at Home",
+    "year": "2011",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:42"
+  },
+  "tt8948790": {
+    "imdb_id": "tt8948790",
+    "title": "Jersey",
+    "year": "2019",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:44"
+  },
+  "tt3614530": {
+    "imdb_id": "tt3614530",
+    "title": "Jem and the Holograms",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:47"
+  },
+  "tt14121726": {
+    "imdb_id": "tt14121726",
+    "title": "Jeepers Creepers: Reborn",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:51"
+  },
+  "tt15354916": {
+    "imdb_id": "tt15354916",
+    "title": "Jawan",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:54"
+  },
+  "tt0116695": {
+    "imdb_id": "tt0116695",
+    "title": "Jerry Maguire",
+    "year": "1996",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:22:58"
+  },
+  "tt1300854": {
+    "imdb_id": "tt1300854",
+    "title": "Iron Man 3",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 19,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:13"
+  },
+  "tt0300051": {
+    "imdb_id": "tt0300051",
+    "title": "Jersey Girl",
+    "year": "2004",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:16"
+  },
+  "tt0116705": {
+    "imdb_id": "tt0116705",
+    "title": "Jingle All the Way",
+    "year": "1996",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:19"
+  },
+  "tt9903716": {
+    "imdb_id": "tt9903716",
+    "title": "Jessie",
+    "year": "2019",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:22"
+  },
+  "tt2300975": {
+    "imdb_id": "tt2300975",
+    "title": "Jessabelle",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 5,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:27"
+  },
+  "tt12877642": {
+    "imdb_id": "tt12877642",
+    "title": "Jingle Bell Bride",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:30"
+  },
+  "tt15567434": {
+    "imdb_id": "tt15567434",
+    "title": "Japan Sinks: People of Hope",
+    "year": "2021",
+    "media_type": "series",
+    "subs_count": 12,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:52"
+  },
+  "tt1562899": {
+    "imdb_id": "tt1562899",
+    "title": "Jinn",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 6,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:23:59"
+  },
+  "tt7736496": {
+    "imdb_id": "tt7736496",
+    "title": "Jingle Jangle: A Christmas Journey",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:03"
+  },
+  "tt21342096": {
+    "imdb_id": "tt21342096",
+    "title": "Jo Koy: Live from the Los Angeles Forum",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:06"
+  },
+  "tt2678948": {
+    "imdb_id": "tt2678948",
+    "title": "Jilla",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:10"
+  },
+  "tt9624766": {
+    "imdb_id": "tt9624766",
+    "title": "Jiu Jitsu",
+    "year": "2020",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:14"
+  },
+  "tt4031224": {
+    "imdb_id": "tt4031224",
+    "title": "It's Okay, That's Love",
+    "year": "2014",
+    "media_type": "series",
+    "subs_count": 17,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:45"
+  },
+  "tt0245686": {
+    "imdb_id": "tt0245686",
+    "title": "Joe Dirt",
+    "year": "2001",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:48"
+  },
+  "tt7738048": {
+    "imdb_id": "tt7738048",
+    "title": "Jo Pil-ho: The Dawning Rage",
+    "year": "2019",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:51"
+  },
+  "tt0116707": {
+    "imdb_id": "tt0116707",
+    "title": "Joe's Apartment",
+    "year": "1996",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:53"
+  },
+  "tt11307724": {
+    "imdb_id": "tt11307724",
+    "title": "John and the Hole",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:24:56"
+  },
+  "tt2357129": {
+    "imdb_id": "tt2357129",
+    "title": "Jobs",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:01"
+  },
+  "tt0279889": {
+    "imdb_id": "tt0279889",
+    "title": "Joe Somebody",
+    "year": "2001",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:05"
+  },
+  "tt1418754": {
+    "imdb_id": "tt1418754",
+    "title": "John Doe: Vigilante",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:08"
+  },
+  "tt1124377": {
+    "imdb_id": "tt1124377",
+    "title": "John Rabe",
+    "year": "2009",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:10"
+  },
+  "tt3486392": {
+    "imdb_id": "tt3486392",
+    "title": "Jingle All the Way 2",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 7,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:18"
+  },
+  "tt34754751": {
+    "imdb_id": "tt34754751",
+    "title": "Hell Teacher: Jigoku Sensei Nube",
+    "year": "2025",
+    "media_type": "series",
+    "subs_count": 10,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:38"
+  },
+  "tt1783732": {
+    "imdb_id": "tt1783732",
+    "title": "John Dies at the End",
+    "year": "2012",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:40"
+  },
+  "tt4196776": {
+    "imdb_id": "tt4196776",
+    "title": "Jason Bourne",
+    "year": "2016",
+    "media_type": "movie",
+    "subs_count": 15,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:25:54"
+  },
+  "tt21081006": {
+    "imdb_id": "tt21081006",
+    "title": "Jinxed at First",
+    "year": "2022",
+    "media_type": "series",
+    "subs_count": 16,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:24"
+  },
+  "tt0113481": {
+    "imdb_id": "tt0113481",
+    "title": "Johnny Mnemonic",
+    "year": "1995",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:27"
+  },
+  "tt6105880": {
+    "imdb_id": "tt6105880",
+    "title": "JoJo's Bizarre Adventure: Diamond Is Unbreakable - Chapter 1",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:29"
+  },
+  "tt0260991": {
+    "imdb_id": "tt0260991",
+    "title": "Joint Security Area",
+    "year": "2000",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:32"
+  },
+  "tt0401729": {
+    "imdb_id": "tt0401729",
+    "title": "John Carter",
+    "year": "2012",
+    "media_type": "movie",
+    "subs_count": 7,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:39"
+  },
+  "tt2911666": {
+    "imdb_id": "tt2911666",
+    "title": "John Wick",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 9,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:47"
+  },
+  "tt3446906": {
+    "imdb_id": "tt3446906",
+    "title": "Joker Game",
+    "year": "2015",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:49"
+  },
+  "tt0274166": {
+    "imdb_id": "tt0274166",
+    "title": "Johnny English",
+    "year": "2003",
+    "media_type": "movie",
+    "subs_count": 5,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:26:55"
+  },
+  "tt6146586": {
+    "imdb_id": "tt6146586",
+    "title": "John Wick: Chapter 3 - Parabellum",
+    "year": "2019",
+    "media_type": "movie",
+    "subs_count": 11,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:08"
+  },
+  "tt1075747": {
+    "imdb_id": "tt1075747",
+    "title": "Jonah Hex",
+    "year": "2010",
+    "media_type": "movie",
+    "subs_count": 2,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:12"
+  },
+  "tt2621000": {
+    "imdb_id": "tt2621000",
+    "title": "Jolly LLB",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:14"
+  },
+  "tt13848804": {
+    "imdb_id": "tt13848804",
+    "title": "Journey to Bethlehem",
+    "year": "2023",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:17"
+  },
+  "tt4425200": {
+    "imdb_id": "tt4425200",
+    "title": "John Wick: Chapter 2",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 12,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:27"
+  },
+  "tt5982852": {
+    "imdb_id": "tt5982852",
+    "title": "Jolly LLB 2",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:27:30"
+  },
+  "tt12451520": {
+    "imdb_id": "tt12451520",
+    "title": "It's Okay to Not Be Okay",
+    "year": "2020",
+    "media_type": "series",
+    "subs_count": 46,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:11"
+  },
+  "tt0206314": {
+    "imdb_id": "tt0206314",
+    "title": "Joy Ride",
+    "year": "2001",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:15"
+  },
+  "tt3780500": {
+    "imdb_id": "tt3780500",
+    "title": "Journey's End",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:17"
+  },
+  "tt1140941": {
+    "imdb_id": "tt1140941",
+    "title": "Joy Ride 2: Dead Ahead",
+    "year": "2008",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:20"
+  },
+  "tt3138376": {
+    "imdb_id": "tt3138376",
+    "title": "Joy Ride 3",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:23"
+  },
+  "tt0330500": {
+    "imdb_id": "tt0330500",
+    "title": "Ju-on: The Curse",
+    "year": "2000",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:28:26"
+  },
+  "tt2357547": {
+    "imdb_id": "tt2357547",
+    "title": "Marvel's Jessica Jones",
+    "year": "2015",
+    "media_type": "series",
+    "subs_count": 36,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:13"
+  },
+  "tt3572132": {
+    "imdb_id": "tt3572132",
+    "title": "Ju-on: The Beginning of the End",
+    "year": "2014",
+    "media_type": "movie",
+    "subs_count": 4,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:17"
+  },
+  "tt2017561": {
+    "imdb_id": "tt2017561",
+    "title": "Journey to the West: Conquering the Demons",
+    "year": "2013",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:21"
+  },
+  "tt0330501": {
+    "imdb_id": "tt0330501",
+    "title": "Ju-on: The Curse 2",
+    "year": "2000",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:23"
+  },
+  "tt16566428": {
+    "imdb_id": "tt16566428",
+    "title": "Juang",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:26"
+  },
+  "tt3647784": {
+    "imdb_id": "tt3647784",
+    "title": "Juarez 2045",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:29"
+  },
+  "tt0076241": {
+    "imdb_id": "tt0076241",
+    "title": "Judgement of an Assassin",
+    "year": "1977",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:32"
+  },
+  "tt5456546": {
+    "imdb_id": "tt5456546",
+    "title": "Judwaa 2",
+    "year": "2017",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:34"
+  },
+  "tt10228134": {
+    "imdb_id": "tt10228134",
+    "title": "Jolt",
+    "year": "2021",
+    "media_type": "movie",
+    "subs_count": 7,
+    "source": "cron_b2_pack_sync",
+    "timestamp": "2026-09-21 23:29:41"
   }
 }
