@@ -214,7 +214,7 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
         # 4. Percubaan Pintasan Audio
         try:
             audio_btn = bframe.locator("#recaptcha-audio-button").first
-            if audio_btn.is_visible(timeout=7000):
+            if audio_btn.is_visible(timeout=3000):
                 print("[*] Menekan butang audio reCAPTCHA (ikon fon kepala)...")
                 audio_btn.click(force=True)
                 human_delay(2.5, 4.0)
