@@ -115,7 +115,7 @@ def main():
             sync_env_file(output_path, all_accounts_map)
 
             # Jeda masa rehat sebelum akaun seterusnya
-            cooldown_seconds = 15.0
+            cooldown_seconds = 60.0
             print(f"[⏳] Berehat seketika selama {int(cooldown_seconds)} saat sebelum akaun berikutnya...")
             time.sleep(cooldown_seconds)
 
