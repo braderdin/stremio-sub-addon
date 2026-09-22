@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO SUB ADDON - SUBTITLE ENGINE CORE V3
+# PROJEK: STREMIO SUB ADDON - SUBTITLE ENGINE CORE V3 (FULL SCRAPER & AUTO DOWNLOAD)
 # LOKASI: /home/braderdin/stremio-sub-addon/sub_engine/01_sub_engine_core.py
 # CIRI:
-# 1. Dwi-Sumber Pintar: OpenSubtitles Public API + Camoufox Subsource (IMDb-First)
-# 2. Penapis Bahasa Ketat: HANYA Bahasa Melayu (ms) & Indonesia (id)
-# 3. Penyahmampatan Memori: Ekstrak terus daripada binari .srt, .zip dan .rar
-# 4. Sanitasi Format Titik: <lang>.<imdb_id>.<hash>.<tajuk_penuh_bersih>.<ext>
-# 5. Zero-Egress Proxy: https://b2-private-stremio-sub-addon.braderdin360.workers.dev
-# 6. Mengimport 100% Modul Asal: 00_config, 01_redis_db, 02_b2_storage, 03_zip_extractor
+# 1. Dwi-Sumber Pintar: OpenSubtitles Public API + Camoufox Subsource (In-Page Search)
+# 2. Muat Turun Penuh: Muat turun SEMUA sarikata BM & ID tanpa had (No Cap)
+# 3. Human Delay Dinamik: Jeda 2.5s - 5.0s & Fallback Web Refresh (Anti-Stuck)
+# 4. Penyahmampatan Memori: Ekstrak terus daripada binari .srt, .zip dan .rar
+# 5. Sanitasi Format Titik: <lang>.<imdb_id>.<hash>.<tajuk_penuh_bersih>.<ext>
+# 6. Zero-Egress Proxy: https://b2-private-stremio-sub-addon.braderdin360.workers.dev
+# 7. Mengimport 100% Modul Asal: 00_config, 01_redis_db, 02_b2_storage, 03_zip_extractor
 # ==============================================================================
 
 import os
 import re
 import io
 import sys
-import zlib
 import time
 import json
 import random
@@ -42,9 +42,11 @@ SUB_ENGINE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SUB_ENGINE_DIR.parent
 LIVE_ENGINE_DIR = PROJECT_ROOT / "live_engine"
 TEMP_DIR = SUB_ENGINE_DIR / "temp"
+DOWNLOADS_DIR = TEMP_DIR / "downloads"
 
-for p in [SUB_ENGINE_DIR, PROJECT_ROOT, LIVE_ENGINE_DIR, TEMP_DIR]:
-    if p.exists() and str(p) not in sys.path:
+for p in [SUB_ENGINE_DIR, PROJECT_ROOT, LIVE_ENGINE_DIR, TEMP_DIR, DOWNLOADS_DIR]:
+    p.mkdir(parents=True, exist_ok=True)
+    if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
 try:
@@ -87,8 +89,16 @@ SEQUEL_PATTERNS = [
 
 
 # ==============================================================================
-# 2. FUNGSI SANITASI TEKS, FORMAT TITIK & DEKOD KANDUNGAN
+# 2. BANTUAN SIMULASI MANUSIA & SANITASI TEKS
 # ==============================================================================
+def human_delay(min_s: float = 2.5, max_s: float = 5.0, tag: str = ""):
+    """Jeda masa rawak 2.5s hingga 5.0s agar web sentiasa bersedia merender elemen."""
+    wait = random.uniform(min_s, max_s)
+    lbl = f" ({tag})" if tag else ""
+    console.print(f"[dim]⏳ Menunggu {wait:.2f}s{lbl}...[/dim]")
+    time.sleep(wait)
+
+
 def decode_content(raw_bytes: bytes) -> str:
     """Mengesan pengekodan teks dan menukar ke format UTF-8 standard Unix."""
     encodings = ["utf-8-sig", "utf-8", "latin-1", "windows-1252", "cp1256", "iso-8859-1"]
@@ -109,10 +119,7 @@ def sanitize_dot_string(text: str) -> str:
 
 
 def split_sub_ext(name_or_path: str, default_ext: str = ".srt") -> Tuple[str, str]:
-    """
-    Mengasingkan nama dan sambungan (extension) hanya jika ia sambungan sarikata yang sah.
-    Mencegah nombor ID seperti .1962013166 daripada dianggap sebagai extension oleh Path.suffix.
-    """
+    """Mengasingkan nama dan sambungan fail sarikata yang sah."""
     raw_str = str(name_or_path).strip()
     match = re.search(r"(\.(?:srt|vtt|ass|ssa))$", raw_str, re.IGNORECASE)
     if match:
@@ -125,7 +132,7 @@ def split_sub_ext(name_or_path: str, default_ext: str = ".srt") -> Tuple[str, st
 def build_standard_sub_filename(lang: str, imdb_id: str, raw_title: str, content: str, ext: str = ".srt") -> str:
     """
     Format Piawai: <bahasa>.<nilai_imdb>.<hash_8_aksara>.<tajuk_penuh_bersih>.<ext>
-    Contoh: id.tt27543632.14b87ecc.The.Housemaid.2025.OpenSubtitles.1962013166.srt
+    Contoh: ms.tt3215824.7a4b12c0.Those.Who.Wish.Me.Dead.2021.Bluray.MTeam.srt
     """
     clean_imdb = sanitize_dot_string(imdb_id)
     stem_title, detected_ext = split_sub_ext(raw_title, default_ext=ext)
@@ -148,17 +155,14 @@ def parse_and_filter_language(text: str) -> Optional[str]:
     return None
 
 
-# ✅ KOD BETUL (SELARI DENGAN MODUL REDIS ASAL):
 def get_redis_shard_index(imdb_id: str) -> int:
     """Mengira Shard Upstash Redis mengikut kaedah asal modulo nombor IMDb."""
     try:
-        # Jika modul _redis ada fungsi pengiraan shard sendiri, utamakan panggilan tersebut
         if hasattr(_redis, "get_shard_index"):
             return _redis.get_shard_index(imdb_id)
         if hasattr(_redis, "get_redis_shard_index"):
             return _redis.get_redis_shard_index(imdb_id)
 
-        # Fallback rasmi: Ekstrak digit angka IMDb (cth: tt3215824 -> 3215824)
         if hasattr(_redis, "REDIS_ACCOUNTS") and _redis.REDIS_ACCOUNTS:
             total_shards = len(_redis.REDIS_ACCOUNTS)
             clean_id = str(imdb_id or "").strip()
@@ -307,14 +311,21 @@ def resolve_media_metadata(imdb_id: str) -> Dict[str, Any]:
 
 
 # ==============================================================================
-# 5. PENAPIS KELAYAKAN PADANAN FILEM (ANTI-MISMATCH)
+# 5. PENAPIS KELAYAKAN PADANAN FILEM (ANTI-MISMATCH KETAT)
 # ==============================================================================
 def is_valid_title_match(candidate_text: str, target_title: str, target_year: str) -> bool:
-    """Menolak filem lain atau sekuel berbeza menggunakan logik pencegahan mismatch."""
+    """Menolak filem lain dengan semakan Tajuk Wajib, Tahun, dan Nombor Sekuel."""
     c_lower = candidate_text.lower().strip()
     t_lower = target_title.lower().strip()
 
-    # 1. Semakan Tahun (Tolak jika jurang > 1 tahun)
+    # 1. Semakan Tajuk Wajib (Mesti ada sekurang-kurangnya 60% perkataan sepadan)
+    clean_words = [w for w in re.sub(r"[^a-zA-Z0-9\s]", " ", t_lower).split() if len(w) > 2]
+    if clean_words:
+        matched = [w for w in clean_words if w in c_lower]
+        if (len(matched) / len(clean_words)) < 0.6:
+            return False
+
+    # 2. Semakan Tahun Terbitan (Tolak jika jurang melebihi 1 tahun)
     m_yr = re.search(r"\b(19\d\d|20\d\d)\b", c_lower)
     if m_yr and target_year and str(target_year).isdigit():
         c_year = int(m_yr.group(1))
@@ -322,7 +333,7 @@ def is_valid_title_match(candidate_text: str, target_title: str, target_year: st
         if abs(c_year - t_year) > 1:
             return False
 
-    # 2. Penapis Sekuel Bertindih
+    # 3. Penapis Sekuel Bertindih
     for pat in SEQUEL_PATTERNS:
         in_c = bool(re.search(pat, c_lower))
         in_t = bool(re.search(pat, t_lower))
@@ -366,7 +377,6 @@ def fetch_opensubtitles_candidates(meta: Dict[str, Any]) -> List[Dict[str, Any]]
                     year_str = str(meta.get("year", "")).strip()
                     season_str = f"S{meta['season']:02d}E{meta['episode']:02d}" if meta["is_series"] else ""
 
-                    # Jika nama asal hanya nombor (cth: 1962013166), cantumkan tajuk bermakna
                     if raw_stem.isdigit() or not raw_stem:
                         parts = [canonical, year_str, season_str, "OpenSubtitles", sub_id or raw_stem]
                     else:
@@ -390,16 +400,30 @@ def fetch_opensubtitles_candidates(meta: Dict[str, Any]) -> List[Dict[str, Any]]
 
 
 # ==============================================================================
-# 7. SUMBER B: CAMOUFOX STEALTH (SUBSOURCE IMDb-FIRST SCRAPER)
+# 7. SUMBER B: CAMOUFOX SUBSOURCE (IN-PAGE SEARCH & MUAT TURUN 100% SARIKATA)
 # ==============================================================================
-def scrape_subsource_candidates(meta: Dict[str, Any], headless: bool = True) -> List[Dict[str, Any]]:
-    target_id = meta["imdb_id"]
+def scrape_and_download_subsource(meta: Dict[str, Any], headless: bool = True) -> List[Dict[str, Any]]:
+    """
+    Enjin Subsource Penuh:
+    1. Masuk ke halaman filem via popup carian IMDb ID.
+    2. Menyaring perkataan 'malay' & 'indonesia' terus di atas kotak jadual.
+    3. Memuat turun SEMUA fail sarikata BM & ID fizikal tanpa had dengan delay 2.5s-5.0s.
+    4. Fallback page reload jika mana-mana elemen tertangguh.
+    """
     base_imdb = meta["base_imdb"]
+    clean_imdb = meta["imdb_id"]
     title = meta["title"]
-    year = meta.get("year", "")
+    year = str(meta.get("year", "")).strip()
 
-    console.print(f"[magenta]🦊 Melancarkan Camoufox Subsource (Headless: {headless})...[/magenta]")
-    candidates = []
+    console.print(Panel.fit(
+        f"[bold magenta]🦊 CAMOUFOX SUBSOURCE FULL ENGINE (HEADLESS: {headless})[/bold magenta]\n"
+        f"Sasaran IMDb ID  : [bold yellow]{base_imdb}[/bold yellow] ({title})\n"
+        f"Strategi Carian  : [bold green]In-Page Search 'malay' & 'indonesia'[/bold green]\n"
+        f"Human Delay      : [cyan]2.5s - 5.0s per tindakan[/cyan] | [yellow]Fallback Web Refresh Aktif[/yellow]",
+        border_style="magenta"
+    ))
+
+    extracted_records: List[Dict[str, Any]] = []
 
     try:
         from camoufox.sync_api import Camoufox
@@ -411,84 +435,190 @@ def scrape_subsource_candidates(meta: Dict[str, Any], headless: bool = True) -> 
         with Camoufox(headless=headless, geoip=True) as browser:
             context = browser.new_context(
                 viewport={"width": 1280, "height": 720},
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0"
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0",
+                accept_downloads=True
             )
             page = context.new_page()
 
             try:
-                page.goto("https://subsource.net", wait_until="domcontentloaded", timeout=40000)
-                time.sleep(random.uniform(1.5, 3.0))
+                # ---------------------------------------------------------
+                # LANGKAH 1: LAYARI LAMAN & CARI VIA POPUP IMDB
+                # ---------------------------------------------------------
+                console.print("[cyan]🚀 [Subsource 1/4] Melayari https://subsource.net...[/cyan]")
+                page.goto("https://subsource.net", wait_until="domcontentloaded", timeout=45000)
+                human_delay(2.5, 4.0, "pemuatan beranda")
 
-                search_box = page.locator("input[type='search'], input[placeholder*='Search'], input[name='query']").first
-                if not search_box.is_visible():
-                    search_box = page.locator("input").first
+                # Semakan input carian utama (dengan fallback refresh jika tiada)
+                main_search = page.locator("input[type='search'], input[placeholder*='Search'], input[name='query']").first
+                if not main_search.is_visible():
+                    console.print("[dim yellow]⚠️ Kotak carian utama tiada, memuat semula laman (Refresh)...[/dim yellow]")
+                    page.reload(wait_until="domcontentloaded")
+                    human_delay(2.5, 4.0, "selepas refresh")
+                    main_search = page.locator("input").first
 
-                found_target = False
+                console.print(f"[yellow]⌨️ [Subsource 2/4] Menaip IMDb ID ke kotak carian:[/yellow] [bold white]{base_imdb}[/bold white]")
+                main_search.click()
+                main_search.fill("")
+                main_search.press_sequentially(base_imdb, delay=random.randint(90, 150))
+                human_delay(2.5, 4.0, "menunggu popup cadangan")
 
-                # Peringkat 1: Carian IMDb ID Tepat
-                if search_box.is_visible():
-                    search_box.click()
-                    search_box.press_sequentially(base_imdb, delay=random.randint(90, 160))
-                    search_box.press("Enter")
-                    time.sleep(random.uniform(2.5, 4.0))
+                # Klik kad filem pada popup
+                popup_card = page.locator(
+                    "div[class*='search'] a, div[class*='result'] a, div[class*='dropdown'] a, a[href*='/subtitles/']"
+                ).first
 
-                    cards = page.locator("a[href*='/subtitles/']").all()
-                    for card in cards:
-                        c_text = card.inner_text()
-                        if base_imdb.lower() in c_text.lower() or is_valid_title_match(c_text, title, year):
-                            card.click()
-                            found_target = True
-                            break
+                if popup_card.is_visible():
+                    console.print("[green]🎯 Mengklik kad filem di popup...[/green]")
+                    popup_card.click()
+                else:
+                    console.print("[dim yellow]⚠️ Popup kad tidak kelihatan, menekan kekunci Enter...[/dim yellow]")
+                    main_search.press("Enter")
 
-                # Peringkat 2: Fallback Carian Tajuk + Tahun jika IMDb Tiada Hasil
-                if not found_target:
-                    query_text = f"{title} {year}".strip()
-                    page.goto(f"https://subsource.net/search?q={query_text}", wait_until="domcontentloaded", timeout=30000)
-                    time.sleep(random.uniform(2.5, 4.0))
+                page.wait_for_load_state("domcontentloaded")
+                human_delay(3.0, 5.0, "pemuatan halaman sarikata filem")
 
-                    cards = page.locator("a[href*='/subtitles/']").all()
-                    for card in cards:
-                        if is_valid_title_match(card.inner_text(), title, year):
-                            card.click()
-                            found_target = True
-                            break
+                # ---------------------------------------------------------
+                # LANGKAH 2: CARI KOTAK 'Search subtitles...' DALAM HALAMAN
+                # ---------------------------------------------------------
+                sub_search_input = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
+                if not sub_search_input.is_visible():
+                    console.print("[dim yellow]⚠️ Kotak 'Search subtitles...' belum bersedia. Mencuba refresh halaman...[/dim yellow]")
+                    page.reload(wait_until="domcontentloaded")
+                    human_delay(3.0, 5.0, "selepas refresh jadual")
+                    sub_search_input = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
 
-                # Ekstrak Pautan Muat Turun Sarikata BM / ID
-                if found_target:
-                    page.wait_for_load_state("domcontentloaded")
-                    time.sleep(random.uniform(2.5, 4.0))
+                targets_to_download: List[Dict[str, str]] = []
+                seen_detail_urls = set()
 
-                    entries = page.locator(".subtitle-entry, tr, div[class*='item']").all()
-                    for entry in entries:
-                        entry_txt = entry.inner_text()
-                        lang_code = parse_and_filter_language(entry_txt)
-                        if not lang_code:
+                if sub_search_input.is_visible():
+                    # --- FASA A: CARIAN BAHASA MELAYU (MALAY) ---
+                    console.print("\n[bold cyan]🔍 [Subsource 3/4 - A] Menyaring 'malay'...[/bold cyan]")
+                    sub_search_input.click()
+                    sub_search_input.fill("")
+                    sub_search_input.press_sequentially("malay", delay=110)
+                    human_delay(2.5, 4.5, "menunggu senarai Bahasa Melayu")
+
+                    rows_malay = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
+                    for r in rows_malay:
+                        txt = r.inner_text().strip()
+                        if not txt or "language" in txt.lower():
                             continue
-
-                        dl_link = entry.locator("a[href*='/subtitles/'], a[href*='download']").first
-                        if dl_link.is_visible():
-                            href = dl_link.get_attribute("href") or ""
+                        link_tag = r.locator("a[href*='/subtitles/'], a[href*='/subtitle/'], a").first
+                        if link_tag.is_visible():
+                            href = link_tag.get_attribute("href") or ""
                             full_url = urljoin("https://subsource.net", href)
-                            rel_name = entry_txt.split("\n")[0][:60]
-                            candidates.append({
-                                "source": "Subsource",
-                                "lang": lang_code,
-                                "download_url": full_url,
-                                "release_title": rel_name
-                            })
-            except Exception as e:
-                console.print(f"[dim red]⚠️ Ralat navigasi Camoufox: {e}[/dim red]")
+                            rel_name = link_tag.inner_text().strip() or txt.split("\n")[0]
+                            if full_url and full_url not in seen_detail_urls:
+                                seen_detail_urls.add(full_url)
+                                targets_to_download.append({
+                                    "lang": "ms",
+                                    "release_title": rel_name,
+                                    "detail_url": full_url
+                                })
+
+                    console.print(f"[green]✔ Berjaya mengesan {len([t for t in targets_to_download if t['lang'] == 'ms'])} sarikata Bahasa Melayu![/green]")
+
+                    # --- FASA B: CARIAN BAHASA INDONESIA (INDONESIA) ---
+                    console.print("\n[bold cyan]🔍 [Subsource 3/4 - B] Menyaring 'indonesia'...[/bold cyan]")
+                    sub_search_input.click()
+                    page.keyboard.press("Control+A")
+                    page.keyboard.press("Backspace")
+                    time.sleep(0.6)
+                    sub_search_input.press_sequentially("indonesia", delay=110)
+                    human_delay(2.5, 4.5, "menunggu senarai Bahasa Indonesia")
+
+                    rows_indo = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
+                    for r in rows_indo:
+                        txt = r.inner_text().strip()
+                        if not txt or "language" in txt.lower():
+                            continue
+                        link_tag = r.locator("a[href*='/subtitles/'], a[href*='/subtitle/'], a").first
+                        if link_tag.is_visible():
+                            href = link_tag.get_attribute("href") or ""
+                            full_url = urljoin("https://subsource.net", href)
+                            rel_name = link_tag.inner_text().strip() or txt.split("\n")[0]
+                            if full_url and full_url not in seen_detail_urls:
+                                seen_detail_urls.add(full_url)
+                                targets_to_download.append({
+                                    "lang": "id",
+                                    "release_title": rel_name,
+                                    "detail_url": full_url
+                                })
+
+                    console.print(f"[green]✔ Berjaya mengesan {len([t for t in targets_to_download if t['lang'] == 'id'])} sarikata Bahasa Indonesia![/green]")
+                else:
+                    console.print("[bold red]❌ Gagal mengesan kotak saringan teks di Subsource.[/bold red]")
+
+                # ---------------------------------------------------------
+                # LANGKAH 3: ENJIN MUAT TURUN 100% SARIKATA (SEMUA FAIL)
+                # ---------------------------------------------------------
+                if targets_to_download:
+                    console.print(f"\n[bold magenta]📥 [Subsource 4/4] Memuat turun SEMUA {len(targets_to_download)} sarikata BM & ID dari Subsource...[/bold magenta]")
+
+                    for idx, target in enumerate(targets_to_download, 1):
+                        console.print(f"[cyan]   [{idx}/{len(targets_to_download)}] Mengunduh:[/cyan] {target['release_title'][:48]} ({target['lang'].upper()})...")
+                        
+                        dl_tab = context.new_page()
+                        try:
+                            dl_tab.goto(target["detail_url"], wait_until="domcontentloaded", timeout=35000)
+                            human_delay(2.5, 4.5, f"halaman muat turun #{idx}")
+
+                            dl_btn = dl_tab.locator("button:has-text('Download'), a:has-text('Download'), button[class*='download']").first
+                            
+                            # Fallback refresh jika butang muat turun belum muncul
+                            if not dl_btn.is_visible():
+                                console.print("[dim yellow]      ⚠️ Butang muat turun belum terbit, memuat semula...[/dim yellow]")
+                                dl_tab.reload(wait_until="domcontentloaded")
+                                human_delay(2.5, 4.0, "selepas refresh")
+                                dl_btn = dl_tab.locator("button:has-text('Download'), a:has-text('Download'), button[class*='download']").first
+
+                            if dl_btn.is_visible():
+                                with dl_tab.expect_download(timeout=25000) as dl_info:
+                                    dl_btn.click()
+                                download = dl_info.value
+
+                                safe_fn = f"{target['lang']}_{clean_imdb}_{download.suggested_filename}"
+                                dest_path = DOWNLOADS_DIR / safe_fn
+                                download.save_as(str(dest_path))
+
+                                # Baca binari terus dari fail yang selamat dimuat turun
+                                raw_bytes = dest_path.read_bytes()
+                                if len(raw_bytes) > 50:
+                                    unpacked = unpack_subtitles_in_memory(raw_bytes, filename_hint=download.suggested_filename)
+                                    for sub_obj in unpacked:
+                                        extracted_records.append({
+                                            "source": "Subsource",
+                                            "lang": target["lang"],
+                                            "content": sub_obj["content"],
+                                            "ext": sub_obj["ext"],
+                                            "release_title": sub_obj["filename"] or target["release_title"]
+                                        })
+                                    console.print(f"[bold green]      └─ Berjaya diekstrak ({len(unpacked)} sarikata):[/bold green] {download.suggested_filename}")
+                            else:
+                                console.print("[dim yellow]      └─ Butang muat turun tiada pada halaman ini.[/dim yellow]")
+
+                        except Exception as dl_err:
+                            console.print(f"[dim red]      └─ Ralat muat turun sarikata #{idx}: {dl_err}[/dim red]")
+                        finally:
+                            dl_tab.close()
+
+                        # Human Delay antara muat turun agar pelayan Subsource stabil
+                        human_delay(2.5, 4.5, "jeda antara muat turun")
+
+            except Exception as page_err:
+                console.print(f"[bold red]❌ Ralat automasi Subsource: {page_err}[/bold red]")
             finally:
                 page.close()
                 context.close()
-    except Exception as e:
-        console.print(f"[dim red]⚠️ Gagal melancarkan Camoufox: {e}[/dim red]")
 
-    return candidates
+    except Exception as browser_err:
+        console.print(f"[bold red]❌ Gagal melancarkan Camoufox: {browser_err}[/bold red]")
+
+    return extracted_records
 
 
 # ==============================================================================
-# 8. ENJIN UTAMA PEMPROSESAN & MUAT NAIK (RUN_SUB_ENGINE)
+# 8. PIPELINE UTAMA (RUN_SUB_ENGINE)
 # ==============================================================================
 def run_sub_engine(raw_imdb_id: str, headless: bool = True) -> bool:
     meta = resolve_media_metadata(raw_imdb_id)
@@ -497,7 +627,7 @@ def run_sub_engine(raw_imdb_id: str, headless: bool = True) -> bool:
     shard_idx = get_redis_shard_index(imdb_id)
 
     console.print(Panel.fit(
-        f"[bold cyan]⚡ SUBTITLE ENGINE CORE V3: MEMPROSES TUGAS[/bold cyan]\n"
+        f"[bold cyan]⚡ SUBTITLE ENGINE CORE V3: MEMPROSES TUGAS LENGKAP[/bold cyan]\n"
         f"ID Sasaran   : [bold yellow]{imdb_id}[/bold yellow] (Base: [white]{base_id}[/white])\n"
         f"Tajuk Sah    : [bold green]{meta['title']}[/bold green] (Tahun: [yellow]{meta.get('year', '-')}[/yellow])\n"
         f"Bahasa Fokus : [bold magenta]Bahasa Melayu (MS) & Indonesia (ID) SAHAJA[/bold magenta]",
@@ -505,24 +635,54 @@ def run_sub_engine(raw_imdb_id: str, headless: bool = True) -> bool:
     ))
 
     # Kunci Pemprosesan di Redis untuk Mengelak Perlumbaan Tugas (Race Condition)
-    if hasattr(_redis, "set_processing_lock") and not _redis.set_processing_lock(imdb_id, ttl_seconds=300):
+    if hasattr(_redis, "set_processing_lock") and not _redis.set_processing_lock(imdb_id, ttl_seconds=600):
         console.print(f"[yellow]⚠️ Tugasan {imdb_id} sedang diproses oleh pelari lain. Tamat.[/yellow]")
         return True
 
     try:
-        # 1. Kumpul Calon daripada Kedua-dua Punca
-        os_list = fetch_opensubtitles_candidates(meta)
-        camoufox_list = scrape_subsource_candidates(meta, headless=headless)
+        # Senarai objek sarikata bersatu yang siap dimuat naik
+        all_subtitles_to_process: List[Dict[str, Any]] = []
 
-        all_candidates = os_list + camoufox_list
-        console.print(f"[cyan]📦 Jumlah Calon Dijumpai:[/cyan] OpenSubtitles: {len(os_list)} | Subsource: {len(camoufox_list)}")
+        # -------------------------------------------------------------
+        # 1. KUTIP DARI OPENSUBTITLES API
+        # -------------------------------------------------------------
+        os_candidates = fetch_opensubtitles_candidates(meta)
+        console.print(f"[cyan]🌐 Mengunduh {len(os_candidates)} sarikata terus dari OpenSubtitles CDN...[/cyan]")
+        
+        for item in os_candidates:
+            try:
+                bin_resp = requests.get(item["download_url"], impersonate="chrome120", timeout=15)
+                if bin_resp.status_code == 200 and len(bin_resp.content) > 50:
+                    unpacked = unpack_subtitles_in_memory(bin_resp.content, filename_hint=item["release_title"])
+                    for sub_obj in unpacked:
+                        all_subtitles_to_process.append({
+                            "source": "OpenSubtitles",
+                            "lang": item["lang"],
+                            "content": sub_obj["content"],
+                            "ext": sub_obj["ext"],
+                            "release_title": item["release_title"]
+                        })
+            except Exception as e:
+                console.print(f"[dim red]Gagal muat turun OpenSubtitles: {e}[/dim red]")
 
-        if not all_candidates:
-            console.print(f"[bold red]❌ Tiada sarikata BM/ID ditemui untuk {imdb_id}.[/bold red]")
+        # -------------------------------------------------------------
+        # 2. KUTIP DARI CAMOUFOX SUBSOURCE (SEMUA FAIL)
+        # -------------------------------------------------------------
+        subsource_results = scrape_and_download_subsource(meta, headless=headless)
+        all_subtitles_to_process.extend(subsource_results)
+
+        console.print(f"\n[bold cyan]📦 Jumlah Keseluruhan Sarikata Berjaya Dikutip:[/bold cyan] [bold green]{len(all_subtitles_to_process)}[/bold green] (OS: {len(os_candidates)} | Subsource: {len(subsource_results)})")
+
+        if not all_subtitles_to_process:
+            console.print(f"[bold red]❌ Tiada sarikata BM/ID ditemui untuk {imdb_id} dari kedua-dua punca.[/bold red]")
             return False
 
-        # 2. Muat Turun Binari, Nyahmampat & Formatkan Nama
+        # -------------------------------------------------------------
+        # 3. MUAT NAIK KE B2 & CIPTA REKOD FORMAT TITIK PIAWAI
+        # -------------------------------------------------------------
         uploaded_records = []
+        seen_content_hashes = set()
+
         table = Table(title=f"📋 Audit Muat Naik Sarikata V3: {meta['title']}", border_style="green")
         table.add_column("No", justify="center", style="cyan", width=4)
         table.add_column("Bahasa", justify="center", style="magenta", width=6)
@@ -532,90 +692,87 @@ def run_sub_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         table.add_column("Redis Shard", justify="center", style="blue", width=12)
         table.add_column("Status", justify="center", style="bold green", width=10)
 
-        for item in all_candidates:
-            d_url = item["download_url"]
-            lang = item["lang"]
-            src = item["source"]
-            rel_hint = item["release_title"]
+        for sub_item in all_subtitles_to_process:
+            lang = sub_item["lang"]
+            src = sub_item["source"]
+            content_str = sub_item["content"]
+            ext = sub_item["ext"]
+            raw_title = sub_item["release_title"]
+
+            # Elak muat naik fail sarikata yang 100% identikal
+            content_hash = hashlib.sha256(content_str.encode("utf-8", errors="ignore")).hexdigest()
+            if content_hash in seen_content_hashes:
+                continue
+            seen_content_hashes.add(content_hash)
+
+            # Bina nama titik piawai
+            standard_fn = build_standard_sub_filename(
+                lang=lang,
+                imdb_id=imdb_id,
+                raw_title=raw_title,
+                content=content_str,
+                ext=ext
+            )
+
+            clean_imdb_folder = sanitize_dot_string(imdb_id)
+            b2_relative_path = f"subs/{clean_imdb_folder}/{standard_fn}"
 
             try:
-                # Muat turun data binari (.srt, .zip, atau .rar)
-                bin_resp = requests.get(d_url, impersonate="chrome120", timeout=15)
-                if bin_resp.status_code != 200 or len(bin_resp.content) < 50:
-                    continue
+                # Muat naik fail ke Backblaze B2 menggunakan modul asal 02_b2_storage.py
+                b2_res = _b2.upload_subtitle_to_b2(b2_relative_path, content_str)
 
-                extracted_subs = unpack_subtitles_in_memory(bin_resp.content, filename_hint=rel_hint)
-                for sub_obj in extracted_subs:
-                    content_str = sub_obj["content"]
-                    ext = sub_obj["ext"]
-                    sub_title = sub_obj["filename"]
+                bucket_name = b2_res.get("bucket_name", "")
+                proxy_stream_url = f"{CF_B2_SUB_PROXY}/{bucket_name}/{b2_relative_path.lstrip('/')}"
+                acc_idx = b2_res.get("account_index", 1)
 
-                    # Bina Nama Format Titik Standard Penuh
-                    standard_fn = build_standard_sub_filename(
-                        lang=lang,
-                        imdb_id=imdb_id,
-                        raw_title=sub_title,
-                        content=content_str,
-                        ext=ext
-                    )
+                rec_id = f"{lang}_{clean_imdb_folder}_{len(uploaded_records) + 1}"
+                uploaded_records.append({
+                    "id": rec_id,
+                    "lang": lang,
+                    "url": proxy_stream_url,
+                    "release": standard_fn,
+                    "source": src,
+                    "acc": int(acc_idx)
+                })
 
-                    # Destinasi Baldi B2
-                    clean_imdb_folder = sanitize_dot_string(imdb_id)
-                    b2_relative_path = f"subs/{clean_imdb_folder}/{standard_fn}"
-
-                    # Muat naik menggunakan modul asal 02_b2_storage.py
-                    b2_res = _b2.upload_subtitle_to_b2(b2_relative_path, content_str)
-
-                    # Bina URL Proksi Rasmi
-                    bucket_name = b2_res.get("bucket_name", "")
-                    proxy_stream_url = f"{CF_B2_SUB_PROXY}/{bucket_name}/{b2_relative_path.lstrip('/')}"
-                    acc_idx = b2_res.get("account_index", 1)
-
-                    rec_id = f"{lang}_{clean_imdb_folder}_{len(uploaded_records) + 1}"
-                    uploaded_records.append({
-                        "id": rec_id,
-                        "lang": lang,
-                        "url": proxy_stream_url,
-                        "release": standard_fn,
-                        "source": src,
-                        "acc": int(acc_idx)
-                    })
-
-                    table.add_row(
-                        str(len(uploaded_records)),
-                        lang.upper(),
-                        src,
-                        standard_fn,
-                        f"Akaun #{acc_idx}",
-                        f"Shard #{shard_idx}",
-                        "SUKSES"
-                    )
+                table.add_row(
+                    str(len(uploaded_records)),
+                    lang.upper(),
+                    src,
+                    standard_fn[:58],
+                    f"Akaun #{acc_idx}",
+                    f"Shard #{shard_idx}",
+                    "SUKSES"
+                )
 
             except _b2.AllB2AccountsExhaustedException as e:
-                console.print(f"[bold red]🚨 Had Penuh: {e}[/bold red]")
+                console.print(f"[bold red]🚨 Had Penuh B2: {e}[/bold red]")
                 break
             except Exception as ex:
-                console.print(f"[dim red]Gagal memproses fail dari {src}: {ex}[/dim red]")
+                console.print(f"[dim red]Gagal muat naik sarikata ke B2: {ex}[/dim red]")
 
         if not uploaded_records:
-            console.print("[bold red]❌ Tiada fail sarikata yang berjaya dipindahkan ke storan B2.[/bold red]")
+            console.print("[bold red]❌ Tiada fail sarikata yang berjaya dimuat naik ke storan B2.[/bold red]")
             return False
 
-        # 3. Paparkan Jadual Audit
+        # Paparkan Jadual Audit Penuh
         console.print(table)
 
-        # 4. Pendaftaran Berkelompok ke Upstash Redis Menggunakan Modul Asal
+        # -------------------------------------------------------------
+        # 4. PENDAFTARAN BERKELOMPOK KE UPSTASH REDIS MODUL ASAL
+        # -------------------------------------------------------------
         console.print(f"\n[cyan]💾 Mendaftarkan {len(uploaded_records)} sarikata ke Upstash Redis Shard #{shard_idx}...[/cyan]")
         _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
 
-        # Jika siri TV, daftarkan juga ke kunci Base ID untuk kemudahan katalog
         if meta["is_series"]:
             _redis.save_subtitle_records_batch(base_id, uploaded_records)
 
         console.print(Panel.fit(
-            f"[bold green]🎉 TUGASAN SELESAI: SARIKATA BERJAYA DIKEMAS KINI KE B2 & REDIS![/bold green]\n"
-            f"Kunci Redis : [yellow]subs:{imdb_id}[/yellow]\n"
-            f"Proksi URL  : [cyan]{CF_B2_SUB_PROXY}[/cyan]",
+            f"[bold green]🎉 TUGASAN SELESAI: KESEMUA SARIKATA BERJAYA DIKEMAS KINI![/bold green]\n"
+            f"├─ Sasaran IMDb   : [bold yellow]{imdb_id}[/bold yellow] ({meta['title']})\n"
+            f"├─ Sarikata B2    : [bold green]{len(uploaded_records)} fail berjaya dimuat naik[/bold green]\n"
+            f"├─ Kunci Redis    : [yellow]subs:{imdb_id}[/yellow] (Shard #{shard_idx})\n"
+            f"└─ Proksi Zero    : [cyan]{CF_B2_SUB_PROXY}[/cyan]",
             border_style="green"
         ))
         return True
@@ -630,7 +787,7 @@ def run_sub_engine(raw_imdb_id: str, headless: bool = True) -> bool:
 # ==============================================================================
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Subtitle Engine Core V3 (BM & ID Only)")
-    parser.add_argument("--imdb", required=True, help="Target IMDb ID (cth: tt35538033 atau tt0944947:1:1)")
+    parser.add_argument("--imdb", required=True, help="Target IMDb ID (cth: tt3215824)")
     parser.add_argument("--visible", action="store_true", help="Buka GUI pelayar Camoufox (lalai: headless)")
     args = parser.parse_args()
 
