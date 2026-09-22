@@ -148,13 +148,27 @@ def parse_and_filter_language(text: str) -> Optional[str]:
     return None
 
 
+# ✅ KOD BETUL (SELARI DENGAN MODUL REDIS ASAL):
 def get_redis_shard_index(imdb_id: str) -> int:
-    """Mengira Shard Upstash Redis sasaran berasaskan CRC32 modulo."""
+    """Mengira Shard Upstash Redis mengikut kaedah asal modulo nombor IMDb."""
     try:
+        # Jika modul _redis ada fungsi pengiraan shard sendiri, utamakan panggilan tersebut
+        if hasattr(_redis, "get_shard_index"):
+            return _redis.get_shard_index(imdb_id)
+        if hasattr(_redis, "get_redis_shard_index"):
+            return _redis.get_redis_shard_index(imdb_id)
+
+        # Fallback rasmi: Ekstrak digit angka IMDb (cth: tt3215824 -> 3215824)
         if hasattr(_redis, "REDIS_ACCOUNTS") and _redis.REDIS_ACCOUNTS:
             total_shards = len(_redis.REDIS_ACCOUNTS)
-            checksum = zlib.crc32(str(imdb_id).encode("utf-8")) & 0xFFFFFFFF
-            return (checksum % total_shards) + 1
+            clean_id = str(imdb_id or "").strip()
+            match = re.search(r"tt(\d+)", clean_id)
+            if match:
+                num = int(match.group(1))
+                return (num % total_shards) + 1
+            else:
+                hash_val = int(hashlib.md5(clean_id.encode("utf-8")).hexdigest(), 16)
+                return (hash_val % total_shards) + 1
     except Exception:
         pass
     return 1
