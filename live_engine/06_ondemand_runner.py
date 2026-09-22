@@ -40,9 +40,9 @@ def run_ondemand_scrape(imdb_id: str, custom_query: str = None, year: str = None
     print(f"🚀 Mula pengikisan On-Demand bagi IMDb ID: {imdb_id}")
 
     # Semak jika IMDb ID ini sudah wujud dalam rekod tempatan
-    if _history.is_imdb_processed(imdb_id):
-        print(f"ℹ️ IMDb ID {imdb_id} telah siap diproses sebelum ini. Pembatalan dilakukan.")
-        return True
+#    if _history.is_imdb_processed(imdb_id):
+#        print(f"ℹ️ IMDb ID {imdb_id} telah siap diproses sebelum ini. Pembatalan dilakukan.")
+#        return True
 
     # Kunci IMDb ID di Redis untuk mengelakkan proses bertindih (TTL 10 minit)
     if not _redis.set_processing_lock(imdb_id, ttl_seconds=600):
