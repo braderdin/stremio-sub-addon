@@ -9,6 +9,7 @@
 # 4. Basis Data SQLite: sub_engine/data/subsource_cache.db
 # 5. Pasca-Pemeriksaan Hash SHA-256 (Anti-Duplikasi B2 & Redis)
 # 6. Pemetaan Cerdas Episode Serial ke Kunci Induk & Kunci Spesifik Redis
+# 7. Penyelamatan Data Real-Time: Simpan serta-merta ke B2/Redis/SQLite per-fail
 # ==============================================================================
 
 import os
@@ -25,7 +26,7 @@ import argparse
 import importlib
 from pathlib import Path
 from urllib.parse import urljoin, unquote
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, List, Optional, Tuple, Callable
 
 from curl_cffi import requests
 from dotenv import dotenv_values
@@ -411,7 +412,11 @@ def resolve_media_metadata(raw_imdb_id: str) -> Dict[str, Any]:
 # ==============================================================================
 # 6. ENJIN UTAMA SUBSOURCE DENGAN PENYARINGAN CERDAS DUA TAHAP
 # ==============================================================================
-def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = True) -> List[Dict[str, Any]]:
+def scrape_and_download_subsource_full(
+    meta: Dict[str, Any], 
+    headless: bool = True, 
+    on_subtitle_extracted: Optional[Callable[[Dict[str, Any]], None]] = None
+) -> List[Dict[str, Any]]:
     init_subsource_sqlite_db()
     base_imdb = meta["base_imdb"]
     clean_imdb = meta["imdb_id"]
@@ -710,7 +715,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                                         s_parsed, e_parsed = parse_season_episode_from_text(sub_obj["filename"] or target["release_title"])
                                         final_s = s_parsed or target["season_num"]
 
-                                        extracted_records.append({
+                                        item_record = {
                                             "source": "Subsource",
                                             "subsource_id": subsource_id,
                                             "uploaded_at": uploaded_at_val,
@@ -722,7 +727,16 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                                             "release_title": sub_obj["filename"] or target["release_title"],
                                             "season": final_s,
                                             "episode": e_parsed
-                                        })
+                                        }
+                                        extracted_records.append(item_record)
+
+                                        # [LOGIK PINTAR REAL-TIME]: Simpan terus ke B2, Redis & SQLite jika callback dibekalkan
+                                        if on_subtitle_extracted:
+                                            try:
+                                                on_subtitle_extracted(item_record)
+                                            except Exception as cb_err:
+                                                console.print(f"[dim red]   │  ❌ Ralat pemprosesan segera: {cb_err}[/dim red]")
+
                                     console.print(f"[bold green]   │  └─ Berjaya diekstrak ({len(unpacked)} sarikata):[/bold green] {download.suggested_filename}")
                             else:
                                 console.print("[dim yellow]   │  └─ Tombol Download tidak terdeteksi.[/dim yellow]")
@@ -734,13 +748,16 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
 
                         human_delay(1.5, 2.5, "jeda antar unduhan")
 
-            except Exception as page_err:
+            except (Exception, KeyboardInterrupt) as page_err:
                 console.print(f"[bold red]❌ Ralat automasi Subsource: {page_err}[/bold red]")
             finally:
-                page.close()
-                context.close()
+                try:
+                    page.close()
+                    context.close()
+                except Exception:
+                    pass
 
-    except Exception as browser_err:
+    except (Exception, KeyboardInterrupt) as browser_err:
         console.print(f"[bold red]❌ Gagal melancarkan Camoufox: {browser_err}[/bold red]")
 
     return extracted_records
@@ -767,159 +784,170 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         console.print(f"[yellow]⚠️ Tugasan Subsource untuk {imdb_id} sedang diproses oleh pelari lain. Tamat.[/yellow]")
         return True
 
-    try:
-        subsource_results = scrape_and_download_subsource_full(meta, headless=headless)
+    uploaded_records = []
+    seen_session_hashes = set()
+    skipped_hash_count = 0
 
-        if not subsource_results:
-            console.print(f"[bold yellow]⚠️ Tiada sarikata baharu yang perlu dimuat naik ke B2/Redis untuk {imdb_id}.[/bold yellow]")
-            return True
+    table = Table(title=f"📋 Audit Muat Naik Subsource V3: {meta['title']}", border_style="magenta")
+    table.add_column("No", justify="center", style="cyan", width=4)
+    table.add_column("Bahasa", justify="center", style="magenta", width=6)
+    table.add_column("Musim/Ep", justify="center", style="yellow", width=10)
+    table.add_column("Nama Penuh Fail Sarikata (.srt)", style="white")
+    table.add_column("Destinasi B2", justify="center", style="green", width=14)
+    table.add_column("Redis Shard", justify="center", style="blue", width=12)
+    table.add_column("Status", justify="center", style="bold green", width=10)
 
-        console.print(f"\n[bold cyan]📦 Memproses {len(subsource_results)} fail sarikata ke B2 & Redis (Validasi SHA-256)...[/bold cyan]")
+    # --------------------------------------------------------------------------
+    # FUNGSI ATOMIK: MEMUAT NAIK & MENDAFTAR 1 SARIKATA SERTA-MERTA SECARA REAL-TIME
+    # --------------------------------------------------------------------------
+    def process_and_save_single_sub(sub_item: Dict[str, Any]) -> bool:
+        nonlocal skipped_hash_count
+        lang = sub_item["lang"]
+        content_str = sub_item["content"]
+        ext = sub_item["ext"]
+        raw_title = sub_item["release_title"]
+        s_val = sub_item.get("season")
+        e_val = sub_item.get("episode")
+        sub_id = sub_item.get("subsource_id") or ""
+        up_at = sub_item.get("uploaded_at") or ""
+        f_bytes = sub_item.get("file_bytes") or ""
+        d_url = sub_item.get("detail_url") or ""
 
-        uploaded_records = []
-        seen_session_hashes = set()
-        skipped_hash_count = 0
+        # 1. Hashing Konten Teks Asli Berkas
+        content_hash = hashlib.sha256(content_str.encode("utf-8", errors="ignore")).hexdigest()
 
-        table = Table(title=f"📋 Audit Muat Naik Subsource V3: {meta['title']}", border_style="magenta")
-        table.add_column("No", justify="center", style="cyan", width=4)
-        table.add_column("Bahasa", justify="center", style="magenta", width=6)
-        table.add_column("Musim/Ep", justify="center", style="yellow", width=10)
-        table.add_column("Nama Penuh Fail Sarikata (.srt)", style="white")
-        table.add_column("Destinasi B2", justify="center", style="green", width=14)
-        table.add_column("Redis Shard", justify="center", style="blue", width=12)
-        table.add_column("Status", justify="center", style="bold green", width=10)
+        # 2. De-duplikasi dalam sesi yang sama
+        if content_hash in seen_session_hashes:
+            return False
+        seen_session_hashes.add(content_hash)
 
-        for sub_item in subsource_results:
-            lang = sub_item["lang"]
-            content_str = sub_item["content"]
-            ext = sub_item["ext"]
-            raw_title = sub_item["release_title"]
-            s_val = sub_item.get("season")
-            e_val = sub_item.get("episode")
-            sub_id = sub_item.get("subsource_id") or ""
-            up_at = sub_item.get("uploaded_at") or ""
-            f_bytes = sub_item.get("file_bytes") or ""
-            d_url = sub_item.get("detail_url") or ""
+        # 3. FILTER PASCA-UNDUH: Cek apakah hash isi konten ini sudah pernah diunggah ke B2 sebelumnya
+        if is_content_hash_cached(content_hash):
+            skipped_hash_count += 1
+            # Simpan metadata paket agar pra-unduh sesi berikutnya langsung melewatinya
+            save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
+            return False
 
-            # 1. Hashing Konten Teks Asli Berkas
-            content_hash = hashlib.sha256(content_str.encode("utf-8", errors="ignore")).hexdigest()
+        standard_fn = build_standard_sub_filename(
+            lang=lang,
+            imdb_id=imdb_id,
+            raw_title=raw_title,
+            content=content_str,
+            ext=ext
+        )
 
-            # 2. De-duplikasi dalam sesi yang sama
-            if content_hash in seen_session_hashes:
-                continue
-            seen_session_hashes.add(content_hash)
+        clean_imdb_folder = sanitize_dot_string(imdb_id)
+        b2_relative_path = f"subs/{clean_imdb_folder}/{standard_fn}"
 
-            # 3. FILTER PASCA-UNDUH: Cek apakah hash isi konten ini sudah pernah diunggah ke B2 sebelumnya
-            if is_content_hash_cached(content_hash):
-                skipped_hash_count += 1
-                # Simpan metadata paket agar pra-unduh sesi berikutnya langsung melewatinya
-                save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
-                continue
+        try:
+            b2_res = _b2.upload_subtitle_to_b2(b2_relative_path, content_str)
+            bucket_name = b2_res.get("bucket_name", "")
+            proxy_stream_url = f"{CF_B2_SUB_PROXY}/{bucket_name}/{b2_relative_path.lstrip('/')}"
+            acc_idx = b2_res.get("account_index", 1)
 
-            standard_fn = build_standard_sub_filename(
-                lang=lang,
+            rec_id = f"{lang}_{clean_imdb_folder}_{len(uploaded_records) + 1}"
+            new_rec = {
+                "id": rec_id,
+                "lang": lang,
+                "url": proxy_stream_url,
+                "release": standard_fn,
+                "source": "Subsource",
+                "acc": int(acc_idx),
+                "season": s_val,
+                "episode": e_val
+            }
+            uploaded_records.append(new_rec)
+
+            # Simpan ke tabel subsource_files serta-merta
+            save_subsource_file_cache(
+                content_hash=content_hash,
+                subsource_id=sub_id,
                 imdb_id=imdb_id,
-                raw_title=raw_title,
-                content=content_str,
-                ext=ext
+                release_title=standard_fn,
+                b2_url=proxy_stream_url,
+                acc_idx=int(acc_idx),
+                lang=lang,
+                season=s_val,
+                episode=e_val
             )
 
-            clean_imdb_folder = sanitize_dot_string(imdb_id)
-            b2_relative_path = f"subs/{clean_imdb_folder}/{standard_fn}"
+            # Simpan juga ke tabel subsource_meta untuk pra-pemeriksaan masa depan
+            save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
 
-            try:
-                b2_res = _b2.upload_subtitle_to_b2(b2_relative_path, content_str)
-                bucket_name = b2_res.get("bucket_name", "")
-                proxy_stream_url = f"{CF_B2_SUB_PROXY}/{bucket_name}/{b2_relative_path.lstrip('/')}"
-                acc_idx = b2_res.get("account_index", 1)
+            # -------------------------------------------------------------
+            # PENDAFTARAN REAL-TIME KE REDIS (KUNCI INDUK & KUNCI EPISODE)
+            # -------------------------------------------------------------
+            _redis.save_subtitle_records_batch(imdb_id, [new_rec])
 
-                rec_id = f"{lang}_{clean_imdb_folder}_{len(uploaded_records) + 1}"
-                new_rec = {
-                    "id": rec_id,
-                    "lang": lang,
-                    "url": proxy_stream_url,
-                    "release": standard_fn,
-                    "source": "Subsource",
-                    "acc": int(acc_idx),
-                    "season": s_val,
-                    "episode": e_val
-                }
-                uploaded_records.append(new_rec)
+            if meta["is_series"] or s_val:
+                _redis.save_subtitle_records_batch(base_id, [new_rec])
+                if s_val and e_val:
+                    ep_k = f"{base_id}:{s_val}:{e_val}"
+                    existing = _redis.get_subtitle_records(ep_k) or []
+                    existing_urls = {x.get("url") for x in existing}
+                    if new_rec.get("url") not in existing_urls:
+                        _redis.save_subtitle_records_batch(ep_k, existing + [new_rec])
 
-                # Simpan ke tabel subsource_files
-                save_subsource_file_cache(
-                    content_hash=content_hash,
-                    subsource_id=sub_id,
-                    imdb_id=imdb_id,
-                    release_title=standard_fn,
-                    b2_url=proxy_stream_url,
-                    acc_idx=int(acc_idx),
-                    lang=lang,
-                    season=s_val,
-                    episode=e_val
-                )
+            se_label = f"S{s_val:02d}E{e_val:02d}" if (s_val and e_val) else (f"S{s_val:02d}" if s_val else "-")
+            table.add_row(
+                str(len(uploaded_records)),
+                lang.upper(),
+                se_label,
+                standard_fn[:52],
+                f"Akaun #{acc_idx}",
+                f"Shard #{shard_idx}",
+                "SUKSES"
+            )
+            return True
+        except _b2.AllB2AccountsExhaustedException as e:
+            console.print(f"[bold red]🚨 Had Penuh B2: {e}[/bold red]")
+            return False
+        except Exception as ex:
+            console.print(f"[dim red]Gagal muat naik ke B2: {ex}[/dim red]")
+            return False
 
-                # Simpan juga ke tabel subsource_meta untuk pra-pemeriksaan masa depan
-                save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
+    try:
+        # Jalankan proses ekstraksi dengan menyalurkan fungsi simpan masa-nyata
+        subsource_results = scrape_and_download_subsource_full(
+            meta, 
+            headless=headless, 
+            on_subtitle_extracted=process_and_save_single_sub
+        )
 
-                se_label = f"S{s_val:02d}E{e_val:02d}" if (s_val and e_val) else (f"S{s_val:02d}" if s_val else "-")
-                table.add_row(
-                    str(len(uploaded_records)),
-                    lang.upper(),
-                    se_label,
-                    standard_fn[:52],
-                    f"Akaun #{acc_idx}",
-                    f"Shard #{shard_idx}",
-                    "SUKSES"
-                )
-            except _b2.AllB2AccountsExhaustedException as e:
-                console.print(f"[bold red]🚨 Had Penuh B2: {e}[/bold red]")
-                break
-            except Exception as ex:
-                console.print(f"[dim red]Gagal muat naik ke B2: {ex}[/dim red]")
+        # Fallback keselamatan: Semak sebarang baki item yang belum sempat diproses
+        if subsource_results:
+            for sub_item in subsource_results:
+                process_and_save_single_sub(sub_item)
 
         if skipped_hash_count > 0:
             console.print(f"[bold green]✔ {skipped_hash_count} sarikata dilewati karena hash isi konten identik dengan data di B2.[/bold green]")
 
-        if not uploaded_records:
-            console.print("[yellow]ℹ️ Semua berkas sarikata yang diunduh sudah ada di basis data B2 & Redis.[/yellow]")
+        if not uploaded_records and skipped_hash_count == 0:
+            console.print(f"[bold yellow]⚠️ Tiada sarikata baharu yang perlu dimuat naik ke B2/Redis untuk {imdb_id}.[/bold yellow]")
             return True
 
-        console.print(table)
+        # Paparkan jadual audit Rich jika terdapat rekod dimuat naik
+        if uploaded_records:
+            console.print(table)
 
-        # -------------------------------------------------------------
-        # PENDAFTARAN KE REDIS (KUNCI INDUK & KUNCI EPISODE)
-        # -------------------------------------------------------------
-        console.print(f"\n[cyan]💾 Mendaftarkan {len(uploaded_records)} sarikata ke Upstash Redis Shard #{shard_idx}...[/cyan]")
-        _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
+            console.print(Panel.fit(
+                f"[bold green]🎉 TUGASAN SUBSOURCE SELESAI: SEMUA SARIKATA BERJAYA DIKEMAS KINI![/bold green]\n"
+                f"├─ Sasaran IMDb   : [bold yellow]{imdb_id}[/bold yellow] ({meta['title']})\n"
+                f"├─ Fail Baharu    : [bold green]{len(uploaded_records)} fail berjaya dimuat naik ke B2 & Redis[/bold green]\n"
+                f"├─ Rekod SQLite   : [cyan]{SQLITE_DB_PATH.name}[/cyan] dikemas kini secara otomatis\n"
+                f"└─ Proksi Zero    : [cyan]{CF_B2_SUB_PROXY}[/cyan]",
+                border_style="green"
+            ))
+        else:
+            console.print("[yellow]ℹ️ Semua berkas sarikata yang diunduh sudah ada di basis data B2 & Redis.[/yellow]")
 
-        if meta["is_series"] or any(r.get("season") for r in uploaded_records):
-            _redis.save_subtitle_records_batch(base_id, uploaded_records)
+        return True
 
-            episode_groups: Dict[str, List[Dict[str, Any]]] = {}
-            for rec in uploaded_records:
-                s = rec.get("season")
-                e = rec.get("episode")
-                if s and e:
-                    ep_k = f"{base_id}:{s}:{e}"
-                    episode_groups.setdefault(ep_k, []).append(rec)
-
-            for ep_key, ep_subs in episode_groups.items():
-                existing = _redis.get_subtitle_records(ep_key) or []
-                existing_urls = {x.get("url") for x in existing}
-                added_list = [s for s in ep_subs if s.get("url") not in existing_urls]
-                if added_list:
-                    _redis.save_subtitle_records_batch(ep_key, existing + added_list)
-                    console.print(f"[dim green]   ├─ Kunci episod {ep_key} dikemas kini (+{len(added_list)} sarikata)[/dim green]")
-
-        console.print(Panel.fit(
-            f"[bold green]🎉 TUGASAN SUBSOURCE SELESAI: SEMUA SARIKATA BERJAYA DIKEMAS KINI![/bold green]\n"
-            f"├─ Sasaran IMDb   : [bold yellow]{imdb_id}[/bold yellow] ({meta['title']})\n"
-            f"├─ Fail Baharu    : [bold green]{len(uploaded_records)} fail berjaya dimuat naik ke B2 & Redis[/bold green]\n"
-            f"├─ Rekod SQLite   : [cyan]{SQLITE_DB_PATH.name}[/cyan] dikemas kini secara otomatis\n"
-            f"└─ Proksi Zero    : [cyan]{CF_B2_SUB_PROXY}[/cyan]",
-            border_style="green"
-        ))
+    except (Exception, KeyboardInterrupt) as run_err:
+        console.print(f"[bold red]⚠️ Proses terhenti atau berlaku ralat luar jangka: {run_err}[/bold red]")
+        if uploaded_records:
+            console.print(f"[bold green]✔ Data diselamatkan: Sebanyak {len(uploaded_records)} sarikata sempat dimuat naik & didaftarkan sepenuhnya ke B2/Redis/SQLite sebelum ralat berlaku.[/bold green]")
+            console.print(table)
         return True
 
     finally:
