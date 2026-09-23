@@ -23,6 +23,20 @@ jobs:
           sudo sed -i '1inameserver 1.1.1.1\nnameserver 8.8.8.8' /etc/resolv.conf
           head -n 4 /etc/resolv.conf
 
+      - name: 2. Tambah 10GB Swap Memory di Runner (Safety Fallback)
+        run: |
+          echo "=== MEMORI ASAL RUNNER ==="
+          free -h
+          sudo swapoff -a || true
+          sudo fallocate -l 10G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          sudo sysctl vm.swappiness=60
+          echo "=== MEMORI SELEPAS 10GB SWAP DIAKTIFKAN ==="
+          free -h
+
+
       - name: Checkout Repositori
         uses: actions/checkout@v4
         with:
