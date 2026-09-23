@@ -19,7 +19,7 @@ jobs:
 
     steps:
       # =========================================================================
-      # PERSIAPAN PERSEKITARAN SISTEM (DNS & 10GB SWAP MEMORY)
+      # LANGKAH 1: PERSIAPAN PERSEKITARAN SISTEM (DNS & 10GB SWAP MEMORY)
       # =========================================================================
       - name: 01. Nyahsekat DNS Runner (Guna Cloudflare 1.1.1.1 & Google 8.8.8.8)
         run: |
@@ -40,7 +40,7 @@ jobs:
           free -h
 
       # =========================================================================
-      # CHECKOUT & PERSEDIAAN PYTHON / CAMOUFOX
+      # LANGKAH 2: CHECKOUT & PERSEDIAAN PYTHON / CAMOUFOX
       # =========================================================================
       - name: 03. Checkout Repositori
         uses: actions/checkout@v4
@@ -70,7 +70,7 @@ jobs:
           python -m camoufox fetch
 
       # =========================================================================
-      # LANGKAH 1: ENJIN BAHARU V3 (01_sub_engine_core.py - OpenSubtitles)
+      # LANGKAH 3: ENJIN BAHARU V3 (01_sub_engine_core.py - OpenSubtitles)
       # =========================================================================
       - name: 08. Jalankan Enjin Baharu V3 (01_sub_engine_core.py)
         env:
@@ -101,7 +101,7 @@ jobs:
           python sub_engine/01_sub_engine_core.py --imdb "$TARGET_IMDB" || true
 
       # =========================================================================
-      # LANGKAH 2: ENJIN KHAS SUBSOURCE V3 (02_sub_engine_core_subsource.py)
+      # LANGKAH 4: ENJIN KHAS SUBSOURCE V3 (02_sub_engine_core_subsource.py)
       # =========================================================================
       - name: 09. Jalankan Enjin Khas Subsource V3 (02_sub_engine_core_subsource.py)
         env:
@@ -132,7 +132,7 @@ jobs:
           python sub_engine/02_sub_engine_core_subsource.py --imdb "$TARGET_IMDB" || true
 
       # =========================================================================
-      # LANGKAH 3: ENJIN ASAL SUBSCENE & FALLBACK ARKIB ZIP
+      # LANGKAH 5: ENJIN ASAL SUBSCENE & FALLBACK ARKIB ZIP
       # =========================================================================
       - name: 10. Jalankan Skrip On-Demand Scraper Asal & Fallback Arkib ZIP
         env:
@@ -167,7 +167,7 @@ jobs:
           python live_engine/10_fallback_zip_pack_importer.py --imdb "$TARGET_IMDB"
 
       # =========================================================================
-      # LANGKAH 4: COMMIT & REBASE PENJEJAK REKOD TEMPATAN & SQLITE SUBSOURCE
+      # LANGKAH 6: COMMIT & REBASE PENJEJAK REKOD TEMPATAN & SQLITE SUBSOURCE
       # =========================================================================
       - name: 11. Commit dan Simpan Rekod SQLite & History (Auto-Rebase Safe)
         if: always()
