@@ -10,6 +10,7 @@
 # 5. Pasca-Pemeriksaan Hash SHA-256 (Anti-Duplikasi B2 & Redis)
 # 6. Pemetaan Cerdas Episode Serial ke Kunci Induk & Kunci Spesifik Redis
 # 7. Penyelamatan Real-Time: Simpan serta-merta ke B2/Redis/SQLite per-musim
+# 8. Auto-Scroll Infinite Table: Tatal halaman penuh untuk sedut 100% sarikata
 # ==============================================================================
 
 import os
@@ -410,6 +411,35 @@ def resolve_media_metadata(raw_imdb_id: str) -> Dict[str, Any]:
 
 
 # ==============================================================================
+# BANTUAN PENATALAN INFINITE SCROLL (MEMUATKAN KESEMUA BARIS KE DALAM DOM)
+# ==============================================================================
+def scroll_infinite_table_down(page, max_scrolls: int = 12):
+    """
+    Menatal (scroll) halaman ke bawah secara berperingkat untuk memastikan
+    kesemua baris sarikata dimuatkan ke dalam DOM bagi laman yang tiada butang Next.
+    """
+    last_count = 0
+    for _ in range(max_scrolls):
+        curr_rows = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
+        curr_count = len(curr_rows)
+        page.evaluate("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(0.8)
+        new_count = len(page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all())
+        if new_count == curr_count:
+            # Sentakan kecil ke atas dan bawah untuk mencetuskan pemicu lazy loading
+            page.evaluate("window.scrollBy(0, -350);")
+            time.sleep(0.4)
+            page.evaluate("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(0.8)
+            final_count = len(page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all())
+            if final_count == curr_count:
+                break
+
+    page.evaluate("window.scrollTo(0, 0);")
+    time.sleep(0.4)
+
+
+# ==============================================================================
 # 6. ENJIN UTAMA SUBSOURCE DENGAN PENYARINGAN CERDAS DUA TAHAP
 # ==============================================================================
 def scrape_and_download_subsource_full(
@@ -428,7 +458,7 @@ def scrape_and_download_subsource_full(
         f"Sasaran IMDb ID  : [bold yellow]{base_imdb}[/bold yellow] ({title})\n"
         f"Mod Operasi      : [bold white]{f'Musim Spesifik: {target_season}' if target_season else 'GELUNG SEMUA MUSIM SIRI TV (UNLIMITED)'}[/bold white]\n"
         f"Basis Data Cache : [cyan]{SQLITE_DB_PATH.name}[/cyan] (Filter Pra-Unduh & Pasca-Unduh Aktif)\n"
-        f"Strategi Carian  : [green]Polling API + Multi-Season Loop + Subsource Page Details[/green]",
+        f"Strategi Carian  : [green]Polling API + Multi-Season Loop + Infinite Scroll In-Page[/green]",
         border_style="magenta"
     ))
 
@@ -609,11 +639,13 @@ def scrape_and_download_subsource_full(
                     targets_to_download: List[Dict[str, str]] = []
                     seen_detail_urls = set()
 
-                    # Saringan Melayu
+                    # --- SARINGAN A: BAHASA MELAYU (MALAY) ---
                     table_search.click()
                     table_search.fill("")
                     table_search.press_sequentially("malay", delay=90)
                     human_delay(2.0, 3.0, "saringan Malay")
+                    # Tatal jadual ke bawah bagi memuatkan kesemua baris Melayu
+                    scroll_infinite_table_down(page)
 
                     for r in page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all():
                         txt = r.inner_text().strip()
@@ -628,13 +660,14 @@ def scrape_and_download_subsource_full(
                                 seen_detail_urls.add(full_u)
                                 targets_to_download.append({"lang": "ms", "release_title": rel, "detail_url": full_u, "season_num": s_info["season_num"]})
 
-                    # Saringan Indonesia
+                    # --- SARINGAN B: BAHASA INDONESIA (INDONESIA) ---
                     table_search.click()
-                    page.keyboard.press("Control+A")
-                    page.keyboard.press("Backspace")
-                    time.sleep(0.4)
+                    table_search.fill("")
+                    time.sleep(0.3)
                     table_search.press_sequentially("indonesia", delay=90)
                     human_delay(2.0, 3.0, "saringan Indonesia")
+                    # Tatal jadual ke bawah bagi memuatkan kesemua 30+ baris Indonesia
+                    scroll_infinite_table_down(page)
 
                     for r in page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all():
                         txt = r.inner_text().strip()
@@ -649,7 +682,7 @@ def scrape_and_download_subsource_full(
                                 seen_detail_urls.add(full_u)
                                 targets_to_download.append({"lang": "id", "release_title": rel, "detail_url": full_u, "season_num": s_info["season_num"]})
 
-                    console.print(f"[green]✔ {s_info['label']}: Ditemui {len(targets_to_download)} kandidat sarikata BM & ID.[/green]")
+                    console.print(f"[green]✔ {s_info['label']}: Ditemui {len(targets_to_download)} kandidat sarikata BM & ID (Hasil Infinite Scroll)![/green]")
 
                     # ---------------------------------------------------------
                     # PENGUNDUHAN BERKAS FISIK DENGAN FILTER PRA-UNDUH SQLITE
@@ -749,7 +782,7 @@ def scrape_and_download_subsource_full(
 
                         human_delay(1.5, 2.5, "jeda antar unduhan")
 
-                    # [LOGIK PINTAR REAL-TIME]: Simpan musim ini serta-merta sejurus selesai saringan musim!
+                    # [PENYELAMATAN REAL-TIME]: Simpan kelompok musim ini sejurus selesai tanpa menunggu musim seterusnya!
                     if on_season_completed and season_batch_records:
                         console.print(f"\n[bold green]📦 [Musim {s_idx} Lengkap] Menyimpan {len(season_batch_records)} fail musim ini ke B2 & Redis terus...[/bold green]")
                         on_season_completed(season_batch_records)
