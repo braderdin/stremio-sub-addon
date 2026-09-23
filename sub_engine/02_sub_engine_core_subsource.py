@@ -3,12 +3,12 @@
 # PROJEK: STREMIO SUB ADDON - SUB ENGINE CORE V3 (SUBSOURCE STANDALONE ENGINE)
 # LOKASI: /home/braderdin/stremio-sub-addon/sub_engine/02_sub_engine_core_subsource.py
 # CIRI-CIRI UTAMA:
-# 1. Khusus 100% untuk Subsource (Movie & TV Series Smart Season Detection)
-# 2. Bypass Backdrop Timeout via Penyadapan Respons API (api.subsource.net)
-# 3. Tiada Had Muat Turun (Unlimited Download: Sedut SEMUA 50-500 sarikata)
+# 1. Sokongan Penuh Siri TV (/series/) & Filem (/subtitles/) Tanpa Ralat
+# 2. Gelung Pintar Polling API (Anti-Race Condition di GitHub Actions)
+# 3. Tiada Had Muat Turun (Unlimited Download: Sedut SEMUA sarikata ditemui)
 # 4. In-Page Table Filter 'malay' & 'indonesia'
 # 5. Penyahmampatan Memori (.zip/.rar/.srt) & De-duplikasi SHA-256
-# 6. Muat Naik Seimbang ke Multi-Akaun B2 & Pendaftaran Shard Upstash Redis
+# 6. Pendaftaran Seimbang Multi-Akaun B2 & Shard Upstash Redis
 # ==============================================================================
 
 import os
@@ -81,8 +81,7 @@ KNOWN_SUB_EXTS = {".srt", ".vtt", ".ass", ".ssa"}
 # ==============================================================================
 # 2. BANTUAN SIMULASI & SANITASI FORMAT TITIK
 # ==============================================================================
-def human_delay(min_s: float = 2.5, max_s: float = 4.5, tag: str = ""):
-    """Jeda masa rawak untuk memastikan pelayan stabil dan mengelak sekatan IP."""
+def human_delay(min_s: float = 2.0, max_s: float = 3.5, tag: str = ""):
     wait = random.uniform(min_s, max_s)
     lbl = f" ({tag})" if tag else ""
     console.print(f"[dim]⏳ Menunggu {wait:.2f}s{lbl}...[/dim]")
@@ -90,7 +89,6 @@ def human_delay(min_s: float = 2.5, max_s: float = 4.5, tag: str = ""):
 
 
 def decode_content(raw_bytes: bytes) -> str:
-    """Mengesan pengekodan teks dan menukar ke UTF-8 standard Unix."""
     encodings = ["utf-8-sig", "utf-8", "latin-1", "windows-1252", "cp1256", "iso-8859-1"]
     for enc in encodings:
         try:
@@ -102,7 +100,6 @@ def decode_content(raw_bytes: bytes) -> str:
 
 
 def sanitize_dot_string(text: str) -> str:
-    """Menukarkan sebarang ruang kosong dan simbol khas kepada titik tunggal (.)."""
     clean = re.sub(r"[^a-zA-Z0-9]+", ".", str(text).strip())
     clean = re.sub(r"\.+", ".", clean).strip(".")
     return clean or "Unknown"
@@ -119,9 +116,6 @@ def split_sub_ext(name_or_path: str, default_ext: str = ".srt") -> Tuple[str, st
 
 
 def build_standard_sub_filename(lang: str, imdb_id: str, raw_title: str, content: str, ext: str = ".srt") -> str:
-    """
-    Format Piawai: <bahasa>.<nilai_imdb>.<hash_8_aksara>.<tajuk_penuh_bersih>.<ext>
-    """
     clean_imdb = sanitize_dot_string(imdb_id)
     stem_title, detected_ext = split_sub_ext(raw_title, default_ext=ext)
     clean_title = sanitize_dot_string(stem_title)
@@ -132,7 +126,6 @@ def build_standard_sub_filename(lang: str, imdb_id: str, raw_title: str, content
 
 
 def get_redis_shard_index(imdb_id: str) -> int:
-    """Mengira Shard Upstash Redis sasaran berasaskan modulo nombor IMDb."""
     try:
         if hasattr(_redis, "get_shard_index"):
             return _redis.get_shard_index(imdb_id)
@@ -160,7 +153,6 @@ def get_redis_shard_index(imdb_id: str) -> int:
 def unpack_subtitles_in_memory(raw_bytes: bytes, filename_hint: str = "") -> List[Dict[str, str]]:
     out_files = []
 
-    # 1. Semakan Arkib ZIP (Magic Bytes: PK)
     if raw_bytes.startswith(b"PK"):
         try:
             with zipfile.ZipFile(io.BytesIO(raw_bytes)) as zf:
@@ -180,7 +172,6 @@ def unpack_subtitles_in_memory(raw_bytes: bytes, filename_hint: str = "") -> Lis
         except Exception:
             pass
 
-    # 2. Semakan Arkib RAR (Magic Bytes: Rar!)
     if raw_bytes.startswith(b"Rar!") and HAS_RAR:
         try:
             with rarfile.RarFile(io.BytesIO(raw_bytes)) as rf:
@@ -200,7 +191,6 @@ def unpack_subtitles_in_memory(raw_bytes: bytes, filename_hint: str = "") -> Lis
         except Exception:
             pass
 
-    # 3. Kandungan Teks Mentah Langsung (.srt / .vtt)
     if len(raw_bytes) > 50:
         text_content = decode_content(raw_bytes)
         if "-->" in text_content:
@@ -294,9 +284,9 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
     console.print(Panel.fit(
         f"[bold magenta]🦊 SUBSOURCE STANDALONE ENGINE V3 (HEADLESS: {headless})[/bold magenta]\n"
         f"Sasaran IMDb ID  : [bold yellow]{base_imdb}[/bold yellow] ({title})\n"
-        f"Jenis / Musim    : [bold white]{f'Siri TV (Musim {target_season})' if target_season else meta['media_type'].upper()}[/bold white]\n"
+        f"Format / Musim   : [bold white]{f'Siri TV (Musim {target_season})' if target_season else 'Auto-Detect Siri/Filem'}[/bold white]\n"
         f"Had Muat Turun   : [bold green]TIADA HAD (Muat turun SEMUA sarikata ditemui)[/bold green]\n"
-        f"Strategi Carian  : [cyan]Bypass API + In-Page Search 'malay' & 'indonesia'[/cyan]",
+        f"Strategi Carian  : [cyan]Polling API Bypass + Multi-Pattern Modal Navigator[/cyan]",
         border_style="magenta"
     ))
 
@@ -319,7 +309,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
             )
             page = context.new_page()
 
-            # Pintas respons carian API untuk memintas masalah tumpang tindih backdrop
+            # Listener pintar bagi menyadap URL langsung dari respons API Subsource
             def on_response_listener(resp):
                 if "search" in resp.url and "api.subsource.net" in resp.url:
                     try:
@@ -335,48 +325,76 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
 
             try:
                 # -------------------------------------------------------------
-                # LANGKAH 1: LAYARI SUBSOURCE & TAIP IMDB ID
+                # LANGKAH 1: LAYARI LAMAN UTAMA & TAIP IMDB ID
                 # -------------------------------------------------------------
                 console.print("[cyan]🚀 [1/4] Melayari https://subsource.net...[/cyan]")
                 page.goto("https://subsource.net", wait_until="domcontentloaded", timeout=45000)
-                human_delay(2.0, 3.5, "pemuatan laman utama")
+                human_delay(2.0, 3.0, "pemuatan laman utama")
 
                 search_box = page.locator("input[type='search'], input[placeholder*='Search'], input[name='query']").first
                 if not search_box.is_visible():
                     page.reload(wait_until="domcontentloaded")
-                    human_delay(2.5, 4.0, "refresh carian")
+                    human_delay(2.5, 3.5, "refresh carian")
                     search_box = page.locator("input").first
 
                 console.print(f"[yellow]⌨️ [2/4] Menaip IMDb ID:[/yellow] {base_imdb}")
                 search_box.click()
                 search_box.fill("")
-                search_box.press_sequentially(base_imdb, delay=random.randint(90, 140))
-                human_delay(2.5, 4.0, "menunggu respons carian & popup")
+                search_box.press_sequentially(base_imdb, delay=random.randint(80, 130))
 
                 # -------------------------------------------------------------
-                # LANGKAH 2: NAVIGASI KE KANDUNGAN (BYPASS BACKDROP 100%)
+                # LANGKAH 2: POLLING RESPON API / KAD MODAL (ANTI-RACE CONDITION)
                 # -------------------------------------------------------------
-                navigated = False
-                if intercepted_direct_links:
-                    direct_url = urljoin("https://subsource.net", intercepted_direct_links[0])
-                    console.print(f"[bold green]🎯 [Bypass Sukses] Navigasi terus via API Link:[/bold green] {direct_url}")
-                    page.goto(direct_url, wait_until="domcontentloaded", timeout=35000)
-                    navigated = True
+                console.print("[cyan]⏳ Menunggu popup cadangan atau respons API (maks 10s)...[/cyan]")
+                start_polling = time.time()
+                popup_link_found = ""
 
-                if not navigated:
-                    popup_card = page.locator("header a[href*='/subtitles/'], div[role='dialog'] a[href*='/subtitles/']").first
-                    if popup_card.is_visible():
-                        href = popup_card.get_attribute("href")
-                        if href:
-                            page.goto(urljoin("https://subsource.net", href), wait_until="domcontentloaded", timeout=35000)
-                            navigated = True
+                while time.time() - start_polling < 10.0:
+                    # 1. Semak jika pautan API berjaya disadap
+                    if intercepted_direct_links:
+                        popup_link_found = intercepted_direct_links[0]
+                        break
 
-                if not navigated:
-                    search_box.press("Enter")
-                    navigated = True
+                    # 2. Semak jika elemen kad siri (/series/) atau filem (/subtitles/) sudah terbit di DOM
+                    candidate_cards = page.locator(
+                        "header a[href*='/series/'], header a[href*='/subtitles/'], "
+                        "div[role='dialog'] a[href*='/series/'], div[role='dialog'] a[href*='/subtitles/'], "
+                        "div[class*='search'] a[href*='/series/'], div[class*='search'] a[href*='/subtitles/'], "
+                        "div[class*='dropdown'] a"
+                    ).all()
+
+                    for card in candidate_cards:
+                        if card.is_visible():
+                            h = card.get_attribute("href")
+                            if h and ("/series/" in h or "/subtitles/" in h):
+                                popup_link_found = h
+                                break
+
+                    if popup_link_found:
+                        break
+
+                    time.sleep(0.4)
+
+                # Navigasi tepat ke sasaran (Bypass Backdrop)
+                if popup_link_found:
+                    target_content_url = urljoin("https://subsource.net", popup_link_found)
+                    console.print(f"[bold green]🎯 [Navigasi Berjaya] Membuka:[/bold green] {target_content_url}")
+                    page.goto(target_content_url, wait_until="domcontentloaded", timeout=35000)
+                else:
+                    console.print("[yellow]⚠️ Popup tidak dikesan, menekan kad pertama dalam modal carian...[/yellow]")
+                    first_link = page.locator("header a, div[role='dialog'] a").first
+                    if first_link.is_visible():
+                        first_link.click(force=True)
+                    else:
+                        search_box.press("Enter")
 
                 page.wait_for_load_state("domcontentloaded")
-                human_delay(3.0, 4.5, "pemuatan halaman kandungan")
+                human_delay(3.0, 4.0, "pemuatan halaman kandungan")
+
+                # PENGESAHAN: Pastikan pelayar tidak tersangkut di laman utama!
+                if page.url.rstrip("/") == "https://subsource.net":
+                    console.print("[bold red]❌ Ralat: Pelayar masih tersangkut di halaman utama. Carian IMDb Subsource gagal memuatkan kad.[/bold red]")
+                    return []
 
                 # -------------------------------------------------------------
                 # LANGKAH 3: LOGIK KHAS SIRI TV VS FILEM
@@ -423,7 +441,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                             selected_season_el.click(force=True)
 
                         page.wait_for_load_state("domcontentloaded")
-                        human_delay(3.0, 4.5, "pemuatan jadual musim")
+                        human_delay(2.5, 4.0, "pemuatan jadual musim")
                 else:
                     console.print("[green]🎬 Terdeteksi sebagai Filem atau Siri dengan jadual langsung.[/green]")
 
@@ -433,7 +451,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                 table_search = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
                 if not table_search.is_visible():
                     page.reload(wait_until="domcontentloaded")
-                    human_delay(2.5, 4.0, "refresh jadual sarikata")
+                    human_delay(2.5, 3.5, "refresh jadual sarikata")
                     table_search = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
 
                 targets_to_download: List[Dict[str, str]] = []
@@ -444,8 +462,8 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                     console.print("\n[yellow]🔍 [Saringan A] Menyaring 'malay'...[/yellow]")
                     table_search.click()
                     table_search.fill("")
-                    table_search.press_sequentially("malay", delay=110)
-                    human_delay(2.5, 4.0, "menunggu senarai Melayu")
+                    table_search.press_sequentially("malay", delay=100)
+                    human_delay(2.0, 3.5, "menunggu senarai Melayu")
 
                     rows_malay = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
                     for r in rows_malay:
@@ -468,9 +486,9 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                     table_search.click()
                     page.keyboard.press("Control+A")
                     page.keyboard.press("Backspace")
-                    time.sleep(0.5)
-                    table_search.press_sequentially("indonesia", delay=110)
-                    human_delay(2.5, 4.0, "menunggu senarai Indonesia")
+                    time.sleep(0.4)
+                    table_search.press_sequentially("indonesia", delay=100)
+                    human_delay(2.0, 3.5, "menunggu senarai Indonesia")
 
                     rows_indo = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
                     for r in rows_indo:
@@ -501,7 +519,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                         dl_tab = context.new_page()
                         try:
                             dl_tab.goto(target["detail_url"], wait_until="domcontentloaded", timeout=35000)
-                            human_delay(2.0, 3.5, f"halaman rilis #{idx}")
+                            human_delay(1.8, 3.0, f"halaman rilis #{idx}")
 
                             dl_btn = dl_tab.locator("button:has-text('Download'), a:has-text('Download'), button[class*='download']").first
                             if not dl_btn.is_visible():
@@ -538,7 +556,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                         finally:
                             dl_tab.close()
 
-                        human_delay(2.0, 3.5, "jeda antara muat turun")
+                        human_delay(1.5, 2.8, "jeda antara muat turun")
 
             except Exception as page_err:
                 console.print(f"[bold red]❌ Ralat automasi Subsource: {page_err}[/bold red]")
@@ -569,7 +587,6 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         border_style="cyan"
     ))
 
-    # Kunci Pemprosesan di Redis untuk Mengelak Perlumbaan Tugas (Race Condition)
     if hasattr(_redis, "set_processing_lock") and not _redis.set_processing_lock(f"subsource:{imdb_id}", ttl_seconds=600):
         console.print(f"[yellow]⚠️ Tugasan Subsource untuk {imdb_id} sedang diproses oleh pelari lain. Tamat.[/yellow]")
         return True
@@ -600,7 +617,6 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             ext = sub_item["ext"]
             raw_title = sub_item["release_title"]
 
-            # De-duplikasi klon 100%
             content_hash = hashlib.sha256(content_str.encode("utf-8", errors="ignore")).hexdigest()
             if content_hash in seen_content_hashes:
                 continue
@@ -653,7 +669,6 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
 
         console.print(table)
 
-        # Simpan ke Redis (Menggunakan Modul Sharded Asal)
         console.print(f"\n[cyan]💾 Mendaftarkan {len(uploaded_records)} sarikata ke Upstash Redis Shard #{shard_idx}...[/cyan]")
         _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
 
@@ -680,7 +695,7 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
 # ==============================================================================
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Subsource Dedicated Engine V3 (Unlimited Downloads)")
-    parser.add_argument("--imdb", required=True, help="Target IMDb ID (cth: tt1199099 atau tt1199099:2:1)")
+    parser.add_argument("--imdb", required=True, help="Target IMDb ID (cth: tt1199099 atau tt1199099:1:2)")
     parser.add_argument("--visible", action="store_true", help="Buka GUI pelayar Camoufox (lalai: headless)")
     args = parser.parse_args()
 
