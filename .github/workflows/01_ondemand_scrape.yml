@@ -36,7 +36,6 @@ jobs:
           echo "=== MEMORI SELEPAS 10GB SWAP DIAKTIFKAN ==="
           free -h
 
-
       - name: Checkout Repositori
         uses: actions/checkout@v4
         with:
