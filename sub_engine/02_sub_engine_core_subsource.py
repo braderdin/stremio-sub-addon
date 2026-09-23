@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# PROJEK: STREMIO SUB ADDON - SUB ENGINE CORE V3 (SUBSOURCE STANDALONE ENGINE)
+# PROJEK: STREMIO SUB ADDON - SUB ENGINE CORE V3 (SUBSOURCE SMART FALLBACK & DB)
 # LOKASI: /home/braderdin/stremio-sub-addon/sub_engine/02_sub_engine_core_subsource.py
-# CIRI-CIRI UTAMA:
-# 1. Sokongan Penuh Siri TV (/series/) & Filem (/subtitles/) Tanpa Ralat
-# 2. Gelung Pintar Polling API (Anti-Race Condition di GitHub Actions)
-# 3. Tiada Had Muat Turun (Unlimited Download: Sedut SEMUA sarikata ditemui)
-# 4. In-Page Table Filter 'malay' & 'indonesia'
-# 5. Penyahmampatan Memori (.zip/.rar/.srt) & De-duplikasi SHA-256
-# 6. Pendaftaran Seimbang Multi-Akaun B2 & Shard Upstash Redis
+# FITUR UTAMA:
+# 1. Pra-Pemeriksaan Metadata Subsource (ID, Uploaded Timestamp, File Bytes)
+# 2. Deteksi Cerdas Pembaruan Pengunggah (Uploader Update / Resync)
+# 3. Gelung Penuh Semua Musim Seri TV (Loop ALL Seasons jika IMDb ID Induk)
+# 4. Basis Data SQLite: sub_engine/data/subsource_cache.db
+# 5. Pasca-Pemeriksaan Hash SHA-256 (Anti-Duplikasi B2 & Redis)
+# 6. Pemetaan Cerdas Episode Serial ke Kunci Induk & Kunci Spesifik Redis
 # ==============================================================================
 
 import os
@@ -18,6 +18,7 @@ import sys
 import time
 import json
 import random
+import sqlite3
 import hashlib
 import zipfile
 import argparse
@@ -35,15 +36,17 @@ from rich.panel import Panel
 console = Console()
 
 # ==============================================================================
-# 1. PENYELARASAN LALUAN & IMPORT MODUL ASAL DARI LIVE_ENGINE/
+# 1. PENYELARASAN JALUR & IMPORT MODUL ASAL DARI LIVE_ENGINE/
 # ==============================================================================
 SUB_ENGINE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SUB_ENGINE_DIR.parent
 LIVE_ENGINE_DIR = PROJECT_ROOT / "live_engine"
+DATA_DIR = SUB_ENGINE_DIR / "data"
 TEMP_DIR = SUB_ENGINE_DIR / "temp"
 DOWNLOADS_DIR = TEMP_DIR / "downloads"
+SQLITE_DB_PATH = DATA_DIR / "subsource_cache.db"
 
-for p in [SUB_ENGINE_DIR, PROJECT_ROOT, LIVE_ENGINE_DIR, TEMP_DIR, DOWNLOADS_DIR]:
+for p in [SUB_ENGINE_DIR, PROJECT_ROOT, LIVE_ENGINE_DIR, DATA_DIR, TEMP_DIR, DOWNLOADS_DIR]:
     p.mkdir(parents=True, exist_ok=True)
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
@@ -58,7 +61,6 @@ except ImportError as e:
     console.print(f"[bold red]❌ Ralat mengimport modul asas dari live_engine: {e}[/bold red]")
     sys.exit(1)
 
-# Sokongan modul arkib RAR jika tersedia
 try:
     import rarfile
     HAS_RAR = True
@@ -68,7 +70,7 @@ except ImportError:
 # Domain Proksi Rasmi Zero-Egress bagi Sarikata B2
 CF_B2_SUB_PROXY = (os.getenv("CF_WORKER_B2_STORAGE") or "https://b2-private-stremio-sub-addon.braderdin360.workers.dev").rstrip("/")
 
-# Muat Pembolehubah Persekitaran (.env.local)
+# Muat Variabel Lingkungan (.env.local)
 ENV_LOCAL_PATH = PROJECT_ROOT / ".env.local"
 env_vars = dotenv_values(str(ENV_LOCAL_PATH)) if ENV_LOCAL_PATH.exists() else {}
 
@@ -79,7 +81,123 @@ KNOWN_SUB_EXTS = {".srt", ".vtt", ".ass", ".ssa"}
 
 
 # ==============================================================================
-# 2. BANTUAN SIMULASI & SANITASI FORMAT TITIK
+# 2. PENGELOLA BASIS DATA SQLITE (subsource_cache.db)
+# ==============================================================================
+def init_subsource_sqlite_db():
+    """Menginisialisasi tabel SQLite untuk melacak paket dan file sarikata Subsource."""
+    try:
+        conn = sqlite3.connect(str(SQLITE_DB_PATH))
+        with conn:
+            # Tabel 1: Melacak metadata halaman rilis Subsource (Pra-Unduh)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS subsource_meta (
+                    subsource_id TEXT PRIMARY KEY,
+                    imdb_id TEXT NOT NULL,
+                    uploaded_at TEXT,
+                    file_bytes TEXT,
+                    detail_url TEXT,
+                    last_checked TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_meta_imdb ON subsource_meta(imdb_id)")
+
+            # Tabel 2: Melacak hash fisik berkas teks sarikata (Pasca-Unduh)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS subsource_files (
+                    content_hash TEXT PRIMARY KEY,
+                    subsource_id TEXT,
+                    imdb_id TEXT NOT NULL,
+                    release_title TEXT,
+                    b2_url TEXT,
+                    acc_idx INTEGER,
+                    lang TEXT,
+                    season INTEGER,
+                    episode INTEGER,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_files_imdb ON subsource_files(imdb_id)")
+        conn.close()
+    except Exception as e:
+        console.print(f"[dim red]Gagal inisialisasi SQLite {SQLITE_DB_PATH.name}: {e}[/dim red]")
+
+
+def check_subsource_package_cache(subsource_id: str, uploaded_at: str, file_bytes: str) -> bool:
+    """
+    Pemeriksaan Pra-Unduh:
+    Mengembalikan True jika ID ada dan memiliki stempel waktu serta ukuran bita yang identik.
+    Mengembalikan False jika ID belum ada atau berkas telah diperbarui oleh pengunggah.
+    """
+    if not subsource_id:
+        return False
+    try:
+        conn = sqlite3.connect(str(SQLITE_DB_PATH))
+        cur = conn.cursor()
+        cur.execute("SELECT uploaded_at, file_bytes FROM subsource_meta WHERE subsource_id = ? LIMIT 1", (subsource_id,))
+        row = cur.fetchone()
+        conn.close()
+
+        if row:
+            db_uploaded, db_bytes = row
+            # Jika ukuran dan waktu unggah sama, berkas dipastikan belum berubah
+            if (db_uploaded or "").strip() == (uploaded_at or "").strip() and (db_bytes or "").strip() == (file_bytes or "").strip():
+                return True
+        return False
+    except Exception:
+        return False
+
+
+def save_subsource_package_meta(subsource_id: str, imdb_id: str, uploaded_at: str, file_bytes: str, detail_url: str):
+    """Menyimpan atau memperbarui metadata halaman rilis Subsource."""
+    if not subsource_id:
+        return
+    try:
+        conn = sqlite3.connect(str(SQLITE_DB_PATH))
+        with conn:
+            conn.execute("""
+                INSERT INTO subsource_meta (subsource_id, imdb_id, uploaded_at, file_bytes, detail_url, last_checked)
+                VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                ON CONFLICT(subsource_id) DO UPDATE SET
+                    uploaded_at = excluded.uploaded_at,
+                    file_bytes = excluded.file_bytes,
+                    detail_url = excluded.detail_url,
+                    last_checked = CURRENT_TIMESTAMP
+            """, (subsource_id, imdb_id, uploaded_at, file_bytes, detail_url))
+        conn.close()
+    except Exception as e:
+        console.print(f"[dim red]Ralat simpan subsource_meta: {e}[/dim red]")
+
+
+def is_content_hash_cached(content_hash: str) -> bool:
+    """Pemeriksaan Pasca-Unduh: Mengecek apakah hash konten fisik sudah ada di B2/Redis."""
+    try:
+        conn = sqlite3.connect(str(SQLITE_DB_PATH))
+        cur = conn.cursor()
+        cur.execute("SELECT 1 FROM subsource_files WHERE content_hash = ? LIMIT 1", (content_hash,))
+        row = cur.fetchone()
+        conn.close()
+        return row is not None
+    except Exception:
+        return False
+
+
+def save_subsource_file_cache(content_hash: str, subsource_id: str, imdb_id: str, release_title: str, b2_url: str, acc_idx: int, lang: str, season: Optional[int], episode: Optional[int]):
+    """Menyimpan berkas yang berhasil diunggah ke tabel subsource_files."""
+    try:
+        conn = sqlite3.connect(str(SQLITE_DB_PATH))
+        with conn:
+            conn.execute("""
+                INSERT OR IGNORE INTO subsource_files 
+                (content_hash, subsource_id, imdb_id, release_title, b2_url, acc_idx, lang, season, episode)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (content_hash, subsource_id, imdb_id, release_title, b2_url, acc_idx, lang, season, episode))
+        conn.close()
+    except Exception as e:
+        console.print(f"[dim red]Ralat simpan subsource_files: {e}[/dim red]")
+
+
+# ==============================================================================
+# 3. BANTUAN SIMULASI & SANITASI FORMAT TITIK
 # ==============================================================================
 def human_delay(min_s: float = 2.0, max_s: float = 3.5, tag: str = ""):
     wait = random.uniform(min_s, max_s)
@@ -115,6 +233,24 @@ def split_sub_ext(name_or_path: str, default_ext: str = ".srt") -> Tuple[str, st
     return raw_str, default_ext if default_ext in KNOWN_SUB_EXTS else ".srt"
 
 
+def parse_season_episode_from_text(filename: str) -> Tuple[Optional[int], Optional[int]]:
+    clean_fn = re.sub(r"(?i)\b(?:2160|1080|720|480)\b", " ", filename)
+
+    m1 = re.search(r"(?i)\b[sS](\d{1,2})[-_ .]*[eE](\d{1,3})(?:[^0-9a-zA-Z]|$)", clean_fn)
+    if m1:
+        return int(m1.group(1)), int(m1.group(2))
+
+    m2 = re.search(r"\b(\d{1,2})x(\d{1,3})\b", clean_fn)
+    if m2:
+        return int(m2.group(1)), int(m2.group(2))
+
+    m3 = re.search(r"(?i)\bseason[-_ .]*(\d{1,2})[-_ .]+(?:episode|episod|eps|ep)[-_ .]*(\d{1,3})\b", clean_fn)
+    if m3:
+        return int(m3.group(1)), int(m3.group(2))
+
+    return None, None
+
+
 def build_standard_sub_filename(lang: str, imdb_id: str, raw_title: str, content: str, ext: str = ".srt") -> str:
     clean_imdb = sanitize_dot_string(imdb_id)
     stem_title, detected_ext = split_sub_ext(raw_title, default_ext=ext)
@@ -148,7 +284,7 @@ def get_redis_shard_index(imdb_id: str) -> int:
 
 
 # ==============================================================================
-# 3. PENYAHMAMPATAN PINTAR DALAM MEMORI (.SRT / .ZIP / .RAR)
+# 4. EKSTRAKSI DALAM MEMORI (.SRT / .ZIP / .RAR)
 # ==============================================================================
 def unpack_subtitles_in_memory(raw_bytes: bytes, filename_hint: str = "") -> List[Dict[str, str]]:
     out_files = []
@@ -205,7 +341,7 @@ def unpack_subtitles_in_memory(raw_bytes: bytes, filename_hint: str = "") -> Lis
 
 
 # ==============================================================================
-# 4. RESOLVER METADATA MEDIA (CINEMETA + TMDB)
+# 5. RESOLVER METADATA MEDIA (CINEMETA + TMDB)
 # ==============================================================================
 def resolve_media_metadata(raw_imdb_id: str) -> Dict[str, Any]:
     clean_id = unquote(raw_imdb_id).strip()
@@ -273,9 +409,10 @@ def resolve_media_metadata(raw_imdb_id: str) -> Dict[str, Any]:
 
 
 # ==============================================================================
-# 5. ENJIN UTAMA SUBSOURCE CERDAS (SMART SERIES/MOVIE & TANPA HAD)
+# 6. ENJIN UTAMA SUBSOURCE DENGAN PENYARINGAN CERDAS DUA TAHAP
 # ==============================================================================
 def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = True) -> List[Dict[str, Any]]:
+    init_subsource_sqlite_db()
     base_imdb = meta["base_imdb"]
     clean_imdb = meta["imdb_id"]
     title = meta["title"]
@@ -284,9 +421,9 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
     console.print(Panel.fit(
         f"[bold magenta]🦊 SUBSOURCE STANDALONE ENGINE V3 (HEADLESS: {headless})[/bold magenta]\n"
         f"Sasaran IMDb ID  : [bold yellow]{base_imdb}[/bold yellow] ({title})\n"
-        f"Format / Musim   : [bold white]{f'Siri TV (Musim {target_season})' if target_season else 'Auto-Detect Siri/Filem'}[/bold white]\n"
-        f"Had Muat Turun   : [bold green]TIADA HAD (Muat turun SEMUA sarikata ditemui)[/bold green]\n"
-        f"Strategi Carian  : [cyan]Polling API Bypass + Multi-Pattern Modal Navigator[/cyan]",
+        f"Mod Operasi      : [bold white]{f'Musim Spesifik: {target_season}' if target_season else 'GELUNG SEMUA MUSIM SIRI TV (UNLIMITED)'}[/bold white]\n"
+        f"Basis Data Cache : [cyan]{SQLITE_DB_PATH.name}[/cyan] (Filter Pra-Unduh & Pasca-Unduh Aktif)\n"
+        f"Strategi Carian  : [green]Polling API + Multi-Season Loop + Subsource Page Details[/green]",
         border_style="magenta"
     ))
 
@@ -309,7 +446,6 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
             )
             page = context.new_page()
 
-            # Listener pintar bagi menyadap URL langsung dari respons API Subsource
             def on_response_listener(resp):
                 if "search" in resp.url and "api.subsource.net" in resp.url:
                     try:
@@ -325,11 +461,11 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
 
             try:
                 # -------------------------------------------------------------
-                # LANGKAH 1: LAYARI LAMAN UTAMA & TAIP IMDB ID
+                # LANGKAH 1: BUKA BERANDA & KETIK IMDB ID
                 # -------------------------------------------------------------
                 console.print("[cyan]🚀 [1/4] Melayari https://subsource.net...[/cyan]")
                 page.goto("https://subsource.net", wait_until="domcontentloaded", timeout=45000)
-                human_delay(2.0, 3.0, "pemuatan laman utama")
+                human_delay(2.0, 3.0, "pemuatan beranda")
 
                 search_box = page.locator("input[type='search'], input[placeholder*='Search'], input[name='query']").first
                 if not search_box.is_visible():
@@ -343,19 +479,17 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                 search_box.press_sequentially(base_imdb, delay=random.randint(80, 130))
 
                 # -------------------------------------------------------------
-                # LANGKAH 2: POLLING RESPON API / KAD MODAL (ANTI-RACE CONDITION)
+                # LANGKAH 2: POLLING RESPON API / KARTU MODAL (ANTI-RACE CONDITION)
                 # -------------------------------------------------------------
                 console.print("[cyan]⏳ Menunggu popup cadangan atau respons API (maks 10s)...[/cyan]")
                 start_polling = time.time()
                 popup_link_found = ""
 
                 while time.time() - start_polling < 10.0:
-                    # 1. Semak jika pautan API berjaya disadap
                     if intercepted_direct_links:
                         popup_link_found = intercepted_direct_links[0]
                         break
 
-                    # 2. Semak jika elemen kad siri (/series/) atau filem (/subtitles/) sudah terbit di DOM
                     candidate_cards = page.locator(
                         "header a[href*='/series/'], header a[href*='/subtitles/'], "
                         "div[role='dialog'] a[href*='/series/'], div[role='dialog'] a[href*='/subtitles/'], "
@@ -375,13 +509,12 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
 
                     time.sleep(0.4)
 
-                # Navigasi tepat ke sasaran (Bypass Backdrop)
                 if popup_link_found:
                     target_content_url = urljoin("https://subsource.net", popup_link_found)
                     console.print(f"[bold green]🎯 [Navigasi Berjaya] Membuka:[/bold green] {target_content_url}")
                     page.goto(target_content_url, wait_until="domcontentloaded", timeout=35000)
                 else:
-                    console.print("[yellow]⚠️ Popup tidak dikesan, menekan kad pertama dalam modal carian...[/yellow]")
+                    console.print("[yellow]⚠️ Popup tidak dikesan, menekan kad pertama dalam modal...[/yellow]")
                     first_link = page.locator("header a, div[role='dialog'] a").first
                     if first_link.is_visible():
                         first_link.click(force=True)
@@ -391,82 +524,93 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                 page.wait_for_load_state("domcontentloaded")
                 human_delay(3.0, 4.0, "pemuatan halaman kandungan")
 
-                # PENGESAHAN: Pastikan pelayar tidak tersangkut di laman utama!
                 if page.url.rstrip("/") == "https://subsource.net":
-                    console.print("[bold red]❌ Ralat: Pelayar masih tersangkut di halaman utama. Carian IMDb Subsource gagal memuatkan kad.[/bold red]")
+                    console.print("[bold red]❌ Ralat: Pelayar tersangkut di beranda. Kad siri/filem gagal dibuka.[/bold red]")
                     return []
 
                 # -------------------------------------------------------------
-                # LANGKAH 3: LOGIK KHAS SIRI TV VS FILEM
+                # LANGKAH 3: KUMPULKAN SELURUH MUSIM (TIADA HAD / FULL LOOP)
                 # -------------------------------------------------------------
-                console.print("[cyan]🔍 [3/4] Memeriksa struktur halaman (Musim Siri TV vs Jadual Terus)...[/cyan]")
-                season_elements = page.locator("a[href*='season-'], a[href*='/season/'], a:has-text('Season')").all()
-                if not season_elements:
-                    season_elements = page.locator("div[class*='season'], div:has(> p:has-text('Season'))").all()
+                console.print("[cyan]🔍 [3/4] Mengesan struktur siri TV (mengutip semua musim)...[/cyan]")
+                season_cards = page.locator("a[href*='season-'], a[href*='/season/']").all()
+                if not season_cards:
+                    season_cards = page.locator("div[class*='season'], a:has-text('Season')").all()
 
-                if season_elements:
-                    console.print(f"[bold magenta]📺 Terdeteksi sebagai Siri TV ({len(season_elements)} entri musim dijumpai)![/bold magenta]")
-                    selected_season_el = None
-                    chosen_label = ""
+                seasons_to_scrape: List[Dict[str, Any]] = []
+                seen_season_urls = set()
 
-                    # 1. Pilih musim spesifik jika diminta
-                    if target_season:
-                        pat = re.compile(rf"\bSeason\s*{target_season}\b", re.IGNORECASE)
-                        for el in season_elements:
-                            txt = el.inner_text().strip()
-                            if pat.search(txt) or f"season-{target_season}" in (el.get_attribute("href") or ""):
-                                selected_season_el = el
-                                chosen_label = f"Season {target_season}"
-                                break
+                for sc in season_cards:
+                    txt = sc.inner_text().strip()
+                    href = sc.get_attribute("href") or ""
+                    if not href:
+                        continue
+                    full_s_url = urljoin("https://subsource.net", href)
+                    if full_s_url in seen_season_urls:
+                        continue
+                    seen_season_urls.add(full_s_url)
 
-                    # 2. Auto-detect musim pertama yang mengandungi sarikata (> 0 subtitles)
-                    if not selected_season_el:
-                        for el in season_elements:
-                            txt = el.inner_text().strip()
-                            if "0 subtitles" not in txt.lower() and "subtitles" in txt.lower():
-                                selected_season_el = el
-                                chosen_label = txt.split("\n")[0]
-                                break
+                    m_num = re.search(r"season[- ]*(\d+)", f"{href} {txt}", re.IGNORECASE)
+                    s_num = int(m_num.group(1)) if m_num else None
+                    has_zero = "0 subtitles" in txt.lower()
 
-                    if not selected_season_el and season_elements:
-                        selected_season_el = season_elements[0]
-                        chosen_label = selected_season_el.inner_text().split("\n")[0]
+                    seasons_to_scrape.append({
+                        "season_num": s_num,
+                        "url": full_s_url,
+                        "label": txt.split("\n")[0] if txt else f"Season {s_num}",
+                        "zero_subs": has_zero
+                    })
 
-                    if selected_season_el:
-                        console.print(f"[bold green]   └─ Membuka Musim:[/bold green] [white]{chosen_label}[/white]")
-                        s_href = selected_season_el.get_attribute("href")
-                        if s_href:
-                            page.goto(urljoin("https://subsource.net", s_href), wait_until="domcontentloaded", timeout=35000)
-                        else:
-                            selected_season_el.click(force=True)
+                if target_season:
+                    filtered = [s for s in seasons_to_scrape if s["season_num"] == target_season]
+                    if filtered:
+                        seasons_to_scrape = filtered
+                    else:
+                        seasons_to_scrape = [s for s in seasons_to_scrape if f"season-{target_season}" in s["url"].lower()]
 
-                        page.wait_for_load_state("domcontentloaded")
-                        human_delay(2.5, 4.0, "pemuatan jadual musim")
+                if not seasons_to_scrape:
+                    seasons_to_scrape = [{
+                        "season_num": target_season,
+                        "url": page.url,
+                        "label": "Jadual Langsung (Filem / Siri Terbuka)",
+                        "zero_subs": False
+                    }]
                 else:
-                    console.print("[green]🎬 Terdeteksi sebagai Filem atau Siri dengan jadual langsung.[/green]")
+                    seasons_to_scrape.sort(key=lambda x: (x["season_num"] or 999))
+                    console.print(f"[bold magenta]📺 Mengesan {len(seasons_to_scrape)} musim untuk diproses sepenuhnya![/bold magenta]")
 
                 # -------------------------------------------------------------
-                # LANGKAH 4: IN-PAGE SEARCH & KUTIP SEMUA SARIKATA BM & ID
+                # LANGKAH 4: PROSES TIAP MUSIM DENGAN FILTER PRA-UNDUH CERDAS
                 # -------------------------------------------------------------
-                table_search = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
-                if not table_search.is_visible():
-                    page.reload(wait_until="domcontentloaded")
-                    human_delay(2.5, 3.5, "refresh jadual sarikata")
+                for s_idx, s_info in enumerate(seasons_to_scrape, 1):
+                    if s_info["zero_subs"]:
+                        console.print(f"[dim yellow]⏩ Melangkau {s_info['label']} (0 sarikata tersenarai).[/dim yellow]")
+                        continue
+
+                    console.print(f"\n[bold cyan]📂 [Musim {s_idx}/{len(seasons_to_scrape)}] Membuka: {s_info['label']}[/bold cyan] -> {s_info['url']}")
+                    if page.url != s_info["url"]:
+                        page.goto(s_info["url"], wait_until="domcontentloaded", timeout=35000)
+                        human_delay(2.5, 3.5, f"pemuatan {s_info['label']}")
+
                     table_search = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
+                    if not table_search.is_visible():
+                        page.reload(wait_until="domcontentloaded")
+                        human_delay(2.5, 3.5, "refresh jadual")
+                        table_search = page.locator("input[placeholder*='Search subtitles'], input[placeholder*='subtitles']").first
 
-                targets_to_download: List[Dict[str, str]] = []
-                seen_detail_urls = set()
+                    if not table_search.is_visible():
+                        console.print(f"[dim red]⚠️ Kotak saringan tidak ditemui pada {s_info['label']}.[/dim red]")
+                        continue
 
-                if table_search.is_visible():
-                    # --- FASA A: BAHASA MELAYU (MALAY) ---
-                    console.print("\n[yellow]🔍 [Saringan A] Menyaring 'malay'...[/yellow]")
+                    targets_to_download: List[Dict[str, str]] = []
+                    seen_detail_urls = set()
+
+                    # Saringan Melayu
                     table_search.click()
                     table_search.fill("")
-                    table_search.press_sequentially("malay", delay=100)
-                    human_delay(2.0, 3.5, "menunggu senarai Melayu")
+                    table_search.press_sequentially("malay", delay=90)
+                    human_delay(2.0, 3.0, "saringan Malay")
 
-                    rows_malay = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
-                    for r in rows_malay:
+                    for r in page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all():
                         txt = r.inner_text().strip()
                         if not txt or "language" in txt.lower():
                             continue
@@ -477,21 +621,17 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                             rel = link.inner_text().strip() or txt.split("\n")[0]
                             if full_u and full_u not in seen_detail_urls:
                                 seen_detail_urls.add(full_u)
-                                targets_to_download.append({"lang": "ms", "release_title": rel, "detail_url": full_u})
+                                targets_to_download.append({"lang": "ms", "release_title": rel, "detail_url": full_u, "season_num": s_info["season_num"]})
 
-                    console.print(f"[green]✔ Berjaya mengesan {len([t for t in targets_to_download if t['lang'] == 'ms'])} sarikata Bahasa Melayu![/green]")
-
-                    # --- FASA B: BAHASA INDONESIA (INDONESIA) ---
-                    console.print("\n[yellow]🔍 [Saringan B] Menyaring 'indonesia'...[/yellow]")
+                    # Saringan Indonesia
                     table_search.click()
                     page.keyboard.press("Control+A")
                     page.keyboard.press("Backspace")
                     time.sleep(0.4)
-                    table_search.press_sequentially("indonesia", delay=100)
-                    human_delay(2.0, 3.5, "menunggu senarai Indonesia")
+                    table_search.press_sequentially("indonesia", delay=90)
+                    human_delay(2.0, 3.0, "saringan Indonesia")
 
-                    rows_indo = page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all()
-                    for r in rows_indo:
+                    for r in page.locator("tbody tr, div[class*='table'] div[class*='row'], tr").all():
                         txt = r.inner_text().strip()
                         if not txt or "language" in txt.lower():
                             continue
@@ -502,29 +642,56 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                             rel = link.inner_text().strip() or txt.split("\n")[0]
                             if full_u and full_u not in seen_detail_urls:
                                 seen_detail_urls.add(full_u)
-                                targets_to_download.append({"lang": "id", "release_title": rel, "detail_url": full_u})
+                                targets_to_download.append({"lang": "id", "release_title": rel, "detail_url": full_u, "season_num": s_info["season_num"]})
 
-                    console.print(f"[green]✔ Berjaya mengesan {len([t for t in targets_to_download if t['lang'] == 'id'])} sarikata Bahasa Indonesia![/green]")
+                    console.print(f"[green]✔ {s_info['label']}: Ditemui {len(targets_to_download)} kandidat sarikata BM & ID.[/green]")
 
-                # -------------------------------------------------------------
-                # LANGKAH 5: MUAT TURUN 100% SARIKATA (TANPA HAD KUOTA)
-                # -------------------------------------------------------------
-                total_dl = len(targets_to_download)
-                if total_dl > 0:
-                    console.print(f"\n[bold magenta]📥 [4/4] Memuat turun SEMUA {total_dl} sarikata fizikal dari Subsource...[/bold magenta]")
-
+                    # ---------------------------------------------------------
+                    # PENGUNDUHAN BERKAS FISIK DENGAN FILTER PRA-UNDUH SQLITE
+                    # ---------------------------------------------------------
                     for idx, target in enumerate(targets_to_download, 1):
-                        console.print(f"[cyan]   [{idx}/{total_dl}] Mengunduh:[/cyan] {target['release_title'][:50]} ({target['lang'].upper()})...")
+                        target_url = target["detail_url"]
+
+                        # Ekstraksi Subtitle ID dari URL (contoh: /indonesian/366348 -> 366348)
+                        m_sub_id = re.search(r"/(\d+)(?:[?#]|$)", target_url)
+                        subsource_id = m_sub_id.group(1) if m_sub_id else ""
 
                         dl_tab = context.new_page()
                         try:
-                            dl_tab.goto(target["detail_url"], wait_until="domcontentloaded", timeout=35000)
-                            human_delay(1.8, 3.0, f"halaman rilis #{idx}")
+                            dl_tab.goto(target_url, wait_until="domcontentloaded", timeout=35000)
+                            human_delay(1.5, 2.5, "halaman rilis")
+
+                            # 1. BACA METADATA DETAIL PADA HALAMAN SEBELUM MENGUNDUH
+                            uploaded_at_val = ""
+                            file_bytes_val = ""
+
+                            details_el = dl_tab.locator("div:has-text('Subtitle Details'), div[class*='details']").first
+                            if details_el.is_visible():
+                                d_text = details_el.inner_text()
+                                # Ekstraksi waktu unggah (contoh: Uploaded: 2010/09/22 15:28)
+                                m_up = re.search(r"Uploaded:\s*([0-9/:\s-]+?)(?:\s*\(|$)", d_text, re.IGNORECASE)
+                                if m_up:
+                                    uploaded_at_val = m_up.group(1).strip()
+
+                                # Ekstraksi ukuran bita (contoh: 80,083 Bytes atau 0 Bytes)
+                                m_by = re.search(r"([\d,]+)\s*Bytes", d_text, re.IGNORECASE)
+                                if m_by:
+                                    file_bytes_val = m_by.group(1).replace(",", "").strip()
+
+                            # 2. FILTER PRA-UNDUH: Cek apakah paket ini sudah pernah disimpan dan tidak berubah
+                            if subsource_id and uploaded_at_val and file_bytes_val:
+                                if check_subsource_package_cache(subsource_id, uploaded_at_val, file_bytes_val):
+                                    console.print(f"[dim yellow]   ├─ [{idx}/{len(targets_to_download)}] Dilangkau Cerdas (ID #{subsource_id}): Berkas tidak berubah ({file_bytes_val} Bytes | {uploaded_at_val})[/dim yellow]")
+                                    dl_tab.close()
+                                    time.sleep(0.3)
+                                    continue
+
+                            console.print(f"[cyan]   ├─ [{idx}/{len(targets_to_download)}] Mengunduh:[/cyan] {target['release_title'][:45]} ({target['lang'].upper()} | ID #{subsource_id})...")
 
                             dl_btn = dl_tab.locator("button:has-text('Download'), a:has-text('Download'), button[class*='download']").first
                             if not dl_btn.is_visible():
                                 dl_tab.reload(wait_until="domcontentloaded")
-                                human_delay(2.0, 3.0, "refresh butang download")
+                                human_delay(1.8, 2.5, "refresh tombol")
                                 dl_btn = dl_tab.locator("button:has-text('Download'), a:has-text('Download'), button[class*='download']").first
 
                             if dl_btn.is_visible():
@@ -540,23 +707,32 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
                                 if len(raw_bytes) > 50:
                                     unpacked = unpack_subtitles_in_memory(raw_bytes, filename_hint=download.suggested_filename)
                                     for sub_obj in unpacked:
+                                        s_parsed, e_parsed = parse_season_episode_from_text(sub_obj["filename"] or target["release_title"])
+                                        final_s = s_parsed or target["season_num"]
+
                                         extracted_records.append({
                                             "source": "Subsource",
+                                            "subsource_id": subsource_id,
+                                            "uploaded_at": uploaded_at_val,
+                                            "file_bytes": file_bytes_val,
+                                            "detail_url": target_url,
                                             "lang": target["lang"],
                                             "content": sub_obj["content"],
                                             "ext": sub_obj["ext"],
-                                            "release_title": sub_obj["filename"] or target["release_title"]
+                                            "release_title": sub_obj["filename"] or target["release_title"],
+                                            "season": final_s,
+                                            "episode": e_parsed
                                         })
-                                    console.print(f"[bold green]      └─ Berjaya diekstrak ({len(unpacked)} sarikata):[/bold green] {download.suggested_filename}")
+                                    console.print(f"[bold green]   │  └─ Berjaya diekstrak ({len(unpacked)} sarikata):[/bold green] {download.suggested_filename}")
                             else:
-                                console.print("[dim yellow]      └─ Butang muat turun tiada pada halaman ini.[/dim yellow]")
+                                console.print("[dim yellow]   │  └─ Tombol Download tidak terdeteksi.[/dim yellow]")
 
                         except Exception as dl_err:
-                            console.print(f"[dim red]      └─ Gagal muat turun #{idx}: {dl_err}[/dim red]")
+                            console.print(f"[dim red]   │  └─ Ralat unduh #{idx}: {dl_err}[/dim red]")
                         finally:
                             dl_tab.close()
 
-                        human_delay(1.5, 2.8, "jeda antara muat turun")
+                        human_delay(1.5, 2.5, "jeda antar unduhan")
 
             except Exception as page_err:
                 console.print(f"[bold red]❌ Ralat automasi Subsource: {page_err}[/bold red]")
@@ -571,7 +747,7 @@ def scrape_and_download_subsource_full(meta: Dict[str, Any], headless: bool = Tr
 
 
 # ==============================================================================
-# 6. PIPELINE MUAT NAIK & PENDAFTARAN B2 / REDIS
+# 7. PIPELINE UNGGAH & PENDAFTARAN B2 / REDIS (PASCA-UNDUH SHA-256 CHECK)
 # ==============================================================================
 def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
     meta = resolve_media_metadata(raw_imdb_id)
@@ -595,17 +771,19 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         subsource_results = scrape_and_download_subsource_full(meta, headless=headless)
 
         if not subsource_results:
-            console.print(f"[bold yellow]⚠️ Tiada sarikata BM/ID ditemui di Subsource untuk {imdb_id}.[/bold yellow]")
-            return False
+            console.print(f"[bold yellow]⚠️ Tiada sarikata baharu yang perlu dimuat naik ke B2/Redis untuk {imdb_id}.[/bold yellow]")
+            return True
 
-        console.print(f"\n[bold cyan]📦 Memproses {len(subsource_results)} fail sarikata dari Subsource ke B2 & Redis...[/bold cyan]")
+        console.print(f"\n[bold cyan]📦 Memproses {len(subsource_results)} fail sarikata ke B2 & Redis (Validasi SHA-256)...[/bold cyan]")
 
         uploaded_records = []
-        seen_content_hashes = set()
+        seen_session_hashes = set()
+        skipped_hash_count = 0
 
         table = Table(title=f"📋 Audit Muat Naik Subsource V3: {meta['title']}", border_style="magenta")
         table.add_column("No", justify="center", style="cyan", width=4)
         table.add_column("Bahasa", justify="center", style="magenta", width=6)
+        table.add_column("Musim/Ep", justify="center", style="yellow", width=10)
         table.add_column("Nama Penuh Fail Sarikata (.srt)", style="white")
         table.add_column("Destinasi B2", justify="center", style="green", width=14)
         table.add_column("Redis Shard", justify="center", style="blue", width=12)
@@ -616,11 +794,27 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             content_str = sub_item["content"]
             ext = sub_item["ext"]
             raw_title = sub_item["release_title"]
+            s_val = sub_item.get("season")
+            e_val = sub_item.get("episode")
+            sub_id = sub_item.get("subsource_id") or ""
+            up_at = sub_item.get("uploaded_at") or ""
+            f_bytes = sub_item.get("file_bytes") or ""
+            d_url = sub_item.get("detail_url") or ""
 
+            # 1. Hashing Konten Teks Asli Berkas
             content_hash = hashlib.sha256(content_str.encode("utf-8", errors="ignore")).hexdigest()
-            if content_hash in seen_content_hashes:
+
+            # 2. De-duplikasi dalam sesi yang sama
+            if content_hash in seen_session_hashes:
                 continue
-            seen_content_hashes.add(content_hash)
+            seen_session_hashes.add(content_hash)
+
+            # 3. FILTER PASCA-UNDUH: Cek apakah hash isi konten ini sudah pernah diunggah ke B2 sebelumnya
+            if is_content_hash_cached(content_hash):
+                skipped_hash_count += 1
+                # Simpan metadata paket agar pra-unduh sesi berikutnya langsung melewatinya
+                save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
+                continue
 
             standard_fn = build_standard_sub_filename(
                 lang=lang,
@@ -640,19 +834,40 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
                 acc_idx = b2_res.get("account_index", 1)
 
                 rec_id = f"{lang}_{clean_imdb_folder}_{len(uploaded_records) + 1}"
-                uploaded_records.append({
+                new_rec = {
                     "id": rec_id,
                     "lang": lang,
                     "url": proxy_stream_url,
                     "release": standard_fn,
                     "source": "Subsource",
-                    "acc": int(acc_idx)
-                })
+                    "acc": int(acc_idx),
+                    "season": s_val,
+                    "episode": e_val
+                }
+                uploaded_records.append(new_rec)
 
+                # Simpan ke tabel subsource_files
+                save_subsource_file_cache(
+                    content_hash=content_hash,
+                    subsource_id=sub_id,
+                    imdb_id=imdb_id,
+                    release_title=standard_fn,
+                    b2_url=proxy_stream_url,
+                    acc_idx=int(acc_idx),
+                    lang=lang,
+                    season=s_val,
+                    episode=e_val
+                )
+
+                # Simpan juga ke tabel subsource_meta untuk pra-pemeriksaan masa depan
+                save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
+
+                se_label = f"S{s_val:02d}E{e_val:02d}" if (s_val and e_val) else (f"S{s_val:02d}" if s_val else "-")
                 table.add_row(
                     str(len(uploaded_records)),
                     lang.upper(),
-                    standard_fn[:58],
+                    se_label,
+                    standard_fn[:52],
                     f"Akaun #{acc_idx}",
                     f"Shard #{shard_idx}",
                     "SUKSES"
@@ -663,23 +878,45 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             except Exception as ex:
                 console.print(f"[dim red]Gagal muat naik ke B2: {ex}[/dim red]")
 
+        if skipped_hash_count > 0:
+            console.print(f"[bold green]✔ {skipped_hash_count} sarikata dilewati karena hash isi konten identik dengan data di B2.[/bold green]")
+
         if not uploaded_records:
-            console.print("[bold red]❌ Tiada fail unik yang berjaya dimuat naik ke B2.[/bold red]")
-            return False
+            console.print("[yellow]ℹ️ Semua berkas sarikata yang diunduh sudah ada di basis data B2 & Redis.[/yellow]")
+            return True
 
         console.print(table)
 
+        # -------------------------------------------------------------
+        # PENDAFTARAN KE REDIS (KUNCI INDUK & KUNCI EPISODE)
+        # -------------------------------------------------------------
         console.print(f"\n[cyan]💾 Mendaftarkan {len(uploaded_records)} sarikata ke Upstash Redis Shard #{shard_idx}...[/cyan]")
         _redis.save_subtitle_records_batch(imdb_id, uploaded_records)
 
-        if meta["is_series"]:
+        if meta["is_series"] or any(r.get("season") for r in uploaded_records):
             _redis.save_subtitle_records_batch(base_id, uploaded_records)
 
+            episode_groups: Dict[str, List[Dict[str, Any]]] = {}
+            for rec in uploaded_records:
+                s = rec.get("season")
+                e = rec.get("episode")
+                if s and e:
+                    ep_k = f"{base_id}:{s}:{e}"
+                    episode_groups.setdefault(ep_k, []).append(rec)
+
+            for ep_key, ep_subs in episode_groups.items():
+                existing = _redis.get_subtitle_records(ep_key) or []
+                existing_urls = {x.get("url") for x in existing}
+                added_list = [s for s in ep_subs if s.get("url") not in existing_urls]
+                if added_list:
+                    _redis.save_subtitle_records_batch(ep_key, existing + added_list)
+                    console.print(f"[dim green]   ├─ Kunci episod {ep_key} dikemas kini (+{len(added_list)} sarikata)[/dim green]")
+
         console.print(Panel.fit(
-            f"[bold green]🎉 TUGASAN SUBSOURCE SELESAI: SEMUA SARIKATA DIKEMAS KINI![/bold green]\n"
+            f"[bold green]🎉 TUGASAN SUBSOURCE SELESAI: SEMUA SARIKATA BERJAYA DIKEMAS KINI![/bold green]\n"
             f"├─ Sasaran IMDb   : [bold yellow]{imdb_id}[/bold yellow] ({meta['title']})\n"
-            f"├─ Sarikata B2    : [bold green]{len(uploaded_records)} fail unik berjaya dimuat naik[/bold green]\n"
-            f"├─ Kunci Redis    : [yellow]subs:{imdb_id}[/yellow] (Shard #{shard_idx})\n"
+            f"├─ Fail Baharu    : [bold green]{len(uploaded_records)} fail berjaya dimuat naik ke B2 & Redis[/bold green]\n"
+            f"├─ Rekod SQLite   : [cyan]{SQLITE_DB_PATH.name}[/cyan] dikemas kini secara otomatis\n"
             f"└─ Proksi Zero    : [cyan]{CF_B2_SUB_PROXY}[/cyan]",
             border_style="green"
         ))
@@ -691,10 +928,10 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
 
 
 # ==============================================================================
-# 7. TITIK MASUK CLI
+# 8. TITIK MASUK CLI
 # ==============================================================================
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Subsource Dedicated Engine V3 (Unlimited Downloads)")
+    parser = argparse.ArgumentParser(description="Subsource Dedicated Engine V3 (Smart Fallback & Multi-Season)")
     parser.add_argument("--imdb", required=True, help="Target IMDb ID (cth: tt1199099 atau tt1199099:1:2)")
     parser.add_argument("--visible", action="store_true", help="Buka GUI pelayar Camoufox (lalai: headless)")
     args = parser.parse_args()
