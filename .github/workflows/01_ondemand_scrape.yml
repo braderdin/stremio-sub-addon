@@ -13,7 +13,7 @@ on:
 jobs:
   scrape-ondemand:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 90
     permissions:
       contents: write
     steps:
@@ -44,6 +44,9 @@ jobs:
         run: |
           python -m camoufox fetch
 
+      # =========================================================================
+      # LANGKAH 1: ENJIN BAHARU V3 (01_sub_engine_core.py - OpenSubtitles)
+      # =========================================================================
       - name: Jalankan Enjin Baharu V3 (01_sub_engine_core.py)
         env:
           CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
@@ -60,45 +63,182 @@ jobs:
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
 
+          # Kunci Khas TG Upstash Redis
+          TG_UPSTASH_REDIS_REST_URL: ${{ secrets.TG_UPSTASH_REDIS_REST_URL }}
+          TG_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.TG_UPSTASH_REDIS_REST_TOKEN }}
+
           # Kunci Utama (JSON Format - Semua Akaun B2)
           B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
 
-          # Kunci Sandaran B2 (B2 ACC 1 - 10)
+          # Kunci Sandaran B2 (B2 ACC 1 - 10 Lengkap)
           B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
           B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
           B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
           B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
           B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+
           B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
           B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
           B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
           B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
           B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+
           B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
           B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
           B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
           B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
           B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+
           B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
           B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
           B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
           B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
           B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+
           B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
           B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
           B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
           B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
           B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
 
+          B2_ACC6_KEY_ID: ${{ secrets.B2_ACC6_KEY_ID }}
+          B2_ACC6_APP_KEY: ${{ secrets.B2_ACC6_APP_KEY }}
+          B2_ACC6_BUCKET_NAME: ${{ secrets.B2_ACC6_BUCKET_NAME }}
+          B2_ACC6_BUCKET_ID: ${{ secrets.B2_ACC6_BUCKET_ID }}
+          B2_ACC6_S3_API_ENDPOINT: ${{ secrets.B2_ACC6_S3_API_ENDPOINT }}
+
+          B2_ACC7_KEY_ID: ${{ secrets.B2_ACC7_KEY_ID }}
+          B2_ACC7_APP_KEY: ${{ secrets.B2_ACC7_APP_KEY }}
+          B2_ACC7_BUCKET_NAME: ${{ secrets.B2_ACC7_BUCKET_NAME }}
+          B2_ACC7_BUCKET_ID: ${{ secrets.B2_ACC7_BUCKET_ID }}
+          B2_ACC7_S3_API_ENDPOINT: ${{ secrets.B2_ACC7_S3_API_ENDPOINT }}
+
+          B2_ACC8_KEY_ID: ${{ secrets.B2_ACC8_KEY_ID }}
+          B2_ACC8_APP_KEY: ${{ secrets.B2_ACC8_APP_KEY }}
+          B2_ACC8_BUCKET_NAME: ${{ secrets.B2_ACC8_BUCKET_NAME }}
+          B2_ACC8_BUCKET_ID: ${{ secrets.B2_ACC8_BUCKET_ID }}
+          B2_ACC8_S3_API_ENDPOINT: ${{ secrets.B2_ACC8_S3_API_ENDPOINT }}
+
+          B2_ACC9_KEY_ID: ${{ secrets.B2_ACC9_KEY_ID }}
+          B2_ACC9_APP_KEY: ${{ secrets.B2_ACC9_APP_KEY }}
+          B2_ACC9_BUCKET_NAME: ${{ secrets.B2_ACC9_BUCKET_NAME }}
+          B2_ACC9_BUCKET_ID: ${{ secrets.B2_ACC9_BUCKET_ID }}
+          B2_ACC9_S3_API_ENDPOINT: ${{ secrets.B2_ACC9_S3_API_ENDPOINT }}
+
+          B2_ACC10_KEY_ID: ${{ secrets.B2_ACC10_KEY_ID }}
+          B2_ACC10_APP_KEY: ${{ secrets.B2_ACC10_APP_KEY }}
+          B2_ACC10_BUCKET_NAME: ${{ secrets.B2_ACC10_BUCKET_NAME }}
+          B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
+          B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
+
         run: |
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
           echo "🚀 Menjalankan Sub Engine V3 untuk IMDb ID: $TARGET_IMDB"
           python sub_engine/01_sub_engine_core.py --imdb "$TARGET_IMDB" || true
 
+      # =========================================================================
+      # LANGKAH 2: ENJIN KHAS SUBSOURCE V3 (02_sub_engine_core_subsource.py)
+      # =========================================================================
+      - name: Jalankan Enjin Khas Subsource V3 (02_sub_engine_core_subsource.py)
+        env:
+          CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
+          ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+
+          # Kunci TMDB API
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
+
+          # Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun Sharded)
+          REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran Redis Asal
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+
+          # Kunci Khas TG Upstash Redis
+          TG_UPSTASH_REDIS_REST_URL: ${{ secrets.TG_UPSTASH_REDIS_REST_URL }}
+          TG_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.TG_UPSTASH_REDIS_REST_TOKEN }}
+
+          # Kunci Utama (JSON Format - Semua Akaun B2)
+          B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
+
+          # Kunci Sandaran B2 (B2 ACC 1 - 10 Lengkap)
+          B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
+          B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
+          B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
+          B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
+          B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+
+          B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
+          B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
+          B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
+          B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
+          B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+
+          B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
+          B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
+          B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
+          B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
+          B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+
+          B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
+          B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
+          B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
+          B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
+          B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+
+          B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
+          B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
+          B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
+          B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
+          B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
+
+          B2_ACC6_KEY_ID: ${{ secrets.B2_ACC6_KEY_ID }}
+          B2_ACC6_APP_KEY: ${{ secrets.B2_ACC6_APP_KEY }}
+          B2_ACC6_BUCKET_NAME: ${{ secrets.B2_ACC6_BUCKET_NAME }}
+          B2_ACC6_BUCKET_ID: ${{ secrets.B2_ACC6_BUCKET_ID }}
+          B2_ACC6_S3_API_ENDPOINT: ${{ secrets.B2_ACC6_S3_API_ENDPOINT }}
+
+          B2_ACC7_KEY_ID: ${{ secrets.B2_ACC7_KEY_ID }}
+          B2_ACC7_APP_KEY: ${{ secrets.B2_ACC7_APP_KEY }}
+          B2_ACC7_BUCKET_NAME: ${{ secrets.B2_ACC7_BUCKET_NAME }}
+          B2_ACC7_BUCKET_ID: ${{ secrets.B2_ACC7_BUCKET_ID }}
+          B2_ACC7_S3_API_ENDPOINT: ${{ secrets.B2_ACC7_S3_API_ENDPOINT }}
+
+          B2_ACC8_KEY_ID: ${{ secrets.B2_ACC8_KEY_ID }}
+          B2_ACC8_APP_KEY: ${{ secrets.B2_ACC8_APP_KEY }}
+          B2_ACC8_BUCKET_NAME: ${{ secrets.B2_ACC8_BUCKET_NAME }}
+          B2_ACC8_BUCKET_ID: ${{ secrets.B2_ACC8_BUCKET_ID }}
+          B2_ACC8_S3_API_ENDPOINT: ${{ secrets.B2_ACC8_S3_API_ENDPOINT }}
+
+          B2_ACC9_KEY_ID: ${{ secrets.B2_ACC9_KEY_ID }}
+          B2_ACC9_APP_KEY: ${{ secrets.B2_ACC9_APP_KEY }}
+          B2_ACC9_BUCKET_NAME: ${{ secrets.B2_ACC9_BUCKET_NAME }}
+          B2_ACC9_BUCKET_ID: ${{ secrets.B2_ACC9_BUCKET_ID }}
+          B2_ACC9_S3_API_ENDPOINT: ${{ secrets.B2_ACC9_S3_API_ENDPOINT }}
+
+          B2_ACC10_KEY_ID: ${{ secrets.B2_ACC10_KEY_ID }}
+          B2_ACC10_APP_KEY: ${{ secrets.B2_ACC10_APP_KEY }}
+          B2_ACC10_BUCKET_NAME: ${{ secrets.B2_ACC10_BUCKET_NAME }}
+          B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
+          B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
+
+        run: |
+          TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
+          echo "🦊 Menjalankan Enjin Khas Subsource V3 untuk IMDb ID: $TARGET_IMDB"
+          python sub_engine/02_sub_engine_core_subsource.py --imdb "$TARGET_IMDB" || true
+
+      # =========================================================================
+      # LANGKAH 3: ENJIN ASAL SUBSCENE & FALLBACK ARKIB ZIP
+      # =========================================================================
       - name: Jalankan Skrip On-Demand Scraper Asal & Fallback Arkib ZIP
         env:
           CF_WORKER_B2_STORAGE: ${{ secrets.CF_WORKER_B2_STORAGE }}
           ADDON_SECRET_TOKEN: ${{ secrets.ADDON_SECRET_TOKEN }}
+
+          # Kunci TMDB API
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
 
           # Kunci Utama JSON Multi-Akaun Upstash Redis (10 Akaun Sharded)
           REDIS_MULTI_ACCOUNT_JSON: ${{ secrets.REDIS_MULTI_ACCOUNT_JSON }}
@@ -114,32 +254,66 @@ jobs:
           # Kunci Utama (JSON Format - Semua Akaun B2)
           B2_MULTI_ACCOUNT_JSON: ${{ secrets.B2_MULTI_ACCOUNT_JSON }}
 
-          # Kunci Sandaran B2 (B2 ACC 1 - 10)
+          # Kunci Sandaran B2 (B2 ACC 1 - 10 Lengkap)
           B2_ACC1_KEY_ID: ${{ secrets.B2_ACC1_KEY_ID }}
           B2_ACC1_APP_KEY: ${{ secrets.B2_ACC1_APP_KEY }}
           B2_ACC1_BUCKET_NAME: ${{ secrets.B2_ACC1_BUCKET_NAME }}
           B2_ACC1_BUCKET_ID: ${{ secrets.B2_ACC1_BUCKET_ID }}
           B2_ACC1_S3_API_ENDPOINT: ${{ secrets.B2_ACC1_S3_API_ENDPOINT }}
+
           B2_ACC2_KEY_ID: ${{ secrets.B2_ACC2_KEY_ID }}
           B2_ACC2_APP_KEY: ${{ secrets.B2_ACC2_APP_KEY }}
           B2_ACC2_BUCKET_NAME: ${{ secrets.B2_ACC2_BUCKET_NAME }}
           B2_ACC2_BUCKET_ID: ${{ secrets.B2_ACC2_BUCKET_ID }}
           B2_ACC2_S3_API_ENDPOINT: ${{ secrets.B2_ACC2_S3_API_ENDPOINT }}
+
           B2_ACC3_KEY_ID: ${{ secrets.B2_ACC3_KEY_ID }}
           B2_ACC3_APP_KEY: ${{ secrets.B2_ACC3_APP_KEY }}
           B2_ACC3_BUCKET_NAME: ${{ secrets.B2_ACC3_BUCKET_NAME }}
           B2_ACC3_BUCKET_ID: ${{ secrets.B2_ACC3_BUCKET_ID }}
           B2_ACC3_S3_API_ENDPOINT: ${{ secrets.B2_ACC3_S3_API_ENDPOINT }}
+
           B2_ACC4_KEY_ID: ${{ secrets.B2_ACC4_KEY_ID }}
           B2_ACC4_APP_KEY: ${{ secrets.B2_ACC4_APP_KEY }}
           B2_ACC4_BUCKET_NAME: ${{ secrets.B2_ACC4_BUCKET_NAME }}
           B2_ACC4_BUCKET_ID: ${{ secrets.B2_ACC4_BUCKET_ID }}
           B2_ACC4_S3_API_ENDPOINT: ${{ secrets.B2_ACC4_S3_API_ENDPOINT }}
+
           B2_ACC5_KEY_ID: ${{ secrets.B2_ACC5_KEY_ID }}
           B2_ACC5_APP_KEY: ${{ secrets.B2_ACC5_APP_KEY }}
           B2_ACC5_BUCKET_NAME: ${{ secrets.B2_ACC5_BUCKET_NAME }}
           B2_ACC5_BUCKET_ID: ${{ secrets.B2_ACC5_BUCKET_ID }}
           B2_ACC5_S3_API_ENDPOINT: ${{ secrets.B2_ACC5_S3_API_ENDPOINT }}
+
+          B2_ACC6_KEY_ID: ${{ secrets.B2_ACC6_KEY_ID }}
+          B2_ACC6_APP_KEY: ${{ secrets.B2_ACC6_APP_KEY }}
+          B2_ACC6_BUCKET_NAME: ${{ secrets.B2_ACC6_BUCKET_NAME }}
+          B2_ACC6_BUCKET_ID: ${{ secrets.B2_ACC6_BUCKET_ID }}
+          B2_ACC6_S3_API_ENDPOINT: ${{ secrets.B2_ACC6_S3_API_ENDPOINT }}
+
+          B2_ACC7_KEY_ID: ${{ secrets.B2_ACC7_KEY_ID }}
+          B2_ACC7_APP_KEY: ${{ secrets.B2_ACC7_APP_KEY }}
+          B2_ACC7_BUCKET_NAME: ${{ secrets.B2_ACC7_BUCKET_NAME }}
+          B2_ACC7_BUCKET_ID: ${{ secrets.B2_ACC7_BUCKET_ID }}
+          B2_ACC7_S3_API_ENDPOINT: ${{ secrets.B2_ACC7_S3_API_ENDPOINT }}
+
+          B2_ACC8_KEY_ID: ${{ secrets.B2_ACC8_KEY_ID }}
+          B2_ACC8_APP_KEY: ${{ secrets.B2_ACC8_APP_KEY }}
+          B2_ACC8_BUCKET_NAME: ${{ secrets.B2_ACC8_BUCKET_NAME }}
+          B2_ACC8_BUCKET_ID: ${{ secrets.B2_ACC8_BUCKET_ID }}
+          B2_ACC8_S3_API_ENDPOINT: ${{ secrets.B2_ACC8_S3_API_ENDPOINT }}
+
+          B2_ACC9_KEY_ID: ${{ secrets.B2_ACC9_KEY_ID }}
+          B2_ACC9_APP_KEY: ${{ secrets.B2_ACC9_APP_KEY }}
+          B2_ACC9_BUCKET_NAME: ${{ secrets.B2_ACC9_BUCKET_NAME }}
+          B2_ACC9_BUCKET_ID: ${{ secrets.B2_ACC9_BUCKET_ID }}
+          B2_ACC9_S3_API_ENDPOINT: ${{ secrets.B2_ACC9_S3_API_ENDPOINT }}
+
+          B2_ACC10_KEY_ID: ${{ secrets.B2_ACC10_KEY_ID }}
+          B2_ACC10_APP_KEY: ${{ secrets.B2_ACC10_APP_KEY }}
+          B2_ACC10_BUCKET_NAME: ${{ secrets.B2_ACC10_BUCKET_NAME }}
+          B2_ACC10_BUCKET_ID: ${{ secrets.B2_ACC10_BUCKET_ID }}
+          B2_ACC10_S3_API_ENDPOINT: ${{ secrets.B2_ACC10_S3_API_ENDPOINT }}
 
         run: |
           TARGET_IMDB="${{ github.event.client_payload.imdb_id || inputs.imdb_id }}"
@@ -150,6 +324,9 @@ jobs:
           echo "📦 [LANGKAH 2/2] Menjalankan Fallback Pakej Arkib ZIP (B2 & TG Redis)..."
           python live_engine/10_fallback_zip_pack_importer.py --imdb "$TARGET_IMDB"
 
+      # =========================================================================
+      # LANGKAH 4: COMMIT & REBASE PENJEJAK REKOD TEMPATAN
+      # =========================================================================
       - name: Commit dan Simpan Rekod Scraped History Sahaja (Auto-Rebase Safe)
         if: always()
         run: |
