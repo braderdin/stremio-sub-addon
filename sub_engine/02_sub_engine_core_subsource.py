@@ -9,7 +9,7 @@
 # 4. Basis Data SQLite: sub_engine/data/subsource_cache.db
 # 5. Pasca-Pemeriksaan Hash SHA-256 (Anti-Duplikasi B2 & Redis)
 # 6. Pemetaan Cerdas Episode Serial ke Kunci Induk & Kunci Spesifik Redis
-# 7. Penyelamatan Data Real-Time: Simpan serta-merta ke B2/Redis/SQLite per-fail
+# 7. Penyelamatan Real-Time: Simpan serta-merta ke B2/Redis/SQLite per-sarikata
 # ==============================================================================
 
 import os
@@ -26,7 +26,7 @@ import argparse
 import importlib
 from pathlib import Path
 from urllib.parse import urljoin, unquote
-from typing import Dict, Any, List, Optional, Tuple, Callable
+from typing import Dict, Any, List, Optional, Tuple
 
 from curl_cffi import requests
 from dotenv import dotenv_values
@@ -415,7 +415,7 @@ def resolve_media_metadata(raw_imdb_id: str) -> Dict[str, Any]:
 def scrape_and_download_subsource_full(
     meta: Dict[str, Any], 
     headless: bool = True, 
-    on_subtitle_extracted: Optional[Callable[[Dict[str, Any]], None]] = None
+    upload_callback=None
 ) -> List[Dict[str, Any]]:
     init_subsource_sqlite_db()
     base_imdb = meta["base_imdb"]
@@ -428,7 +428,7 @@ def scrape_and_download_subsource_full(
         f"Sasaran IMDb ID  : [bold yellow]{base_imdb}[/bold yellow] ({title})\n"
         f"Mod Operasi      : [bold white]{f'Musim Spesifik: {target_season}' if target_season else 'GELUNG SEMUA MUSIM SIRI TV (UNLIMITED)'}[/bold white]\n"
         f"Basis Data Cache : [cyan]{SQLITE_DB_PATH.name}[/cyan] (Filter Pra-Unduh & Pasca-Unduh Aktif)\n"
-        f"Strategi Carian  : [green]Polling API + Multi-Season Loop + Subsource Page Details[/green]",
+        f"Strategi Carian  : [green]Polling API + Multi-Season Loop + Real-Time Atomic Ingestion[/green]",
         border_style="magenta"
     ))
 
@@ -715,7 +715,7 @@ def scrape_and_download_subsource_full(
                                         s_parsed, e_parsed = parse_season_episode_from_text(sub_obj["filename"] or target["release_title"])
                                         final_s = s_parsed or target["season_num"]
 
-                                        item_record = {
+                                        item_data = {
                                             "source": "Subsource",
                                             "subsource_id": subsource_id,
                                             "uploaded_at": uploaded_at_val,
@@ -728,16 +728,19 @@ def scrape_and_download_subsource_full(
                                             "season": final_s,
                                             "episode": e_parsed
                                         }
-                                        extracted_records.append(item_record)
+                                        extracted_records.append(item_data)
 
-                                        # [LOGIK PINTAR REAL-TIME]: Simpan terus ke B2, Redis & SQLite jika callback dibekalkan
-                                        if on_subtitle_extracted:
-                                            try:
-                                                on_subtitle_extracted(item_record)
-                                            except Exception as cb_err:
-                                                console.print(f"[dim red]   │  ❌ Ralat pemprosesan segera: {cb_err}[/dim red]")
+                                        # [LOGIK PINTAR REAL-TIME]: Terus muat naik & daftarkan ke B2/Redis/SQLite per-sarikata!
+                                        if upload_callback:
+                                            upload_callback(item_data)
 
                                     console.print(f"[bold green]   │  └─ Berjaya diekstrak ({len(unpacked)} sarikata):[/bold green] {download.suggested_filename}")
+
+                                # Padam fail fizikal arkib muat turun serta-merta agar storan runner tidak penuh
+                                try:
+                                    dest_path.unlink(missing_ok=True)
+                                except Exception:
+                                    pass
                             else:
                                 console.print("[dim yellow]   │  └─ Tombol Download tidak terdeteksi.[/dim yellow]")
 
@@ -798,9 +801,9 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
     table.add_column("Status", justify="center", style="bold green", width=10)
 
     # --------------------------------------------------------------------------
-    # FUNGSI ATOMIK: MEMUAT NAIK & MENDAFTAR 1 SARIKATA SERTA-MERTA SECARA REAL-TIME
+    # FUNGSI ATOMIK SERTA-MERTA: PROSES SATU PERSATU KE B2, REDIS, DAN SQLITE
     # --------------------------------------------------------------------------
-    def process_and_save_single_sub(sub_item: Dict[str, Any]) -> bool:
+    def atomic_upload_handler(sub_item: Dict[str, Any]) -> bool:
         nonlocal skipped_hash_count
         lang = sub_item["lang"]
         content_str = sub_item["content"]
@@ -840,6 +843,7 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         b2_relative_path = f"subs/{clean_imdb_folder}/{standard_fn}"
 
         try:
+            # A. Muat Naik ke B2 Serta-merta
             b2_res = _b2.upload_subtitle_to_b2(b2_relative_path, content_str)
             bucket_name = b2_res.get("bucket_name", "")
             proxy_stream_url = f"{CF_B2_SUB_PROXY}/{bucket_name}/{b2_relative_path.lstrip('/')}"
@@ -858,7 +862,7 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             }
             uploaded_records.append(new_rec)
 
-            # Simpan ke tabel subsource_files serta-merta
+            # B. Simpan ke tabel subsource_files SQLite
             save_subsource_file_cache(
                 content_hash=content_hash,
                 subsource_id=sub_id,
@@ -871,12 +875,10 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
                 episode=e_val
             )
 
-            # Simpan juga ke tabel subsource_meta untuk pra-pemeriksaan masa depan
+            # C. Simpan juga ke tabel subsource_meta untuk pra-pemeriksaan masa depan
             save_subsource_package_meta(sub_id, imdb_id, up_at, f_bytes, d_url)
 
-            # -------------------------------------------------------------
-            # PENDAFTARAN REAL-TIME KE REDIS (KUNCI INDUK & KUNCI EPISODE)
-            # -------------------------------------------------------------
+            # D. Daftarkan Terus ke Upstash Redis (Kunci Induk & Kunci Spesifik Episod)
             _redis.save_subtitle_records_batch(imdb_id, [new_rec])
 
             if meta["is_series"] or s_val:
@@ -898,7 +900,11 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
                 f"Shard #{shard_idx}",
                 "SUKSES"
             )
+
+            # Cetak bukti simpanan masa-nyata terus ke konsol
+            console.print(f"[bold green]   │  💾 [B2 ACC #{acc_idx} | REDIS SHARD #{shard_idx}][/bold green] Berjaya disimpan: {standard_fn[:45]} ({se_label})")
             return True
+
         except _b2.AllB2AccountsExhaustedException as e:
             console.print(f"[bold red]🚨 Had Penuh B2: {e}[/bold red]")
             return False
@@ -907,17 +913,12 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             return False
 
     try:
-        # Jalankan proses ekstraksi dengan menyalurkan fungsi simpan masa-nyata
+        # Jalankan automasi Camoufox dengan fungsi simpanan masa-nyata
         subsource_results = scrape_and_download_subsource_full(
             meta, 
             headless=headless, 
-            on_subtitle_extracted=process_and_save_single_sub
+            upload_callback=atomic_upload_handler
         )
-
-        # Fallback keselamatan: Semak sebarang baki item yang belum sempat diproses
-        if subsource_results:
-            for sub_item in subsource_results:
-                process_and_save_single_sub(sub_item)
 
         if skipped_hash_count > 0:
             console.print(f"[bold green]✔ {skipped_hash_count} sarikata dilewati karena hash isi konten identik dengan data di B2.[/bold green]")
@@ -926,10 +927,8 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
             console.print(f"[bold yellow]⚠️ Tiada sarikata baharu yang perlu dimuat naik ke B2/Redis untuk {imdb_id}.[/bold yellow]")
             return True
 
-        # Paparkan jadual audit Rich jika terdapat rekod dimuat naik
         if uploaded_records:
             console.print(table)
-
             console.print(Panel.fit(
                 f"[bold green]🎉 TUGASAN SUBSOURCE SELESAI: SEMUA SARIKATA BERJAYA DIKEMAS KINI![/bold green]\n"
                 f"├─ Sasaran IMDb   : [bold yellow]{imdb_id}[/bold yellow] ({meta['title']})\n"
@@ -944,9 +943,9 @@ def run_subsource_engine(raw_imdb_id: str, headless: bool = True) -> bool:
         return True
 
     except (Exception, KeyboardInterrupt) as run_err:
-        console.print(f"[bold red]⚠️ Proses terhenti atau berlaku ralat luar jangka: {run_err}[/bold red]")
+        console.print(f"[bold red]⚠️ Proses terhenti luar jangka: {run_err}[/bold red]")
         if uploaded_records:
-            console.print(f"[bold green]✔ Data diselamatkan: Sebanyak {len(uploaded_records)} sarikata sempat dimuat naik & didaftarkan sepenuhnya ke B2/Redis/SQLite sebelum ralat berlaku.[/bold green]")
+            console.print(f"[bold green]✔ Data diselamatkan: {len(uploaded_records)} sarikata sempat dimuat naik & didaftarkan sepenuhnya ke B2/Redis/SQLite sebelum ralat berlaku.[/bold green]")
             console.print(table)
         return True
 
