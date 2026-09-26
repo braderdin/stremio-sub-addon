@@ -207991,5 +207991,14 @@
     "subs_count": 1,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-09-25 23:30:35"
+  },
+  "tt1424381": {
+    "imdb_id": "tt1424381",
+    "title": "Predators",
+    "year": "2010",
+    "media_type": "movie",
+    "subs_count": 6,
+    "source": "fallback_zip_pack",
+    "timestamp": "2026-09-26 03:58:21"
   }
 }
