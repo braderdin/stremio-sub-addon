@@ -220843,5 +220843,14 @@
     "subs_count": 36,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-10-02 05:57:12"
+  },
+  "tt1016150": {
+    "imdb_id": "tt1016150",
+    "title": "All Quiet on the Western Front",
+    "year": "2022",
+    "media_type": "movie",
+    "subs_count": 3,
+    "source": "fallback_zip_pack",
+    "timestamp": "2026-10-02 11:01:13"
   }
 }
