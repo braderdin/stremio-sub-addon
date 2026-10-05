@@ -227791,5 +227791,14 @@
     "subs_count": 1,
     "source": "cron_b2_pack_sync",
     "timestamp": "2026-10-05 14:57:11"
+  },
+  "tt0253474": {
+    "imdb_id": "tt0253474",
+    "title": "The Pianist",
+    "year": "2002",
+    "media_type": "movie",
+    "subs_count": 1,
+    "source": "fallback_zip_pack",
+    "timestamp": "2026-10-05 19:05:09"
   }
 }
