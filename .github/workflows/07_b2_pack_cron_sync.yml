@@ -1,8 +1,8 @@
 name: 07 B2 Pack Cron Sync & Pre-Warm
 
 on:
-  schedule:
-    - cron: '19 */2 * * *' # Berjalan setiap 2 jam pada minit ke-19
+#  schedule:
+#    - cron: '19 */2 * * *' # Berjalan setiap 2 jam pada minit ke-19
   workflow_dispatch:
     inputs:
       batch_limit:
