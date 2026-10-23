@@ -22,7 +22,7 @@ playwright>=1.40.0
 DrissionPage>=4.1.1.4
 
 # Tambahan untuk Automasi IMAP Emel & Parsing
-imap-tools>=1.15.0
+imap-tools>=1.16.0
 
 pydub
 SpeechRecognition
