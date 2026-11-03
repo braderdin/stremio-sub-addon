@@ -29,7 +29,7 @@ for p in [str(CURRENT_DIR), str(PARENT_DIR), str(ROOT_DIR), str(TEST_DIR)]:
 # -------------------------------------------------------------
 # Ritme Manusiawi & Pengendalian Input Emel Presisi
 # -------------------------------------------------------------
-def human_delay(min_s: float = 2.5, max_s: float = 4.5):
+def human_delay(min_s: float = 1.5, max_s: float = 4.5):
     time.sleep(random.uniform(min_s, max_s))
 
 
@@ -40,21 +40,21 @@ def robust_human_type(locator, page, text: str):
     """
     locator.scroll_into_view_if_needed()
     locator.click()
-    human_delay(0.8, 1.5)
+    human_delay(0.8, 2.5)
 
     # Kosongkan medan input terlebih dahulu
     locator.fill("")
-    time.sleep(0.3)
+    time.sleep(0.5)
 
     # Taip satu persatu aksara
     locator.press_sequentially(text, delay=random.randint(110, 200))
-    human_delay(1.0, 1.8)
+    human_delay(1.0, 2.8)
 
     # Semak sekiranya ada aksara tertinggal
     if locator.input_value() != text:
         print(f"[!] Emel tidak lengkap. Mengisi semula nilai tepat: {text}")
         locator.fill(text)
-        human_delay(0.6, 1.0)
+        human_delay(1.0, 3.0)
 
     # Cetuskan event agar validasi borang React Backblaze mengiktiraf emel
     try:
@@ -63,7 +63,7 @@ def robust_human_type(locator, page, text: str):
         locator.press("Tab")
     except Exception:
         pass
-    human_delay(1.5, 2.5)
+    human_delay(1.0, 3.5)
 
     # Semak jika amaran merah masih wujud
     err_notice = page.locator("text=/Please enter a valid email address/i").first
@@ -74,7 +74,7 @@ def robust_human_type(locator, page, text: str):
             locator.dispatch_event("input")
             locator.dispatch_event("change")
             locator.press("Tab")
-            human_delay(1.5, 2.0)
+            human_delay(1.0, 3.5)
     except Exception:
         pass
 
@@ -128,14 +128,14 @@ def resolve_cloudflare_turnstile(page, max_retries: int = 15):
                     if chk:
                         print("[*] Mengklik cabaran Cloudflare Turnstile...")
                         chk.click()
-                        page.wait_for_timeout(2000)
+                        page.wait_for_timeout(3000)
 
             content = page.content().lower()
             if "just a moment" not in content and "attention required" not in content:
                 break
         except Exception:
             pass
-        page.wait_for_timeout(1000)
+        page.wait_for_timeout(3000)
 
 
 # -------------------------------------------------------------
@@ -205,10 +205,10 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
                     break
             if bframe:
                 break
-            page.wait_for_timeout(500)
+            page.wait_for_timeout(3000)
 
         if not bframe:
-            page.wait_for_timeout(1000)
+            page.wait_for_timeout(3000)
             continue
 
         # 4. Percubaan Pintasan Audio
@@ -220,12 +220,12 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
                 human_delay(2.5, 4.0)
 
                 dos_err = bframe.locator(".rc-doscaptcha-header, .rc-audiochallenge-error-message").first
-                if dos_err.is_visible(timeout=1500):
+                if dos_err.is_visible(timeout=3000):
                     print("[!] Google mengehadkan audio ('automated queries'). Memuat semula cabaran...")
                     reload_btn = bframe.locator("#recaptcha-reload-button").first
-                    if reload_btn.is_visible(timeout=2000):
+                    if reload_btn.is_visible(timeout=3000):
                         reload_btn.click(force=True)
-                        human_delay(2.0, 3.0)
+                        human_delay(2.5, 4.0)
                     continue
 
                 audio_url = None
@@ -264,9 +264,9 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
                         resp_input = bframe.locator("#audio-response").first
                         if resp_input.is_visible(timeout=3000):
                             resp_input.fill(transcribed_text)
-                            human_delay(1.5, 2.5)
+                            human_delay(1.5, 4.5)
                             bframe.locator("#recaptcha-verify-button").first.click(force=True)
-                            human_delay(3.0, 5.0)
+                            human_delay(1.0, 5.0)
 
                             token = get_recaptcha_token(page)
                             if token:
@@ -288,9 +288,9 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
         # Muat semula cabaran jika cubaan belum berjaya
         try:
             reload_btn = bframe.locator("#recaptcha-reload-button").first
-            if reload_btn.is_visible(timeout=1500):
+            if reload_btn.is_visible(timeout=3000):
                 reload_btn.click(force=True)
-                human_delay(2.0, 3.0)
+                human_delay(1.5, 4.0)
         except Exception:
             pass
 
@@ -340,15 +340,15 @@ def run_step01_chromium(target_email: str) -> bool:
                 solve_captcha_target(page, target_mode="gate")
                 print("[*] Memuat semula laman pendaftaran...")
                 page.reload(wait_until="load")
-                human_delay(2.5, 4.0)
+                human_delay(1.5, 4.0)
 
             # Tutup banner cookie sekiranya muncul
             try:
                 cookie_btn = page.locator("#onetrust-accept-btn-handler, button:has-text('Accept All Cookies')").first
-                if cookie_btn.is_visible(timeout=3000):
+                if cookie_btn.is_visible(timeout=2000):
                     print("[*] Menutup banner cookie...")
                     cookie_btn.click()
-                    human_delay(1.5, 2.5)
+                    human_delay(1.5, 4.5)
             except Exception:
                 pass
 
@@ -381,7 +381,7 @@ def run_step01_chromium(target_email: str) -> bool:
                         break
                 if email_locator:
                     break
-                page.wait_for_timeout(1000)
+                page.wait_for_timeout(2000)
 
             if not email_locator:
                 raise TimeoutError("Kotak medan emel tidak ditemui pada borang pendaftaran.")
@@ -390,7 +390,7 @@ def run_step01_chromium(target_email: str) -> bool:
             if page.locator("#emailRecaptcha").is_visible():
                 print("[!] Captcha dikesan aktif sebelum menaip! Menyelesaikan sekarang...")
                 solve_captcha_target(page, target_mode="signup")
-                human_delay(2.0, 3.5)
+                human_delay(1.5, 3.5)
 
             print(f"[✓] Kotak emel ditemui! Menaip sasaran: {target_email}")
             robust_human_type(email_locator, page, target_email)
@@ -401,7 +401,7 @@ def run_step01_chromium(target_email: str) -> bool:
             if page.locator("#emailRecaptcha").is_visible():
                 print("[!] Captcha muncul sebaik sahaja emel diisi! Menyelesaikan...")
                 solve_captcha_target(page, target_mode="signup")
-                human_delay(2.0, 3.5)
+                human_delay(1.5, 3.5)
 
             # -------------------------------------------------------------
             # [LAPISAN 4: SERAHAN & GELUNG PEMANTAU SEHINGGA THANK-YOU]
@@ -431,7 +431,7 @@ def run_step01_chromium(target_email: str) -> bool:
                     if email_recaptcha_el.is_visible(timeout=1000):
                         print("[!] Captcha borang (#emailRecaptcha) aktif! Menyelesaikan...")
                         solve_captcha_target(page, target_mode="signup")
-                        human_delay(2.0, 3.0)
+                        human_delay(1.5, 3.5)
 
                         # Tekan butang submit semula jika butang aktif kembali
                         for frame in page.frames:
@@ -439,7 +439,7 @@ def run_step01_chromium(target_email: str) -> bool:
                             if sub.is_visible(timeout=1000):
                                 print("[*] Menekan semula butang 'Get Started Free' selepas token dihantar...")
                                 sub.click()
-                                human_delay(2.5, 4.0)
+                                human_delay(1.5, 4.0)
                                 break
                 except Exception:
                     pass
@@ -448,12 +448,12 @@ def run_step01_chromium(target_email: str) -> bool:
                 if "security check" in page.title().lower() or "not so fast" in page.content().lower():
                     print("[!] Sekatan Security Check dikesan! Menyelesaikan...")
                     solve_captcha_target(page, target_mode="gate")
-                    human_delay(2.5, 4.0)
+                    human_delay(1.5, 4.0)
 
                 # 3. Semak Turnstile
                 resolve_cloudflare_turnstile(page, max_retries=1)
 
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(3000)
 
             if not reached_thank_you:
                 raise TimeoutError("Pendaftaran gagal tiba di laman 'sign-up-thank-you' dalam tempoh 180 saat.")
