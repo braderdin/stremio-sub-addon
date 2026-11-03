@@ -428,7 +428,7 @@ def run_step01_chromium(target_email: str) -> bool:
                 # 1. Semak sekiranya #emailRecaptcha muncul selepas submit
                 email_recaptcha_el = page.locator("#emailRecaptcha").first
                 try:
-                    if email_recaptcha_el.is_visible(timeout=1000):
+                    if email_recaptcha_el.is_visible(timeout=2000):
                         print("[!] Captcha borang (#emailRecaptcha) aktif! Menyelesaikan...")
                         solve_captcha_target(page, target_mode="signup")
                         human_delay(1.5, 3.5)
@@ -436,7 +436,7 @@ def run_step01_chromium(target_email: str) -> bool:
                         # Tekan butang submit semula jika butang aktif kembali
                         for frame in page.frames:
                             sub = frame.locator('button#form-submit, button:has-text("Get Started Free")').first
-                            if sub.is_visible(timeout=1000):
+                            if sub.is_visible(timeout=2000):
                                 print("[*] Menekan semula butang 'Get Started Free' selepas token dihantar...")
                                 sub.click()
                                 human_delay(1.5, 4.0)

@@ -125,8 +125,8 @@ def process_b2_account(acc_data: dict) -> dict:
             # -------------------------------------------------------------
             # LOGIK RESUME PINTAR (Jika akaun sudah dicipta sebelum ini)
             # -------------------------------------------------------------
-            page.goto("https://secure.backblaze.com/user_signin.htm", wait_until="load", timeout=45000)
-            human_delay(2.5, 5.5)
+            page.goto("https://secure.backblaze.com/user_signin.htm", wait_until="load", timeout=25000)
+            human_delay(1.5, 5.5)
 
             email_field = page.locator('#email-field, input[name="email-field"]').first
             is_existing_account = False

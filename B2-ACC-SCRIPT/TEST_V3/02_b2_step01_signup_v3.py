@@ -38,11 +38,11 @@ def run_step01(page, target_email: str, email_handler, human_delay=None, human_t
 
     print(f"[*] Membuka laman web sedia ada: {chosen_url}")
     try:
-        page.goto(chosen_url, wait_until="domcontentloaded", timeout=45000)
+        page.goto(chosen_url, wait_until="domcontentloaded", timeout=25000)
     except Exception as e:
         fallback_url = standby_urls[1] if chosen_url == standby_urls[0] else standby_urls[0]
         print(f"[!] Gagal memuatkan {chosen_url} ({e}). Membuka sandaran: {fallback_url}")
-        page.goto(fallback_url, wait_until="domcontentloaded", timeout=45000)
+        page.goto(fallback_url, wait_until="domcontentloaded", timeout=25000)
 
     # 2. Cetak paparan emel secara tersusun di terminal
     print("\n" + "#" * 75)
