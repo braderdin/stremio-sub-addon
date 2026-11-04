@@ -49,7 +49,7 @@ def apply_recaptcha_token_to_page(page, token: str, human_delay):
         print("[✓] Menghantar token pengesahan onSubmit ke Backblaze...")
         page.evaluate("token => { if (typeof onSubmit === 'function') onSubmit(token); }", token)
         page.wait_for_load_state("networkidle", timeout=15000)
-        human_delay(3.0, 5.0)
+        human_delay(1.0, 5.0)
     else:
         print("[✓] Menyuntik token ke dalam window.emailFormIframe...")
         page.evaluate("""token => {
@@ -57,7 +57,7 @@ def apply_recaptcha_token_to_page(page, token: str, human_delay):
                 window.emailFormIframe.updateProps({ fieldValues: { formCaptchaToken: token } });
             }
         }""", token)
-        human_delay(3.0, 5.0)
+        human_delay(1.0, 5.0)
 
 
 def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
@@ -97,7 +97,7 @@ def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
                 if not is_checked:
                     print(f"[*] Mengklik kotak semakan Captcha ({target_mode})...")
                     chk.click(force=True)
-                    human_delay(3.0, 5.0)
+                    human_delay(1.0, 5.0)
         except Exception as ce:
             print(f"[*] Info klik anchor: {ce}")
 
@@ -132,7 +132,7 @@ def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
             if audio_btn.is_visible(timeout=3000):
                 print("[*] Menekan butang audio reCAPTCHA (ikon fon kepala)...")
                 audio_btn.click(force=True)
-                human_delay(3.0, 5.0)
+                human_delay(1.0, 5.0)
 
                 dos_err = bframe.locator(".rc-doscaptcha-header, .rc-audiochallenge-error-message").first
                 if dos_err.is_visible(timeout=1500):
@@ -174,9 +174,9 @@ def solve_captcha_target(page, target_mode: str, human_delay) -> bool:
                             resp_input = bframe.locator("#audio-response").first
                             if resp_input.is_visible(timeout=3000):
                                 resp_input.fill(transcribed_text)
-                                human_delay(2.5, 4.5)
+                                human_delay(1.5, 4.5)
                                 bframe.locator("#recaptcha-verify-button").first.click(force=True)
-                                human_delay(3.0, 5.0)
+                                human_delay(1.0, 5.0)
                         finally:
                             if os.path.exists(mp3_file):
                                 os.remove(mp3_file)
@@ -239,7 +239,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
     print("\n---> [LANGKAH 1 - V2TEST] Pendaftaran Emel Awal...")
     target_url = "https://www.backblaze.com/sign-up/cloud-storage?referrer=getstarted"
     page.goto(target_url, wait_until="load", timeout=60000)
-    human_delay(2.5, 4.5)
+    human_delay(1.5, 4.5)
     resolve_turnstile(page)
 
     # =============================================================
@@ -254,7 +254,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
         solve_captcha_target(page, target_mode="gate", human_delay=human_delay)
         print("[*] Memuat semula halaman untuk memaparkan borang rasmi...")
         page.reload(wait_until="load")
-        human_delay(3.0, 5.0)
+        human_delay(1.0, 5.0)
 
     # =============================================================
     # [FASA 2: PENGISIAN EMEL & SERAHAN AWAL]
@@ -264,7 +264,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
         if cookie_btn.is_visible(timeout=3000):
             print("[*] Menutup banner cookies...")
             cookie_btn.click()
-            human_delay(2.5, 4.5)
+            human_delay(1.5, 4.5)
     except Exception:
         pass
 
@@ -296,7 +296,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
 
     print(f"[✓] Kotak medan emel ditemui! Menaip emel...")
     human_type(email_locator, target_email)
-    human_delay(2.5, 4.5)
+    human_delay(1.5, 4.5)
 
     submit_btn = target_frame.locator('button:has-text("Get Started Free"), input[value="Get Started Free"]').first
     if not submit_btn.is_visible():
@@ -305,7 +305,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
     print("[*] Menekan butang 'Get Started Free'...")
     submit_btn.click()
     page.wait_for_load_state("networkidle")
-    human_delay(3.0, 5.0)
+    human_delay(1.0, 5.0)
 
     # =============================================================
     # [FASA 3: CAPTCHA 2 - GELUNG PANTAU PASCA-SERAHAN]
@@ -332,7 +332,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
         if is_dynamic_visible:
             print("[!] Captcha 2 (#emailRecaptcha) aktif! Menyelesaikan captcha kedua sekarang...")
             solve_captcha_target(page, target_mode="signup", human_delay=human_delay)
-            human_delay(3.0, 5.0)
+            human_delay(1.0, 5.0)
 
             # Tekan butang submit semula jika ia muncul kembali
             for frame in page.frames:
@@ -341,7 +341,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
                     if sub.is_visible(timeout=1500):
                         print("[*] Menekan semula butang 'Get Started Free' selepas token dihantar...")
                         sub.click()
-                        human_delay(3.0, 5.0)
+                        human_delay(1.0, 5.0)
                         break
                 except Exception:
                     pass
@@ -350,7 +350,7 @@ def run_step01(page, target_email: str, email_handler, human_delay, human_type, 
         if "security check" in page.title().lower() or "not so fast" in page.content().lower():
             print("[!] Sekatan 'Security Check' dikesan semasa menunggu pengesahan...")
             solve_captcha_target(page, target_mode="gate", human_delay=human_delay)
-            human_delay(3.0, 5.0)
+            human_delay(1.0, 5.0)
 
         page.wait_for_timeout(2000)
 
