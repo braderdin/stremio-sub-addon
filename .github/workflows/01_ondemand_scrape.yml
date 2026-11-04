@@ -43,7 +43,7 @@ jobs:
       # LANGKAH 2: CHECKOUT & PERSEDIAAN PYTHON / CAMOUFOX
       # =========================================================================
       - name: 03. Checkout Repositori
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0 # Muat turun sejarah penuh untuk sokongan git rebase selamat
           
