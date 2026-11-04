@@ -220,12 +220,12 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
                 human_delay(2.5, 4.0)
 
                 dos_err = bframe.locator(".rc-doscaptcha-header, .rc-audiochallenge-error-message").first
-                if dos_err.is_visible(timeout=1500):
+                if dos_err.is_visible(timeout=2500):
                     print("[!] Google mengehadkan audio ('automated queries'). Memuat semula cabaran...")
                     reload_btn = bframe.locator("#recaptcha-reload-button").first
                     if reload_btn.is_visible(timeout=2000):
                         reload_btn.click(force=True)
-                        human_delay(2.0, 3.0)
+                        human_delay(2.0, 4.0)
                     continue
 
                 audio_url = None
@@ -288,9 +288,9 @@ def solve_captcha_target(page, target_mode: str = "signup", max_attempts: int = 
         # Muat semula cabaran jika cubaan belum berjaya
         try:
             reload_btn = bframe.locator("#recaptcha-reload-button").first
-            if reload_btn.is_visible(timeout=1500):
+            if reload_btn.is_visible(timeout=2500):
                 reload_btn.click(force=True)
-                human_delay(2.0, 3.0)
+                human_delay(2.0, 4.0)
         except Exception:
             pass
 
@@ -340,7 +340,7 @@ def run_step01_chromium(target_email: str) -> bool:
                 solve_captcha_target(page, target_mode="gate")
                 print("[*] Memuat semula laman pendaftaran...")
                 page.reload(wait_until="load")
-                human_delay(2.5, 4.0)
+                human_delay(2.5, 4.5)
 
             # Tutup banner cookie sekiranya muncul
             try:
@@ -381,7 +381,7 @@ def run_step01_chromium(target_email: str) -> bool:
                         break
                 if email_locator:
                     break
-                page.wait_for_timeout(1000)
+                page.wait_for_timeout(2000)
 
             if not email_locator:
                 raise TimeoutError("Kotak medan emel tidak ditemui pada borang pendaftaran.")
@@ -390,7 +390,7 @@ def run_step01_chromium(target_email: str) -> bool:
             if page.locator("#emailRecaptcha").is_visible():
                 print("[!] Captcha dikesan aktif sebelum menaip! Menyelesaikan sekarang...")
                 solve_captcha_target(page, target_mode="signup")
-                human_delay(2.0, 3.5)
+                human_delay(2.0, 4.0)
 
             print(f"[✓] Kotak emel ditemui! Menaip sasaran: {target_email}")
             robust_human_type(email_locator, page, target_email)
@@ -401,7 +401,7 @@ def run_step01_chromium(target_email: str) -> bool:
             if page.locator("#emailRecaptcha").is_visible():
                 print("[!] Captcha muncul sebaik sahaja emel diisi! Menyelesaikan...")
                 solve_captcha_target(page, target_mode="signup")
-                human_delay(2.0, 3.5)
+                human_delay(2.0, 4.0)
 
             # -------------------------------------------------------------
             # [LAPISAN 4: SERAHAN & GELUNG PEMANTAU SEHINGGA THANK-YOU]
@@ -431,12 +431,12 @@ def run_step01_chromium(target_email: str) -> bool:
                     if email_recaptcha_el.is_visible(timeout=1000):
                         print("[!] Captcha borang (#emailRecaptcha) aktif! Menyelesaikan...")
                         solve_captcha_target(page, target_mode="signup")
-                        human_delay(2.0, 3.0)
+                        human_delay(2.0, 4.0)
 
                         # Tekan butang submit semula jika butang aktif kembali
                         for frame in page.frames:
                             sub = frame.locator('button#form-submit, button:has-text("Get Started Free")').first
-                            if sub.is_visible(timeout=1000):
+                            if sub.is_visible(timeout=2000):
                                 print("[*] Menekan semula butang 'Get Started Free' selepas token dihantar...")
                                 sub.click()
                                 human_delay(2.5, 4.0)

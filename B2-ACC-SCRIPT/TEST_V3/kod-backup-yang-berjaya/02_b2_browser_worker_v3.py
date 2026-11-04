@@ -43,25 +43,25 @@ step05 = importlib.import_module("02_b2_step05_app_keys")
 # -------------------------------------------------------------
 # Fungsi Bantuan Asal
 # -------------------------------------------------------------
-def human_delay(min_s: float = 3.0, max_s: float = 5.0):
+def human_delay(min_s: float = 2.0, max_s: float = 5.0):
     time.sleep(random.uniform(min_s, max_s))
 
 def human_type(locator, text: str):
     locator.click()
     human_delay(1.5, 2.5)
     locator.press_sequentially(text, delay=random.randint(120, 250))
-    human_delay(3.0, 4.0)
+    human_delay(2.0, 4.0)
 
 def resolve_cloudflare_turnstile(page, max_retries: int = 20):
     for _ in range(max_retries):
-        page.wait_for_timeout(1000)
+        page.wait_for_timeout(2000)
         try:
             for frame in page.frames:
                 if "challenges.cloudflare.com" in frame.url or "turnstile" in frame.url:
                     chk = frame.query_selector("input[type=checkbox], .ctp-checkbox-label, #challenge-stage")
                     if chk:
                         chk.click()
-                        page.wait_for_timeout(1500)
+                        page.wait_for_timeout(2000)
 
             content = page.content().lower()
             if "just a moment" not in content and "attention required" not in content:
@@ -125,7 +125,7 @@ def process_b2_account(acc_data: dict) -> dict:
             # -------------------------------------------------------------
             # LOGIK RESUME PINTAR (Jika akaun sudah dicipta sebelum ini)
             # -------------------------------------------------------------
-            page.goto("https://secure.backblaze.com/user_signin.htm", wait_until="load", timeout=45000)
+            page.goto("https://secure.backblaze.com/user_signin.htm", wait_until="load", timeout=25000)
             human_delay(2.5, 5.5)
 
             email_field = page.locator('#email-field, input[name="email-field"]').first
