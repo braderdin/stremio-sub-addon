@@ -11,7 +11,7 @@ guessit==4.5.5
 # Penambahan Baharu untuk Upstash & B2
 upstash-redis>=1.9.0
 upstash-search>=0.1.1
-b2sdk>=2.13.2
+b2sdk>=2.13.5
 
 fastapi>=0.162.0
 uvicorn[standard]>=0.54.0
